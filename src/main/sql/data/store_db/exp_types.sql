@@ -1,0 +1,1 @@
+INSERT INTO `exp_types` VALUES (1,'movies','Original purchase of movies in inventory',1),(2,'supplies','Supplies, such as envelopes and mailing labels',3),(3,'shipping','Shipping costs, such as postage and insurance',2);

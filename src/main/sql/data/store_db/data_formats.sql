@@ -1,0 +1,1 @@
+INSERT INTO `data_formats` VALUES (1,'csv','Comma Separated Values',NULL),(2,'tsv','Tab Separated Values',NULL),(3,'xml','XML File',NULL),(4,'rss','RSS Feed',NULL),(5,'none','No output',NULL),(6,'txt','Plain text',NULL);

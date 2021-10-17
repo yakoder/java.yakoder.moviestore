@@ -1,0 +1,1 @@
+INSERT INTO `adjustment_types` VALUES (1,'Full Order Refund','Full refund of order'),(2,'Partial Order Refund','Partial refund of order'),(3,'Full Item Refund','Full refund of item'),(4,'Partial Item Refund','Partial refund of item');

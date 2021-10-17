@@ -1,0 +1,1 @@
+INSERT INTO `adjustment_reasons` VALUES (1,'Defective','Customer states inability to play movie'),(2,'Wrong Item','Customer states wrong movie received'),(3,'Fake','Customer states received movie not genuine');

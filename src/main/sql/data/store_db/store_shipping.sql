@@ -1,0 +1,1 @@
+INSERT INTO `store_shipping` VALUES (1,1,'S','Standard Shipping',4.75,1.00,0,NULL,'2021-01-01','2021-10-03'),(2,1,'E','Expedited Shipping',8.25,1.00,0,NULL,'2021-01-01','2021-10-03'),(3,1,'S','Standard Shipping',5.00,1.00,1,NULL,'2021-10-04','2022-12-21'),(4,1,'E','Expedited Shipping',8.50,1.00,1,NULL,'2021-10-04','2022-12-31');

@@ -1,0 +1,1 @@
+INSERT INTO `api_limit_types` VALUES (1,'Daily','Limit resets every day'),(2,'Total','Limit never resets'),(3,'Daily by Value','Limit resets every day per value (e.g., val=A has separate daily limit than val=B)');

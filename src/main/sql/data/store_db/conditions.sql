@@ -1,0 +1,1 @@
+INSERT INTO `conditions` VALUES (1,'Acceptable',1,0.4000000000),(2,'Good',2,0.5000000000),(3,'Like New',4,0.7000000000),(4,'New',5,1.0000000000),(5,'Unacceptable',0,0.0000000000),(6,'Very Good',3,0.6000000000);
