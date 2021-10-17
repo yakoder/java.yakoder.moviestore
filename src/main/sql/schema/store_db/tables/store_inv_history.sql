@@ -1,0 +1,38 @@
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `store_inv_history` (
+  `store_inv_hist_id` int(11) NOT NULL AUTO_INCREMENT,
+  `store_inv_id` int(11) NOT NULL,
+  `listed_date` date NOT NULL,
+  `unlisted_date` date DEFAULT NULL,
+  `unlisted_reason_id` int(11) DEFAULT NULL,
+  `listed_price` decimal(15,2) NOT NULL,
+  `retail_price_store` decimal(15,2) DEFAULT NULL,
+  `retail_price_other` decimal(15,2) DEFAULT NULL,
+  `download_price` decimal(15,2) DEFAULT NULL,
+  `used_price` decimal(15,2) DEFAULT NULL,
+  `base_price` decimal(15,2) NOT NULL COMMENT 'Calculated price, based on market value and condition (before price_adjustment is added)',
+  `price_adjustment` decimal(15,2) NOT NULL DEFAULT 0.00 COMMENT 'Amount to add on to base_price to offset store or shipping fees',
+  `calcd_price` decimal(15,2) NOT NULL,
+  `price_override` decimal(15,2) DEFAULT NULL,
+  `override_reason_id` int(11) DEFAULT NULL,
+  `calcd_fees` decimal(15,2) NOT NULL DEFAULT 0.00,
+  `calcd_net` decimal(15,2) DEFAULT NULL,
+  `store_bonus_id` int(11) DEFAULT NULL,
+  `listing_comments` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`store_inv_hist_id`),
+  KEY `store_inv_history_store_inv_id_IDX` (`store_inv_id`) USING BTREE,
+  KEY `store_inv_history_listed_date_IDX` (`listed_date`) USING BTREE,
+  KEY `store_inv_history_unlisted_date_IDX` (`unlisted_date`) USING BTREE,
+  KEY `store_inv_history_unlisted_reason_id_IDX` (`unlisted_reason_id`) USING BTREE,
+  KEY `store_inv_history_override_reason_id_IDX` (`override_reason_id`) USING BTREE,
+  KEY `store_inv_history_price_override_IDX` (`price_override`) USING BTREE,
+  KEY `store_inv_history_listed_price_IDX` (`listed_price`) USING BTREE,
+  KEY `store_inv_history_store_bonus_id_IDX` (`store_bonus_id`) USING BTREE,
+  KEY `store_inv_history_listing_comments_IDX` (`listing_comments`) USING BTREE,
+  CONSTRAINT `store_inv_history_override_reason_id_FK` FOREIGN KEY (`override_reason_id`) REFERENCES `price_override_reasons` (`override_reason_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `store_inv_history_store_bonus_id_FK` FOREIGN KEY (`store_bonus_id`) REFERENCES `store_bonuses` (`store_bonus_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `store_inv_history_store_inv_id_FK` FOREIGN KEY (`store_inv_id`) REFERENCES `store_inventory` (`store_inv_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `store_inv_history_unlisted_reason_id_FK` FOREIGN KEY (`unlisted_reason_id`) REFERENCES `unlisted_reasons` (`unlisted_reason_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
