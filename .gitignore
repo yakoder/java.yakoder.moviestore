@@ -1,3 +1,4 @@
+src/main/resources/application.properties
 src/main/sql/data/store_db/sites.sql
 src/main/sql/data/store_db/api_base_urls.sql
 HELP.md
