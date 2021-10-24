@@ -18,8 +18,8 @@ import javax.persistence.Table;
 import javax.persistence.Version;
 
 @Entity
-@Table(name="online_pymt_sites", indexes={@Index(name="onlinePymtSitesOnlinePymtSitesOlPymtSiteNameUrlIdx", columnList="ol_pymt_site_name,ol_pymt_site_url")})
-public class OnlinePymtSites implements Serializable {
+@Table(name="online_pymt_sites", indexes={@Index(name="onlinePymtSitesOnlinePaymentSitesOlPymtSiteNameUrlIdx", columnList="ol_pymt_site_name,ol_pymt_site_url")})
+public class OnlinePaymentSites implements Serializable {
 
     /**
 	 * 
@@ -66,7 +66,7 @@ public class OnlinePymtSites implements Serializable {
     private Set<ReimbOnline> reimbOnline;
 
     /** Default constructor. */
-    public OnlinePymtSites() {
+    public OnlinePaymentSites() {
         super();
     }
 
@@ -143,19 +143,19 @@ public class OnlinePymtSites implements Serializable {
     }
 
     /**
-     * Compares the key for this instance with another OnlinePymtSites.
+     * Compares the key for this instance with another OnlinePaymentSites.
      *
      * @param other The object to compare to
-     * @return True if other object is instance of class OnlinePymtSites and the key objects are equal
+     * @return True if other object is instance of class OnlinePaymentSites and the key objects are equal
      */
     private boolean equalKeys(Object other) {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof OnlinePymtSites)) {
+        if (!(other instanceof OnlinePaymentSites)) {
             return false;
         }
-        OnlinePymtSites that = (OnlinePymtSites) other;
+        OnlinePaymentSites that = (OnlinePaymentSites) other;
         if (this.getOlPymtSiteId() != that.getOlPymtSiteId()) {
             return false;
         }
@@ -163,15 +163,15 @@ public class OnlinePymtSites implements Serializable {
     }
 
     /**
-     * Compares this instance with another OnlinePymtSites.
+     * Compares this instance with another OnlinePaymentSites.
      *
      * @param other The object to compare to
      * @return True if the objects are the same
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof OnlinePymtSites)) return false;
-        return this.equalKeys(other) && ((OnlinePymtSites)other).equalKeys(this);
+        if (!(other instanceof OnlinePaymentSites)) return false;
+        return this.equalKeys(other) && ((OnlinePaymentSites)other).equalKeys(this);
     }
 
     /**
@@ -195,7 +195,7 @@ public class OnlinePymtSites implements Serializable {
      */
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer("[OnlinePymtSites |");
+        StringBuffer sb = new StringBuffer("[OnlinePaymentSites |");
         sb.append(" olPymtSiteId=").append(getOlPymtSiteId());
         sb.append("]");
         return sb.toString();

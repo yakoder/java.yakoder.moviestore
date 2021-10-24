@@ -17,7 +17,7 @@ import javax.persistence.Version;
 
 @Entity
 @Table(name="exp_detail_tables", indexes={@Index(name="exp_detail_tables_exp_detail_table_name_IX", columnList="exp_detail_table_name", unique=true)})
-public class ExpDetailTables implements Serializable {
+public class ExpenseDetailTables implements Serializable {
 
     /**
 	 * 
@@ -60,7 +60,7 @@ public class ExpDetailTables implements Serializable {
     private String expDetailTableName;
 
     /** Default constructor. */
-    public ExpDetailTables() {
+    public ExpenseDetailTables() {
         super();
     }
 
@@ -101,19 +101,19 @@ public class ExpDetailTables implements Serializable {
     }
 
     /**
-     * Compares the key for this instance with another ExpDetailTables.
+     * Compares the key for this instance with another ExpenseDetailTables.
      *
      * @param other The object to compare to
-     * @return True if other object is instance of class ExpDetailTables and the key objects are equal
+     * @return True if other object is instance of class ExpenseDetailTables and the key objects are equal
      */
     private boolean equalKeys(Object other) {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof ExpDetailTables)) {
+        if (!(other instanceof ExpenseDetailTables)) {
             return false;
         }
-        ExpDetailTables that = (ExpDetailTables) other;
+        ExpenseDetailTables that = (ExpenseDetailTables) other;
         if (this.getExpDetailTableId() != that.getExpDetailTableId()) {
             return false;
         }
@@ -121,15 +121,15 @@ public class ExpDetailTables implements Serializable {
     }
 
     /**
-     * Compares this instance with another ExpDetailTables.
+     * Compares this instance with another ExpenseDetailTables.
      *
      * @param other The object to compare to
      * @return True if the objects are the same
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof ExpDetailTables)) return false;
-        return this.equalKeys(other) && ((ExpDetailTables)other).equalKeys(this);
+        if (!(other instanceof ExpenseDetailTables)) return false;
+        return this.equalKeys(other) && ((ExpenseDetailTables)other).equalKeys(this);
     }
 
     /**
@@ -153,7 +153,7 @@ public class ExpDetailTables implements Serializable {
      */
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer("[ExpDetailTables |");
+        StringBuffer sb = new StringBuffer("[ExpenseDetailTables |");
         sb.append(" expDetailTableId=").append(getExpDetailTableId());
         sb.append("]");
         return sb.toString();

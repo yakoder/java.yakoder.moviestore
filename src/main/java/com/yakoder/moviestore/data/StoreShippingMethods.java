@@ -18,8 +18,8 @@ import javax.persistence.Table;
 import javax.persistence.Version;
 
 @Entity
-@Table(name="store_ship_methods", indexes={@Index(name="storeShipMethodsStoreShipMethodsAllIdx", columnList="store_ship_meth_id,store_ship_id,ship_meth_id")})
-public class StoreShipMethods implements Serializable {
+@Table(name="store_ship_methods", indexes={@Index(name="storeShipMethodsStoreShippingMethodsAllIdx", columnList="store_ship_meth_id,store_ship_id,ship_meth_id")})
+public class StoreShippingMethods implements Serializable {
 
     /**
 	 * 
@@ -66,7 +66,7 @@ public class StoreShipMethods implements Serializable {
     private StoreShipping storeShipping;
 
     /** Default constructor. */
-    public StoreShipMethods() {
+    public StoreShippingMethods() {
         super();
     }
 
@@ -169,19 +169,19 @@ public class StoreShipMethods implements Serializable {
     }
 
     /**
-     * Compares the key for this instance with another StoreShipMethods.
+     * Compares the key for this instance with another StoreShippingMethods.
      *
      * @param other The object to compare to
-     * @return True if other object is instance of class StoreShipMethods and the key objects are equal
+     * @return True if other object is instance of class StoreShippingMethods and the key objects are equal
      */
     private boolean equalKeys(Object other) {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof StoreShipMethods)) {
+        if (!(other instanceof StoreShippingMethods)) {
             return false;
         }
-        StoreShipMethods that = (StoreShipMethods) other;
+        StoreShippingMethods that = (StoreShippingMethods) other;
         if (this.getStoreShipMethId() != that.getStoreShipMethId()) {
             return false;
         }
@@ -189,15 +189,15 @@ public class StoreShipMethods implements Serializable {
     }
 
     /**
-     * Compares this instance with another StoreShipMethods.
+     * Compares this instance with another StoreShippingMethods.
      *
      * @param other The object to compare to
      * @return True if the objects are the same
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof StoreShipMethods)) return false;
-        return this.equalKeys(other) && ((StoreShipMethods)other).equalKeys(this);
+        if (!(other instanceof StoreShippingMethods)) return false;
+        return this.equalKeys(other) && ((StoreShippingMethods)other).equalKeys(this);
     }
 
     /**
@@ -221,7 +221,7 @@ public class StoreShipMethods implements Serializable {
      */
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer("[StoreShipMethods |");
+        StringBuffer sb = new StringBuffer("[StoreShippingMethods |");
         sb.append(" storeShipMethId=").append(getStoreShipMethId());
         sb.append("]");
         return sb.toString();

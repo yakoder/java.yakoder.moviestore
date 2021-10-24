@@ -16,7 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
 @Entity(name="inv_digitization")
-public class InvDigitization implements Serializable {
+public class InventoryDigitization implements Serializable {
 
     /**
 	 * 
@@ -71,7 +71,7 @@ public class InvDigitization implements Serializable {
     private Inventory inventory;
 
     /** Default constructor. */
-    public InvDigitization() {
+    public InventoryDigitization() {
         super();
     }
 
@@ -184,19 +184,19 @@ public class InvDigitization implements Serializable {
     }
 
     /**
-     * Compares the key for this instance with another InvDigitization.
+     * Compares the key for this instance with another InventoryDigitization.
      *
      * @param other The object to compare to
-     * @return True if other object is instance of class InvDigitization and the key objects are equal
+     * @return True if other object is instance of class InventoryDigitization and the key objects are equal
      */
     private boolean equalKeys(Object other) {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof InvDigitization)) {
+        if (!(other instanceof InventoryDigitization)) {
             return false;
         }
-        InvDigitization that = (InvDigitization) other;
+        InventoryDigitization that = (InventoryDigitization) other;
         if (this.getInvDigitId() != that.getInvDigitId()) {
             return false;
         }
@@ -204,15 +204,15 @@ public class InvDigitization implements Serializable {
     }
 
     /**
-     * Compares this instance with another InvDigitization.
+     * Compares this instance with another InventoryDigitization.
      *
      * @param other The object to compare to
      * @return True if the objects are the same
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof InvDigitization)) return false;
-        return this.equalKeys(other) && ((InvDigitization)other).equalKeys(this);
+        if (!(other instanceof InventoryDigitization)) return false;
+        return this.equalKeys(other) && ((InventoryDigitization)other).equalKeys(this);
     }
 
     /**
@@ -236,7 +236,7 @@ public class InvDigitization implements Serializable {
      */
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer("[InvDigitization |");
+        StringBuffer sb = new StringBuffer("[InventoryDigitization |");
         sb.append(" invDigitId=").append(getInvDigitId());
         sb.append("]");
         return sb.toString();

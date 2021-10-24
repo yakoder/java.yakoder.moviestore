@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
 @Entity(name="prod_cos")
-public class ProdCos implements Serializable {
+public class ProductionCompanies implements Serializable {
 
     /**
 	 * 
@@ -60,10 +60,10 @@ public class ProdCos implements Serializable {
     @Column(name="prod_co_url", length=255)
     private String prodCoUrl;
     @OneToMany(mappedBy="prodCos")
-    private Set<MovieProdCos> movieProdCos;
+    private Set<MovieProductionCompanies> movieProductionCompanies;
 
     /** Default constructor. */
-    public ProdCos() {
+    public ProductionCompanies() {
         super();
     }
 
@@ -122,37 +122,37 @@ public class ProdCos implements Serializable {
     }
 
     /**
-     * Access method for movieProdCos.
+     * Access method for movieProductionCompanies.
      *
-     * @return the current value of movieProdCos
+     * @return the current value of movieProductionCompanies
      */
-    public Set<MovieProdCos> getMovieProdCos() {
-        return movieProdCos;
+    public Set<MovieProductionCompanies> getMovieProductionCompanies() {
+        return movieProductionCompanies;
     }
 
     /**
-     * Setter method for movieProdCos.
+     * Setter method for movieProductionCompanies.
      *
-     * @param aMovieProdCos the new value for movieProdCos
+     * @param aMovieProductionCompanies the new value for movieProductionCompanies
      */
-    public void setMovieProdCos(Set<MovieProdCos> aMovieProdCos) {
-        movieProdCos = aMovieProdCos;
+    public void setMovieProductionCompanies(Set<MovieProductionCompanies> aMovieProductionCompanies) {
+        movieProductionCompanies = aMovieProductionCompanies;
     }
 
     /**
-     * Compares the key for this instance with another ProdCos.
+     * Compares the key for this instance with another ProductionCompanies.
      *
      * @param other The object to compare to
-     * @return True if other object is instance of class ProdCos and the key objects are equal
+     * @return True if other object is instance of class ProductionCompanies and the key objects are equal
      */
     private boolean equalKeys(Object other) {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof ProdCos)) {
+        if (!(other instanceof ProductionCompanies)) {
             return false;
         }
-        ProdCos that = (ProdCos) other;
+        ProductionCompanies that = (ProductionCompanies) other;
         if (this.getProdCoId() != that.getProdCoId()) {
             return false;
         }
@@ -160,15 +160,15 @@ public class ProdCos implements Serializable {
     }
 
     /**
-     * Compares this instance with another ProdCos.
+     * Compares this instance with another ProductionCompanies.
      *
      * @param other The object to compare to
      * @return True if the objects are the same
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof ProdCos)) return false;
-        return this.equalKeys(other) && ((ProdCos)other).equalKeys(this);
+        if (!(other instanceof ProductionCompanies)) return false;
+        return this.equalKeys(other) && ((ProductionCompanies)other).equalKeys(this);
     }
 
     /**
@@ -192,7 +192,7 @@ public class ProdCos implements Serializable {
      */
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer("[ProdCos |");
+        StringBuffer sb = new StringBuffer("[ProductionCompanies |");
         sb.append(" prodCoId=").append(getProdCoId());
         sb.append("]");
         return sb.toString();

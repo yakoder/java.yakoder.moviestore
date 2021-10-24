@@ -19,7 +19,7 @@ import javax.persistence.Version;
 
 @Entity
 @Table(name="exp_types", indexes={@Index(name="expTypesExpTypesExpTypeIdTableIdx", columnList="exp_type_id,exp_detail_table_id"), @Index(name="expTypesExpTypesExpTypeNameTableIdx", columnList="exp_type_name,exp_detail_table_id")})
-public class ExpTypes implements Serializable {
+public class ExpenseTypes implements Serializable {
 
     /**
 	 * 
@@ -68,7 +68,7 @@ public class ExpTypes implements Serializable {
     private Set<Expenses> expenses;
 
     /** Default constructor. */
-    public ExpTypes() {
+    public ExpenseTypes() {
         super();
     }
 
@@ -163,19 +163,19 @@ public class ExpTypes implements Serializable {
     }
 
     /**
-     * Compares the key for this instance with another ExpTypes.
+     * Compares the key for this instance with another ExpenseTypes.
      *
      * @param other The object to compare to
-     * @return True if other object is instance of class ExpTypes and the key objects are equal
+     * @return True if other object is instance of class ExpenseTypes and the key objects are equal
      */
     private boolean equalKeys(Object other) {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof ExpTypes)) {
+        if (!(other instanceof ExpenseTypes)) {
             return false;
         }
-        ExpTypes that = (ExpTypes) other;
+        ExpenseTypes that = (ExpenseTypes) other;
         if (this.getExpTypeId() != that.getExpTypeId()) {
             return false;
         }
@@ -183,15 +183,15 @@ public class ExpTypes implements Serializable {
     }
 
     /**
-     * Compares this instance with another ExpTypes.
+     * Compares this instance with another ExpenseTypes.
      *
      * @param other The object to compare to
      * @return True if the objects are the same
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof ExpTypes)) return false;
-        return this.equalKeys(other) && ((ExpTypes)other).equalKeys(this);
+        if (!(other instanceof ExpenseTypes)) return false;
+        return this.equalKeys(other) && ((ExpenseTypes)other).equalKeys(this);
     }
 
     /**
@@ -215,7 +215,7 @@ public class ExpTypes implements Serializable {
      */
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer("[ExpTypes |");
+        StringBuffer sb = new StringBuffer("[ExpenseTypes |");
         sb.append(" expTypeId=").append(getExpTypeId());
         sb.append("]");
         return sb.toString();

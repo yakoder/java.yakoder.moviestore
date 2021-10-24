@@ -15,7 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
 @Entity(name="exp_movies")
-public class ExpMovies implements Serializable {
+public class ExpenseMovies implements Serializable {
 
     /**
 	 * 
@@ -76,7 +76,7 @@ public class ExpMovies implements Serializable {
     private StoreSites storeSites;
 
     /** Default constructor. */
-    public ExpMovies() {
+    public ExpenseMovies() {
         super();
     }
 
@@ -261,19 +261,19 @@ public class ExpMovies implements Serializable {
     }
 
     /**
-     * Compares the key for this instance with another ExpMovies.
+     * Compares the key for this instance with another ExpenseMovies.
      *
      * @param other The object to compare to
-     * @return True if other object is instance of class ExpMovies and the key objects are equal
+     * @return True if other object is instance of class ExpenseMovies and the key objects are equal
      */
     private boolean equalKeys(Object other) {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof ExpMovies)) {
+        if (!(other instanceof ExpenseMovies)) {
             return false;
         }
-        ExpMovies that = (ExpMovies) other;
+        ExpenseMovies that = (ExpenseMovies) other;
         if (this.getExpDetailId() != that.getExpDetailId()) {
             return false;
         }
@@ -281,15 +281,15 @@ public class ExpMovies implements Serializable {
     }
 
     /**
-     * Compares this instance with another ExpMovies.
+     * Compares this instance with another ExpenseMovies.
      *
      * @param other The object to compare to
      * @return True if the objects are the same
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof ExpMovies)) return false;
-        return this.equalKeys(other) && ((ExpMovies)other).equalKeys(this);
+        if (!(other instanceof ExpenseMovies)) return false;
+        return this.equalKeys(other) && ((ExpenseMovies)other).equalKeys(this);
     }
 
     /**
@@ -313,7 +313,7 @@ public class ExpMovies implements Serializable {
      */
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer("[ExpMovies |");
+        StringBuffer sb = new StringBuffer("[ExpenseMovies |");
         sb.append(" expDetailId=").append(getExpDetailId());
         sb.append("]");
         return sb.toString();

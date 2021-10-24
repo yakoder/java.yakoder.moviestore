@@ -15,7 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
 @Entity(name="exp_shipping")
-public class ExpShipping implements Serializable {
+public class ExpenseShipping implements Serializable {
 
     /**
 	 * 
@@ -65,7 +65,7 @@ public class ExpShipping implements Serializable {
     private ShippingMethods shippingMethods;
 
     /** Default constructor. */
-    public ExpShipping() {
+    public ExpenseShipping() {
         super();
     }
 
@@ -160,19 +160,19 @@ public class ExpShipping implements Serializable {
     }
 
     /**
-     * Compares the key for this instance with another ExpShipping.
+     * Compares the key for this instance with another ExpenseShipping.
      *
      * @param other The object to compare to
-     * @return True if other object is instance of class ExpShipping and the key objects are equal
+     * @return True if other object is instance of class ExpenseShipping and the key objects are equal
      */
     private boolean equalKeys(Object other) {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof ExpShipping)) {
+        if (!(other instanceof ExpenseShipping)) {
             return false;
         }
-        ExpShipping that = (ExpShipping) other;
+        ExpenseShipping that = (ExpenseShipping) other;
         if (this.getExpDetailId() != that.getExpDetailId()) {
             return false;
         }
@@ -180,15 +180,15 @@ public class ExpShipping implements Serializable {
     }
 
     /**
-     * Compares this instance with another ExpShipping.
+     * Compares this instance with another ExpenseShipping.
      *
      * @param other The object to compare to
      * @return True if the objects are the same
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof ExpShipping)) return false;
-        return this.equalKeys(other) && ((ExpShipping)other).equalKeys(this);
+        if (!(other instanceof ExpenseShipping)) return false;
+        return this.equalKeys(other) && ((ExpenseShipping)other).equalKeys(this);
     }
 
     /**
@@ -212,7 +212,7 @@ public class ExpShipping implements Serializable {
      */
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer("[ExpShipping |");
+        StringBuffer sb = new StringBuffer("[ExpenseShipping |");
         sb.append(" expDetailId=").append(getExpDetailId());
         sb.append("]");
         return sb.toString();

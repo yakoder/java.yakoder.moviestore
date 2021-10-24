@@ -17,7 +17,7 @@ import javax.persistence.Version;
 
 @Entity
 @Table(name="reimb_detail_tables", indexes={@Index(name="reimb_detail_tables_reimb_detail_table_name_IX", columnList="reimb_detail_table_name", unique=true)})
-public class ReimbDetailTables implements Serializable {
+public class ReimbursementDetailTables implements Serializable {
 
     /**
 	 * 
@@ -60,7 +60,7 @@ public class ReimbDetailTables implements Serializable {
     private String reimbDetailTableName;
 
     /** Default constructor. */
-    public ReimbDetailTables() {
+    public ReimbursementDetailTables() {
         super();
     }
 
@@ -101,19 +101,19 @@ public class ReimbDetailTables implements Serializable {
     }
 
     /**
-     * Compares the key for this instance with another ReimbDetailTables.
+     * Compares the key for this instance with another ReimbursementDetailTables.
      *
      * @param other The object to compare to
-     * @return True if other object is instance of class ReimbDetailTables and the key objects are equal
+     * @return True if other object is instance of class ReimbursementDetailTables and the key objects are equal
      */
     private boolean equalKeys(Object other) {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof ReimbDetailTables)) {
+        if (!(other instanceof ReimbursementDetailTables)) {
             return false;
         }
-        ReimbDetailTables that = (ReimbDetailTables) other;
+        ReimbursementDetailTables that = (ReimbursementDetailTables) other;
         if (this.getReimbDetailTableId() != that.getReimbDetailTableId()) {
             return false;
         }
@@ -121,15 +121,15 @@ public class ReimbDetailTables implements Serializable {
     }
 
     /**
-     * Compares this instance with another ReimbDetailTables.
+     * Compares this instance with another ReimbursementDetailTables.
      *
      * @param other The object to compare to
      * @return True if the objects are the same
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof ReimbDetailTables)) return false;
-        return this.equalKeys(other) && ((ReimbDetailTables)other).equalKeys(this);
+        if (!(other instanceof ReimbursementDetailTables)) return false;
+        return this.equalKeys(other) && ((ReimbursementDetailTables)other).equalKeys(this);
     }
 
     /**
@@ -153,7 +153,7 @@ public class ReimbDetailTables implements Serializable {
      */
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer("[ReimbDetailTables |");
+        StringBuffer sb = new StringBuffer("[ReimbursementDetailTables |");
         sb.append(" reimbDetailTableId=").append(getReimbDetailTableId());
         sb.append("]");
         return sb.toString();

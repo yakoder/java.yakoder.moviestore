@@ -15,7 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
 @Entity(name="reimb_checks")
-public class ReimbChecks implements Serializable {
+public class ReimbursementChecks implements Serializable {
 
     /**
 	 * 
@@ -69,7 +69,7 @@ public class ReimbChecks implements Serializable {
     private TxnParties txnParties;
 
     /** Default constructor. */
-    public ReimbChecks() {
+    public ReimbursementChecks() {
         super();
     }
 
@@ -200,19 +200,19 @@ public class ReimbChecks implements Serializable {
     }
 
     /**
-     * Compares the key for this instance with another ReimbChecks.
+     * Compares the key for this instance with another ReimbursementChecks.
      *
      * @param other The object to compare to
-     * @return True if other object is instance of class ReimbChecks and the key objects are equal
+     * @return True if other object is instance of class ReimbursementChecks and the key objects are equal
      */
     private boolean equalKeys(Object other) {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof ReimbChecks)) {
+        if (!(other instanceof ReimbursementChecks)) {
             return false;
         }
-        ReimbChecks that = (ReimbChecks) other;
+        ReimbursementChecks that = (ReimbursementChecks) other;
         if (this.getReimbDetailId() != that.getReimbDetailId()) {
             return false;
         }
@@ -220,15 +220,15 @@ public class ReimbChecks implements Serializable {
     }
 
     /**
-     * Compares this instance with another ReimbChecks.
+     * Compares this instance with another ReimbursementChecks.
      *
      * @param other The object to compare to
      * @return True if the objects are the same
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof ReimbChecks)) return false;
-        return this.equalKeys(other) && ((ReimbChecks)other).equalKeys(this);
+        if (!(other instanceof ReimbursementChecks)) return false;
+        return this.equalKeys(other) && ((ReimbursementChecks)other).equalKeys(this);
     }
 
     /**
@@ -252,7 +252,7 @@ public class ReimbChecks implements Serializable {
      */
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer("[ReimbChecks |");
+        StringBuffer sb = new StringBuffer("[ReimbursementChecks |");
         sb.append(" reimbDetailId=").append(getReimbDetailId());
         sb.append("]");
         return sb.toString();

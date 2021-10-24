@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
 @Entity(name="txn_parties")
-public class TxnParties implements Serializable {
+public class TransactionParties implements Serializable {
 
     /**
 	 * 
@@ -83,7 +83,7 @@ public class TxnParties implements Serializable {
     private Set<ReimbOnline> reimbOnline;
 
     /** Default constructor. */
-    public TxnParties() {
+    public TransactionParties() {
         super();
     }
 
@@ -340,19 +340,19 @@ public class TxnParties implements Serializable {
     }
 
     /**
-     * Compares the key for this instance with another TxnParties.
+     * Compares the key for this instance with another TransactionParties.
      *
      * @param other The object to compare to
-     * @return True if other object is instance of class TxnParties and the key objects are equal
+     * @return True if other object is instance of class TransactionParties and the key objects are equal
      */
     private boolean equalKeys(Object other) {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof TxnParties)) {
+        if (!(other instanceof TransactionParties)) {
             return false;
         }
-        TxnParties that = (TxnParties) other;
+        TransactionParties that = (TransactionParties) other;
         if (this.getTxnPartyId() != that.getTxnPartyId()) {
             return false;
         }
@@ -360,15 +360,15 @@ public class TxnParties implements Serializable {
     }
 
     /**
-     * Compares this instance with another TxnParties.
+     * Compares this instance with another TransactionParties.
      *
      * @param other The object to compare to
      * @return True if the objects are the same
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof TxnParties)) return false;
-        return this.equalKeys(other) && ((TxnParties)other).equalKeys(this);
+        if (!(other instanceof TransactionParties)) return false;
+        return this.equalKeys(other) && ((TransactionParties)other).equalKeys(this);
     }
 
     /**
@@ -392,7 +392,7 @@ public class TxnParties implements Serializable {
      */
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer("[TxnParties |");
+        StringBuffer sb = new StringBuffer("[TransactionParties |");
         sb.append(" txnPartyId=").append(getTxnPartyId());
         sb.append("]");
         return sb.toString();

@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
 @Entity(name="reimb_online")
-public class ReimbOnline implements Serializable {
+public class ReimbursementOnline implements Serializable {
 
     /**
 	 * 
@@ -67,7 +67,7 @@ public class ReimbOnline implements Serializable {
     private Set<Reimbursements> reimbursements;
 
     /** Default constructor. */
-    public ReimbOnline() {
+    public ReimbursementOnline() {
         super();
     }
 
@@ -162,19 +162,19 @@ public class ReimbOnline implements Serializable {
     }
 
     /**
-     * Compares the key for this instance with another ReimbOnline.
+     * Compares the key for this instance with another ReimbursementOnline.
      *
      * @param other The object to compare to
-     * @return True if other object is instance of class ReimbOnline and the key objects are equal
+     * @return True if other object is instance of class ReimbursementOnline and the key objects are equal
      */
     private boolean equalKeys(Object other) {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof ReimbOnline)) {
+        if (!(other instanceof ReimbursementOnline)) {
             return false;
         }
-        ReimbOnline that = (ReimbOnline) other;
+        ReimbursementOnline that = (ReimbursementOnline) other;
         if (this.getReimbDetailId() != that.getReimbDetailId()) {
             return false;
         }
@@ -182,15 +182,15 @@ public class ReimbOnline implements Serializable {
     }
 
     /**
-     * Compares this instance with another ReimbOnline.
+     * Compares this instance with another ReimbursementOnline.
      *
      * @param other The object to compare to
      * @return True if the objects are the same
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof ReimbOnline)) return false;
-        return this.equalKeys(other) && ((ReimbOnline)other).equalKeys(this);
+        if (!(other instanceof ReimbursementOnline)) return false;
+        return this.equalKeys(other) && ((ReimbursementOnline)other).equalKeys(this);
     }
 
     /**
@@ -214,7 +214,7 @@ public class ReimbOnline implements Serializable {
      */
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer("[ReimbOnline |");
+        StringBuffer sb = new StringBuffer("[ReimbursementOnline |");
         sb.append(" reimbDetailId=").append(getReimbDetailId());
         sb.append("]");
         return sb.toString();

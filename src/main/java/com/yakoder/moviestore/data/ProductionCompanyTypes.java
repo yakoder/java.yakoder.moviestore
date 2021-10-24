@@ -60,7 +60,7 @@ public class ProdCoTypes implements Serializable {
     @Column(name="prod_co_type_desc", length=255)
     private String prodCoTypeDesc;
     @OneToMany(mappedBy="prodCoTypes")
-    private Set<MovieProdCos> movieProdCos;
+    private Set<MovieProductionCompanies> movieProductionCompanies;
 
     /** Default constructor. */
     public ProdCoTypes() {
@@ -122,21 +122,21 @@ public class ProdCoTypes implements Serializable {
     }
 
     /**
-     * Access method for movieProdCos.
+     * Access method for movieProductionCompanies.
      *
-     * @return the current value of movieProdCos
+     * @return the current value of movieProductionCompanies
      */
-    public Set<MovieProdCos> getMovieProdCos() {
-        return movieProdCos;
+    public Set<MovieProductionCompanies> getMovieProductionCompanies() {
+        return movieProductionCompanies;
     }
 
     /**
-     * Setter method for movieProdCos.
+     * Setter method for movieProductionCompanies.
      *
-     * @param aMovieProdCos the new value for movieProdCos
+     * @param aMovieProductionCompanies the new value for movieProductionCompanies
      */
-    public void setMovieProdCos(Set<MovieProdCos> aMovieProdCos) {
-        movieProdCos = aMovieProdCos;
+    public void setMovieProductionCompanies(Set<MovieProductionCompanies> aMovieProductionCompanies) {
+        movieProductionCompanies = aMovieProductionCompanies;
     }
 
     /**

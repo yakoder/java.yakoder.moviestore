@@ -18,8 +18,8 @@ import javax.persistence.Table;
 import javax.persistence.Version;
 
 @Entity
-@Table(name="reimb_methods", indexes={@Index(name="reimbMethodsReimbMethodsReimbMethIdTableIdx", columnList="reimb_meth_id,reimb_detail_table_id"), @Index(name="reimbMethodsReimbMethodsReimbMethNameTableIdx", columnList="reimb_meth_name,reimb_detail_table_id")})
-public class ReimbMethods implements Serializable {
+@Table(name="reimb_methods", indexes={@Index(name="reimbMethodsReimbursementMethodsReimbMethIdTableIdx", columnList="reimb_meth_id,reimb_detail_table_id"), @Index(name="reimbMethodsReimbursementMethodsReimbMethNameTableIdx", columnList="reimb_meth_name,reimb_detail_table_id")})
+public class ReimbursementMethods implements Serializable {
 
     /**
 	 * 
@@ -68,7 +68,7 @@ public class ReimbMethods implements Serializable {
     private Set<Reimbursements> reimbursements;
 
     /** Default constructor. */
-    public ReimbMethods() {
+    public ReimbursementMethods() {
         super();
     }
 
@@ -163,19 +163,19 @@ public class ReimbMethods implements Serializable {
     }
 
     /**
-     * Compares the key for this instance with another ReimbMethods.
+     * Compares the key for this instance with another ReimbursementMethods.
      *
      * @param other The object to compare to
-     * @return True if other object is instance of class ReimbMethods and the key objects are equal
+     * @return True if other object is instance of class ReimbursementMethods and the key objects are equal
      */
     private boolean equalKeys(Object other) {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof ReimbMethods)) {
+        if (!(other instanceof ReimbursementMethods)) {
             return false;
         }
-        ReimbMethods that = (ReimbMethods) other;
+        ReimbursementMethods that = (ReimbursementMethods) other;
         if (this.getReimbMethId() != that.getReimbMethId()) {
             return false;
         }
@@ -183,15 +183,15 @@ public class ReimbMethods implements Serializable {
     }
 
     /**
-     * Compares this instance with another ReimbMethods.
+     * Compares this instance with another ReimbursementMethods.
      *
      * @param other The object to compare to
      * @return True if the objects are the same
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof ReimbMethods)) return false;
-        return this.equalKeys(other) && ((ReimbMethods)other).equalKeys(this);
+        if (!(other instanceof ReimbursementMethods)) return false;
+        return this.equalKeys(other) && ((ReimbursementMethods)other).equalKeys(this);
     }
 
     /**
@@ -215,7 +215,7 @@ public class ReimbMethods implements Serializable {
      */
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer("[ReimbMethods |");
+        StringBuffer sb = new StringBuffer("[ReimbursementMethods |");
         sb.append(" reimbMethId=").append(getReimbMethId());
         sb.append("]");
         return sb.toString();

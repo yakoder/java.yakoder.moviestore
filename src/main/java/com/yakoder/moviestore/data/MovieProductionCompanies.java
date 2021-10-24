@@ -16,7 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
 @Entity(name="movie_prod_cos")
-public class MovieProdCos implements Serializable {
+public class MovieProductionCompanies implements Serializable {
 
     /**
 	 * 
@@ -60,13 +60,13 @@ public class MovieProdCos implements Serializable {
     private Movies movies;
     @ManyToOne(optional=false)
     @JoinColumn(name="prod_co_id", nullable=false)
-    private ProdCos prodCos;
+    private ProductionCompanies prodCos;
     @ManyToOne(optional=false)
     @JoinColumn(name="prod_co_type_id", nullable=false)
     private ProdCoTypes prodCoTypes;
 
     /** Default constructor. */
-    public MovieProdCos() {
+    public MovieProductionCompanies() {
         super();
     }
 
@@ -111,17 +111,17 @@ public class MovieProdCos implements Serializable {
      *
      * @return the current value of prodCos
      */
-    public ProdCos getProdCos() {
+    public ProductionCompanies getProductionCompanies() {
         return prodCos;
     }
 
     /**
      * Setter method for prodCos.
      *
-     * @param aProdCos the new value for prodCos
+     * @param aProductionCompanies the new value for prodCos
      */
-    public void setProdCos(ProdCos aProdCos) {
-        prodCos = aProdCos;
+    public void setProductionCompanies(ProductionCompanies aProductionCompanies) {
+        prodCos = aProductionCompanies;
     }
 
     /**
@@ -143,19 +143,19 @@ public class MovieProdCos implements Serializable {
     }
 
     /**
-     * Compares the key for this instance with another MovieProdCos.
+     * Compares the key for this instance with another MovieProductionCompanies.
      *
      * @param other The object to compare to
-     * @return True if other object is instance of class MovieProdCos and the key objects are equal
+     * @return True if other object is instance of class MovieProductionCompanies and the key objects are equal
      */
     private boolean equalKeys(Object other) {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof MovieProdCos)) {
+        if (!(other instanceof MovieProductionCompanies)) {
             return false;
         }
-        MovieProdCos that = (MovieProdCos) other;
+        MovieProductionCompanies that = (MovieProductionCompanies) other;
         if (this.getMovieProdCoId() != that.getMovieProdCoId()) {
             return false;
         }
@@ -163,15 +163,15 @@ public class MovieProdCos implements Serializable {
     }
 
     /**
-     * Compares this instance with another MovieProdCos.
+     * Compares this instance with another MovieProductionCompanies.
      *
      * @param other The object to compare to
      * @return True if the objects are the same
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof MovieProdCos)) return false;
-        return this.equalKeys(other) && ((MovieProdCos)other).equalKeys(this);
+        if (!(other instanceof MovieProductionCompanies)) return false;
+        return this.equalKeys(other) && ((MovieProductionCompanies)other).equalKeys(this);
     }
 
     /**
@@ -195,7 +195,7 @@ public class MovieProdCos implements Serializable {
      */
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer("[MovieProdCos |");
+        StringBuffer sb = new StringBuffer("[MovieProductionCompanies |");
         sb.append(" movieProdCoId=").append(getMovieProdCoId());
         sb.append("]");
         return sb.toString();

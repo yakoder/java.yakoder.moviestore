@@ -18,7 +18,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
 @Entity(name="store_inv_history")
-public class StoreInvHistory implements Serializable {
+public class StoreInventoryHistory implements Serializable {
 
     /**
 	 * 
@@ -99,7 +99,7 @@ public class StoreInvHistory implements Serializable {
     private UnlistedReasons unlistedReasons;
 
     /** Default constructor. */
-    public StoreInvHistory() {
+    public StoreInventoryHistory() {
         super();
     }
 
@@ -446,19 +446,19 @@ public class StoreInvHistory implements Serializable {
     }
 
     /**
-     * Compares the key for this instance with another StoreInvHistory.
+     * Compares the key for this instance with another StoreInventoryHistory.
      *
      * @param other The object to compare to
-     * @return True if other object is instance of class StoreInvHistory and the key objects are equal
+     * @return True if other object is instance of class StoreInventoryHistory and the key objects are equal
      */
     private boolean equalKeys(Object other) {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof StoreInvHistory)) {
+        if (!(other instanceof StoreInventoryHistory)) {
             return false;
         }
-        StoreInvHistory that = (StoreInvHistory) other;
+        StoreInventoryHistory that = (StoreInventoryHistory) other;
         if (this.getStoreInvHistId() != that.getStoreInvHistId()) {
             return false;
         }
@@ -466,15 +466,15 @@ public class StoreInvHistory implements Serializable {
     }
 
     /**
-     * Compares this instance with another StoreInvHistory.
+     * Compares this instance with another StoreInventoryHistory.
      *
      * @param other The object to compare to
      * @return True if the objects are the same
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof StoreInvHistory)) return false;
-        return this.equalKeys(other) && ((StoreInvHistory)other).equalKeys(this);
+        if (!(other instanceof StoreInventoryHistory)) return false;
+        return this.equalKeys(other) && ((StoreInventoryHistory)other).equalKeys(this);
     }
 
     /**
@@ -498,7 +498,7 @@ public class StoreInvHistory implements Serializable {
      */
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer("[StoreInvHistory |");
+        StringBuffer sb = new StringBuffer("[StoreInventoryHistory |");
         sb.append(" storeInvHistId=").append(getStoreInvHistId());
         sb.append("]");
         return sb.toString();
