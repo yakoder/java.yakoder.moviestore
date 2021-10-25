@@ -3,8 +3,6 @@
 package com.yakoder.moviestore.data.inventory;
 
 import java.io.Serializable;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,16 +13,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
+import com.yakoder.moviestore.data.SimpleDataObject;
+
 @Entity(name="inv_digitization")
-public class InventoryDigitization implements Serializable {
+public class InventoryDigitization extends SimpleDataObject implements Serializable {
 
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = -3036022109857463373L;
-
-	/** Primary key. */
-    protected static final String PK = "inventoryDigitizationId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -33,36 +30,18 @@ public class InventoryDigitization implements Serializable {
     @Column(name="LOCK_FLAG")
     private Integer lockFlag;
 
-    /**
-     * Access method for the lockFlag property.
-     *
-     * @return the current value of the lockFlag property
-     */
-    public Integer getLockFlag() {
-        return lockFlag;
-    }
-
-    /**
-     * Sets the value of the lockFlag property.
-     *
-     * @param aLockFlag the new value of the lockFlag property
-     */
-    public void setLockFlag(Integer aLockFlag) {
-        lockFlag = aLockFlag;
-    }
-
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="inv_digit_id", unique=true, nullable=false, precision=10)
-    private int inventoryDigitizationId;
+    private int id;
     @Column(length=1000)
     private String notes;
     @ManyToOne
     @JoinColumn(name="digit_fmt_id")
-    private DigitizationFormats digitizationFormats;
+    private DigitizationFormat digitizationFormats;
     @ManyToOne
     @JoinColumn(name="digit_stat_id")
-    private DigitizationStatuses digitizationStatuses;
+    private DigitizationStatus digitizationStatuses;
     @ManyToOne
     @JoinColumn(name="digit_sw_id")
     private DigitizationSoftware digitizationSoftware;
@@ -73,24 +52,6 @@ public class InventoryDigitization implements Serializable {
     /** Default constructor. */
     public InventoryDigitization() {
         super();
-    }
-
-    /**
-     * Access method for inventoryDigitizationId.
-     *
-     * @return the current value of inventoryDigitizationId
-     */
-    public int getInventoryDigitizationId() {
-        return inventoryDigitizationId;
-    }
-
-    /**
-     * Setter method for inventoryDigitizationId.
-     *
-     * @param aInventoryDigitizationId the new value for inventoryDigitizationId
-     */
-    public void setInventoryDigitizationId(int aInventoryDigitizationId) {
-        inventoryDigitizationId = aInventoryDigitizationId;
     }
 
     /**
@@ -116,7 +77,7 @@ public class InventoryDigitization implements Serializable {
      *
      * @return the current value of digitizationFormats
      */
-    public DigitizationFormats getDigitizationFormats() {
+    public DigitizationFormat getDigitizationFormats() {
         return digitizationFormats;
     }
 
@@ -125,7 +86,7 @@ public class InventoryDigitization implements Serializable {
      *
      * @param aDigitizationFormats the new value for digitizationFormats
      */
-    public void setDigitizationFormats(DigitizationFormats aDigitizationFormats) {
+    public void setDigitizationFormats(DigitizationFormat aDigitizationFormats) {
         digitizationFormats = aDigitizationFormats;
     }
 
@@ -134,7 +95,7 @@ public class InventoryDigitization implements Serializable {
      *
      * @return the current value of digitizationStatuses
      */
-    public DigitizationStatuses getDigitizationStatuses() {
+    public DigitizationStatus getDigitizationStatuses() {
         return digitizationStatuses;
     }
 
@@ -143,7 +104,7 @@ public class InventoryDigitization implements Serializable {
      *
      * @param aDigitizationStatuses the new value for digitizationStatuses
      */
-    public void setDigitizationStatuses(DigitizationStatuses aDigitizationStatuses) {
+    public void setDigitizationStatuses(DigitizationStatus aDigitizationStatuses) {
         digitizationStatuses = aDigitizationStatuses;
     }
 
@@ -189,7 +150,7 @@ public class InventoryDigitization implements Serializable {
      * @param other The object to compare to
      * @return True if other object is instance of class InventoryDigitization and the key objects are equal
      */
-    private boolean equalKeys(Object other) {
+	protected boolean equalKeys(Object other) {
         if (this==other) {
             return true;
         }
@@ -197,7 +158,7 @@ public class InventoryDigitization implements Serializable {
             return false;
         }
         InventoryDigitization that = (InventoryDigitization) other;
-        if (this.getInventoryDigitizationId() != that.getInventoryDigitizationId()) {
+        if (this.getId() != that.getId()) {
             return false;
         }
         return true;
@@ -216,20 +177,6 @@ public class InventoryDigitization implements Serializable {
     }
 
     /**
-     * Returns a hash code for this instance.
-     *
-     * @return Hash code
-     */
-    @Override
-    public int hashCode() {
-        int i;
-        int result = 17;
-        i = getInventoryDigitizationId();
-        result = 37*result + i;
-        return result;
-    }
-
-    /**
      * Returns a debug-friendly String representation of this instance.
      *
      * @return String representation of this instance
@@ -237,20 +184,9 @@ public class InventoryDigitization implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[InventoryDigitization |");
-        sb.append(" inventoryDigitizationId=").append(getInventoryDigitizationId());
+        sb.append(" inventoryDigitizationId=").append(getId());
         sb.append("]");
         return sb.toString();
-    }
-
-    /**
-     * Return all elements of the primary key.
-     *
-     * @return Map of key names to values
-     */
-    public Map<String, Object> getPrimaryKey() {
-        Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("inventoryDigitizationId", Integer.valueOf(getInventoryDigitizationId()));
-        return ret;
     }
 
 }

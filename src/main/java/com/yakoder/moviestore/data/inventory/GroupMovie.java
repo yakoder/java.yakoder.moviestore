@@ -3,8 +3,6 @@
 package com.yakoder.moviestore.data.inventory;
 
 import java.io.Serializable;
-import java.util.LinkedHashMap;
-import java.util.Map;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -15,16 +13,15 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
+import com.yakoder.moviestore.data.SimpleDataObject;
+
 @Entity(name="group_movies")
-public class GroupMovies implements Serializable {
+public class GroupMovie extends SimpleDataObject implements Serializable {
 
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = -3519795635027207253L;
-
-	/** Primary key. */
-    protected static final String PK = "groupMovieId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -33,56 +30,20 @@ public class GroupMovies implements Serializable {
     @Column(name="LOCK_FLAG")
     private Integer lockFlag;
 
-    /**
-     * Access method for the lockFlag property.
-     *
-     * @return the current value of the lockFlag property
-     */
-    public Integer getLockFlag() {
-        return lockFlag;
-    }
-
-    /**
-     * Sets the value of the lockFlag property.
-     *
-     * @param aLockFlag the new value of the lockFlag property
-     */
-    public void setLockFlag(Integer aLockFlag) {
-        lockFlag = aLockFlag;
-    }
-
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="grp_movie_id", unique=true, nullable=false, precision=10)
-    private int groupMovieId;
+    private int id;
     @Column(name="grp_id", nullable=false, precision=10)
     private int groupId;
     @Column(name="grp_movie_item_num", nullable=false, precision=10)
     private int groupMovieItemNum;
     @OneToMany(mappedBy="groupMovies")
-    private Set<ExternalIds> externalIds;
+    private Set<ExternalId> externalIds;
 
     /** Default constructor. */
-    public GroupMovies() {
+    public GroupMovie() {
         super();
-    }
-
-    /**
-     * Access method for groupMovieId.
-     *
-     * @return the current value of groupMovieId
-     */
-    public int getGroupMovieId() {
-        return groupMovieId;
-    }
-
-    /**
-     * Setter method for groupMovieId.
-     *
-     * @param aGroupMovieId the new value for groupMovieId
-     */
-    public void setGroupMovieId(int aGroupMovieId) {
-        groupMovieId = aGroupMovieId;
     }
 
     /**
@@ -126,7 +87,7 @@ public class GroupMovies implements Serializable {
      *
      * @return the current value of externalIds
      */
-    public Set<ExternalIds> getExternalIds() {
+    public Set<ExternalId> getExternalIds() {
         return externalIds;
     }
 
@@ -135,7 +96,7 @@ public class GroupMovies implements Serializable {
      *
      * @param aExternalIds the new value for externalIds
      */
-    public void setExternalIds(Set<ExternalIds> aExternalIds) {
+    public void setExternalIds(Set<ExternalId> aExternalIds) {
         externalIds = aExternalIds;
     }
 
@@ -145,15 +106,15 @@ public class GroupMovies implements Serializable {
      * @param other The object to compare to
      * @return True if other object is instance of class GroupMovies and the key objects are equal
      */
-    private boolean equalKeys(Object other) {
+	protected boolean equalKeys(Object other) {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof GroupMovies)) {
+        if (!(other instanceof GroupMovie)) {
             return false;
         }
-        GroupMovies that = (GroupMovies) other;
-        if (this.getGroupMovieId() != that.getGroupMovieId()) {
+        GroupMovie that = (GroupMovie) other;
+        if (this.getId() != that.getId()) {
             return false;
         }
         return true;
@@ -167,22 +128,8 @@ public class GroupMovies implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof GroupMovies)) return false;
-        return this.equalKeys(other) && ((GroupMovies)other).equalKeys(this);
-    }
-
-    /**
-     * Returns a hash code for this instance.
-     *
-     * @return Hash code
-     */
-    @Override
-    public int hashCode() {
-        int i;
-        int result = 17;
-        i = getGroupMovieId();
-        result = 37*result + i;
-        return result;
+        if (!(other instanceof GroupMovie)) return false;
+        return this.equalKeys(other) && ((GroupMovie)other).equalKeys(this);
     }
 
     /**
@@ -193,20 +140,9 @@ public class GroupMovies implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[GroupMovies |");
-        sb.append(" groupMovieId=").append(getGroupMovieId());
+        sb.append(" id=").append(getId());
         sb.append("]");
         return sb.toString();
-    }
-
-    /**
-     * Return all elements of the primary key.
-     *
-     * @return Map of key names to values
-     */
-    public Map<String, Object> getPrimaryKey() {
-        Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("groupMovieId", Integer.valueOf(getGroupMovieId()));
-        return ret;
     }
 
 }

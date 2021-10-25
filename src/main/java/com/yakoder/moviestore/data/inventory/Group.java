@@ -3,8 +3,6 @@
 package com.yakoder.moviestore.data.inventory;
 
 import java.io.Serializable;
-import java.util.LinkedHashMap;
-import java.util.Map;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -17,17 +15,16 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.yakoder.moviestore.data.SimpleDefinition;
+
 @Entity
 @Table(name="groups", indexes={@Index(name="groups_grp_key_IX", columnList="grp_key", unique=true)})
-public class Groups implements Serializable {
+public class Group extends SimpleDefinition implements Serializable {
 
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = -712826684267011935L;
-
-	/** Primary key. */
-    protected static final String PK = "groupId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -36,112 +33,40 @@ public class Groups implements Serializable {
     @Column(name="LOCK_FLAG")
     private Integer lockFlag;
 
-    /**
-     * Access method for the lockFlag property.
-     *
-     * @return the current value of the lockFlag property
-     */
-    public Integer getLockFlag() {
-        return lockFlag;
-    }
-
-    /**
-     * Sets the value of the lockFlag property.
-     *
-     * @param aLockFlag the new value of the lockFlag property
-     */
-    public void setLockFlag(Integer aLockFlag) {
-        lockFlag = aLockFlag;
-    }
-
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="grp_id", unique=true, nullable=false, precision=10)
-    private int groupId;
+    private int id;
     @Column(name="grp_key", unique=true, nullable=false, length=10)
-    private String groupKey;
+    private String key;
     @Column(name="grp_name", length=100)
-    private String groupName;
+    private String name;
     @Column(name="grp_desc", length=255)
-    private String groupDesc;
+    private String description;
     @OneToMany(mappedBy="groups")
-    private Set<ExternalIds> externalIds;
+    private Set<ExternalId> externalIds;
 
     /** Default constructor. */
-    public Groups() {
+    public Group() {
         super();
     }
 
     /**
-     * Access method for groupId.
+     * Access method for key.
      *
-     * @return the current value of groupId
+     * @return the current value of key
      */
-    public int getGroupId() {
-        return groupId;
+    public String getKey() {
+        return key;
     }
 
     /**
-     * Setter method for groupId.
+     * Setter method for key.
      *
-     * @param aGroupId the new value for groupId
+     * @param aKey the new value for key
      */
-    public void setGroupId(int aGroupId) {
-        groupId = aGroupId;
-    }
-
-    /**
-     * Access method for groupKey.
-     *
-     * @return the current value of groupKey
-     */
-    public String getGroupKey() {
-        return groupKey;
-    }
-
-    /**
-     * Setter method for groupKey.
-     *
-     * @param aGroupKey the new value for groupKey
-     */
-    public void setGroupKey(String aGroupKey) {
-        groupKey = aGroupKey;
-    }
-
-    /**
-     * Access method for groupName.
-     *
-     * @return the current value of groupName
-     */
-    public String getGroupName() {
-        return groupName;
-    }
-
-    /**
-     * Setter method for groupName.
-     *
-     * @param aGroupName the new value for groupName
-     */
-    public void setGroupName(String aGroupName) {
-        groupName = aGroupName;
-    }
-
-    /**
-     * Access method for groupDesc.
-     *
-     * @return the current value of groupDesc
-     */
-    public String getGroupDesc() {
-        return groupDesc;
-    }
-
-    /**
-     * Setter method for groupDesc.
-     *
-     * @param aGroupDesc the new value for groupDesc
-     */
-    public void setGroupDesc(String aGroupDesc) {
-        groupDesc = aGroupDesc;
+    public void setKey(String aKey) {
+        key = aKey;
     }
 
     /**
@@ -149,7 +74,7 @@ public class Groups implements Serializable {
      *
      * @return the current value of externalIds
      */
-    public Set<ExternalIds> getExternalIds() {
+    public Set<ExternalId> getExternalIds() {
         return externalIds;
     }
 
@@ -158,7 +83,7 @@ public class Groups implements Serializable {
      *
      * @param aExternalIds the new value for externalIds
      */
-    public void setExternalIds(Set<ExternalIds> aExternalIds) {
+    public void setExternalIds(Set<ExternalId> aExternalIds) {
         externalIds = aExternalIds;
     }
 
@@ -168,15 +93,15 @@ public class Groups implements Serializable {
      * @param other The object to compare to
      * @return True if other object is instance of class Groups and the key objects are equal
      */
-    private boolean equalKeys(Object other) {
+	protected boolean equalKeys(Object other) {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof Groups)) {
+        if (!(other instanceof Group)) {
             return false;
         }
-        Groups that = (Groups) other;
-        if (this.getGroupId() != that.getGroupId()) {
+        Group that = (Group) other;
+        if (this.getId() != that.getId()) {
             return false;
         }
         return true;
@@ -190,22 +115,8 @@ public class Groups implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof Groups)) return false;
-        return this.equalKeys(other) && ((Groups)other).equalKeys(this);
-    }
-
-    /**
-     * Returns a hash code for this instance.
-     *
-     * @return Hash code
-     */
-    @Override
-    public int hashCode() {
-        int i;
-        int result = 17;
-        i = getGroupId();
-        result = 37*result + i;
-        return result;
+        if (!(other instanceof Group)) return false;
+        return this.equalKeys(other) && ((Group)other).equalKeys(this);
     }
 
     /**
@@ -216,20 +127,9 @@ public class Groups implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[Groups |");
-        sb.append(" groupId=").append(getGroupId());
+        sb.append(" id=").append(getId());
         sb.append("]");
         return sb.toString();
-    }
-
-    /**
-     * Return all elements of the primary key.
-     *
-     * @return Map of key names to values
-     */
-    public Map<String, Object> getPrimaryKey() {
-        Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("groupId", Integer.valueOf(getGroupId()));
-        return ret;
     }
 
 }
