@@ -25,7 +25,7 @@ public class AdjustmentMovies implements Serializable {
 	private static final long serialVersionUID = -2092779829559405009L;
 
 	/** Primary key. */
-    protected static final String PK = "adjMovieId";
+    protected static final String PK = "adjustmentMovieId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -55,9 +55,9 @@ public class AdjustmentMovies implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="adj_movie_id", unique=true, nullable=false, precision=10)
-    private int adjMovieId;
+    private int adjustmentMovieId;
     @Column(name="adj_amount", precision=15, scale=2)
-    private BigDecimal adjAmount;
+    private BigDecimal adjustmentAmount;
     @ManyToOne(optional=false)
     @JoinColumn(name="adj_rsn_id", nullable=false)
     private AdjustmentReasons adjustmentReasons;
@@ -77,39 +77,39 @@ public class AdjustmentMovies implements Serializable {
     }
 
     /**
-     * Access method for adjMovieId.
+     * Access method for adjustmentMovieId.
      *
-     * @return the current value of adjMovieId
+     * @return the current value of adjustmentMovieId
      */
-    public int getAdjMovieId() {
-        return adjMovieId;
+    public int getAdjustmentMovieId() {
+        return adjustmentMovieId;
     }
 
     /**
-     * Setter method for adjMovieId.
+     * Setter method for adjustmentMovieId.
      *
-     * @param aAdjMovieId the new value for adjMovieId
+     * @param aAdjustmentMovieId the new value for adjustmentMovieId
      */
-    public void setAdjMovieId(int aAdjMovieId) {
-        adjMovieId = aAdjMovieId;
+    public void setAdjustmentMovieId(int aAdjustmentMovieId) {
+        adjustmentMovieId = aAdjustmentMovieId;
     }
 
     /**
-     * Access method for adjAmount.
+     * Access method for adjustmentAmount.
      *
-     * @return the current value of adjAmount
+     * @return the current value of adjustmentAmount
      */
-    public BigDecimal getAdjAmount() {
-        return adjAmount;
+    public BigDecimal getAdjustmentAmount() {
+        return adjustmentAmount;
     }
 
     /**
-     * Setter method for adjAmount.
+     * Setter method for adjustmentAmount.
      *
-     * @param aAdjAmount the new value for adjAmount
+     * @param aAdjustmentAmount the new value for adjustmentAmount
      */
-    public void setAdjAmount(BigDecimal aAdjAmount) {
-        adjAmount = aAdjAmount;
+    public void setAdjustmentAmount(BigDecimal aAdjustmentAmount) {
+        adjustmentAmount = aAdjustmentAmount;
     }
 
     /**
@@ -198,7 +198,7 @@ public class AdjustmentMovies implements Serializable {
             return false;
         }
         AdjustmentMovies that = (AdjustmentMovies) other;
-        if (this.getAdjMovieId() != that.getAdjMovieId()) {
+        if (this.getAdjustmentMovieId() != that.getAdjustmentMovieId()) {
             return false;
         }
         return true;
@@ -225,7 +225,7 @@ public class AdjustmentMovies implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getAdjMovieId();
+        i = getAdjustmentMovieId();
         result = 37*result + i;
         return result;
     }
@@ -238,7 +238,7 @@ public class AdjustmentMovies implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[AdjustmentMovies |");
-        sb.append(" adjMovieId=").append(getAdjMovieId());
+        sb.append(" adjustmentMovieId=").append(getAdjustmentMovieId());
         sb.append("]");
         return sb.toString();
     }
@@ -250,7 +250,7 @@ public class AdjustmentMovies implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("adjMovieId", Integer.valueOf(getAdjMovieId()));
+        ret.put("adjustmentMovieId", Integer.valueOf(getAdjustmentMovieId()));
         return ret;
     }
 

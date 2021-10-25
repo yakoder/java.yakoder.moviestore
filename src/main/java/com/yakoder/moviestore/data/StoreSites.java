@@ -58,7 +58,7 @@ public class StoreSites implements Serializable {
     @Column(name="store_site_id", unique=true, nullable=false, precision=10)
     private int storeSiteId;
     @OneToMany(mappedBy="storeSites")
-    private Set<ExpMovies> expMovies;
+    private Set<ExpenseMovies> expenseMovies;
     @OneToMany(mappedBy="storeSites")
     private Set<Orders> orders;
     @OneToMany(mappedBy="storeSites")
@@ -97,21 +97,21 @@ public class StoreSites implements Serializable {
     }
 
     /**
-     * Access method for expMovies.
+     * Access method for expenseMovies.
      *
-     * @return the current value of expMovies
+     * @return the current value of expenseMovies
      */
-    public Set<ExpMovies> getExpMovies() {
-        return expMovies;
+    public Set<ExpenseMovies> getExpenseMovies() {
+        return expenseMovies;
     }
 
     /**
-     * Setter method for expMovies.
+     * Setter method for expenseMovies.
      *
-     * @param aExpMovies the new value for expMovies
+     * @param aExpenseMovies the new value for expenseMovies
      */
-    public void setExpMovies(Set<ExpMovies> aExpMovies) {
-        expMovies = aExpMovies;
+    public void setExpenseMovies(Set<ExpenseMovies> aExpenseMovies) {
+        expenseMovies = aExpenseMovies;
     }
 
     /**

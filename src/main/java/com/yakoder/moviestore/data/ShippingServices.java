@@ -24,7 +24,7 @@ public class ShippingServices implements Serializable {
 	private static final long serialVersionUID = 2905191552803182038L;
 
 	/** Primary key. */
-    protected static final String PK = "shipSvcId";
+    protected static final String PK = "shippingServiceId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -54,17 +54,17 @@ public class ShippingServices implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="ship_svc_id", unique=true, nullable=false, precision=10)
-    private int shipSvcId;
+    private int shippingServiceId;
     @Column(name="ship_svc_name", nullable=false, length=100)
-    private String shipSvcName;
+    private String shippingServiceName;
     @Column(name="ship_svc_name_long", length=100)
-    private String shipSvcNameLong;
+    private String shippingServiceNameLong;
     @Column(name="ship_svc_url", length=255)
-    private String shipSvcUrl;
+    private String shippingServiceUrl;
     @Column(name="ship_svc_trk_url", length=255)
-    private String shipSvcTrkUrl;
+    private String shippingServiceTrackingUrl;
     @Column(name="ship_svc_notes", length=255)
-    private String shipSvcNotes;
+    private String shippingServiceNotes;
     @Column(name="is_enabled", nullable=false, length=3)
     private boolean isEnabled;
     @OneToMany(mappedBy="shippingServices")
@@ -76,111 +76,111 @@ public class ShippingServices implements Serializable {
     }
 
     /**
-     * Access method for shipSvcId.
+     * Access method for shippingServiceId.
      *
-     * @return the current value of shipSvcId
+     * @return the current value of shippingServiceId
      */
-    public int getShipSvcId() {
-        return shipSvcId;
+    public int getShippingServiceId() {
+        return shippingServiceId;
     }
 
     /**
-     * Setter method for shipSvcId.
+     * Setter method for shippingServiceId.
      *
-     * @param aShipSvcId the new value for shipSvcId
+     * @param aShippingServiceId the new value for shippingServiceId
      */
-    public void setShipSvcId(int aShipSvcId) {
-        shipSvcId = aShipSvcId;
+    public void setShippingServiceId(int aShippingServiceId) {
+        shippingServiceId = aShippingServiceId;
     }
 
     /**
-     * Access method for shipSvcName.
+     * Access method for shippingServiceName.
      *
-     * @return the current value of shipSvcName
+     * @return the current value of shippingServiceName
      */
-    public String getShipSvcName() {
-        return shipSvcName;
+    public String getShippingServiceName() {
+        return shippingServiceName;
     }
 
     /**
-     * Setter method for shipSvcName.
+     * Setter method for shippingServiceName.
      *
-     * @param aShipSvcName the new value for shipSvcName
+     * @param aShippingServiceName the new value for shippingServiceName
      */
-    public void setShipSvcName(String aShipSvcName) {
-        shipSvcName = aShipSvcName;
+    public void setShippingServiceName(String aShippingServiceName) {
+        shippingServiceName = aShippingServiceName;
     }
 
     /**
-     * Access method for shipSvcNameLong.
+     * Access method for shippingServiceNameLong.
      *
-     * @return the current value of shipSvcNameLong
+     * @return the current value of shippingServiceNameLong
      */
-    public String getShipSvcNameLong() {
-        return shipSvcNameLong;
+    public String getShippingServiceNameLong() {
+        return shippingServiceNameLong;
     }
 
     /**
-     * Setter method for shipSvcNameLong.
+     * Setter method for shippingServiceNameLong.
      *
-     * @param aShipSvcNameLong the new value for shipSvcNameLong
+     * @param aShippingServiceNameLong the new value for shippingServiceNameLong
      */
-    public void setShipSvcNameLong(String aShipSvcNameLong) {
-        shipSvcNameLong = aShipSvcNameLong;
+    public void setShippingServiceNameLong(String aShippingServiceNameLong) {
+        shippingServiceNameLong = aShippingServiceNameLong;
     }
 
     /**
-     * Access method for shipSvcUrl.
+     * Access method for shippingServiceUrl.
      *
-     * @return the current value of shipSvcUrl
+     * @return the current value of shippingServiceUrl
      */
-    public String getShipSvcUrl() {
-        return shipSvcUrl;
+    public String getShippingServiceUrl() {
+        return shippingServiceUrl;
     }
 
     /**
-     * Setter method for shipSvcUrl.
+     * Setter method for shippingServiceUrl.
      *
-     * @param aShipSvcUrl the new value for shipSvcUrl
+     * @param aShippingServiceUrl the new value for shippingServiceUrl
      */
-    public void setShipSvcUrl(String aShipSvcUrl) {
-        shipSvcUrl = aShipSvcUrl;
+    public void setShippingServiceUrl(String aShippingServiceUrl) {
+        shippingServiceUrl = aShippingServiceUrl;
     }
 
     /**
-     * Access method for shipSvcTrkUrl.
+     * Access method for shippingServiceTrackingUrl.
      *
-     * @return the current value of shipSvcTrkUrl
+     * @return the current value of shippingServiceTrackingUrl
      */
-    public String getShipSvcTrkUrl() {
-        return shipSvcTrkUrl;
+    public String getShippingServiceTrackingUrl() {
+        return shippingServiceTrackingUrl;
     }
 
     /**
-     * Setter method for shipSvcTrkUrl.
+     * Setter method for shippingServiceTrackingUrl.
      *
-     * @param aShipSvcTrkUrl the new value for shipSvcTrkUrl
+     * @param aShippingServiceTrackingUrl the new value for shippingServiceTrackingUrl
      */
-    public void setShipSvcTrkUrl(String aShipSvcTrkUrl) {
-        shipSvcTrkUrl = aShipSvcTrkUrl;
+    public void setShippingServiceTrackingUrl(String aShippingServiceTrackingUrl) {
+        shippingServiceTrackingUrl = aShippingServiceTrackingUrl;
     }
 
     /**
-     * Access method for shipSvcNotes.
+     * Access method for shippingServiceNotes.
      *
-     * @return the current value of shipSvcNotes
+     * @return the current value of shippingServiceNotes
      */
-    public String getShipSvcNotes() {
-        return shipSvcNotes;
+    public String getShippingServiceNotes() {
+        return shippingServiceNotes;
     }
 
     /**
-     * Setter method for shipSvcNotes.
+     * Setter method for shippingServiceNotes.
      *
-     * @param aShipSvcNotes the new value for shipSvcNotes
+     * @param aShippingServiceNotes the new value for shippingServiceNotes
      */
-    public void setShipSvcNotes(String aShipSvcNotes) {
-        shipSvcNotes = aShipSvcNotes;
+    public void setShippingServiceNotes(String aShippingServiceNotes) {
+        shippingServiceNotes = aShippingServiceNotes;
     }
 
     /**
@@ -233,7 +233,7 @@ public class ShippingServices implements Serializable {
             return false;
         }
         ShippingServices that = (ShippingServices) other;
-        if (this.getShipSvcId() != that.getShipSvcId()) {
+        if (this.getShippingServiceId() != that.getShippingServiceId()) {
             return false;
         }
         return true;
@@ -260,7 +260,7 @@ public class ShippingServices implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getShipSvcId();
+        i = getShippingServiceId();
         result = 37*result + i;
         return result;
     }
@@ -273,7 +273,7 @@ public class ShippingServices implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[ShippingServices |");
-        sb.append(" shipSvcId=").append(getShipSvcId());
+        sb.append(" shippingServiceId=").append(getShippingServiceId());
         sb.append("]");
         return sb.toString();
     }
@@ -285,7 +285,7 @@ public class ShippingServices implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("shipSvcId", Integer.valueOf(getShipSvcId()));
+        ret.put("shippingServiceId", Integer.valueOf(getShippingServiceId()));
         return ret;
     }
 

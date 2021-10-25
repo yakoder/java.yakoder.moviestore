@@ -28,7 +28,7 @@ public class ExternalIds implements Serializable {
 	private static final long serialVersionUID = 5650413945957224854L;
 
 	/** Primary key. */
-    protected static final String PK = "extId";
+    protected static final String PK = "externalId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -58,9 +58,9 @@ public class ExternalIds implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="ext_id", unique=true, nullable=false, precision=10)
-    private int extId;
+    private int externalId;
     @Column(name="ext_id_name", unique=true, nullable=false, length=100)
-    private String extIdName;
+    private String externalIdName;
     @ManyToOne(optional=false)
     @JoinColumn(name="grp_id", nullable=false)
     private Groups groups;
@@ -79,39 +79,39 @@ public class ExternalIds implements Serializable {
     }
 
     /**
-     * Access method for extId.
+     * Access method for externalId.
      *
-     * @return the current value of extId
+     * @return the current value of externalId
      */
-    public int getExtId() {
-        return extId;
+    public int getExternalId() {
+        return externalId;
     }
 
     /**
-     * Setter method for extId.
+     * Setter method for externalId.
      *
-     * @param aExtId the new value for extId
+     * @param aExternalId the new value for externalId
      */
-    public void setExtId(int aExtId) {
-        extId = aExtId;
+    public void setExternalId(int aExternalId) {
+        externalId = aExternalId;
     }
 
     /**
-     * Access method for extIdName.
+     * Access method for externalIdName.
      *
-     * @return the current value of extIdName
+     * @return the current value of externalIdName
      */
-    public String getExtIdName() {
-        return extIdName;
+    public String getExternalIdName() {
+        return externalIdName;
     }
 
     /**
-     * Setter method for extIdName.
+     * Setter method for externalIdName.
      *
-     * @param aExtIdName the new value for extIdName
+     * @param aExternalIdName the new value for externalIdName
      */
-    public void setExtIdName(String aExtIdName) {
-        extIdName = aExtIdName;
+    public void setExternalIdName(String aExternalIdName) {
+        externalIdName = aExternalIdName;
     }
 
     /**
@@ -187,46 +187,46 @@ public class ExternalIds implements Serializable {
     }
 
     /**
-     * Gets the group fragment grpId for member groups.
+     * Gets the group fragment groupId for member groups.
      *
      * @return Current value of the group fragment
      * @see Groups
      */
-    public int getGroupsGrpId() {
-        return (getGroups() == null ? null : getGroups().getGrpId());
+    public int getGroupsGroupId() {
+        return (getGroups() == null ? null : getGroups().getGroupId());
     }
 
     /**
-     * Sets the group fragment grpId from member groups.
+     * Sets the group fragment groupId from member groups.
      *
-     * @param aGrpId New value for the group fragment
+     * @param aGroupId New value for the group fragment
      * @see Groups
      */
-    public void setGroupsGrpId(int aGrpId) {
+    public void setGroupsGroupId(int aGroupId) {
         if (getGroups() != null) {
-            getGroups().setGrpId(aGrpId);
+            getGroups().setGroupId(aGroupId);
         }
     }
 
     /**
-     * Gets the group fragment grpMovieId for member groupMovies.
+     * Gets the group fragment groupMovieId for member groupMovies.
      *
      * @return Current value of the group fragment
      * @see GroupMovies
      */
-    public int getGroupMoviesGrpMovieId() {
-        return (getGroupMovies() == null ? null : getGroupMovies().getGrpMovieId());
+    public int getGroupMoviesGroupMovieId() {
+        return (getGroupMovies() == null ? null : getGroupMovies().getGroupMovieId());
     }
 
     /**
-     * Sets the group fragment grpMovieId from member groupMovies.
+     * Sets the group fragment groupMovieId from member groupMovies.
      *
-     * @param aGrpMovieId New value for the group fragment
+     * @param aGroupMovieId New value for the group fragment
      * @see GroupMovies
      */
-    public void setGroupMoviesGrpMovieId(int aGrpMovieId) {
+    public void setGroupMoviesGroupMovieId(int aGroupMovieId) {
         if (getGroupMovies() != null) {
-            getGroupMovies().setGrpMovieId(aGrpMovieId);
+            getGroupMovies().setGroupMovieId(aGroupMovieId);
         }
     }
 
@@ -244,7 +244,7 @@ public class ExternalIds implements Serializable {
             return false;
         }
         ExternalIds that = (ExternalIds) other;
-        if (this.getExtId() != that.getExtId()) {
+        if (this.getExternalId() != that.getExternalId()) {
             return false;
         }
         return true;
@@ -271,7 +271,7 @@ public class ExternalIds implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getExtId();
+        i = getExternalId();
         result = 37*result + i;
         return result;
     }
@@ -284,7 +284,7 @@ public class ExternalIds implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[ExternalIds |");
-        sb.append(" extId=").append(getExtId());
+        sb.append(" externalId=").append(getExternalId());
         sb.append("]");
         return sb.toString();
     }
@@ -296,7 +296,7 @@ public class ExternalIds implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("extId", Integer.valueOf(getExtId()));
+        ret.put("externalId", Integer.valueOf(getExternalId()));
         return ret;
     }
 

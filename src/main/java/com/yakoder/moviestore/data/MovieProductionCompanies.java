@@ -24,7 +24,7 @@ public class MovieProductionCompanies implements Serializable {
 	private static final long serialVersionUID = -2992477004739053626L;
 
 	/** Primary key. */
-    protected static final String PK = "movieProdCoId";
+    protected static final String PK = "movieProductionCompanyId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -54,16 +54,16 @@ public class MovieProductionCompanies implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="movie_prod_co_id", unique=true, nullable=false, precision=10)
-    private int movieProdCoId;
+    private int movieProductionCompanyId;
     @ManyToOne(optional=false)
     @JoinColumn(name="movie_id", nullable=false)
-    private Movies movies;
+    private Movies movie;
     @ManyToOne(optional=false)
     @JoinColumn(name="prod_co_id", nullable=false)
     private ProductionCompanies prodCos;
     @ManyToOne(optional=false)
     @JoinColumn(name="prod_co_type_id", nullable=false)
-    private ProdCoTypes prodCoTypes;
+    private ProductionCompanyTypes productionCompanyTypes;
 
     /** Default constructor. */
     public MovieProductionCompanies() {
@@ -71,39 +71,39 @@ public class MovieProductionCompanies implements Serializable {
     }
 
     /**
-     * Access method for movieProdCoId.
+     * Access method for movieProductionCompanyId.
      *
-     * @return the current value of movieProdCoId
+     * @return the current value of movieProductionCompanyId
      */
-    public int getMovieProdCoId() {
-        return movieProdCoId;
+    public int getMovieProductionCompanyId() {
+        return movieProductionCompanyId;
     }
 
     /**
-     * Setter method for movieProdCoId.
+     * Setter method for movieProductionCompanyId.
      *
-     * @param aMovieProdCoId the new value for movieProdCoId
+     * @param aMovieProductionCompanyId the new value for movieProductionCompanyId
      */
-    public void setMovieProdCoId(int aMovieProdCoId) {
-        movieProdCoId = aMovieProdCoId;
+    public void setMovieProductionCompanyId(int aMovieProductionCompanyId) {
+        movieProductionCompanyId = aMovieProductionCompanyId;
     }
 
     /**
-     * Access method for movies.
+     * Access method for movie.
      *
-     * @return the current value of movies
+     * @return the current value of movie
      */
-    public Movies getMovies() {
-        return movies;
+    public Movies getMovie() {
+        return movie;
     }
 
     /**
-     * Setter method for movies.
+     * Setter method for movie.
      *
-     * @param aMovies the new value for movies
+     * @param aMovie the new value for movie
      */
-    public void setMovies(Movies aMovies) {
-        movies = aMovies;
+    public void setMovie(Movies aMovie) {
+        movie = aMovie;
     }
 
     /**
@@ -125,21 +125,21 @@ public class MovieProductionCompanies implements Serializable {
     }
 
     /**
-     * Access method for prodCoTypes.
+     * Access method for productionCompanyTypes.
      *
-     * @return the current value of prodCoTypes
+     * @return the current value of productionCompanyTypes
      */
-    public ProdCoTypes getProdCoTypes() {
-        return prodCoTypes;
+    public ProductionCompanyTypes getProductionCompanyTypes() {
+        return productionCompanyTypes;
     }
 
     /**
-     * Setter method for prodCoTypes.
+     * Setter method for productionCompanyTypes.
      *
-     * @param aProdCoTypes the new value for prodCoTypes
+     * @param aProductionCompanyTypes the new value for productionCompanyTypes
      */
-    public void setProdCoTypes(ProdCoTypes aProdCoTypes) {
-        prodCoTypes = aProdCoTypes;
+    public void setProductionCompanyTypes(ProductionCompanyTypes aProductionCompanyTypes) {
+        productionCompanyTypes = aProductionCompanyTypes;
     }
 
     /**
@@ -156,7 +156,7 @@ public class MovieProductionCompanies implements Serializable {
             return false;
         }
         MovieProductionCompanies that = (MovieProductionCompanies) other;
-        if (this.getMovieProdCoId() != that.getMovieProdCoId()) {
+        if (this.getMovieProductionCompanyId() != that.getMovieProductionCompanyId()) {
             return false;
         }
         return true;
@@ -183,7 +183,7 @@ public class MovieProductionCompanies implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getMovieProdCoId();
+        i = getMovieProductionCompanyId();
         result = 37*result + i;
         return result;
     }
@@ -196,7 +196,7 @@ public class MovieProductionCompanies implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[MovieProductionCompanies |");
-        sb.append(" movieProdCoId=").append(getMovieProdCoId());
+        sb.append(" movieProductionCompanyId=").append(getMovieProductionCompanyId());
         sb.append("]");
         return sb.toString();
     }
@@ -208,7 +208,7 @@ public class MovieProductionCompanies implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("movieProdCoId", Integer.valueOf(getMovieProdCoId()));
+        ret.put("movieProductionCompanyId", Integer.valueOf(getMovieProductionCompanyId()));
         return ret;
     }
 

@@ -60,7 +60,7 @@ public class UnlistedReasons implements Serializable {
     @Column(name="unlisted_reason_desc", length=100)
     private String unlistedReasonDesc;
     @OneToMany(mappedBy="unlistedReasons")
-    private Set<StoreInvHistory> storeInvHistory;
+    private Set<StoreInventoryHistory> storeInvHistory;
 
     /** Default constructor. */
     public UnlistedReasons() {
@@ -126,7 +126,7 @@ public class UnlistedReasons implements Serializable {
      *
      * @return the current value of storeInvHistory
      */
-    public Set<StoreInvHistory> getStoreInvHistory() {
+    public Set<StoreInventoryHistory> getStoreInvHistory() {
         return storeInvHistory;
     }
 
@@ -135,7 +135,7 @@ public class UnlistedReasons implements Serializable {
      *
      * @param aStoreInvHistory the new value for storeInvHistory
      */
-    public void setStoreInvHistory(Set<StoreInvHistory> aStoreInvHistory) {
+    public void setStoreInvHistory(Set<StoreInventoryHistory> aStoreInvHistory) {
         storeInvHistory = aStoreInvHistory;
     }
 

@@ -61,10 +61,10 @@ public class SiteMovies implements Serializable {
     private String siteMovieUrl;
     @ManyToOne(optional=false)
     @JoinColumn(name="movie_id", nullable=false)
-    private Movies movies;
+    private Movies movie;
     @ManyToOne(optional=false)
     @JoinColumn(name="site_id", nullable=false)
-    private Sites sites;
+    private Sites site;
 
     /** Default constructor. */
     public SiteMovies() {
@@ -126,39 +126,39 @@ public class SiteMovies implements Serializable {
     }
 
     /**
-     * Access method for movies.
+     * Access method for movie.
      *
-     * @return the current value of movies
+     * @return the current value of movie
      */
-    public Movies getMovies() {
-        return movies;
+    public Movies getMovie() {
+        return movie;
     }
 
     /**
-     * Setter method for movies.
+     * Setter method for movie.
      *
-     * @param aMovies the new value for movies
+     * @param aMovie the new value for movie
      */
-    public void setMovies(Movies aMovies) {
-        movies = aMovies;
+    public void setMovie(Movies aMovie) {
+        movie = aMovie;
     }
 
     /**
-     * Access method for sites.
+     * Access method for site.
      *
-     * @return the current value of sites
+     * @return the current value of site
      */
-    public Sites getSites() {
-        return sites;
+    public Sites getSite() {
+        return site;
     }
 
     /**
-     * Setter method for sites.
+     * Setter method for site.
      *
-     * @param aSites the new value for sites
+     * @param aSite the new value for site
      */
-    public void setSites(Sites aSites) {
-        sites = aSites;
+    public void setSite(Sites aSite) {
+        site = aSite;
     }
 
     /**

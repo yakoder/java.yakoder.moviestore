@@ -23,7 +23,7 @@ public class ReimbursementChecks implements Serializable {
 	private static final long serialVersionUID = -5020419411756924980L;
 
 	/** Primary key. */
-    protected static final String PK = "reimbDetailId";
+    protected static final String PK = "reimbursementDetailId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -52,21 +52,21 @@ public class ReimbursementChecks implements Serializable {
 
     @Id
     @Column(name="reimb_detail_id", unique=true, nullable=false, precision=10)
-    private int reimbDetailId;
+    private int reimbursementDetailId;
     @Column(length=100)
     private String memo;
     @Column(name="ck_number", length=100)
-    private String ckNumber;
+    private String checkNumber;
     @Column(name="ck_is_cancelled", nullable=false, length=3)
-    private boolean ckIsCancelled;
+    private boolean checkIsCancelled;
     @Column(name="ck_cx_date")
-    private LocalDate ckCxDate;
+    private LocalDate checkCancelledDate;
     @ManyToOne(optional=false)
     @JoinColumn(name="payee_id", nullable=false)
-    private TxnParties txnParties2;
+    private TransactionParties transactionPayee;
     @ManyToOne(optional=false)
     @JoinColumn(name="payor_id", nullable=false)
-    private TxnParties txnParties;
+    private TransactionParties transactionPayor;
 
     /** Default constructor. */
     public ReimbursementChecks() {
@@ -74,21 +74,21 @@ public class ReimbursementChecks implements Serializable {
     }
 
     /**
-     * Access method for reimbDetailId.
+     * Access method for reimbursementDetailId.
      *
-     * @return the current value of reimbDetailId
+     * @return the current value of reimbursementDetailId
      */
-    public int getReimbDetailId() {
-        return reimbDetailId;
+    public int getReimbursementDetailId() {
+        return reimbursementDetailId;
     }
 
     /**
-     * Setter method for reimbDetailId.
+     * Setter method for reimbursementDetailId.
      *
-     * @param aReimbDetailId the new value for reimbDetailId
+     * @param aReimbursementDetailId the new value for reimbursementDetailId
      */
-    public void setReimbDetailId(int aReimbDetailId) {
-        reimbDetailId = aReimbDetailId;
+    public void setReimbursementDetailId(int aReimbursementDetailId) {
+        reimbursementDetailId = aReimbursementDetailId;
     }
 
     /**
@@ -110,93 +110,93 @@ public class ReimbursementChecks implements Serializable {
     }
 
     /**
-     * Access method for ckNumber.
+     * Access method for checkNumber.
      *
-     * @return the current value of ckNumber
+     * @return the current value of checkNumber
      */
-    public String getCkNumber() {
-        return ckNumber;
+    public String getCheckNumber() {
+        return checkNumber;
     }
 
     /**
-     * Setter method for ckNumber.
+     * Setter method for checkNumber.
      *
-     * @param aCkNumber the new value for ckNumber
+     * @param aCheckNumber the new value for checkNumber
      */
-    public void setCkNumber(String aCkNumber) {
-        ckNumber = aCkNumber;
+    public void setCheckNumber(String aCheckNumber) {
+        checkNumber = aCheckNumber;
     }
 
     /**
-     * Access method for ckIsCancelled.
+     * Access method for checkIsCancelled.
      *
-     * @return true if and only if ckIsCancelled is currently true
+     * @return true if and only if checkIsCancelled is currently true
      */
-    public boolean isCkIsCancelled() {
-        return ckIsCancelled;
+    public boolean isCheckIsCancelled() {
+        return checkIsCancelled;
     }
 
     /**
-     * Setter method for ckIsCancelled.
+     * Setter method for checkIsCancelled.
      *
-     * @param aCkIsCancelled the new value for ckIsCancelled
+     * @param aCheckIsCancelled the new value for checkIsCancelled
      */
-    public void setCkIsCancelled(boolean aCkIsCancelled) {
-        ckIsCancelled = aCkIsCancelled;
+    public void setCheckIsCancelled(boolean aCheckIsCancelled) {
+        checkIsCancelled = aCheckIsCancelled;
     }
 
     /**
-     * Access method for ckCxDate.
+     * Access method for checkCancelledDate.
      *
-     * @return the current value of ckCxDate
+     * @return the current value of checkCancelledDate
      */
-    public LocalDate getCkCxDate() {
-        return ckCxDate;
+    public LocalDate getCheckCancelledDate() {
+        return checkCancelledDate;
     }
 
     /**
-     * Setter method for ckCxDate.
+     * Setter method for checkCancelledDate.
      *
-     * @param aCkCxDate the new value for ckCxDate
+     * @param aCheckCancelledDate the new value for checkCancelledDate
      */
-    public void setCkCxDate(LocalDate aCkCxDate) {
-        ckCxDate = aCkCxDate;
+    public void setCheckCancelledDate(LocalDate aCheckCancelledDate) {
+        checkCancelledDate = aCheckCancelledDate;
     }
 
     /**
-     * Access method for txnParties2.
+     * Access method for transactionPayee.
      *
-     * @return the current value of txnParties2
+     * @return the current value of transactionPayee
      */
-    public TxnParties getTxnParties2() {
-        return txnParties2;
+    public TransactionParties getTransactionPayee() {
+        return transactionPayee;
     }
 
     /**
-     * Setter method for txnParties2.
+     * Setter method for transactionPayee.
      *
-     * @param aTxnParties2 the new value for txnParties2
+     * @param aTransactionPayee the new value for transactionPayee
      */
-    public void setTxnParties2(TxnParties aTxnParties2) {
-        txnParties2 = aTxnParties2;
+    public void setTransactionPayee(TransactionParties aTransactionPayee) {
+        transactionPayee = aTransactionPayee;
     }
 
     /**
-     * Access method for txnParties.
+     * Access method for transactionPayor.
      *
-     * @return the current value of txnParties
+     * @return the current value of transactionPayor
      */
-    public TxnParties getTxnParties() {
-        return txnParties;
+    public TransactionParties getTransactionPayor() {
+        return transactionPayor;
     }
 
     /**
-     * Setter method for txnParties.
+     * Setter method for transactionPayor.
      *
-     * @param aTxnParties the new value for txnParties
+     * @param aTransactionPayor the new value for transactionPayor
      */
-    public void setTxnParties(TxnParties aTxnParties) {
-        txnParties = aTxnParties;
+    public void setTransactionPayor(TransactionParties aTransactionPayor) {
+        transactionPayor = aTransactionPayor;
     }
 
     /**
@@ -213,7 +213,7 @@ public class ReimbursementChecks implements Serializable {
             return false;
         }
         ReimbursementChecks that = (ReimbursementChecks) other;
-        if (this.getReimbDetailId() != that.getReimbDetailId()) {
+        if (this.getReimbursementDetailId() != that.getReimbursementDetailId()) {
             return false;
         }
         return true;
@@ -240,7 +240,7 @@ public class ReimbursementChecks implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getReimbDetailId();
+        i = getReimbursementDetailId();
         result = 37*result + i;
         return result;
     }
@@ -253,7 +253,7 @@ public class ReimbursementChecks implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[ReimbursementChecks |");
-        sb.append(" reimbDetailId=").append(getReimbDetailId());
+        sb.append(" reimbursementDetailId=").append(getReimbursementDetailId());
         sb.append("]");
         return sb.toString();
     }
@@ -265,7 +265,7 @@ public class ReimbursementChecks implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("reimbDetailId", Integer.valueOf(getReimbDetailId()));
+        ret.put("reimbursementDetailId", Integer.valueOf(getReimbursementDetailId()));
         return ret;
     }
 

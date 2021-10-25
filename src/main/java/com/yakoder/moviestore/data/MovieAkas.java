@@ -57,10 +57,10 @@ public class MovieAkas implements Serializable {
     private int movieAkaId;
     @ManyToOne(optional=false)
     @JoinColumn(name="aka_id", nullable=false)
-    private Movies movies2;
+    private Movies aka;
     @ManyToOne(optional=false)
     @JoinColumn(name="movie_id", nullable=false)
-    private Movies movies;
+    private Movies primary;
 
     /** Default constructor. */
     public MovieAkas() {
@@ -86,39 +86,39 @@ public class MovieAkas implements Serializable {
     }
 
     /**
-     * Access method for movies2.
+     * Access method for aka.
      *
-     * @return the current value of movies2
+     * @return the current value of aka
      */
-    public Movies getMovies2() {
-        return movies2;
+    public Movies getAka() {
+        return aka;
     }
 
     /**
-     * Setter method for movies2.
+     * Setter method for aka.
      *
-     * @param aMovies2 the new value for movies2
+     * @param aAka the new value for aka
      */
-    public void setMovies2(Movies aMovies2) {
-        movies2 = aMovies2;
+    public void setAka(Movies aAka) {
+        aka = aAka;
     }
 
     /**
-     * Access method for movies.
+     * Access method for primary.
      *
-     * @return the current value of movies
+     * @return the current value of primary
      */
-    public Movies getMovies() {
-        return movies;
+    public Movies getPrimary() {
+        return primary;
     }
 
     /**
-     * Setter method for movies.
+     * Setter method for primary.
      *
-     * @param aMovies the new value for movies
+     * @param aPrimary the new value for primary
      */
-    public void setMovies(Movies aMovies) {
-        movies = aMovies;
+    public void setPrimary(Movies aPrimary) {
+        primary = aPrimary;
     }
 
     /**

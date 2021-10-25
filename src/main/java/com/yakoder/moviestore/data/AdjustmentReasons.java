@@ -24,7 +24,7 @@ public class AdjustmentReasons implements Serializable {
 	private static final long serialVersionUID = 504690066534599794L;
 
 	/** Primary key. */
-    protected static final String PK = "adjRsnId";
+    protected static final String PK = "adjustmentReasonId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -54,11 +54,11 @@ public class AdjustmentReasons implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="adj_rsn_id", unique=true, nullable=false, precision=10)
-    private int adjRsnId;
+    private int adjustmentReasonId;
     @Column(name="adj_rsn_name", nullable=false, length=100)
-    private String adjRsnName;
+    private String adjustmentReasonName;
     @Column(name="adj_rsn_desc", length=255)
-    private String adjRsnDesc;
+    private String adjustmentReasonDesc;
     @OneToMany(mappedBy="adjustmentReasons")
     private Set<AdjustmentMovies> adjustmentMovies;
 
@@ -68,57 +68,57 @@ public class AdjustmentReasons implements Serializable {
     }
 
     /**
-     * Access method for adjRsnId.
+     * Access method for adjustmentReasonId.
      *
-     * @return the current value of adjRsnId
+     * @return the current value of adjustmentReasonId
      */
-    public int getAdjRsnId() {
-        return adjRsnId;
+    public int getAdjustmentReasonId() {
+        return adjustmentReasonId;
     }
 
     /**
-     * Setter method for adjRsnId.
+     * Setter method for adjustmentReasonId.
      *
-     * @param aAdjRsnId the new value for adjRsnId
+     * @param aAdjustmentReasonId the new value for adjustmentReasonId
      */
-    public void setAdjRsnId(int aAdjRsnId) {
-        adjRsnId = aAdjRsnId;
+    public void setAdjustmentReasonId(int aAdjustmentReasonId) {
+        adjustmentReasonId = aAdjustmentReasonId;
     }
 
     /**
-     * Access method for adjRsnName.
+     * Access method for adjustmentReasonName.
      *
-     * @return the current value of adjRsnName
+     * @return the current value of adjustmentReasonName
      */
-    public String getAdjRsnName() {
-        return adjRsnName;
+    public String getAdjustmentReasonName() {
+        return adjustmentReasonName;
     }
 
     /**
-     * Setter method for adjRsnName.
+     * Setter method for adjustmentReasonName.
      *
-     * @param aAdjRsnName the new value for adjRsnName
+     * @param aAdjustmentReasonName the new value for adjustmentReasonName
      */
-    public void setAdjRsnName(String aAdjRsnName) {
-        adjRsnName = aAdjRsnName;
+    public void setAdjustmentReasonName(String aAdjustmentReasonName) {
+        adjustmentReasonName = aAdjustmentReasonName;
     }
 
     /**
-     * Access method for adjRsnDesc.
+     * Access method for adjustmentReasonDesc.
      *
-     * @return the current value of adjRsnDesc
+     * @return the current value of adjustmentReasonDesc
      */
-    public String getAdjRsnDesc() {
-        return adjRsnDesc;
+    public String getAdjustmentReasonDesc() {
+        return adjustmentReasonDesc;
     }
 
     /**
-     * Setter method for adjRsnDesc.
+     * Setter method for adjustmentReasonDesc.
      *
-     * @param aAdjRsnDesc the new value for adjRsnDesc
+     * @param aAdjustmentReasonDesc the new value for adjustmentReasonDesc
      */
-    public void setAdjRsnDesc(String aAdjRsnDesc) {
-        adjRsnDesc = aAdjRsnDesc;
+    public void setAdjustmentReasonDesc(String aAdjustmentReasonDesc) {
+        adjustmentReasonDesc = aAdjustmentReasonDesc;
     }
 
     /**
@@ -153,7 +153,7 @@ public class AdjustmentReasons implements Serializable {
             return false;
         }
         AdjustmentReasons that = (AdjustmentReasons) other;
-        if (this.getAdjRsnId() != that.getAdjRsnId()) {
+        if (this.getAdjustmentReasonId() != that.getAdjustmentReasonId()) {
             return false;
         }
         return true;
@@ -180,7 +180,7 @@ public class AdjustmentReasons implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getAdjRsnId();
+        i = getAdjustmentReasonId();
         result = 37*result + i;
         return result;
     }
@@ -193,7 +193,7 @@ public class AdjustmentReasons implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[AdjustmentReasons |");
-        sb.append(" adjRsnId=").append(getAdjRsnId());
+        sb.append(" adjustmentReasonId=").append(getAdjustmentReasonId());
         sb.append("]");
         return sb.toString();
     }
@@ -205,7 +205,7 @@ public class AdjustmentReasons implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("adjRsnId", Integer.valueOf(getAdjRsnId()));
+        ret.put("adjustmentReasonId", Integer.valueOf(getAdjustmentReasonId()));
         return ret;
     }
 

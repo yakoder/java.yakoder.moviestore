@@ -24,7 +24,7 @@ public class ReimbursementOnline implements Serializable {
 	private static final long serialVersionUID = 3286212208684702383L;
 
 	/** Primary key. */
-    protected static final String PK = "reimbDetailId";
+    protected static final String PK = "reimbursementDetailId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -53,16 +53,16 @@ public class ReimbursementOnline implements Serializable {
 
     @Id
     @Column(name="reimb_detail_id", unique=true, nullable=false, precision=10)
-    private int reimbDetailId;
+    private int reimbursementDetailId;
     @ManyToOne(optional=false)
     @JoinColumn(name="ol_pymt_site_id", nullable=false)
-    private OnlinePymtSites onlinePymtSites;
+    private OnlinePaymentSites onlinePaymentSites;
     @ManyToOne(optional=false)
     @JoinColumn(name="payee_id", nullable=false)
-    private TxnParties txnParties2;
+    private TransactionParties transactionPayee;
     @ManyToOne(optional=false)
     @JoinColumn(name="payor_id", nullable=false)
-    private TxnParties txnParties;
+    private TransactionParties transactionPayor;
     @OneToMany(mappedBy="reimbOnline")
     private Set<Reimbursements> reimbursements;
 
@@ -72,75 +72,75 @@ public class ReimbursementOnline implements Serializable {
     }
 
     /**
-     * Access method for reimbDetailId.
+     * Access method for reimbursementDetailId.
      *
-     * @return the current value of reimbDetailId
+     * @return the current value of reimbursementDetailId
      */
-    public int getReimbDetailId() {
-        return reimbDetailId;
+    public int getReimbursementDetailId() {
+        return reimbursementDetailId;
     }
 
     /**
-     * Setter method for reimbDetailId.
+     * Setter method for reimbursementDetailId.
      *
-     * @param aReimbDetailId the new value for reimbDetailId
+     * @param aReimbursementDetailId the new value for reimbursementDetailId
      */
-    public void setReimbDetailId(int aReimbDetailId) {
-        reimbDetailId = aReimbDetailId;
+    public void setReimbursementDetailId(int aReimbursementDetailId) {
+        reimbursementDetailId = aReimbursementDetailId;
     }
 
     /**
-     * Access method for onlinePymtSites.
+     * Access method for onlinePaymentSites.
      *
-     * @return the current value of onlinePymtSites
+     * @return the current value of onlinePaymentSites
      */
-    public OnlinePymtSites getOnlinePymtSites() {
-        return onlinePymtSites;
+    public OnlinePaymentSites getOnlinePaymentSites() {
+        return onlinePaymentSites;
     }
 
     /**
-     * Setter method for onlinePymtSites.
+     * Setter method for onlinePaymentSites.
      *
-     * @param aOnlinePymtSites the new value for onlinePymtSites
+     * @param aOnlinePaymentSites the new value for onlinePaymentSites
      */
-    public void setOnlinePymtSites(OnlinePymtSites aOnlinePymtSites) {
-        onlinePymtSites = aOnlinePymtSites;
+    public void setOnlinePaymentSites(OnlinePaymentSites aOnlinePaymentSites) {
+        onlinePaymentSites = aOnlinePaymentSites;
     }
 
     /**
-     * Access method for txnParties2.
+     * Access method for transactionPayee.
      *
-     * @return the current value of txnParties2
+     * @return the current value of transactionPayee
      */
-    public TxnParties getTxnParties2() {
-        return txnParties2;
+    public TransactionParties getTransactionPayee() {
+        return transactionPayee;
     }
 
     /**
-     * Setter method for txnParties2.
+     * Setter method for transactionPayee.
      *
-     * @param aTxnParties2 the new value for txnParties2
+     * @param aTransactionPayee the new value for transactionPayee
      */
-    public void setTxnParties2(TxnParties aTxnParties2) {
-        txnParties2 = aTxnParties2;
+    public void setTransactionPayee(TransactionParties aTransactionPayee) {
+        transactionPayee = aTransactionPayee;
     }
 
     /**
-     * Access method for txnParties.
+     * Access method for transactionPayor.
      *
-     * @return the current value of txnParties
+     * @return the current value of transactionPayor
      */
-    public TxnParties getTxnParties() {
-        return txnParties;
+    public TransactionParties getTransactionPayor() {
+        return transactionPayor;
     }
 
     /**
-     * Setter method for txnParties.
+     * Setter method for transactionPayor.
      *
-     * @param aTxnParties the new value for txnParties
+     * @param aTransactionPayor the new value for transactionPayor
      */
-    public void setTxnParties(TxnParties aTxnParties) {
-        txnParties = aTxnParties;
+    public void setTransactionPayor(TransactionParties aTransactionPayor) {
+        transactionPayor = aTransactionPayor;
     }
 
     /**
@@ -175,7 +175,7 @@ public class ReimbursementOnline implements Serializable {
             return false;
         }
         ReimbursementOnline that = (ReimbursementOnline) other;
-        if (this.getReimbDetailId() != that.getReimbDetailId()) {
+        if (this.getReimbursementDetailId() != that.getReimbursementDetailId()) {
             return false;
         }
         return true;
@@ -202,7 +202,7 @@ public class ReimbursementOnline implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getReimbDetailId();
+        i = getReimbursementDetailId();
         result = 37*result + i;
         return result;
     }
@@ -215,7 +215,7 @@ public class ReimbursementOnline implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[ReimbursementOnline |");
-        sb.append(" reimbDetailId=").append(getReimbDetailId());
+        sb.append(" reimbursementDetailId=").append(getReimbursementDetailId());
         sb.append("]");
         return sb.toString();
     }
@@ -227,7 +227,7 @@ public class ReimbursementOnline implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("reimbDetailId", Integer.valueOf(getReimbDetailId()));
+        ret.put("reimbursementDetailId", Integer.valueOf(getReimbursementDetailId()));
         return ret;
     }
 

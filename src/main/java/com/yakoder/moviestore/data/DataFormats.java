@@ -27,7 +27,7 @@ public class DataFormats implements Serializable {
 	private static final long serialVersionUID = 5774368463908875420L;
 
 	/** Primary key. */
-    protected static final String PK = "dataFmtId";
+    protected static final String PK = "dataFormatId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -57,13 +57,13 @@ public class DataFormats implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="data_fmt_id", unique=true, nullable=false, precision=10)
-    private int dataFmtId;
+    private int dataFormatId;
     @Column(name="data_fmt_name", nullable=false, length=100)
-    private String dataFmtName;
+    private String dataFormatName;
     @Column(name="data_fmt_desc", length=255)
-    private String dataFmtDesc;
+    private String dataFormatDesc;
     @Column(name="data_fmt_parser", length=255)
-    private String dataFmtParser;
+    private String dataFormatParser;
     @OneToMany(mappedBy="dataFormats")
     private Set<Apis> apis;
 
@@ -73,75 +73,75 @@ public class DataFormats implements Serializable {
     }
 
     /**
-     * Access method for dataFmtId.
+     * Access method for dataFormatId.
      *
-     * @return the current value of dataFmtId
+     * @return the current value of dataFormatId
      */
-    public int getDataFmtId() {
-        return dataFmtId;
+    public int getDataFormatId() {
+        return dataFormatId;
     }
 
     /**
-     * Setter method for dataFmtId.
+     * Setter method for dataFormatId.
      *
-     * @param aDataFmtId the new value for dataFmtId
+     * @param aDataFormatId the new value for dataFormatId
      */
-    public void setDataFmtId(int aDataFmtId) {
-        dataFmtId = aDataFmtId;
+    public void setDataFormatId(int aDataFormatId) {
+        dataFormatId = aDataFormatId;
     }
 
     /**
-     * Access method for dataFmtName.
+     * Access method for dataFormatName.
      *
-     * @return the current value of dataFmtName
+     * @return the current value of dataFormatName
      */
-    public String getDataFmtName() {
-        return dataFmtName;
+    public String getDataFormatName() {
+        return dataFormatName;
     }
 
     /**
-     * Setter method for dataFmtName.
+     * Setter method for dataFormatName.
      *
-     * @param aDataFmtName the new value for dataFmtName
+     * @param aDataFormatName the new value for dataFormatName
      */
-    public void setDataFmtName(String aDataFmtName) {
-        dataFmtName = aDataFmtName;
+    public void setDataFormatName(String aDataFormatName) {
+        dataFormatName = aDataFormatName;
     }
 
     /**
-     * Access method for dataFmtDesc.
+     * Access method for dataFormatDesc.
      *
-     * @return the current value of dataFmtDesc
+     * @return the current value of dataFormatDesc
      */
-    public String getDataFmtDesc() {
-        return dataFmtDesc;
+    public String getDataFormatDesc() {
+        return dataFormatDesc;
     }
 
     /**
-     * Setter method for dataFmtDesc.
+     * Setter method for dataFormatDesc.
      *
-     * @param aDataFmtDesc the new value for dataFmtDesc
+     * @param aDataFormatDesc the new value for dataFormatDesc
      */
-    public void setDataFmtDesc(String aDataFmtDesc) {
-        dataFmtDesc = aDataFmtDesc;
+    public void setDataFormatDesc(String aDataFormatDesc) {
+        dataFormatDesc = aDataFormatDesc;
     }
 
     /**
-     * Access method for dataFmtParser.
+     * Access method for dataFormatParser.
      *
-     * @return the current value of dataFmtParser
+     * @return the current value of dataFormatParser
      */
-    public String getDataFmtParser() {
-        return dataFmtParser;
+    public String getDataFormatParser() {
+        return dataFormatParser;
     }
 
     /**
-     * Setter method for dataFmtParser.
+     * Setter method for dataFormatParser.
      *
-     * @param aDataFmtParser the new value for dataFmtParser
+     * @param aDataFormatParser the new value for dataFormatParser
      */
-    public void setDataFmtParser(String aDataFmtParser) {
-        dataFmtParser = aDataFmtParser;
+    public void setDataFormatParser(String aDataFormatParser) {
+        dataFormatParser = aDataFormatParser;
     }
 
     /**
@@ -176,7 +176,7 @@ public class DataFormats implements Serializable {
             return false;
         }
         DataFormats that = (DataFormats) other;
-        if (this.getDataFmtId() != that.getDataFmtId()) {
+        if (this.getDataFormatId() != that.getDataFormatId()) {
             return false;
         }
         return true;
@@ -203,7 +203,7 @@ public class DataFormats implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getDataFmtId();
+        i = getDataFormatId();
         result = 37*result + i;
         return result;
     }
@@ -216,7 +216,7 @@ public class DataFormats implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[DataFormats |");
-        sb.append(" dataFmtId=").append(getDataFmtId());
+        sb.append(" dataFormatId=").append(getDataFormatId());
         sb.append("]");
         return sb.toString();
     }
@@ -228,7 +228,7 @@ public class DataFormats implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("dataFmtId", Integer.valueOf(getDataFmtId()));
+        ret.put("dataFormatId", Integer.valueOf(getDataFormatId()));
         return ret;
     }
 

@@ -68,7 +68,7 @@ public class MovieCrew implements Serializable {
     private CrewTypes crewTypes;
     @ManyToOne(optional=false)
     @JoinColumn(name="movie_id", nullable=false)
-    private Movies movies;
+    private Movies movie;
 
     /** Default constructor. */
     public MovieCrew() {
@@ -148,21 +148,21 @@ public class MovieCrew implements Serializable {
     }
 
     /**
-     * Access method for movies.
+     * Access method for movie.
      *
-     * @return the current value of movies
+     * @return the current value of movie
      */
-    public Movies getMovies() {
-        return movies;
+    public Movies getMovie() {
+        return movie;
     }
 
     /**
-     * Setter method for movies.
+     * Setter method for movie.
      *
-     * @param aMovies the new value for movies
+     * @param aMovie the new value for movie
      */
-    public void setMovies(Movies aMovies) {
-        movies = aMovies;
+    public void setMovie(Movies aMovie) {
+        movie = aMovie;
     }
 
     /**
@@ -216,7 +216,7 @@ public class MovieCrew implements Serializable {
      * @see Movies
      */
     public int getMoviesMovieId() {
-        return (getMovies() == null ? null : getMovies().getMovieId());
+        return (getMovie() == null ? null : getMovie().getMovieId());
     }
 
     /**
@@ -226,8 +226,8 @@ public class MovieCrew implements Serializable {
      * @see Movies
      */
     public void setMoviesMovieId(int aMovieId) {
-        if (getMovies() != null) {
-            getMovies().setMovieId(aMovieId);
+        if (getMovie() != null) {
+            getMovie().setMovieId(aMovieId);
         }
     }
 

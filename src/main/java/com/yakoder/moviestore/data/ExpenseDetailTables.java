@@ -25,7 +25,7 @@ public class ExpenseDetailTables implements Serializable {
 	private static final long serialVersionUID = -1569875507047152853L;
 
 	/** Primary key. */
-    protected static final String PK = "expDetailTableId";
+    protected static final String PK = "expenseDetailTableId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -55,9 +55,9 @@ public class ExpenseDetailTables implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="exp_detail_table_id", unique=true, nullable=false, precision=10)
-    private int expDetailTableId;
+    private int expenseDetailTableId;
     @Column(name="exp_detail_table_name", unique=true, nullable=false, length=100)
-    private String expDetailTableName;
+    private String expenseDetailTableName;
 
     /** Default constructor. */
     public ExpenseDetailTables() {
@@ -65,39 +65,39 @@ public class ExpenseDetailTables implements Serializable {
     }
 
     /**
-     * Access method for expDetailTableId.
+     * Access method for expenseDetailTableId.
      *
-     * @return the current value of expDetailTableId
+     * @return the current value of expenseDetailTableId
      */
-    public int getExpDetailTableId() {
-        return expDetailTableId;
+    public int getExpenseDetailTableId() {
+        return expenseDetailTableId;
     }
 
     /**
-     * Setter method for expDetailTableId.
+     * Setter method for expenseDetailTableId.
      *
-     * @param aExpDetailTableId the new value for expDetailTableId
+     * @param aExpenseDetailTableId the new value for expenseDetailTableId
      */
-    public void setExpDetailTableId(int aExpDetailTableId) {
-        expDetailTableId = aExpDetailTableId;
+    public void setExpenseDetailTableId(int aExpenseDetailTableId) {
+        expenseDetailTableId = aExpenseDetailTableId;
     }
 
     /**
-     * Access method for expDetailTableName.
+     * Access method for expenseDetailTableName.
      *
-     * @return the current value of expDetailTableName
+     * @return the current value of expenseDetailTableName
      */
-    public String getExpDetailTableName() {
-        return expDetailTableName;
+    public String getExpenseDetailTableName() {
+        return expenseDetailTableName;
     }
 
     /**
-     * Setter method for expDetailTableName.
+     * Setter method for expenseDetailTableName.
      *
-     * @param aExpDetailTableName the new value for expDetailTableName
+     * @param aExpenseDetailTableName the new value for expenseDetailTableName
      */
-    public void setExpDetailTableName(String aExpDetailTableName) {
-        expDetailTableName = aExpDetailTableName;
+    public void setExpenseDetailTableName(String aExpenseDetailTableName) {
+        expenseDetailTableName = aExpenseDetailTableName;
     }
 
     /**
@@ -114,7 +114,7 @@ public class ExpenseDetailTables implements Serializable {
             return false;
         }
         ExpenseDetailTables that = (ExpenseDetailTables) other;
-        if (this.getExpDetailTableId() != that.getExpDetailTableId()) {
+        if (this.getExpenseDetailTableId() != that.getExpenseDetailTableId()) {
             return false;
         }
         return true;
@@ -141,7 +141,7 @@ public class ExpenseDetailTables implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getExpDetailTableId();
+        i = getExpenseDetailTableId();
         result = 37*result + i;
         return result;
     }
@@ -154,7 +154,7 @@ public class ExpenseDetailTables implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[ExpenseDetailTables |");
-        sb.append(" expDetailTableId=").append(getExpDetailTableId());
+        sb.append(" expenseDetailTableId=").append(getExpenseDetailTableId());
         sb.append("]");
         return sb.toString();
     }
@@ -166,7 +166,7 @@ public class ExpenseDetailTables implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("expDetailTableId", Integer.valueOf(getExpDetailTableId()));
+        ret.put("expenseDetailTableId", Integer.valueOf(getExpenseDetailTableId()));
         return ret;
     }
 

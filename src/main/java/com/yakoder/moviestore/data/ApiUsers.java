@@ -27,7 +27,7 @@ public class ApiUsers implements Serializable {
 	private static final long serialVersionUID = -8573510360043835132L;
 
 	/** Primary key. */
-    protected static final String PK = "apiUsrId";
+    protected static final String PK = "apiUserId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -57,11 +57,11 @@ public class ApiUsers implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="api_usr_id", unique=true, nullable=false, precision=10)
-    private int apiUsrId;
+    private int apiUserId;
     @Column(name="api_usr_username", nullable=false, length=100)
-    private String apiUsrUsername;
+    private String apiUserUsername;
     @Column(name="api_usr_email", length=255)
-    private String apiUsrEmail;
+    private String apiUserEmail;
     @Column(name="is_enabled", nullable=false, length=3)
     private boolean isEnabled;
     @ManyToOne(optional=false)
@@ -74,57 +74,57 @@ public class ApiUsers implements Serializable {
     }
 
     /**
-     * Access method for apiUsrId.
+     * Access method for apiUserId.
      *
-     * @return the current value of apiUsrId
+     * @return the current value of apiUserId
      */
-    public int getApiUsrId() {
-        return apiUsrId;
+    public int getApiUserId() {
+        return apiUserId;
     }
 
     /**
-     * Setter method for apiUsrId.
+     * Setter method for apiUserId.
      *
-     * @param aApiUsrId the new value for apiUsrId
+     * @param aApiUserId the new value for apiUserId
      */
-    public void setApiUsrId(int aApiUsrId) {
-        apiUsrId = aApiUsrId;
+    public void setApiUserId(int aApiUserId) {
+        apiUserId = aApiUserId;
     }
 
     /**
-     * Access method for apiUsrUsername.
+     * Access method for apiUserUsername.
      *
-     * @return the current value of apiUsrUsername
+     * @return the current value of apiUserUsername
      */
-    public String getApiUsrUsername() {
-        return apiUsrUsername;
+    public String getApiUserUsername() {
+        return apiUserUsername;
     }
 
     /**
-     * Setter method for apiUsrUsername.
+     * Setter method for apiUserUsername.
      *
-     * @param aApiUsrUsername the new value for apiUsrUsername
+     * @param aApiUserUsername the new value for apiUserUsername
      */
-    public void setApiUsrUsername(String aApiUsrUsername) {
-        apiUsrUsername = aApiUsrUsername;
+    public void setApiUserUsername(String aApiUserUsername) {
+        apiUserUsername = aApiUserUsername;
     }
 
     /**
-     * Access method for apiUsrEmail.
+     * Access method for apiUserEmail.
      *
-     * @return the current value of apiUsrEmail
+     * @return the current value of apiUserEmail
      */
-    public String getApiUsrEmail() {
-        return apiUsrEmail;
+    public String getApiUserEmail() {
+        return apiUserEmail;
     }
 
     /**
-     * Setter method for apiUsrEmail.
+     * Setter method for apiUserEmail.
      *
-     * @param aApiUsrEmail the new value for apiUsrEmail
+     * @param aApiUserEmail the new value for apiUserEmail
      */
-    public void setApiUsrEmail(String aApiUsrEmail) {
-        apiUsrEmail = aApiUsrEmail;
+    public void setApiUserEmail(String aApiUserEmail) {
+        apiUserEmail = aApiUserEmail;
     }
 
     /**
@@ -199,7 +199,7 @@ public class ApiUsers implements Serializable {
             return false;
         }
         ApiUsers that = (ApiUsers) other;
-        if (this.getApiUsrId() != that.getApiUsrId()) {
+        if (this.getApiUserId() != that.getApiUserId()) {
             return false;
         }
         return true;
@@ -226,7 +226,7 @@ public class ApiUsers implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getApiUsrId();
+        i = getApiUserId();
         result = 37*result + i;
         return result;
     }
@@ -239,7 +239,7 @@ public class ApiUsers implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[ApiUsers |");
-        sb.append(" apiUsrId=").append(getApiUsrId());
+        sb.append(" apiUserId=").append(getApiUserId());
         sb.append("]");
         return sb.toString();
     }
@@ -251,7 +251,7 @@ public class ApiUsers implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("apiUsrId", Integer.valueOf(getApiUsrId()));
+        ret.put("apiUserId", Integer.valueOf(getApiUserId()));
         return ret;
     }
 

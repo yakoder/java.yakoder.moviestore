@@ -26,7 +26,7 @@ public class Inventory implements Serializable {
 	private static final long serialVersionUID = 4657528220177311161L;
 
 	/** Primary key. */
-    protected static final String PK = "invId";
+    protected static final String PK = "inventoryId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -56,7 +56,7 @@ public class Inventory implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="inv_id", unique=true, nullable=false, precision=10)
-    private int invId;
+    private int inventoryId;
     @Column(length=255)
     private String notes;
     @Column(nullable=false, precision=10)
@@ -64,15 +64,15 @@ public class Inventory implements Serializable {
     @Column(name="for_sale", nullable=false, length=3)
     private boolean forSale;
     @Column(name="num_discs", nullable=false, precision=10)
-    private int numDiscs;
+    private int numberOfDiscs;
     @Column(name="have_case_art", nullable=false, length=3)
-    private boolean haveCaseArt;
+    private boolean haveCaseAndArt;
     @Column(name="is_dual_sided", nullable=false, length=3)
     private boolean isDualSided;
     @OneToMany(mappedBy="inventory")
     private Set<ExternalIds> externalIds;
     @OneToMany(mappedBy="inventory")
-    private Set<InvDigitization> invDigitization;
+    private Set<InventoryDigitization> inventoryDigitization;
     @ManyToOne
     @JoinColumn(name="cond_id")
     private Conditions conditions;
@@ -90,21 +90,21 @@ public class Inventory implements Serializable {
     }
 
     /**
-     * Access method for invId.
+     * Access method for inventoryId.
      *
-     * @return the current value of invId
+     * @return the current value of inventoryId
      */
-    public int getInvId() {
-        return invId;
+    public int getInventoryId() {
+        return inventoryId;
     }
 
     /**
-     * Setter method for invId.
+     * Setter method for inventoryId.
      *
-     * @param aInvId the new value for invId
+     * @param aInventoryId the new value for inventoryId
      */
-    public void setInvId(int aInvId) {
-        invId = aInvId;
+    public void setInventoryId(int aInventoryId) {
+        inventoryId = aInventoryId;
     }
 
     /**
@@ -162,39 +162,39 @@ public class Inventory implements Serializable {
     }
 
     /**
-     * Access method for numDiscs.
+     * Access method for numberOfDiscs.
      *
-     * @return the current value of numDiscs
+     * @return the current value of numberOfDiscs
      */
-    public int getNumDiscs() {
-        return numDiscs;
+    public int getNumberOfDiscs() {
+        return numberOfDiscs;
     }
 
     /**
-     * Setter method for numDiscs.
+     * Setter method for numberOfDiscs.
      *
-     * @param aNumDiscs the new value for numDiscs
+     * @param aNumberOfDiscs the new value for numberOfDiscs
      */
-    public void setNumDiscs(int aNumDiscs) {
-        numDiscs = aNumDiscs;
+    public void setNumberOfDiscs(int aNumberOfDiscs) {
+        numberOfDiscs = aNumberOfDiscs;
     }
 
     /**
-     * Access method for haveCaseArt.
+     * Access method for haveCaseAndArt.
      *
-     * @return true if and only if haveCaseArt is currently true
+     * @return true if and only if haveCaseAndArt is currently true
      */
-    public boolean isHaveCaseArt() {
-        return haveCaseArt;
+    public boolean isHaveCaseAndArt() {
+        return haveCaseAndArt;
     }
 
     /**
-     * Setter method for haveCaseArt.
+     * Setter method for haveCaseAndArt.
      *
-     * @param aHaveCaseArt the new value for haveCaseArt
+     * @param aHaveCaseAndArt the new value for haveCaseAndArt
      */
-    public void setHaveCaseArt(boolean aHaveCaseArt) {
-        haveCaseArt = aHaveCaseArt;
+    public void setHaveCaseAndArt(boolean aHaveCaseAndArt) {
+        haveCaseAndArt = aHaveCaseAndArt;
     }
 
     /**
@@ -234,21 +234,21 @@ public class Inventory implements Serializable {
     }
 
     /**
-     * Access method for invDigitization.
+     * Access method for inventoryDigitization.
      *
-     * @return the current value of invDigitization
+     * @return the current value of inventoryDigitization
      */
-    public Set<InvDigitization> getInvDigitization() {
-        return invDigitization;
+    public Set<InventoryDigitization> getInventoryDigitization() {
+        return inventoryDigitization;
     }
 
     /**
-     * Setter method for invDigitization.
+     * Setter method for inventoryDigitization.
      *
-     * @param aInvDigitization the new value for invDigitization
+     * @param aInventoryDigitization the new value for inventoryDigitization
      */
-    public void setInvDigitization(Set<InvDigitization> aInvDigitization) {
-        invDigitization = aInvDigitization;
+    public void setInventoryDigitization(Set<InventoryDigitization> aInventoryDigitization) {
+        inventoryDigitization = aInventoryDigitization;
     }
 
     /**
@@ -337,7 +337,7 @@ public class Inventory implements Serializable {
             return false;
         }
         Inventory that = (Inventory) other;
-        if (this.getInvId() != that.getInvId()) {
+        if (this.getInventoryId() != that.getInventoryId()) {
             return false;
         }
         return true;
@@ -364,7 +364,7 @@ public class Inventory implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getInvId();
+        i = getInventoryId();
         result = 37*result + i;
         return result;
     }
@@ -377,7 +377,7 @@ public class Inventory implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[Inventory |");
-        sb.append(" invId=").append(getInvId());
+        sb.append(" inventoryId=").append(getInventoryId());
         sb.append("]");
         return sb.toString();
     }
@@ -389,7 +389,7 @@ public class Inventory implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("invId", Integer.valueOf(getInvId()));
+        ret.put("inventoryId", Integer.valueOf(getInventoryId()));
         return ret;
     }
 

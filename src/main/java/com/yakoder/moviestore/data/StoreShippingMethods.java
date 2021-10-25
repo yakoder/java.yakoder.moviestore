@@ -27,7 +27,7 @@ public class StoreShippingMethods implements Serializable {
 	private static final long serialVersionUID = -2747623458933375440L;
 
 	/** Primary key. */
-    protected static final String PK = "storeShipMethId";
+    protected static final String PK = "storeShippingMethodId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -57,7 +57,7 @@ public class StoreShippingMethods implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="store_ship_meth_id", unique=true, nullable=false, precision=10)
-    private int storeShipMethId;
+    private int storeShippingMethodId;
     @ManyToOne(optional=false)
     @JoinColumn(name="ship_meth_id", nullable=false)
     private ShippingMethods shippingMethods;
@@ -71,21 +71,21 @@ public class StoreShippingMethods implements Serializable {
     }
 
     /**
-     * Access method for storeShipMethId.
+     * Access method for storeShippingMethodId.
      *
-     * @return the current value of storeShipMethId
+     * @return the current value of storeShippingMethodId
      */
-    public int getStoreShipMethId() {
-        return storeShipMethId;
+    public int getStoreShippingMethodId() {
+        return storeShippingMethodId;
     }
 
     /**
-     * Setter method for storeShipMethId.
+     * Setter method for storeShippingMethodId.
      *
-     * @param aStoreShipMethId the new value for storeShipMethId
+     * @param aStoreShippingMethodId the new value for storeShippingMethodId
      */
-    public void setStoreShipMethId(int aStoreShipMethId) {
-        storeShipMethId = aStoreShipMethId;
+    public void setStoreShippingMethodId(int aStoreShippingMethodId) {
+        storeShippingMethodId = aStoreShippingMethodId;
     }
 
     /**
@@ -131,7 +131,7 @@ public class StoreShippingMethods implements Serializable {
      * @see StoreShipping
      */
     public int getStoreShippingStoreShipId() {
-        return (getStoreShipping() == null ? null : getStoreShipping().getStoreShipId());
+        return (getStoreShipping() == null ? null : getStoreShipping().getStoreShippingId());
     }
 
     /**
@@ -142,7 +142,7 @@ public class StoreShippingMethods implements Serializable {
      */
     public void setStoreShippingStoreShipId(int aStoreShipId) {
         if (getStoreShipping() != null) {
-            getStoreShipping().setStoreShipId(aStoreShipId);
+            getStoreShipping().setStoreShippingId(aStoreShipId);
         }
     }
 
@@ -153,7 +153,7 @@ public class StoreShippingMethods implements Serializable {
      * @see ShippingMethods
      */
     public int getShippingMethodsShipMethId() {
-        return (getShippingMethods() == null ? null : getShippingMethods().getShipMethId());
+        return (getShippingMethods() == null ? null : getShippingMethods().getShippingMethodId());
     }
 
     /**
@@ -164,7 +164,7 @@ public class StoreShippingMethods implements Serializable {
      */
     public void setShippingMethodsShipMethId(int aShipMethId) {
         if (getShippingMethods() != null) {
-            getShippingMethods().setShipMethId(aShipMethId);
+            getShippingMethods().setShippingMethodId(aShipMethId);
         }
     }
 
@@ -182,7 +182,7 @@ public class StoreShippingMethods implements Serializable {
             return false;
         }
         StoreShippingMethods that = (StoreShippingMethods) other;
-        if (this.getStoreShipMethId() != that.getStoreShipMethId()) {
+        if (this.getStoreShippingMethodId() != that.getStoreShippingMethodId()) {
             return false;
         }
         return true;
@@ -209,7 +209,7 @@ public class StoreShippingMethods implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getStoreShipMethId();
+        i = getStoreShippingMethodId();
         result = 37*result + i;
         return result;
     }
@@ -222,7 +222,7 @@ public class StoreShippingMethods implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[StoreShippingMethods |");
-        sb.append(" storeShipMethId=").append(getStoreShipMethId());
+        sb.append(" storeShippingMethodId=").append(getStoreShippingMethodId());
         sb.append("]");
         return sb.toString();
     }
@@ -234,7 +234,7 @@ public class StoreShippingMethods implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("storeShipMethId", Integer.valueOf(getStoreShipMethId()));
+        ret.put("storeShippingMethodId", Integer.valueOf(getStoreShippingMethodId()));
         return ret;
     }
 

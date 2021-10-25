@@ -60,7 +60,7 @@ public class SupplyTypes implements Serializable {
     @Column(name="supply_type_desc", length=255)
     private String supplyTypeDesc;
     @OneToMany(mappedBy="supplyTypes")
-    private Set<ExpSupplies> expSupplies;
+    private Set<ExpenseSupplies> expenseSupplies;
 
     /** Default constructor. */
     public SupplyTypes() {
@@ -122,21 +122,21 @@ public class SupplyTypes implements Serializable {
     }
 
     /**
-     * Access method for expSupplies.
+     * Access method for expenseSupplies.
      *
-     * @return the current value of expSupplies
+     * @return the current value of expenseSupplies
      */
-    public Set<ExpSupplies> getExpSupplies() {
-        return expSupplies;
+    public Set<ExpenseSupplies> getExpenseSupplies() {
+        return expenseSupplies;
     }
 
     /**
-     * Setter method for expSupplies.
+     * Setter method for expenseSupplies.
      *
-     * @param aExpSupplies the new value for expSupplies
+     * @param aExpenseSupplies the new value for expenseSupplies
      */
-    public void setExpSupplies(Set<ExpSupplies> aExpSupplies) {
-        expSupplies = aExpSupplies;
+    public void setExpenseSupplies(Set<ExpenseSupplies> aExpenseSupplies) {
+        expenseSupplies = aExpenseSupplies;
     }
 
     /**

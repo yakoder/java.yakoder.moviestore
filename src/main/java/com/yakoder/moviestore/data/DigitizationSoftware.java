@@ -27,7 +27,7 @@ public class DigitizationSoftware implements Serializable {
 	private static final long serialVersionUID = -2913187139036570641L;
 
 	/** Primary key. */
-    protected static final String PK = "digitSwId";
+    protected static final String PK = "digitizationSoftwareId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -57,25 +57,25 @@ public class DigitizationSoftware implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="digit_sw_id", unique=true, nullable=false, precision=10)
-    private int digitSwId;
+    private int digitizationSoftwareId;
     @Column(name="digit_sw_name", nullable=false, length=100)
-    private String digitSwName;
+    private String digitizationSoftwareName;
     @Column(name="digit_sw_desc", length=255)
-    private String digitSwDesc;
+    private String digitizationSoftwareDesc;
     @Column(name="digit_sw_version", length=100)
-    private String digitSwVersion;
+    private String digitizationSoftwareVersion;
     @Column(name="digit_sw_is_enabled", nullable=false, length=3)
-    private boolean digitSwIsEnabled;
+    private boolean digitizationSoftwareIsEnabled;
     @Column(name="digit_sw_config")
-    private byte[] digitSwConfig;
+    private byte[] digitizationSoftwareConfig;
     @Column(name="digit_sw_preset")
-    private byte[] digitSwPreset;
+    private byte[] digitizationSoftwarePreset;
     @Column(name="digit_sw_config_filename", length=100)
-    private String digitSwConfigFilename;
+    private String digitizationSoftwareConfigFilename;
     @Column(name="digit_sw_preset_filename", length=100)
-    private String digitSwPresetFilename;
+    private String digitizationSoftwarePresetFilename;
     @OneToMany(mappedBy="digitizationSoftware")
-    private Set<InvDigitization> invDigitization;
+    private Set<InventoryDigitization> inventoryDigitization;
 
     /** Default constructor. */
     public DigitizationSoftware() {
@@ -83,183 +83,183 @@ public class DigitizationSoftware implements Serializable {
     }
 
     /**
-     * Access method for digitSwId.
+     * Access method for digitizationSoftwareId.
      *
-     * @return the current value of digitSwId
+     * @return the current value of digitizationSoftwareId
      */
-    public int getDigitSwId() {
-        return digitSwId;
+    public int getDigitizationSoftwareId() {
+        return digitizationSoftwareId;
     }
 
     /**
-     * Setter method for digitSwId.
+     * Setter method for digitizationSoftwareId.
      *
-     * @param aDigitSwId the new value for digitSwId
+     * @param aDigitizationSoftwareId the new value for digitizationSoftwareId
      */
-    public void setDigitSwId(int aDigitSwId) {
-        digitSwId = aDigitSwId;
+    public void setDigitizationSoftwareId(int aDigitizationSoftwareId) {
+        digitizationSoftwareId = aDigitizationSoftwareId;
     }
 
     /**
-     * Access method for digitSwName.
+     * Access method for digitizationSoftwareName.
      *
-     * @return the current value of digitSwName
+     * @return the current value of digitizationSoftwareName
      */
-    public String getDigitSwName() {
-        return digitSwName;
+    public String getDigitizationSoftwareName() {
+        return digitizationSoftwareName;
     }
 
     /**
-     * Setter method for digitSwName.
+     * Setter method for digitizationSoftwareName.
      *
-     * @param aDigitSwName the new value for digitSwName
+     * @param aDigitizationSoftwareName the new value for digitizationSoftwareName
      */
-    public void setDigitSwName(String aDigitSwName) {
-        digitSwName = aDigitSwName;
+    public void setDigitizationSoftwareName(String aDigitizationSoftwareName) {
+        digitizationSoftwareName = aDigitizationSoftwareName;
     }
 
     /**
-     * Access method for digitSwDesc.
+     * Access method for digitizationSoftwareDesc.
      *
-     * @return the current value of digitSwDesc
+     * @return the current value of digitizationSoftwareDesc
      */
-    public String getDigitSwDesc() {
-        return digitSwDesc;
+    public String getDigitizationSoftwareDesc() {
+        return digitizationSoftwareDesc;
     }
 
     /**
-     * Setter method for digitSwDesc.
+     * Setter method for digitizationSoftwareDesc.
      *
-     * @param aDigitSwDesc the new value for digitSwDesc
+     * @param aDigitizationSoftwareDesc the new value for digitizationSoftwareDesc
      */
-    public void setDigitSwDesc(String aDigitSwDesc) {
-        digitSwDesc = aDigitSwDesc;
+    public void setDigitizationSoftwareDesc(String aDigitizationSoftwareDesc) {
+        digitizationSoftwareDesc = aDigitizationSoftwareDesc;
     }
 
     /**
-     * Access method for digitSwVersion.
+     * Access method for digitizationSoftwareVersion.
      *
-     * @return the current value of digitSwVersion
+     * @return the current value of digitizationSoftwareVersion
      */
-    public String getDigitSwVersion() {
-        return digitSwVersion;
+    public String getDigitizationSoftwareVersion() {
+        return digitizationSoftwareVersion;
     }
 
     /**
-     * Setter method for digitSwVersion.
+     * Setter method for digitizationSoftwareVersion.
      *
-     * @param aDigitSwVersion the new value for digitSwVersion
+     * @param aDigitizationSoftwareVersion the new value for digitizationSoftwareVersion
      */
-    public void setDigitSwVersion(String aDigitSwVersion) {
-        digitSwVersion = aDigitSwVersion;
+    public void setDigitizationSoftwareVersion(String aDigitizationSoftwareVersion) {
+        digitizationSoftwareVersion = aDigitizationSoftwareVersion;
     }
 
     /**
-     * Access method for digitSwIsEnabled.
+     * Access method for digitizationSoftwareIsEnabled.
      *
-     * @return true if and only if digitSwIsEnabled is currently true
+     * @return true if and only if digitizationSoftwareIsEnabled is currently true
      */
-    public boolean isDigitSwIsEnabled() {
-        return digitSwIsEnabled;
+    public boolean isDigitizationSoftwareIsEnabled() {
+        return digitizationSoftwareIsEnabled;
     }
 
     /**
-     * Setter method for digitSwIsEnabled.
+     * Setter method for digitizationSoftwareIsEnabled.
      *
-     * @param aDigitSwIsEnabled the new value for digitSwIsEnabled
+     * @param aDigitizationSoftwareIsEnabled the new value for digitizationSoftwareIsEnabled
      */
-    public void setDigitSwIsEnabled(boolean aDigitSwIsEnabled) {
-        digitSwIsEnabled = aDigitSwIsEnabled;
+    public void setDigitizationSoftwareIsEnabled(boolean aDigitizationSoftwareIsEnabled) {
+        digitizationSoftwareIsEnabled = aDigitizationSoftwareIsEnabled;
     }
 
     /**
-     * Access method for digitSwConfig.
+     * Access method for digitizationSoftwareConfig.
      *
-     * @return the current value of digitSwConfig
+     * @return the current value of digitizationSoftwareConfig
      */
-    public byte[] getDigitSwConfig() {
-        return digitSwConfig;
+    public byte[] getDigitizationSoftwareConfig() {
+        return digitizationSoftwareConfig;
     }
 
     /**
-     * Setter method for digitSwConfig.
+     * Setter method for digitizationSoftwareConfig.
      *
-     * @param aDigitSwConfig the new value for digitSwConfig
+     * @param aDigitizationSoftwareConfig the new value for digitizationSoftwareConfig
      */
-    public void setDigitSwConfig(byte[] aDigitSwConfig) {
-        digitSwConfig = aDigitSwConfig;
+    public void setDigitizationSoftwareConfig(byte[] aDigitizationSoftwareConfig) {
+        digitizationSoftwareConfig = aDigitizationSoftwareConfig;
     }
 
     /**
-     * Access method for digitSwPreset.
+     * Access method for digitizationSoftwarePreset.
      *
-     * @return the current value of digitSwPreset
+     * @return the current value of digitizationSoftwarePreset
      */
-    public byte[] getDigitSwPreset() {
-        return digitSwPreset;
+    public byte[] getDigitizationSoftwarePreset() {
+        return digitizationSoftwarePreset;
     }
 
     /**
-     * Setter method for digitSwPreset.
+     * Setter method for digitizationSoftwarePreset.
      *
-     * @param aDigitSwPreset the new value for digitSwPreset
+     * @param aDigitizationSoftwarePreset the new value for digitizationSoftwarePreset
      */
-    public void setDigitSwPreset(byte[] aDigitSwPreset) {
-        digitSwPreset = aDigitSwPreset;
+    public void setDigitizationSoftwarePreset(byte[] aDigitizationSoftwarePreset) {
+        digitizationSoftwarePreset = aDigitizationSoftwarePreset;
     }
 
     /**
-     * Access method for digitSwConfigFilename.
+     * Access method for digitizationSoftwareConfigFilename.
      *
-     * @return the current value of digitSwConfigFilename
+     * @return the current value of digitizationSoftwareConfigFilename
      */
-    public String getDigitSwConfigFilename() {
-        return digitSwConfigFilename;
+    public String getDigitizationSoftwareConfigFilename() {
+        return digitizationSoftwareConfigFilename;
     }
 
     /**
-     * Setter method for digitSwConfigFilename.
+     * Setter method for digitizationSoftwareConfigFilename.
      *
-     * @param aDigitSwConfigFilename the new value for digitSwConfigFilename
+     * @param aDigitizationSoftwareConfigFilename the new value for digitizationSoftwareConfigFilename
      */
-    public void setDigitSwConfigFilename(String aDigitSwConfigFilename) {
-        digitSwConfigFilename = aDigitSwConfigFilename;
+    public void setDigitizationSoftwareConfigFilename(String aDigitizationSoftwareConfigFilename) {
+        digitizationSoftwareConfigFilename = aDigitizationSoftwareConfigFilename;
     }
 
     /**
-     * Access method for digitSwPresetFilename.
+     * Access method for digitizationSoftwarePresetFilename.
      *
-     * @return the current value of digitSwPresetFilename
+     * @return the current value of digitizationSoftwarePresetFilename
      */
-    public String getDigitSwPresetFilename() {
-        return digitSwPresetFilename;
+    public String getDigitizationSoftwarePresetFilename() {
+        return digitizationSoftwarePresetFilename;
     }
 
     /**
-     * Setter method for digitSwPresetFilename.
+     * Setter method for digitizationSoftwarePresetFilename.
      *
-     * @param aDigitSwPresetFilename the new value for digitSwPresetFilename
+     * @param aDigitizationSoftwarePresetFilename the new value for digitizationSoftwarePresetFilename
      */
-    public void setDigitSwPresetFilename(String aDigitSwPresetFilename) {
-        digitSwPresetFilename = aDigitSwPresetFilename;
+    public void setDigitizationSoftwarePresetFilename(String aDigitizationSoftwarePresetFilename) {
+        digitizationSoftwarePresetFilename = aDigitizationSoftwarePresetFilename;
     }
 
     /**
-     * Access method for invDigitization.
+     * Access method for inventoryDigitization.
      *
-     * @return the current value of invDigitization
+     * @return the current value of inventoryDigitization
      */
-    public Set<InvDigitization> getInvDigitization() {
-        return invDigitization;
+    public Set<InventoryDigitization> getInventoryDigitization() {
+        return inventoryDigitization;
     }
 
     /**
-     * Setter method for invDigitization.
+     * Setter method for inventoryDigitization.
      *
-     * @param aInvDigitization the new value for invDigitization
+     * @param aInventoryDigitization the new value for inventoryDigitization
      */
-    public void setInvDigitization(Set<InvDigitization> aInvDigitization) {
-        invDigitization = aInvDigitization;
+    public void setInventoryDigitization(Set<InventoryDigitization> aInventoryDigitization) {
+        inventoryDigitization = aInventoryDigitization;
     }
 
     /**
@@ -276,7 +276,7 @@ public class DigitizationSoftware implements Serializable {
             return false;
         }
         DigitizationSoftware that = (DigitizationSoftware) other;
-        if (this.getDigitSwId() != that.getDigitSwId()) {
+        if (this.getDigitizationSoftwareId() != that.getDigitizationSoftwareId()) {
             return false;
         }
         return true;
@@ -303,7 +303,7 @@ public class DigitizationSoftware implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getDigitSwId();
+        i = getDigitizationSoftwareId();
         result = 37*result + i;
         return result;
     }
@@ -316,7 +316,7 @@ public class DigitizationSoftware implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[DigitizationSoftware |");
-        sb.append(" digitSwId=").append(getDigitSwId());
+        sb.append(" digitizationSoftwareId=").append(getDigitizationSoftwareId());
         sb.append("]");
         return sb.toString();
     }
@@ -328,7 +328,7 @@ public class DigitizationSoftware implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("digitSwId", Integer.valueOf(getDigitSwId()));
+        ret.put("digitizationSoftwareId", Integer.valueOf(getDigitizationSoftwareId()));
         return ret;
     }
 

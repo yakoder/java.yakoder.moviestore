@@ -24,7 +24,7 @@ public class ApiMethods implements Serializable {
 	private static final long serialVersionUID = -613279797965595224L;
 
 	/** Primary key. */
-    protected static final String PK = "apiMethId";
+    protected static final String PK = "apiMethodId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -54,11 +54,11 @@ public class ApiMethods implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="api_meth_id", unique=true, nullable=false, precision=10)
-    private int apiMethId;
+    private int apiMethodId;
     @Column(name="api_meth_name", nullable=false, length=100)
-    private String apiMethName;
+    private String apiMethodName;
     @Column(name="api_meth_desc", length=255)
-    private String apiMethDesc;
+    private String apiMethodDesc;
     @OneToMany(mappedBy="apiMethods")
     private Set<Apis> apis;
 
@@ -68,57 +68,57 @@ public class ApiMethods implements Serializable {
     }
 
     /**
-     * Access method for apiMethId.
+     * Access method for apiMethodId.
      *
-     * @return the current value of apiMethId
+     * @return the current value of apiMethodId
      */
-    public int getApiMethId() {
-        return apiMethId;
+    public int getApiMethodId() {
+        return apiMethodId;
     }
 
     /**
-     * Setter method for apiMethId.
+     * Setter method for apiMethodId.
      *
-     * @param aApiMethId the new value for apiMethId
+     * @param aApiMethodId the new value for apiMethodId
      */
-    public void setApiMethId(int aApiMethId) {
-        apiMethId = aApiMethId;
+    public void setApiMethodId(int aApiMethodId) {
+        apiMethodId = aApiMethodId;
     }
 
     /**
-     * Access method for apiMethName.
+     * Access method for apiMethodName.
      *
-     * @return the current value of apiMethName
+     * @return the current value of apiMethodName
      */
-    public String getApiMethName() {
-        return apiMethName;
+    public String getApiMethodName() {
+        return apiMethodName;
     }
 
     /**
-     * Setter method for apiMethName.
+     * Setter method for apiMethodName.
      *
-     * @param aApiMethName the new value for apiMethName
+     * @param aApiMethodName the new value for apiMethodName
      */
-    public void setApiMethName(String aApiMethName) {
-        apiMethName = aApiMethName;
+    public void setApiMethodName(String aApiMethodName) {
+        apiMethodName = aApiMethodName;
     }
 
     /**
-     * Access method for apiMethDesc.
+     * Access method for apiMethodDesc.
      *
-     * @return the current value of apiMethDesc
+     * @return the current value of apiMethodDesc
      */
-    public String getApiMethDesc() {
-        return apiMethDesc;
+    public String getApiMethodDesc() {
+        return apiMethodDesc;
     }
 
     /**
-     * Setter method for apiMethDesc.
+     * Setter method for apiMethodDesc.
      *
-     * @param aApiMethDesc the new value for apiMethDesc
+     * @param aApiMethodDesc the new value for apiMethodDesc
      */
-    public void setApiMethDesc(String aApiMethDesc) {
-        apiMethDesc = aApiMethDesc;
+    public void setApiMethodDesc(String aApiMethodDesc) {
+        apiMethodDesc = aApiMethodDesc;
     }
 
     /**
@@ -153,7 +153,7 @@ public class ApiMethods implements Serializable {
             return false;
         }
         ApiMethods that = (ApiMethods) other;
-        if (this.getApiMethId() != that.getApiMethId()) {
+        if (this.getApiMethodId() != that.getApiMethodId()) {
             return false;
         }
         return true;
@@ -180,7 +180,7 @@ public class ApiMethods implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getApiMethId();
+        i = getApiMethodId();
         result = 37*result + i;
         return result;
     }
@@ -193,7 +193,7 @@ public class ApiMethods implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[ApiMethods |");
-        sb.append(" apiMethId=").append(getApiMethId());
+        sb.append(" apiMethodId=").append(getApiMethodId());
         sb.append("]");
         return sb.toString();
     }
@@ -205,7 +205,7 @@ public class ApiMethods implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("apiMethId", Integer.valueOf(getApiMethId()));
+        ret.put("apiMethodId", Integer.valueOf(getApiMethodId()));
         return ret;
     }
 

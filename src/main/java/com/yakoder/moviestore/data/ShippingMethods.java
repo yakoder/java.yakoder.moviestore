@@ -31,7 +31,7 @@ public class ShippingMethods implements Serializable {
 	private static final long serialVersionUID = -8774260132151515444L;
 
 	/** Primary key. */
-    protected static final String PK = "shipMethId";
+    protected static final String PK = "shippingMethodId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -61,13 +61,13 @@ public class ShippingMethods implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="ship_meth_id", unique=true, nullable=false, precision=10)
-    private int shipMethId;
+    private int shippingMethodId;
     @Column(name="ship_meth_name", nullable=false, length=100)
-    private String shipMethName;
+    private String shippingMethodName;
     @Column(name="ship_base_cost", precision=15, scale=2)
-    private BigDecimal shipBaseCost;
+    private BigDecimal shippingBaseCost;
     @Column(name="ship_ins_base_cost", precision=15, scale=2)
-    private BigDecimal shipInsBaseCost;
+    private BigDecimal shippingInsuranceBaseCost;
     @Column(name="has_tracking", nullable=false, length=3)
     private boolean hasTracking;
     @Column(name="ins_allowed", nullable=false, length=3)
@@ -79,14 +79,14 @@ public class ShippingMethods implements Serializable {
     @Column(name="end_date")
     private LocalDate endDate;
     @OneToMany(mappedBy="shippingMethods")
-    private Set<ExpShipping> expShipping;
+    private Set<ExpenseShipping> expenseShipping;
     @OneToMany(mappedBy="shippingMethods")
     private Set<OrderShipments> orderShipments;
     @ManyToOne(optional=false)
     @JoinColumn(name="ship_svc_id", nullable=false)
     private ShippingServices shippingServices;
     @OneToMany(mappedBy="shippingMethods")
-    private Set<StoreShipMethods> storeShipMethods;
+    private Set<StoreShippingMethods> storeShipMethods;
 
     /** Default constructor. */
     public ShippingMethods() {
@@ -94,75 +94,75 @@ public class ShippingMethods implements Serializable {
     }
 
     /**
-     * Access method for shipMethId.
+     * Access method for shippingMethodId.
      *
-     * @return the current value of shipMethId
+     * @return the current value of shippingMethodId
      */
-    public int getShipMethId() {
-        return shipMethId;
+    public int getShippingMethodId() {
+        return shippingMethodId;
     }
 
     /**
-     * Setter method for shipMethId.
+     * Setter method for shippingMethodId.
      *
-     * @param aShipMethId the new value for shipMethId
+     * @param aShippingMethodId the new value for shippingMethodId
      */
-    public void setShipMethId(int aShipMethId) {
-        shipMethId = aShipMethId;
+    public void setShippingMethodId(int aShippingMethodId) {
+        shippingMethodId = aShippingMethodId;
     }
 
     /**
-     * Access method for shipMethName.
+     * Access method for shippingMethodName.
      *
-     * @return the current value of shipMethName
+     * @return the current value of shippingMethodName
      */
-    public String getShipMethName() {
-        return shipMethName;
+    public String getShippingMethodName() {
+        return shippingMethodName;
     }
 
     /**
-     * Setter method for shipMethName.
+     * Setter method for shippingMethodName.
      *
-     * @param aShipMethName the new value for shipMethName
+     * @param aShippingMethodName the new value for shippingMethodName
      */
-    public void setShipMethName(String aShipMethName) {
-        shipMethName = aShipMethName;
+    public void setShippingMethodName(String aShippingMethodName) {
+        shippingMethodName = aShippingMethodName;
     }
 
     /**
-     * Access method for shipBaseCost.
+     * Access method for shippingBaseCost.
      *
-     * @return the current value of shipBaseCost
+     * @return the current value of shippingBaseCost
      */
-    public BigDecimal getShipBaseCost() {
-        return shipBaseCost;
+    public BigDecimal getShippingBaseCost() {
+        return shippingBaseCost;
     }
 
     /**
-     * Setter method for shipBaseCost.
+     * Setter method for shippingBaseCost.
      *
-     * @param aShipBaseCost the new value for shipBaseCost
+     * @param aShippingBaseCost the new value for shippingBaseCost
      */
-    public void setShipBaseCost(BigDecimal aShipBaseCost) {
-        shipBaseCost = aShipBaseCost;
+    public void setShippingBaseCost(BigDecimal aShippingBaseCost) {
+        shippingBaseCost = aShippingBaseCost;
     }
 
     /**
-     * Access method for shipInsBaseCost.
+     * Access method for shippingInsuranceBaseCost.
      *
-     * @return the current value of shipInsBaseCost
+     * @return the current value of shippingInsuranceBaseCost
      */
-    public BigDecimal getShipInsBaseCost() {
-        return shipInsBaseCost;
+    public BigDecimal getShippingInsuranceBaseCost() {
+        return shippingInsuranceBaseCost;
     }
 
     /**
-     * Setter method for shipInsBaseCost.
+     * Setter method for shippingInsuranceBaseCost.
      *
-     * @param aShipInsBaseCost the new value for shipInsBaseCost
+     * @param aShippingInsuranceBaseCost the new value for shippingInsuranceBaseCost
      */
-    public void setShipInsBaseCost(BigDecimal aShipInsBaseCost) {
-        shipInsBaseCost = aShipInsBaseCost;
+    public void setShippingInsuranceBaseCost(BigDecimal aShippingInsuranceBaseCost) {
+        shippingInsuranceBaseCost = aShippingInsuranceBaseCost;
     }
 
     /**
@@ -184,21 +184,21 @@ public class ShippingMethods implements Serializable {
     }
 
     /**
-     * Access method for insAllowed.
+     * Access method for insuranceAllowed.
      *
-     * @return true if and only if insAllowed is currently true
+     * @return true if and only if insuranceAllowed is currently true
      */
-    public boolean isInsAllowed() {
+    public boolean isInsuranceAllowed() {
         return insAllowed;
     }
 
     /**
-     * Setter method for insAllowed.
+     * Setter method for insuranceAllowed.
      *
-     * @param aInsAllowed the new value for insAllowed
+     * @param aInsuranceAllowed the new value for insuranceAllowed
      */
-    public void setInsAllowed(boolean aInsAllowed) {
-        insAllowed = aInsAllowed;
+    public void setInsuranceAllowed(boolean aInsuranceAllowed) {
+        insAllowed = aInsuranceAllowed;
     }
 
     /**
@@ -256,21 +256,21 @@ public class ShippingMethods implements Serializable {
     }
 
     /**
-     * Access method for expShipping.
+     * Access method for expenseShipping.
      *
-     * @return the current value of expShipping
+     * @return the current value of expenseShipping
      */
-    public Set<ExpShipping> getExpShipping() {
-        return expShipping;
+    public Set<ExpenseShipping> getExpenseShipping() {
+        return expenseShipping;
     }
 
     /**
-     * Setter method for expShipping.
+     * Setter method for expenseShipping.
      *
-     * @param aExpShipping the new value for expShipping
+     * @param aExpenseShipping the new value for expenseShipping
      */
-    public void setExpShipping(Set<ExpShipping> aExpShipping) {
-        expShipping = aExpShipping;
+    public void setExpenseShipping(Set<ExpenseShipping> aExpenseShipping) {
+        expenseShipping = aExpenseShipping;
     }
 
     /**
@@ -314,7 +314,7 @@ public class ShippingMethods implements Serializable {
      *
      * @return the current value of storeShipMethods
      */
-    public Set<StoreShipMethods> getStoreShipMethods() {
+    public Set<StoreShippingMethods> getStoreShipMethods() {
         return storeShipMethods;
     }
 
@@ -323,29 +323,29 @@ public class ShippingMethods implements Serializable {
      *
      * @param aStoreShipMethods the new value for storeShipMethods
      */
-    public void setStoreShipMethods(Set<StoreShipMethods> aStoreShipMethods) {
+    public void setStoreShipMethods(Set<StoreShippingMethods> aStoreShipMethods) {
         storeShipMethods = aStoreShipMethods;
     }
 
     /**
-     * Gets the group fragment shipSvcId for member shippingServices.
+     * Gets the group fragment shippingServiceId for member shippingServices.
      *
      * @return Current value of the group fragment
      * @see ShippingServices
      */
-    public int getShippingServicesShipSvcId() {
-        return (getShippingServices() == null ? null : getShippingServices().getShipSvcId());
+    public int getShippingServicesShippingServiceId() {
+        return (getShippingServices() == null ? null : getShippingServices().getShippingServiceId());
     }
 
     /**
-     * Sets the group fragment shipSvcId from member shippingServices.
+     * Sets the group fragment shippingServiceId from member shippingServices.
      *
-     * @param aShipSvcId New value for the group fragment
+     * @param aShippingServiceId New value for the group fragment
      * @see ShippingServices
      */
-    public void setShippingServicesShipSvcId(int aShipSvcId) {
+    public void setShippingServicesShippingServiceId(int aShippingServiceId) {
         if (getShippingServices() != null) {
-            getShippingServices().setShipSvcId(aShipSvcId);
+            getShippingServices().setShippingServiceId(aShippingServiceId);
         }
     }
 
@@ -363,7 +363,7 @@ public class ShippingMethods implements Serializable {
             return false;
         }
         ShippingMethods that = (ShippingMethods) other;
-        if (this.getShipMethId() != that.getShipMethId()) {
+        if (this.getShippingMethodId() != that.getShippingMethodId()) {
             return false;
         }
         return true;
@@ -390,7 +390,7 @@ public class ShippingMethods implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getShipMethId();
+        i = getShippingMethodId();
         result = 37*result + i;
         return result;
     }
@@ -403,7 +403,7 @@ public class ShippingMethods implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[ShippingMethods |");
-        sb.append(" shipMethId=").append(getShipMethId());
+        sb.append(" shippingMethodId=").append(getShippingMethodId());
         sb.append("]");
         return sb.toString();
     }
@@ -415,7 +415,7 @@ public class ShippingMethods implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("shipMethId", Integer.valueOf(getShipMethId()));
+        ret.put("shippingMethodId", Integer.valueOf(getShippingMethodId()));
         return ret;
     }
 

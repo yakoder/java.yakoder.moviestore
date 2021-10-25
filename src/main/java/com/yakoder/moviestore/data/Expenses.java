@@ -26,7 +26,7 @@ public class Expenses implements Serializable {
 	private static final long serialVersionUID = 4822353855327609376L;
 
 	/** Primary key. */
-    protected static final String PK = "expId";
+    protected static final String PK = "expenseId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -56,19 +56,19 @@ public class Expenses implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="exp_id", unique=true, nullable=false, precision=10)
-    private int expId;
+    private int expenseId;
     @Column(name="exp_date", nullable=false)
-    private LocalDate expDate;
+    private LocalDate expenseDate;
     @Column(name="exp_amount", nullable=false, precision=15, scale=2)
-    private BigDecimal expAmount;
+    private BigDecimal expenseAmount;
     @Column(name="exp_notes", length=255)
-    private String expNotes;
+    private String expenseNotes;
     @ManyToOne(optional=false)
     @JoinColumn(name="exp_detail_id", nullable=false)
-    private ExpSupplies expSupplies;
+    private ExpenseSupplies expenseSupplies;
     @ManyToOne(optional=false)
     @JoinColumn(name="exp_type_id", nullable=false)
-    private ExpTypes expTypes;
+    private ExpenseTypes expenseTypes;
 
     /** Default constructor. */
     public Expenses() {
@@ -76,111 +76,111 @@ public class Expenses implements Serializable {
     }
 
     /**
-     * Access method for expId.
+     * Access method for expenseId.
      *
-     * @return the current value of expId
+     * @return the current value of expenseId
      */
-    public int getExpId() {
-        return expId;
+    public int getExpenseId() {
+        return expenseId;
     }
 
     /**
-     * Setter method for expId.
+     * Setter method for expenseId.
      *
-     * @param aExpId the new value for expId
+     * @param aExpenseId the new value for expenseId
      */
-    public void setExpId(int aExpId) {
-        expId = aExpId;
+    public void setExpenseId(int aExpenseId) {
+        expenseId = aExpenseId;
     }
 
     /**
-     * Access method for expDate.
+     * Access method for expenseDate.
      *
-     * @return the current value of expDate
+     * @return the current value of expenseDate
      */
-    public LocalDate getExpDate() {
-        return expDate;
+    public LocalDate getExpenseDate() {
+        return expenseDate;
     }
 
     /**
-     * Setter method for expDate.
+     * Setter method for expenseDate.
      *
-     * @param aExpDate the new value for expDate
+     * @param aExpenseDate the new value for expenseDate
      */
-    public void setExpDate(LocalDate aExpDate) {
-        expDate = aExpDate;
+    public void setExpenseDate(LocalDate aExpenseDate) {
+        expenseDate = aExpenseDate;
     }
 
     /**
-     * Access method for expAmount.
+     * Access method for expenseAmount.
      *
-     * @return the current value of expAmount
+     * @return the current value of expenseAmount
      */
-    public BigDecimal getExpAmount() {
-        return expAmount;
+    public BigDecimal getExpenseAmount() {
+        return expenseAmount;
     }
 
     /**
-     * Setter method for expAmount.
+     * Setter method for expenseAmount.
      *
-     * @param aExpAmount the new value for expAmount
+     * @param aExpenseAmount the new value for expenseAmount
      */
-    public void setExpAmount(BigDecimal aExpAmount) {
-        expAmount = aExpAmount;
+    public void setExpenseAmount(BigDecimal aExpenseAmount) {
+        expenseAmount = aExpenseAmount;
     }
 
     /**
-     * Access method for expNotes.
+     * Access method for expenseNotes.
      *
-     * @return the current value of expNotes
+     * @return the current value of expenseNotes
      */
-    public String getExpNotes() {
-        return expNotes;
+    public String getExpenseNotes() {
+        return expenseNotes;
     }
 
     /**
-     * Setter method for expNotes.
+     * Setter method for expenseNotes.
      *
-     * @param aExpNotes the new value for expNotes
+     * @param aExpenseNotes the new value for expenseNotes
      */
-    public void setExpNotes(String aExpNotes) {
-        expNotes = aExpNotes;
+    public void setExpenseNotes(String aExpenseNotes) {
+        expenseNotes = aExpenseNotes;
     }
 
     /**
-     * Access method for expSupplies.
+     * Access method for expenseSupplies.
      *
-     * @return the current value of expSupplies
+     * @return the current value of expenseSupplies
      */
-    public ExpSupplies getExpSupplies() {
-        return expSupplies;
+    public ExpenseSupplies getExpenseSupplies() {
+        return expenseSupplies;
     }
 
     /**
-     * Setter method for expSupplies.
+     * Setter method for expenseSupplies.
      *
-     * @param aExpSupplies the new value for expSupplies
+     * @param aExpenseSupplies the new value for expenseSupplies
      */
-    public void setExpSupplies(ExpSupplies aExpSupplies) {
-        expSupplies = aExpSupplies;
+    public void setExpenseSupplies(ExpenseSupplies aExpenseSupplies) {
+        expenseSupplies = aExpenseSupplies;
     }
 
     /**
-     * Access method for expTypes.
+     * Access method for expenseTypes.
      *
-     * @return the current value of expTypes
+     * @return the current value of expenseTypes
      */
-    public ExpTypes getExpTypes() {
-        return expTypes;
+    public ExpenseTypes getExpenseTypes() {
+        return expenseTypes;
     }
 
     /**
-     * Setter method for expTypes.
+     * Setter method for expenseTypes.
      *
-     * @param aExpTypes the new value for expTypes
+     * @param aExpenseTypes the new value for expenseTypes
      */
-    public void setExpTypes(ExpTypes aExpTypes) {
-        expTypes = aExpTypes;
+    public void setExpenseTypes(ExpenseTypes aExpenseTypes) {
+        expenseTypes = aExpenseTypes;
     }
 
     /**
@@ -197,7 +197,7 @@ public class Expenses implements Serializable {
             return false;
         }
         Expenses that = (Expenses) other;
-        if (this.getExpId() != that.getExpId()) {
+        if (this.getExpenseId() != that.getExpenseId()) {
             return false;
         }
         return true;
@@ -224,7 +224,7 @@ public class Expenses implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getExpId();
+        i = getExpenseId();
         result = 37*result + i;
         return result;
     }
@@ -237,7 +237,7 @@ public class Expenses implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[Expenses |");
-        sb.append(" expId=").append(getExpId());
+        sb.append(" expenseId=").append(getExpenseId());
         sb.append("]");
         return sb.toString();
     }
@@ -249,7 +249,7 @@ public class Expenses implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("expId", Integer.valueOf(getExpId()));
+        ret.put("expenseId", Integer.valueOf(getExpenseId()));
         return ret;
     }
 

@@ -27,7 +27,7 @@ public class OnlinePaymentSites implements Serializable {
 	private static final long serialVersionUID = 1518757951056140461L;
 
 	/** Primary key. */
-    protected static final String PK = "olPymtSiteId";
+    protected static final String PK = "onlinePaymentSiteId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -57,13 +57,13 @@ public class OnlinePaymentSites implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="ol_pymt_site_id", unique=true, nullable=false, precision=10)
-    private int olPymtSiteId;
+    private int onlinePaymentSiteId;
     @Column(name="ol_pymt_site_name", nullable=false, length=100)
-    private String olPymtSiteName;
+    private String onlinePaymentSiteName;
     @Column(name="ol_pymt_site_url", nullable=false, length=255)
-    private String olPymtSiteUrl;
+    private String onlinePaymentSiteUrl;
     @OneToMany(mappedBy="onlinePymtSites")
-    private Set<ReimbOnline> reimbOnline;
+    private Set<ReimbursementOnline> reimbursementOnline;
 
     /** Default constructor. */
     public OnlinePaymentSites() {
@@ -71,75 +71,75 @@ public class OnlinePaymentSites implements Serializable {
     }
 
     /**
-     * Access method for olPymtSiteId.
+     * Access method for onlinePaymentSiteId.
      *
-     * @return the current value of olPymtSiteId
+     * @return the current value of onlinePaymentSiteId
      */
-    public int getOlPymtSiteId() {
-        return olPymtSiteId;
+    public int getOnlinePaymentSiteId() {
+        return onlinePaymentSiteId;
     }
 
     /**
-     * Setter method for olPymtSiteId.
+     * Setter method for onlinePaymentSiteId.
      *
-     * @param aOlPymtSiteId the new value for olPymtSiteId
+     * @param aOnlinePaymentSiteId the new value for onlinePaymentSiteId
      */
-    public void setOlPymtSiteId(int aOlPymtSiteId) {
-        olPymtSiteId = aOlPymtSiteId;
+    public void setOnlinePaymentSiteId(int aOnlinePaymentSiteId) {
+        onlinePaymentSiteId = aOnlinePaymentSiteId;
     }
 
     /**
-     * Access method for olPymtSiteName.
+     * Access method for onlinePaymentSiteName.
      *
-     * @return the current value of olPymtSiteName
+     * @return the current value of onlinePaymentSiteName
      */
-    public String getOlPymtSiteName() {
-        return olPymtSiteName;
+    public String getOnlinePaymentSiteName() {
+        return onlinePaymentSiteName;
     }
 
     /**
-     * Setter method for olPymtSiteName.
+     * Setter method for onlinePaymentSiteName.
      *
-     * @param aOlPymtSiteName the new value for olPymtSiteName
+     * @param aOnlinePaymentSiteName the new value for onlinePaymentSiteName
      */
-    public void setOlPymtSiteName(String aOlPymtSiteName) {
-        olPymtSiteName = aOlPymtSiteName;
+    public void setOnlinePaymentSiteName(String aOnlinePaymentSiteName) {
+        onlinePaymentSiteName = aOnlinePaymentSiteName;
     }
 
     /**
-     * Access method for olPymtSiteUrl.
+     * Access method for onlinePaymentSiteUrl.
      *
-     * @return the current value of olPymtSiteUrl
+     * @return the current value of onlinePaymentSiteUrl
      */
-    public String getOlPymtSiteUrl() {
-        return olPymtSiteUrl;
+    public String getOnlinePaymentSiteUrl() {
+        return onlinePaymentSiteUrl;
     }
 
     /**
-     * Setter method for olPymtSiteUrl.
+     * Setter method for onlinePaymentSiteUrl.
      *
-     * @param aOlPymtSiteUrl the new value for olPymtSiteUrl
+     * @param aOnlinePaymentSiteUrl the new value for onlinePaymentSiteUrl
      */
-    public void setOlPymtSiteUrl(String aOlPymtSiteUrl) {
-        olPymtSiteUrl = aOlPymtSiteUrl;
+    public void setOnlinePaymentSiteUrl(String aOnlinePaymentSiteUrl) {
+        onlinePaymentSiteUrl = aOnlinePaymentSiteUrl;
     }
 
     /**
-     * Access method for reimbOnline.
+     * Access method for reimbursementOnline.
      *
-     * @return the current value of reimbOnline
+     * @return the current value of reimbursementOnline
      */
-    public Set<ReimbOnline> getReimbOnline() {
-        return reimbOnline;
+    public Set<ReimbursementOnline> getReimbursementOnline() {
+        return reimbursementOnline;
     }
 
     /**
-     * Setter method for reimbOnline.
+     * Setter method for reimbursementOnline.
      *
-     * @param aReimbOnline the new value for reimbOnline
+     * @param aReimbursementOnline the new value for reimbursementOnline
      */
-    public void setReimbOnline(Set<ReimbOnline> aReimbOnline) {
-        reimbOnline = aReimbOnline;
+    public void setReimbursementOnline(Set<ReimbursementOnline> aReimbursementOnline) {
+        reimbursementOnline = aReimbursementOnline;
     }
 
     /**
@@ -156,7 +156,7 @@ public class OnlinePaymentSites implements Serializable {
             return false;
         }
         OnlinePaymentSites that = (OnlinePaymentSites) other;
-        if (this.getOlPymtSiteId() != that.getOlPymtSiteId()) {
+        if (this.getOnlinePaymentSiteId() != that.getOnlinePaymentSiteId()) {
             return false;
         }
         return true;
@@ -183,7 +183,7 @@ public class OnlinePaymentSites implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getOlPymtSiteId();
+        i = getOnlinePaymentSiteId();
         result = 37*result + i;
         return result;
     }
@@ -196,7 +196,7 @@ public class OnlinePaymentSites implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[OnlinePaymentSites |");
-        sb.append(" olPymtSiteId=").append(getOlPymtSiteId());
+        sb.append(" onlinePaymentSiteId=").append(getOnlinePaymentSiteId());
         sb.append("]");
         return sb.toString();
     }
@@ -208,7 +208,7 @@ public class OnlinePaymentSites implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("olPymtSiteId", Integer.valueOf(getOlPymtSiteId()));
+        ret.put("onlinePaymentSiteId", Integer.valueOf(getOnlinePaymentSiteId()));
         return ret;
     }
 

@@ -24,7 +24,7 @@ public class AdjustmentTypes implements Serializable {
 	private static final long serialVersionUID = 6318100857952508664L;
 
 	/** Primary key. */
-    protected static final String PK = "adjTypeId";
+    protected static final String PK = "adjustmentTypeId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -54,11 +54,11 @@ public class AdjustmentTypes implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="adj_type_id", unique=true, nullable=false, precision=10)
-    private int adjTypeId;
+    private int adjustmentTypeId;
     @Column(name="adj_type_name", nullable=false, length=100)
-    private String adjTypeName;
+    private String adjustmentTypeName;
     @Column(name="adj_type_desc", length=255)
-    private String adjTypeDesc;
+    private String adjustmentTypeDesc;
     @OneToMany(mappedBy="adjustmentTypes")
     private Set<AdjustmentMovies> adjustmentMovies;
     @OneToMany(mappedBy="adjustmentTypes")
@@ -70,57 +70,57 @@ public class AdjustmentTypes implements Serializable {
     }
 
     /**
-     * Access method for adjTypeId.
+     * Access method for adjustmentTypeId.
      *
-     * @return the current value of adjTypeId
+     * @return the current value of adjustmentTypeId
      */
-    public int getAdjTypeId() {
-        return adjTypeId;
+    public int getAdjustmentTypeId() {
+        return adjustmentTypeId;
     }
 
     /**
-     * Setter method for adjTypeId.
+     * Setter method for adjustmentTypeId.
      *
-     * @param aAdjTypeId the new value for adjTypeId
+     * @param aAdjustmentTypeId the new value for adjustmentTypeId
      */
-    public void setAdjTypeId(int aAdjTypeId) {
-        adjTypeId = aAdjTypeId;
+    public void setAdjustmentTypeId(int aAdjustmentTypeId) {
+        adjustmentTypeId = aAdjustmentTypeId;
     }
 
     /**
-     * Access method for adjTypeName.
+     * Access method for adjustmentTypeName.
      *
-     * @return the current value of adjTypeName
+     * @return the current value of adjustmentTypeName
      */
-    public String getAdjTypeName() {
-        return adjTypeName;
+    public String getAdjustmentTypeName() {
+        return adjustmentTypeName;
     }
 
     /**
-     * Setter method for adjTypeName.
+     * Setter method for adjustmentTypeName.
      *
-     * @param aAdjTypeName the new value for adjTypeName
+     * @param aAdjustmentTypeName the new value for adjustmentTypeName
      */
-    public void setAdjTypeName(String aAdjTypeName) {
-        adjTypeName = aAdjTypeName;
+    public void setAdjustmentTypeName(String aAdjustmentTypeName) {
+        adjustmentTypeName = aAdjustmentTypeName;
     }
 
     /**
-     * Access method for adjTypeDesc.
+     * Access method for adjustmentTypeDesc.
      *
-     * @return the current value of adjTypeDesc
+     * @return the current value of adjustmentTypeDesc
      */
-    public String getAdjTypeDesc() {
-        return adjTypeDesc;
+    public String getAdjustmentTypeDesc() {
+        return adjustmentTypeDesc;
     }
 
     /**
-     * Setter method for adjTypeDesc.
+     * Setter method for adjustmentTypeDesc.
      *
-     * @param aAdjTypeDesc the new value for adjTypeDesc
+     * @param aAdjustmentTypeDesc the new value for adjustmentTypeDesc
      */
-    public void setAdjTypeDesc(String aAdjTypeDesc) {
-        adjTypeDesc = aAdjTypeDesc;
+    public void setAdjustmentTypeDesc(String aAdjustmentTypeDesc) {
+        adjustmentTypeDesc = aAdjustmentTypeDesc;
     }
 
     /**
@@ -173,7 +173,7 @@ public class AdjustmentTypes implements Serializable {
             return false;
         }
         AdjustmentTypes that = (AdjustmentTypes) other;
-        if (this.getAdjTypeId() != that.getAdjTypeId()) {
+        if (this.getAdjustmentTypeId() != that.getAdjustmentTypeId()) {
             return false;
         }
         return true;
@@ -200,7 +200,7 @@ public class AdjustmentTypes implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getAdjTypeId();
+        i = getAdjustmentTypeId();
         result = 37*result + i;
         return result;
     }
@@ -213,7 +213,7 @@ public class AdjustmentTypes implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[AdjustmentTypes |");
-        sb.append(" adjTypeId=").append(getAdjTypeId());
+        sb.append(" adjustmentTypeId=").append(getAdjustmentTypeId());
         sb.append("]");
         return sb.toString();
     }
@@ -225,7 +225,7 @@ public class AdjustmentTypes implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("adjTypeId", Integer.valueOf(getAdjTypeId()));
+        ret.put("adjustmentTypeId", Integer.valueOf(getAdjustmentTypeId()));
         return ret;
     }
 

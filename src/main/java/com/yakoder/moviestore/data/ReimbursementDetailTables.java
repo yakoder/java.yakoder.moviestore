@@ -25,7 +25,7 @@ public class ReimbursementDetailTables implements Serializable {
 	private static final long serialVersionUID = 2377697732556276893L;
 
 	/** Primary key. */
-    protected static final String PK = "reimbDetailTableId";
+    protected static final String PK = "reimbursementDetailTableId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -55,9 +55,9 @@ public class ReimbursementDetailTables implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="reimb_detail_table_id", unique=true, nullable=false, precision=10)
-    private int reimbDetailTableId;
+    private int reimbursementDetailTableId;
     @Column(name="reimb_detail_table_name", unique=true, nullable=false, length=100)
-    private String reimbDetailTableName;
+    private String reimbursementDetailTableName;
 
     /** Default constructor. */
     public ReimbursementDetailTables() {
@@ -65,39 +65,39 @@ public class ReimbursementDetailTables implements Serializable {
     }
 
     /**
-     * Access method for reimbDetailTableId.
+     * Access method for reimbursementDetailTableId.
      *
-     * @return the current value of reimbDetailTableId
+     * @return the current value of reimbursementDetailTableId
      */
-    public int getReimbDetailTableId() {
-        return reimbDetailTableId;
+    public int getReimbursementDetailTableId() {
+        return reimbursementDetailTableId;
     }
 
     /**
-     * Setter method for reimbDetailTableId.
+     * Setter method for reimbursementDetailTableId.
      *
-     * @param aReimbDetailTableId the new value for reimbDetailTableId
+     * @param aReimbursementDetailTableId the new value for reimbursementDetailTableId
      */
-    public void setReimbDetailTableId(int aReimbDetailTableId) {
-        reimbDetailTableId = aReimbDetailTableId;
+    public void setReimbursementDetailTableId(int aReimbursementDetailTableId) {
+        reimbursementDetailTableId = aReimbursementDetailTableId;
     }
 
     /**
-     * Access method for reimbDetailTableName.
+     * Access method for reimbursementDetailTableName.
      *
-     * @return the current value of reimbDetailTableName
+     * @return the current value of reimbursementDetailTableName
      */
-    public String getReimbDetailTableName() {
-        return reimbDetailTableName;
+    public String getReimbursementDetailTableName() {
+        return reimbursementDetailTableName;
     }
 
     /**
-     * Setter method for reimbDetailTableName.
+     * Setter method for reimbursementDetailTableName.
      *
-     * @param aReimbDetailTableName the new value for reimbDetailTableName
+     * @param aReimbursementDetailTableName the new value for reimbursementDetailTableName
      */
-    public void setReimbDetailTableName(String aReimbDetailTableName) {
-        reimbDetailTableName = aReimbDetailTableName;
+    public void setReimbursementDetailTableName(String aReimbursementDetailTableName) {
+        reimbursementDetailTableName = aReimbursementDetailTableName;
     }
 
     /**
@@ -114,7 +114,7 @@ public class ReimbursementDetailTables implements Serializable {
             return false;
         }
         ReimbursementDetailTables that = (ReimbursementDetailTables) other;
-        if (this.getReimbDetailTableId() != that.getReimbDetailTableId()) {
+        if (this.getReimbursementDetailTableId() != that.getReimbursementDetailTableId()) {
             return false;
         }
         return true;
@@ -141,7 +141,7 @@ public class ReimbursementDetailTables implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getReimbDetailTableId();
+        i = getReimbursementDetailTableId();
         result = 37*result + i;
         return result;
     }
@@ -154,7 +154,7 @@ public class ReimbursementDetailTables implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[ReimbursementDetailTables |");
-        sb.append(" reimbDetailTableId=").append(getReimbDetailTableId());
+        sb.append(" reimbursementDetailTableId=").append(getReimbursementDetailTableId());
         sb.append("]");
         return sb.toString();
     }
@@ -166,7 +166,7 @@ public class ReimbursementDetailTables implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("reimbDetailTableId", Integer.valueOf(getReimbDetailTableId()));
+        ret.put("reimbursementDetailTableId", Integer.valueOf(getReimbursementDetailTableId()));
         return ret;
     }
 

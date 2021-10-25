@@ -24,7 +24,7 @@ public class TransactionParties implements Serializable {
 	private static final long serialVersionUID = 4098942186992623009L;
 
 	/** Primary key. */
-    protected static final String PK = "txnPartyId";
+    protected static final String PK = "transactionPartyId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -54,33 +54,33 @@ public class TransactionParties implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="txn_party_id", unique=true, nullable=false, precision=10)
-    private int txnPartyId;
+    private int transactionPartyId;
     @Column(name="txn_party_name", nullable=false, length=100)
-    private String txnPartyName;
+    private String transactionPartyName;
     @Column(name="txn_party_email", length=255)
-    private String txnPartyEmail;
+    private String transactionPartyEmail;
     @Column(name="txn_party_phone", length=20)
-    private String txnPartyPhone;
+    private String transactionPartyPhone;
     @Column(name="txn_party_addr_1", length=100)
-    private String txnPartyAddr1;
+    private String transactionPartyAddr1;
     @Column(name="txn_party_addr_2", length=100)
-    private String txnPartyAddr2;
+    private String transactionPartyAddr2;
     @Column(name="txn_party_city", length=100)
-    private String txnPartyCity;
+    private String transactionPartyCity;
     @Column(name="txn_party_state", length=2)
-    private String txnPartyState;
+    private String transactionPartyState;
     @Column(name="txn_party_zip", length=10)
-    private String txnPartyZip;
+    private String transactionPartyZip;
     @Column(name="txn_party_acct_num", length=100)
-    private String txnPartyAcctNum;
-    @OneToMany(mappedBy="txnParties2")
-    private Set<ReimbChecks> reimbChecks2;
-    @OneToMany(mappedBy="txnParties")
-    private Set<ReimbChecks> reimbChecks;
-    @OneToMany(mappedBy="txnParties2")
-    private Set<ReimbOnline> reimbOnline2;
-    @OneToMany(mappedBy="txnParties")
-    private Set<ReimbOnline> reimbOnline;
+    private String transactionPartyAccountNumber;
+    @OneToMany(mappedBy="transactionPayee")
+    private Set<ReimbursementChecks> reimbursementPayeeChecks;
+    @OneToMany(mappedBy="transactionPayor")
+    private Set<ReimbursementChecks> reimbursementPayorChecks;
+    @OneToMany(mappedBy="transactionPayee")
+    private Set<ReimbursementOnline> reimbursementPayeeOnline;
+    @OneToMany(mappedBy="transactionPayor")
+    private Set<ReimbursementOnline> reimbursementPayorOnline;
 
     /** Default constructor. */
     public TransactionParties() {
@@ -88,255 +88,255 @@ public class TransactionParties implements Serializable {
     }
 
     /**
-     * Access method for txnPartyId.
+     * Access method for transactionPartyId.
      *
-     * @return the current value of txnPartyId
+     * @return the current value of transactionPartyId
      */
-    public int getTxnPartyId() {
-        return txnPartyId;
+    public int getTransactionPartyId() {
+        return transactionPartyId;
     }
 
     /**
-     * Setter method for txnPartyId.
+     * Setter method for transactionPartyId.
      *
-     * @param aTxnPartyId the new value for txnPartyId
+     * @param aTransactionPartyId the new value for transactionPartyId
      */
-    public void setTxnPartyId(int aTxnPartyId) {
-        txnPartyId = aTxnPartyId;
+    public void setTransactionPartyId(int aTransactionPartyId) {
+        transactionPartyId = aTransactionPartyId;
     }
 
     /**
-     * Access method for txnPartyName.
+     * Access method for transactionPartyName.
      *
-     * @return the current value of txnPartyName
+     * @return the current value of transactionPartyName
      */
-    public String getTxnPartyName() {
-        return txnPartyName;
+    public String getTransactionPartyName() {
+        return transactionPartyName;
     }
 
     /**
-     * Setter method for txnPartyName.
+     * Setter method for transactionPartyName.
      *
-     * @param aTxnPartyName the new value for txnPartyName
+     * @param aTransactionPartyName the new value for transactionPartyName
      */
-    public void setTxnPartyName(String aTxnPartyName) {
-        txnPartyName = aTxnPartyName;
+    public void setTransactionPartyName(String aTransactionPartyName) {
+        transactionPartyName = aTransactionPartyName;
     }
 
     /**
-     * Access method for txnPartyEmail.
+     * Access method for transactionPartyEmail.
      *
-     * @return the current value of txnPartyEmail
+     * @return the current value of transactionPartyEmail
      */
-    public String getTxnPartyEmail() {
-        return txnPartyEmail;
+    public String getTransactionPartyEmail() {
+        return transactionPartyEmail;
     }
 
     /**
-     * Setter method for txnPartyEmail.
+     * Setter method for transactionPartyEmail.
      *
-     * @param aTxnPartyEmail the new value for txnPartyEmail
+     * @param aTransactionPartyEmail the new value for transactionPartyEmail
      */
-    public void setTxnPartyEmail(String aTxnPartyEmail) {
-        txnPartyEmail = aTxnPartyEmail;
+    public void setTransactionPartyEmail(String aTransactionPartyEmail) {
+        transactionPartyEmail = aTransactionPartyEmail;
     }
 
     /**
-     * Access method for txnPartyPhone.
+     * Access method for transactionPartyPhone.
      *
-     * @return the current value of txnPartyPhone
+     * @return the current value of transactionPartyPhone
      */
-    public String getTxnPartyPhone() {
-        return txnPartyPhone;
+    public String getTransactionPartyPhone() {
+        return transactionPartyPhone;
     }
 
     /**
-     * Setter method for txnPartyPhone.
+     * Setter method for transactionPartyPhone.
      *
-     * @param aTxnPartyPhone the new value for txnPartyPhone
+     * @param aTransactionPartyPhone the new value for transactionPartyPhone
      */
-    public void setTxnPartyPhone(String aTxnPartyPhone) {
-        txnPartyPhone = aTxnPartyPhone;
+    public void setTransactionPartyPhone(String aTransactionPartyPhone) {
+        transactionPartyPhone = aTransactionPartyPhone;
     }
 
     /**
-     * Access method for txnPartyAddr1.
+     * Access method for transactionPartyAddr1.
      *
-     * @return the current value of txnPartyAddr1
+     * @return the current value of transactionPartyAddr1
      */
-    public String getTxnPartyAddr1() {
-        return txnPartyAddr1;
+    public String getTransactionPartyAddr1() {
+        return transactionPartyAddr1;
     }
 
     /**
-     * Setter method for txnPartyAddr1.
+     * Setter method for transactionPartyAddr1.
      *
-     * @param aTxnPartyAddr1 the new value for txnPartyAddr1
+     * @param aTransactionPartyAddr1 the new value for transactionPartyAddr1
      */
-    public void setTxnPartyAddr1(String aTxnPartyAddr1) {
-        txnPartyAddr1 = aTxnPartyAddr1;
+    public void setTransactionPartyAddr1(String aTransactionPartyAddr1) {
+        transactionPartyAddr1 = aTransactionPartyAddr1;
     }
 
     /**
-     * Access method for txnPartyAddr2.
+     * Access method for transactionPartyAddr2.
      *
-     * @return the current value of txnPartyAddr2
+     * @return the current value of transactionPartyAddr2
      */
-    public String getTxnPartyAddr2() {
-        return txnPartyAddr2;
+    public String getTransactionPartyAddr2() {
+        return transactionPartyAddr2;
     }
 
     /**
-     * Setter method for txnPartyAddr2.
+     * Setter method for transactionPartyAddr2.
      *
-     * @param aTxnPartyAddr2 the new value for txnPartyAddr2
+     * @param aTransactionPartyAddr2 the new value for transactionPartyAddr2
      */
-    public void setTxnPartyAddr2(String aTxnPartyAddr2) {
-        txnPartyAddr2 = aTxnPartyAddr2;
+    public void setTransactionPartyAddr2(String aTransactionPartyAddr2) {
+        transactionPartyAddr2 = aTransactionPartyAddr2;
     }
 
     /**
-     * Access method for txnPartyCity.
+     * Access method for transactionPartyCity.
      *
-     * @return the current value of txnPartyCity
+     * @return the current value of transactionPartyCity
      */
-    public String getTxnPartyCity() {
-        return txnPartyCity;
+    public String getTransactionPartyCity() {
+        return transactionPartyCity;
     }
 
     /**
-     * Setter method for txnPartyCity.
+     * Setter method for transactionPartyCity.
      *
-     * @param aTxnPartyCity the new value for txnPartyCity
+     * @param aTransactionPartyCity the new value for transactionPartyCity
      */
-    public void setTxnPartyCity(String aTxnPartyCity) {
-        txnPartyCity = aTxnPartyCity;
+    public void setTransactionPartyCity(String aTransactionPartyCity) {
+        transactionPartyCity = aTransactionPartyCity;
     }
 
     /**
-     * Access method for txnPartyState.
+     * Access method for transactionPartyState.
      *
-     * @return the current value of txnPartyState
+     * @return the current value of transactionPartyState
      */
-    public String getTxnPartyState() {
-        return txnPartyState;
+    public String getTransactionPartyState() {
+        return transactionPartyState;
     }
 
     /**
-     * Setter method for txnPartyState.
+     * Setter method for transactionPartyState.
      *
-     * @param aTxnPartyState the new value for txnPartyState
+     * @param aTransactionPartyState the new value for transactionPartyState
      */
-    public void setTxnPartyState(String aTxnPartyState) {
-        txnPartyState = aTxnPartyState;
+    public void setTransactionPartyState(String aTransactionPartyState) {
+        transactionPartyState = aTransactionPartyState;
     }
 
     /**
-     * Access method for txnPartyZip.
+     * Access method for transactionPartyZip.
      *
-     * @return the current value of txnPartyZip
+     * @return the current value of transactionPartyZip
      */
-    public String getTxnPartyZip() {
-        return txnPartyZip;
+    public String getTransactionPartyZip() {
+        return transactionPartyZip;
     }
 
     /**
-     * Setter method for txnPartyZip.
+     * Setter method for transactionPartyZip.
      *
-     * @param aTxnPartyZip the new value for txnPartyZip
+     * @param aTransactionPartyZip the new value for transactionPartyZip
      */
-    public void setTxnPartyZip(String aTxnPartyZip) {
-        txnPartyZip = aTxnPartyZip;
+    public void setTransactionPartyZip(String aTransactionPartyZip) {
+        transactionPartyZip = aTransactionPartyZip;
     }
 
     /**
-     * Access method for txnPartyAcctNum.
+     * Access method for transactionPartyAccountNumber.
      *
-     * @return the current value of txnPartyAcctNum
+     * @return the current value of transactionPartyAccountNumber
      */
-    public String getTxnPartyAcctNum() {
-        return txnPartyAcctNum;
+    public String getTransactionPartyAccountNumber() {
+        return transactionPartyAccountNumber;
     }
 
     /**
-     * Setter method for txnPartyAcctNum.
+     * Setter method for transactionPartyAccountNumber.
      *
-     * @param aTxnPartyAcctNum the new value for txnPartyAcctNum
+     * @param aTransactionPartyAccountNumber the new value for transactionPartyAccountNumber
      */
-    public void setTxnPartyAcctNum(String aTxnPartyAcctNum) {
-        txnPartyAcctNum = aTxnPartyAcctNum;
+    public void setTransactionPartyAccountNumber(String aTransactionPartyAccountNumber) {
+        transactionPartyAccountNumber = aTransactionPartyAccountNumber;
     }
 
     /**
-     * Access method for reimbChecks2.
+     * Access method for reimbursementPayeeChecks.
      *
-     * @return the current value of reimbChecks2
+     * @return the current value of reimbursementPayeeChecks
      */
-    public Set<ReimbChecks> getReimbChecks2() {
-        return reimbChecks2;
+    public Set<ReimbursementChecks> getReimbursementPayeeChecks() {
+        return reimbursementPayeeChecks;
     }
 
     /**
-     * Setter method for reimbChecks2.
+     * Setter method for reimbursementPayeeChecks.
      *
-     * @param aReimbChecks2 the new value for reimbChecks2
+     * @param aReimbursementPayeeChecks the new value for reimbursementPayeeChecks
      */
-    public void setReimbChecks2(Set<ReimbChecks> aReimbChecks2) {
-        reimbChecks2 = aReimbChecks2;
+    public void setReimbursementPayeeChecks(Set<ReimbursementChecks> aReimbursementPayeeChecks) {
+        reimbursementPayeeChecks = aReimbursementPayeeChecks;
     }
 
     /**
-     * Access method for reimbChecks.
+     * Access method for reimbursementPayorChecks.
      *
-     * @return the current value of reimbChecks
+     * @return the current value of reimbursementPayorChecks
      */
-    public Set<ReimbChecks> getReimbChecks() {
-        return reimbChecks;
+    public Set<ReimbursementChecks> getReimbursementPayorChecks() {
+        return reimbursementPayorChecks;
     }
 
     /**
-     * Setter method for reimbChecks.
+     * Setter method for reimbursementPayorChecks.
      *
-     * @param aReimbChecks the new value for reimbChecks
+     * @param aReimbursementPayorChecks the new value for reimbursementPayorChecks
      */
-    public void setReimbChecks(Set<ReimbChecks> aReimbChecks) {
-        reimbChecks = aReimbChecks;
+    public void setReimbursementPayorChecks(Set<ReimbursementChecks> aReimbursementPayorChecks) {
+        reimbursementPayorChecks = aReimbursementPayorChecks;
     }
 
     /**
-     * Access method for reimbOnline2.
+     * Access method for reimbursementPayeeOnline.
      *
-     * @return the current value of reimbOnline2
+     * @return the current value of reimbursementPayeeOnline
      */
-    public Set<ReimbOnline> getReimbOnline2() {
-        return reimbOnline2;
+    public Set<ReimbursementOnline> getReimbursementPayeeOnline() {
+        return reimbursementPayeeOnline;
     }
 
     /**
-     * Setter method for reimbOnline2.
+     * Setter method for reimbursementPayeeOnline.
      *
-     * @param aReimbOnline2 the new value for reimbOnline2
+     * @param aReimbursementPayeeOnline the new value for reimbursementPayeeOnline
      */
-    public void setReimbOnline2(Set<ReimbOnline> aReimbOnline2) {
-        reimbOnline2 = aReimbOnline2;
+    public void setReimbursementPayeeOnline(Set<ReimbursementOnline> aReimbursementPayeeOnline) {
+        reimbursementPayeeOnline = aReimbursementPayeeOnline;
     }
 
     /**
-     * Access method for reimbOnline.
+     * Access method for reimbursementPayorOnline.
      *
-     * @return the current value of reimbOnline
+     * @return the current value of reimbursementPayorOnline
      */
-    public Set<ReimbOnline> getReimbOnline() {
-        return reimbOnline;
+    public Set<ReimbursementOnline> getReimbursementPayorOnline() {
+        return reimbursementPayorOnline;
     }
 
     /**
-     * Setter method for reimbOnline.
+     * Setter method for reimbursementPayorOnline.
      *
-     * @param aReimbOnline the new value for reimbOnline
+     * @param aReimbursementPayorOnline the new value for reimbursementPayorOnline
      */
-    public void setReimbOnline(Set<ReimbOnline> aReimbOnline) {
-        reimbOnline = aReimbOnline;
+    public void setReimbursementPayorOnline(Set<ReimbursementOnline> aReimbursementPayorOnline) {
+        reimbursementPayorOnline = aReimbursementPayorOnline;
     }
 
     /**
@@ -353,7 +353,7 @@ public class TransactionParties implements Serializable {
             return false;
         }
         TransactionParties that = (TransactionParties) other;
-        if (this.getTxnPartyId() != that.getTxnPartyId()) {
+        if (this.getTransactionPartyId() != that.getTransactionPartyId()) {
             return false;
         }
         return true;
@@ -380,7 +380,7 @@ public class TransactionParties implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getTxnPartyId();
+        i = getTransactionPartyId();
         result = 37*result + i;
         return result;
     }
@@ -393,7 +393,7 @@ public class TransactionParties implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[TransactionParties |");
-        sb.append(" txnPartyId=").append(getTxnPartyId());
+        sb.append(" transactionPartyId=").append(getTransactionPartyId());
         sb.append("]");
         return sb.toString();
     }
@@ -405,7 +405,7 @@ public class TransactionParties implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("txnPartyId", Integer.valueOf(getTxnPartyId()));
+        ret.put("transactionPartyId", Integer.valueOf(getTransactionPartyId()));
         return ret;
     }
 

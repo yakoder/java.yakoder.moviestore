@@ -68,7 +68,7 @@ public class Orders implements Serializable {
     @OneToMany(mappedBy="orders")
     private Set<CustomerFeedback> customerFeedback;
     @OneToMany(mappedBy="orders")
-    private Set<ExpShipping> expShipping;
+    private Set<ExpenseShipping> expShipping;
     @OneToMany(mappedBy="orders")
     private Set<OrderAdjustments> orderAdjustments;
     @OneToMany(mappedBy="orders")
@@ -168,7 +168,7 @@ public class Orders implements Serializable {
      *
      * @return the current value of expShipping
      */
-    public Set<ExpShipping> getExpShipping() {
+    public Set<ExpenseShipping> getExpShipping() {
         return expShipping;
     }
 
@@ -177,7 +177,7 @@ public class Orders implements Serializable {
      *
      * @param aExpShipping the new value for expShipping
      */
-    public void setExpShipping(Set<ExpShipping> aExpShipping) {
+    public void setExpShipping(Set<ExpenseShipping> aExpShipping) {
         expShipping = aExpShipping;
     }
 

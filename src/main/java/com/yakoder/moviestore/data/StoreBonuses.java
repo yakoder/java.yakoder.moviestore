@@ -60,7 +60,7 @@ public class StoreBonuses implements Serializable {
     @Column(name="store_bonus_desc", length=255)
     private String storeBonusDesc;
     @OneToMany(mappedBy="storeBonuses")
-    private Set<StoreInvHistory> storeInvHistory;
+    private Set<StoreInventoryHistory> storeInventoryHistory;
 
     /** Default constructor. */
     public StoreBonuses() {
@@ -122,21 +122,21 @@ public class StoreBonuses implements Serializable {
     }
 
     /**
-     * Access method for storeInvHistory.
+     * Access method for storeInventoryHistory.
      *
-     * @return the current value of storeInvHistory
+     * @return the current value of storeInventoryHistory
      */
-    public Set<StoreInvHistory> getStoreInvHistory() {
-        return storeInvHistory;
+    public Set<StoreInventoryHistory> getStoreInventoryHistory() {
+        return storeInventoryHistory;
     }
 
     /**
-     * Setter method for storeInvHistory.
+     * Setter method for storeInventoryHistory.
      *
-     * @param aStoreInvHistory the new value for storeInvHistory
+     * @param aStoreInventoryHistory the new value for storeInventoryHistory
      */
-    public void setStoreInvHistory(Set<StoreInvHistory> aStoreInvHistory) {
-        storeInvHistory = aStoreInvHistory;
+    public void setStoreInventoryHistory(Set<StoreInventoryHistory> aStoreInventoryHistory) {
+        storeInventoryHistory = aStoreInventoryHistory;
     }
 
     /**

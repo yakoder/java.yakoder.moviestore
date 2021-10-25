@@ -57,10 +57,10 @@ public class CrewAliases implements Serializable {
     private int crewAliasId;
     @ManyToOne(optional=false)
     @JoinColumn(name="alias_id", nullable=false)
-    private Crew crew2;
+    private Crew alias;
     @ManyToOne(optional=false)
     @JoinColumn(name="crew_id", nullable=false)
-    private Crew crew;
+    private Crew primary;
 
     /** Default constructor. */
     public CrewAliases() {
@@ -86,39 +86,39 @@ public class CrewAliases implements Serializable {
     }
 
     /**
-     * Access method for crew2.
+     * Access method for alias.
      *
-     * @return the current value of crew2
+     * @return the current value of alias
      */
-    public Crew getCrew2() {
-        return crew2;
+    public Crew getAlias() {
+        return alias;
     }
 
     /**
-     * Setter method for crew2.
+     * Setter method for alias.
      *
-     * @param aCrew2 the new value for crew2
+     * @param aAlias the new value for alias
      */
-    public void setCrew2(Crew aCrew2) {
-        crew2 = aCrew2;
+    public void setAlias(Crew aAlias) {
+        alias = aAlias;
     }
 
     /**
-     * Access method for crew.
+     * Access method for primary.
      *
-     * @return the current value of crew
+     * @return the current value of primary
      */
-    public Crew getCrew() {
-        return crew;
+    public Crew getPrimary() {
+        return primary;
     }
 
     /**
-     * Setter method for crew.
+     * Setter method for primary.
      *
-     * @param aCrew the new value for crew
+     * @param aPrimary the new value for primary
      */
-    public void setCrew(Crew aCrew) {
-        crew = aCrew;
+    public void setPrimary(Crew aPrimary) {
+        primary = aPrimary;
     }
 
     /**

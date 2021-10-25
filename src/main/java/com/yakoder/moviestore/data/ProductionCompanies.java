@@ -24,7 +24,7 @@ public class ProductionCompanies implements Serializable {
 	private static final long serialVersionUID = -5068396319082401320L;
 
 	/** Primary key. */
-    protected static final String PK = "prodCoId";
+    protected static final String PK = "productionCompanyId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -54,11 +54,11 @@ public class ProductionCompanies implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="prod_co_id", unique=true, nullable=false, precision=10)
-    private int prodCoId;
+    private int productionCompanyId;
     @Column(name="prod_co_name", nullable=false, length=100)
-    private String prodCoName;
+    private String productionCompanyName;
     @Column(name="prod_co_url", length=255)
-    private String prodCoUrl;
+    private String productionCompanyUrl;
     @OneToMany(mappedBy="prodCos")
     private Set<MovieProductionCompanies> movieProductionCompanies;
 
@@ -68,57 +68,57 @@ public class ProductionCompanies implements Serializable {
     }
 
     /**
-     * Access method for prodCoId.
+     * Access method for productionCompanyId.
      *
-     * @return the current value of prodCoId
+     * @return the current value of productionCompanyId
      */
-    public int getProdCoId() {
-        return prodCoId;
+    public int getProductionCompanyId() {
+        return productionCompanyId;
     }
 
     /**
-     * Setter method for prodCoId.
+     * Setter method for productionCompanyId.
      *
-     * @param aProdCoId the new value for prodCoId
+     * @param aProductionCompanyId the new value for productionCompanyId
      */
-    public void setProdCoId(int aProdCoId) {
-        prodCoId = aProdCoId;
+    public void setProductionCompanyId(int aProductionCompanyId) {
+        productionCompanyId = aProductionCompanyId;
     }
 
     /**
-     * Access method for prodCoName.
+     * Access method for productionCompanyName.
      *
-     * @return the current value of prodCoName
+     * @return the current value of productionCompanyName
      */
-    public String getProdCoName() {
-        return prodCoName;
+    public String getProductionCompanyName() {
+        return productionCompanyName;
     }
 
     /**
-     * Setter method for prodCoName.
+     * Setter method for productionCompanyName.
      *
-     * @param aProdCoName the new value for prodCoName
+     * @param aProductionCompanyName the new value for productionCompanyName
      */
-    public void setProdCoName(String aProdCoName) {
-        prodCoName = aProdCoName;
+    public void setProductionCompanyName(String aProductionCompanyName) {
+        productionCompanyName = aProductionCompanyName;
     }
 
     /**
-     * Access method for prodCoUrl.
+     * Access method for productionCompanyUrl.
      *
-     * @return the current value of prodCoUrl
+     * @return the current value of productionCompanyUrl
      */
-    public String getProdCoUrl() {
-        return prodCoUrl;
+    public String getProductionCompanyUrl() {
+        return productionCompanyUrl;
     }
 
     /**
-     * Setter method for prodCoUrl.
+     * Setter method for productionCompanyUrl.
      *
-     * @param aProdCoUrl the new value for prodCoUrl
+     * @param aProductionCompanyUrl the new value for productionCompanyUrl
      */
-    public void setProdCoUrl(String aProdCoUrl) {
-        prodCoUrl = aProdCoUrl;
+    public void setProductionCompanyUrl(String aProductionCompanyUrl) {
+        productionCompanyUrl = aProductionCompanyUrl;
     }
 
     /**
@@ -153,7 +153,7 @@ public class ProductionCompanies implements Serializable {
             return false;
         }
         ProductionCompanies that = (ProductionCompanies) other;
-        if (this.getProdCoId() != that.getProdCoId()) {
+        if (this.getProductionCompanyId() != that.getProductionCompanyId()) {
             return false;
         }
         return true;
@@ -180,7 +180,7 @@ public class ProductionCompanies implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getProdCoId();
+        i = getProductionCompanyId();
         result = 37*result + i;
         return result;
     }
@@ -193,7 +193,7 @@ public class ProductionCompanies implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[ProductionCompanies |");
-        sb.append(" prodCoId=").append(getProdCoId());
+        sb.append(" productionCompanyId=").append(getProductionCompanyId());
         sb.append("]");
         return sb.toString();
     }
@@ -205,7 +205,7 @@ public class ProductionCompanies implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("prodCoId", Integer.valueOf(getProdCoId()));
+        ret.put("productionCompanyId", Integer.valueOf(getProductionCompanyId()));
         return ret;
     }
 

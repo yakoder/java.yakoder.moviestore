@@ -27,7 +27,7 @@ public class StoreCustomers implements Serializable {
 	private static final long serialVersionUID = -1048246908452923147L;
 
 	/** Primary key. */
-    protected static final String PK = "storeCustId";
+    protected static final String PK = "storeCustomerId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -57,9 +57,9 @@ public class StoreCustomers implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="store_cust_id", unique=true, nullable=false, precision=10)
-    private int storeCustId;
+    private int storeCustomerId;
     @Column(name="cust_username", length=100)
-    private String custUsername;
+    private String customerUsername;
     @Column(name="is_enabled", nullable=false, length=3)
     private boolean isEnabled;
     @ManyToOne(optional=false)
@@ -75,39 +75,39 @@ public class StoreCustomers implements Serializable {
     }
 
     /**
-     * Access method for storeCustId.
+     * Access method for storeCustomerId.
      *
-     * @return the current value of storeCustId
+     * @return the current value of storeCustomerId
      */
-    public int getStoreCustId() {
-        return storeCustId;
+    public int getStoreCustomerId() {
+        return storeCustomerId;
     }
 
     /**
-     * Setter method for storeCustId.
+     * Setter method for storeCustomerId.
      *
-     * @param aStoreCustId the new value for storeCustId
+     * @param aStoreCustomerId the new value for storeCustomerId
      */
-    public void setStoreCustId(int aStoreCustId) {
-        storeCustId = aStoreCustId;
+    public void setStoreCustomerId(int aStoreCustomerId) {
+        storeCustomerId = aStoreCustomerId;
     }
 
     /**
-     * Access method for custUsername.
+     * Access method for customerUsername.
      *
-     * @return the current value of custUsername
+     * @return the current value of customerUsername
      */
-    public String getCustUsername() {
-        return custUsername;
+    public String getCustomerUsername() {
+        return customerUsername;
     }
 
     /**
-     * Setter method for custUsername.
+     * Setter method for customerUsername.
      *
-     * @param aCustUsername the new value for custUsername
+     * @param aCustomerUsername the new value for customerUsername
      */
-    public void setCustUsername(String aCustUsername) {
-        custUsername = aCustUsername;
+    public void setCustomerUsername(String aCustomerUsername) {
+        customerUsername = aCustomerUsername;
     }
 
     /**
@@ -200,7 +200,7 @@ public class StoreCustomers implements Serializable {
             return false;
         }
         StoreCustomers that = (StoreCustomers) other;
-        if (this.getStoreCustId() != that.getStoreCustId()) {
+        if (this.getStoreCustomerId() != that.getStoreCustomerId()) {
             return false;
         }
         return true;
@@ -227,7 +227,7 @@ public class StoreCustomers implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getStoreCustId();
+        i = getStoreCustomerId();
         result = 37*result + i;
         return result;
     }
@@ -240,7 +240,7 @@ public class StoreCustomers implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[StoreCustomers |");
-        sb.append(" storeCustId=").append(getStoreCustId());
+        sb.append(" storeCustomerId=").append(getStoreCustomerId());
         sb.append("]");
         return sb.toString();
     }
@@ -252,7 +252,7 @@ public class StoreCustomers implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("storeCustId", Integer.valueOf(getStoreCustId()));
+        ret.put("storeCustomerId", Integer.valueOf(getStoreCustomerId()));
         return ret;
     }
 

@@ -23,7 +23,7 @@ public class ExpenseShipping implements Serializable {
 	private static final long serialVersionUID = 3253605039341342983L;
 
 	/** Primary key. */
-    protected static final String PK = "expDetailId";
+    protected static final String PK = "expenseDetailId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -52,7 +52,7 @@ public class ExpenseShipping implements Serializable {
 
     @Id
     @Column(name="exp_detail_id", unique=true, nullable=false, precision=10)
-    private int expDetailId;
+    private int expenseDetailId;
     @Column(name="postage_cost", precision=15, scale=2)
     private BigDecimal postageCost;
     @Column(name="insurance_cost", precision=15, scale=2)
@@ -70,21 +70,21 @@ public class ExpenseShipping implements Serializable {
     }
 
     /**
-     * Access method for expDetailId.
+     * Access method for expenseDetailId.
      *
-     * @return the current value of expDetailId
+     * @return the current value of expenseDetailId
      */
-    public int getExpDetailId() {
-        return expDetailId;
+    public int getExpenseDetailId() {
+        return expenseDetailId;
     }
 
     /**
-     * Setter method for expDetailId.
+     * Setter method for expenseDetailId.
      *
-     * @param aExpDetailId the new value for expDetailId
+     * @param aExpenseDetailId the new value for expenseDetailId
      */
-    public void setExpDetailId(int aExpDetailId) {
-        expDetailId = aExpDetailId;
+    public void setExpenseDetailId(int aExpenseDetailId) {
+        expenseDetailId = aExpenseDetailId;
     }
 
     /**
@@ -173,7 +173,7 @@ public class ExpenseShipping implements Serializable {
             return false;
         }
         ExpenseShipping that = (ExpenseShipping) other;
-        if (this.getExpDetailId() != that.getExpDetailId()) {
+        if (this.getExpenseDetailId() != that.getExpenseDetailId()) {
             return false;
         }
         return true;
@@ -200,7 +200,7 @@ public class ExpenseShipping implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getExpDetailId();
+        i = getExpenseDetailId();
         result = 37*result + i;
         return result;
     }
@@ -213,7 +213,7 @@ public class ExpenseShipping implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[ExpenseShipping |");
-        sb.append(" expDetailId=").append(getExpDetailId());
+        sb.append(" expenseDetailId=").append(getExpenseDetailId());
         sb.append("]");
         return sb.toString();
     }
@@ -225,7 +225,7 @@ public class ExpenseShipping implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("expDetailId", Integer.valueOf(getExpDetailId()));
+        ret.put("expenseDetailId", Integer.valueOf(getExpenseDetailId()));
         return ret;
     }
 

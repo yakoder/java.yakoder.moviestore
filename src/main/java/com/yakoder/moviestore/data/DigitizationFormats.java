@@ -27,7 +27,7 @@ public class DigitizationFormats implements Serializable {
 	private static final long serialVersionUID = 7192924279972575912L;
 
 	/** Primary key. */
-    protected static final String PK = "digitFmtId";
+    protected static final String PK = "digitizationFormatId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -57,13 +57,13 @@ public class DigitizationFormats implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="digit_fmt_id", unique=true, nullable=false, precision=10)
-    private int digitFmtId;
+    private int digitizationFormatId;
     @Column(name="digit_fmt_name", unique=true, nullable=false, length=100)
-    private String digitFmtName;
+    private String digitizationFormatName;
     @Column(name="digit_fmt_desc", length=255)
-    private String digitFmtDesc;
+    private String digitizationFormatDesc;
     @OneToMany(mappedBy="digitizationFormats")
-    private Set<InvDigitization> invDigitization;
+    private Set<InventoryDigitization> inventoryDigitization;
 
     /** Default constructor. */
     public DigitizationFormats() {
@@ -71,75 +71,75 @@ public class DigitizationFormats implements Serializable {
     }
 
     /**
-     * Access method for digitFmtId.
+     * Access method for digitizationFormatId.
      *
-     * @return the current value of digitFmtId
+     * @return the current value of digitizationFormatId
      */
-    public int getDigitFmtId() {
-        return digitFmtId;
+    public int getDigitizationFormatId() {
+        return digitizationFormatId;
     }
 
     /**
-     * Setter method for digitFmtId.
+     * Setter method for digitizationFormatId.
      *
-     * @param aDigitFmtId the new value for digitFmtId
+     * @param aDigitizationFormatId the new value for digitizationFormatId
      */
-    public void setDigitFmtId(int aDigitFmtId) {
-        digitFmtId = aDigitFmtId;
+    public void setDigitFmtId(int aDigitizationFormatId) {
+        digitizationFormatId = aDigitizationFormatId;
     }
 
     /**
-     * Access method for digitFmtName.
+     * Access method for digitizationFormatName.
      *
-     * @return the current value of digitFmtName
+     * @return the current value of digitizationFormatName
      */
-    public String getDigitFmtName() {
-        return digitFmtName;
+    public String getDigitizationFormatName() {
+        return digitizationFormatName;
     }
 
     /**
-     * Setter method for digitFmtName.
+     * Setter method for digitizationFormatName.
      *
-     * @param aDigitFmtName the new value for digitFmtName
+     * @param aDigitizationFormatName the new value for digitizationFormatName
      */
-    public void setDigitFmtName(String aDigitFmtName) {
-        digitFmtName = aDigitFmtName;
+    public void setDigitizationFormatName(String aDigitizationFormatName) {
+        digitizationFormatName = aDigitizationFormatName;
     }
 
     /**
-     * Access method for digitFmtDesc.
+     * Access method for digitizationFormatDesc.
      *
-     * @return the current value of digitFmtDesc
+     * @return the current value of digitizationFormatDesc
      */
-    public String getDigitFmtDesc() {
-        return digitFmtDesc;
+    public String getDigitizationFormatDesc() {
+        return digitizationFormatDesc;
     }
 
     /**
-     * Setter method for digitFmtDesc.
+     * Setter method for digitizationFormatDesc.
      *
-     * @param aDigitFmtDesc the new value for digitFmtDesc
+     * @param aDigitizationFormatDesc the new value for digitizationFormatDesc
      */
-    public void setDigitFmtDesc(String aDigitFmtDesc) {
-        digitFmtDesc = aDigitFmtDesc;
+    public void setDigitizationFormatDesc(String aDigitizationFormatDesc) {
+        digitizationFormatDesc = aDigitizationFormatDesc;
     }
 
     /**
-     * Access method for invDigitization.
+     * Access method for inventoryDigitization.
      *
-     * @return the current value of invDigitization
+     * @return the current value of inventoryDigitization
      */
-    public Set<InvDigitization> getInvDigitization() {
-        return invDigitization;
+    public Set<InventoryDigitization> getInventoryDigitization() {
+        return inventoryDigitization;
     }
 
     /**
-     * Setter method for invDigitization.
+     * Setter method for inventoryDigitization.
      *
-     * @param aInvDigitization the new value for invDigitization
+     * @param aInventoryDigitization the new value for inventoryDigitization
      */
-    public void setInvDigitization(Set<InvDigitization> aInvDigitization) {
-        invDigitization = aInvDigitization;
+    public void setInventoryDigitization(Set<InventoryDigitization> aInventoryDigitization) {
+        inventoryDigitization = aInventoryDigitization;
     }
 
     /**
@@ -156,7 +156,7 @@ public class DigitizationFormats implements Serializable {
             return false;
         }
         DigitizationFormats that = (DigitizationFormats) other;
-        if (this.getDigitFmtId() != that.getDigitFmtId()) {
+        if (this.getDigitizationFormatId() != that.getDigitizationFormatId()) {
             return false;
         }
         return true;
@@ -183,7 +183,7 @@ public class DigitizationFormats implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getDigitFmtId();
+        i = getDigitizationFormatId();
         result = 37*result + i;
         return result;
     }
@@ -196,7 +196,7 @@ public class DigitizationFormats implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[DigitizationFormats |");
-        sb.append(" digitFmtId=").append(getDigitFmtId());
+        sb.append(" digitFmtId=").append(getDigitizationFormatId());
         sb.append("]");
         return sb.toString();
     }
@@ -208,7 +208,7 @@ public class DigitizationFormats implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("digitFmtId", Integer.valueOf(getDigitFmtId()));
+        ret.put("digitizationFormatId", Integer.valueOf(getDigitizationFormatId()));
         return ret;
     }
 

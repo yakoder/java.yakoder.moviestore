@@ -27,7 +27,7 @@ public class ReimbursementMethods implements Serializable {
 	private static final long serialVersionUID = -2709191631267125113L;
 
 	/** Primary key. */
-    protected static final String PK = "reimbMethId";
+    protected static final String PK = "reimbursementMethodId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -57,13 +57,13 @@ public class ReimbursementMethods implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="reimb_meth_id", unique=true, nullable=false, precision=10)
-    private int reimbMethId;
+    private int reimbursementMethodId;
     @Column(name="reimb_meth_name", nullable=false, length=100)
-    private String reimbMethName;
+    private String reimbursementMethodName;
     @Column(name="reimb_meth_desc", length=255)
-    private String reimbMethDesc;
+    private String reimbursementMethodDesc;
     @Column(name="reimb_detail_table_id", nullable=false, precision=10)
-    private int reimbDetailTableId;
+    private int reimbursementDetailTableId;
     @OneToMany(mappedBy="reimbMethods")
     private Set<Reimbursements> reimbursements;
 
@@ -73,75 +73,75 @@ public class ReimbursementMethods implements Serializable {
     }
 
     /**
-     * Access method for reimbMethId.
+     * Access method for reimbursementMethodId.
      *
-     * @return the current value of reimbMethId
+     * @return the current value of reimbursementMethodId
      */
-    public int getReimbMethId() {
-        return reimbMethId;
+    public int getReimbursementMethodId() {
+        return reimbursementMethodId;
     }
 
     /**
-     * Setter method for reimbMethId.
+     * Setter method for reimbursementMethodId.
      *
-     * @param aReimbMethId the new value for reimbMethId
+     * @param aReimbursementMethodId the new value for reimbursementMethodId
      */
-    public void setReimbMethId(int aReimbMethId) {
-        reimbMethId = aReimbMethId;
+    public void setReimbursementMethodId(int aReimbursementMethodId) {
+        reimbursementMethodId = aReimbursementMethodId;
     }
 
     /**
-     * Access method for reimbMethName.
+     * Access method for reimbursementMethodName.
      *
-     * @return the current value of reimbMethName
+     * @return the current value of reimbursementMethodName
      */
-    public String getReimbMethName() {
-        return reimbMethName;
+    public String getReimbursementMethodName() {
+        return reimbursementMethodName;
     }
 
     /**
-     * Setter method for reimbMethName.
+     * Setter method for reimbursementMethodName.
      *
-     * @param aReimbMethName the new value for reimbMethName
+     * @param aReimbursementMethodName the new value for reimbursementMethodName
      */
-    public void setReimbMethName(String aReimbMethName) {
-        reimbMethName = aReimbMethName;
+    public void setReimbursementMethodName(String aReimbursementMethodName) {
+        reimbursementMethodName = aReimbursementMethodName;
     }
 
     /**
-     * Access method for reimbMethDesc.
+     * Access method for reimbursementMethodDesc.
      *
-     * @return the current value of reimbMethDesc
+     * @return the current value of reimbursementMethodDesc
      */
-    public String getReimbMethDesc() {
-        return reimbMethDesc;
+    public String getReimbursementMethodDesc() {
+        return reimbursementMethodDesc;
     }
 
     /**
-     * Setter method for reimbMethDesc.
+     * Setter method for reimbursementMethodDesc.
      *
-     * @param aReimbMethDesc the new value for reimbMethDesc
+     * @param aReimbursementMethodDesc the new value for reimbursementMethodDesc
      */
-    public void setReimbMethDesc(String aReimbMethDesc) {
-        reimbMethDesc = aReimbMethDesc;
+    public void setReimbursementMethodDesc(String aReimbursementMethodDesc) {
+        reimbursementMethodDesc = aReimbursementMethodDesc;
     }
 
     /**
-     * Access method for reimbDetailTableId.
+     * Access method for reimbursementDetailTableId.
      *
-     * @return the current value of reimbDetailTableId
+     * @return the current value of reimbursementDetailTableId
      */
-    public int getReimbDetailTableId() {
-        return reimbDetailTableId;
+    public int getReimbursementDetailTableId() {
+        return reimbursementDetailTableId;
     }
 
     /**
-     * Setter method for reimbDetailTableId.
+     * Setter method for reimbursementDetailTableId.
      *
-     * @param aReimbDetailTableId the new value for reimbDetailTableId
+     * @param aReimbursementDetailTableId the new value for reimbursementDetailTableId
      */
-    public void setReimbDetailTableId(int aReimbDetailTableId) {
-        reimbDetailTableId = aReimbDetailTableId;
+    public void setReimbursementDetailTableId(int aReimbursementDetailTableId) {
+        reimbursementDetailTableId = aReimbursementDetailTableId;
     }
 
     /**
@@ -176,7 +176,7 @@ public class ReimbursementMethods implements Serializable {
             return false;
         }
         ReimbursementMethods that = (ReimbursementMethods) other;
-        if (this.getReimbMethId() != that.getReimbMethId()) {
+        if (this.getReimbursementMethodId() != that.getReimbursementMethodId()) {
             return false;
         }
         return true;
@@ -203,7 +203,7 @@ public class ReimbursementMethods implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getReimbMethId();
+        i = getReimbursementMethodId();
         result = 37*result + i;
         return result;
     }
@@ -216,7 +216,7 @@ public class ReimbursementMethods implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[ReimbursementMethods |");
-        sb.append(" reimbMethId=").append(getReimbMethId());
+        sb.append(" reimbursementMethodId=").append(getReimbursementMethodId());
         sb.append("]");
         return sb.toString();
     }
@@ -228,7 +228,7 @@ public class ReimbursementMethods implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("reimbMethId", Integer.valueOf(getReimbMethId()));
+        ret.put("reimbursementMethodId", Integer.valueOf(getReimbursementMethodId()));
         return ret;
     }
 

@@ -69,18 +69,18 @@ public class Movies implements Serializable {
     @Column(name="num_title_tracks", precision=10)
     private int numTitleTracks;
     @OneToMany(mappedBy="movies")
-    private Set<ExpMovies> expMovies;
+    private Set<ExpenseMovies> expenseMovies;
     @OneToMany(mappedBy="movies")
     private Set<Inventory> inventory;
-    @OneToMany(mappedBy="movies2")
-    private Set<MovieAkas> movieAkas2;
-    @OneToMany(mappedBy="movies")
+    @OneToMany(mappedBy="aka")
     private Set<MovieAkas> movieAkas;
+    @OneToMany(mappedBy="primary")
+    private Set<MovieAkas> primaryMovies;
     @OneToMany(mappedBy="movies")
     private Set<MovieCrew> movieCrew;
-    @OneToMany(mappedBy="movies")
-    private Set<MovieProdCos> movieProdCos;
-    @OneToMany(mappedBy="movies")
+    @OneToMany(mappedBy="movie")
+    private Set<MovieProductionCompanies> movieProductionCompanies;
+    @OneToMany(mappedBy="movie")
     private Set<SiteMovies> siteMovies;
 
     /** Default constructor. */
@@ -197,21 +197,21 @@ public class Movies implements Serializable {
     }
 
     /**
-     * Access method for expMovies.
+     * Access method for expenseMovies.
      *
-     * @return the current value of expMovies
+     * @return the current value of expenseMovies
      */
-    public Set<ExpMovies> getExpMovies() {
-        return expMovies;
+    public Set<ExpenseMovies> getExpenseMovies() {
+        return expenseMovies;
     }
 
     /**
-     * Setter method for expMovies.
+     * Setter method for expenseMovies.
      *
-     * @param aExpMovies the new value for expMovies
+     * @param aExpenseMovies the new value for expenseMovies
      */
-    public void setExpMovies(Set<ExpMovies> aExpMovies) {
-        expMovies = aExpMovies;
+    public void setExpenseMovies(Set<ExpenseMovies> aExpenseMovies) {
+        expenseMovies = aExpenseMovies;
     }
 
     /**
@@ -233,24 +233,6 @@ public class Movies implements Serializable {
     }
 
     /**
-     * Access method for movieAkas2.
-     *
-     * @return the current value of movieAkas2
-     */
-    public Set<MovieAkas> getMovieAkas2() {
-        return movieAkas2;
-    }
-
-    /**
-     * Setter method for movieAkas2.
-     *
-     * @param aMovieAkas2 the new value for movieAkas2
-     */
-    public void setMovieAkas2(Set<MovieAkas> aMovieAkas2) {
-        movieAkas2 = aMovieAkas2;
-    }
-
-    /**
      * Access method for movieAkas.
      *
      * @return the current value of movieAkas
@@ -266,6 +248,24 @@ public class Movies implements Serializable {
      */
     public void setMovieAkas(Set<MovieAkas> aMovieAkas) {
         movieAkas = aMovieAkas;
+    }
+
+    /**
+     * Access method for primaryMovies.
+     *
+     * @return the current value of primaryMovies
+     */
+    public Set<MovieAkas> getPrimaryMovies() {
+        return primaryMovies;
+    }
+
+    /**
+     * Setter method for primaryMovies.
+     *
+     * @param aPrimaryMovies the new value for primaryMovies
+     */
+    public void setPrimaryMovies(Set<MovieAkas> aPrimaryMovies) {
+        primaryMovies = aPrimaryMovies;
     }
 
     /**
@@ -287,21 +287,21 @@ public class Movies implements Serializable {
     }
 
     /**
-     * Access method for movieProdCos.
+     * Access method for movieProductionCompanies.
      *
-     * @return the current value of movieProdCos
+     * @return the current value of movieProductionCompanies
      */
-    public Set<MovieProdCos> getMovieProdCos() {
-        return movieProdCos;
+    public Set<MovieProductionCompanies> getMovieProductionCompanies() {
+        return movieProductionCompanies;
     }
 
     /**
-     * Setter method for movieProdCos.
+     * Setter method for movieProductionCompanies.
      *
-     * @param aMovieProdCos the new value for movieProdCos
+     * @param aMovieProductionCompanies the new value for movieProductionCompanies
      */
-    public void setMovieProdCos(Set<MovieProdCos> aMovieProdCos) {
-        movieProdCos = aMovieProdCos;
+    public void setMovieProductionCompanies(Set<MovieProductionCompanies> aMovieProductionCompanies) {
+        movieProductionCompanies = aMovieProductionCompanies;
     }
 
     /**

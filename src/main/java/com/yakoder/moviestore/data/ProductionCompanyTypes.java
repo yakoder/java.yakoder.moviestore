@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
 @Entity(name="prod_co_types")
-public class ProdCoTypes implements Serializable {
+public class ProductionCompanyTypes implements Serializable {
 
     /**
 	 * 
@@ -24,7 +24,7 @@ public class ProdCoTypes implements Serializable {
 	private static final long serialVersionUID = 862320906976945662L;
 
 	/** Primary key. */
-    protected static final String PK = "prodCoTypeId";
+    protected static final String PK = "productionCompanyTypeId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -54,71 +54,71 @@ public class ProdCoTypes implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="prod_co_type_id", unique=true, nullable=false, precision=10)
-    private int prodCoTypeId;
+    private int productionCompanyTypeId;
     @Column(name="prod_co_type_name", nullable=false, length=100)
-    private String prodCoTypeName;
+    private String productionCompanyTypeName;
     @Column(name="prod_co_type_desc", length=255)
-    private String prodCoTypeDesc;
+    private String productionCompanyTypeDesc;
     @OneToMany(mappedBy="prodCoTypes")
     private Set<MovieProductionCompanies> movieProductionCompanies;
 
     /** Default constructor. */
-    public ProdCoTypes() {
+    public ProductionCompanyTypes() {
         super();
     }
 
     /**
-     * Access method for prodCoTypeId.
+     * Access method for productionCompanyTypeId.
      *
-     * @return the current value of prodCoTypeId
+     * @return the current value of productionCompanyTypeId
      */
-    public int getProdCoTypeId() {
-        return prodCoTypeId;
+    public int getProductionCompanyTypeId() {
+        return productionCompanyTypeId;
     }
 
     /**
-     * Setter method for prodCoTypeId.
+     * Setter method for productionCompanyTypeId.
      *
-     * @param aProdCoTypeId the new value for prodCoTypeId
+     * @param aProductionCompanyTypeId the new value for productionCompanyTypeId
      */
-    public void setProdCoTypeId(int aProdCoTypeId) {
-        prodCoTypeId = aProdCoTypeId;
+    public void setProductionCompanyTypeId(int aProductionCompanyTypeId) {
+        productionCompanyTypeId = aProductionCompanyTypeId;
     }
 
     /**
-     * Access method for prodCoTypeName.
+     * Access method for productionCompanyTypeName.
      *
-     * @return the current value of prodCoTypeName
+     * @return the current value of productionCompanyTypeName
      */
-    public String getProdCoTypeName() {
-        return prodCoTypeName;
+    public String getProductionCompanyTypeName() {
+        return productionCompanyTypeName;
     }
 
     /**
-     * Setter method for prodCoTypeName.
+     * Setter method for productionCompanyTypeName.
      *
-     * @param aProdCoTypeName the new value for prodCoTypeName
+     * @param aProductionCompanyTypeName the new value for productionCompanyTypeName
      */
-    public void setProdCoTypeName(String aProdCoTypeName) {
-        prodCoTypeName = aProdCoTypeName;
+    public void setProductionCompanyTypeName(String aProductionCompanyTypeName) {
+        productionCompanyTypeName = aProductionCompanyTypeName;
     }
 
     /**
-     * Access method for prodCoTypeDesc.
+     * Access method for productionCompanyTypeDesc.
      *
-     * @return the current value of prodCoTypeDesc
+     * @return the current value of productionCompanyTypeDesc
      */
-    public String getProdCoTypeDesc() {
-        return prodCoTypeDesc;
+    public String getProductionCompanyTypeDesc() {
+        return productionCompanyTypeDesc;
     }
 
     /**
-     * Setter method for prodCoTypeDesc.
+     * Setter method for productionCompanyTypeDesc.
      *
-     * @param aProdCoTypeDesc the new value for prodCoTypeDesc
+     * @param aProductionCompanyTypeDesc the new value for productionCompanyTypeDesc
      */
-    public void setProdCoTypeDesc(String aProdCoTypeDesc) {
-        prodCoTypeDesc = aProdCoTypeDesc;
+    public void setProductionCompanyTypeDesc(String aProductionCompanyTypeDesc) {
+        productionCompanyTypeDesc = aProductionCompanyTypeDesc;
     }
 
     /**
@@ -149,11 +149,11 @@ public class ProdCoTypes implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof ProdCoTypes)) {
+        if (!(other instanceof ProductionCompanyTypes)) {
             return false;
         }
-        ProdCoTypes that = (ProdCoTypes) other;
-        if (this.getProdCoTypeId() != that.getProdCoTypeId()) {
+        ProductionCompanyTypes that = (ProductionCompanyTypes) other;
+        if (this.getProductionCompanyTypeId() != that.getProductionCompanyTypeId()) {
             return false;
         }
         return true;
@@ -167,8 +167,8 @@ public class ProdCoTypes implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof ProdCoTypes)) return false;
-        return this.equalKeys(other) && ((ProdCoTypes)other).equalKeys(this);
+        if (!(other instanceof ProductionCompanyTypes)) return false;
+        return this.equalKeys(other) && ((ProductionCompanyTypes)other).equalKeys(this);
     }
 
     /**
@@ -180,7 +180,7 @@ public class ProdCoTypes implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getProdCoTypeId();
+        i = getProductionCompanyTypeId();
         result = 37*result + i;
         return result;
     }
@@ -192,8 +192,8 @@ public class ProdCoTypes implements Serializable {
      */
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer("[ProdCoTypes |");
-        sb.append(" prodCoTypeId=").append(getProdCoTypeId());
+        StringBuffer sb = new StringBuffer("[ProductionCompanyTypes |");
+        sb.append(" productionCompanyTypeId=").append(getProductionCompanyTypeId());
         sb.append("]");
         return sb.toString();
     }
@@ -205,7 +205,7 @@ public class ProdCoTypes implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("prodCoTypeId", Integer.valueOf(getProdCoTypeId()));
+        ret.put("productionCompanyTypeId", Integer.valueOf(getProductionCompanyTypeId()));
         return ret;
     }
 

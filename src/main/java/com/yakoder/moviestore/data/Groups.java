@@ -27,7 +27,7 @@ public class Groups implements Serializable {
 	private static final long serialVersionUID = -712826684267011935L;
 
 	/** Primary key. */
-    protected static final String PK = "grpId";
+    protected static final String PK = "groupId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -57,13 +57,13 @@ public class Groups implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="grp_id", unique=true, nullable=false, precision=10)
-    private int grpId;
+    private int groupId;
     @Column(name="grp_key", unique=true, nullable=false, length=10)
-    private String grpKey;
+    private String groupKey;
     @Column(name="grp_name", length=100)
-    private String grpName;
+    private String groupName;
     @Column(name="grp_desc", length=255)
-    private String grpDesc;
+    private String groupDesc;
     @OneToMany(mappedBy="groups")
     private Set<ExternalIds> externalIds;
 
@@ -73,75 +73,75 @@ public class Groups implements Serializable {
     }
 
     /**
-     * Access method for grpId.
+     * Access method for groupId.
      *
-     * @return the current value of grpId
+     * @return the current value of groupId
      */
-    public int getGrpId() {
-        return grpId;
+    public int getGroupId() {
+        return groupId;
     }
 
     /**
-     * Setter method for grpId.
+     * Setter method for groupId.
      *
-     * @param aGrpId the new value for grpId
+     * @param aGroupId the new value for groupId
      */
-    public void setGrpId(int aGrpId) {
-        grpId = aGrpId;
+    public void setGroupId(int aGroupId) {
+        groupId = aGroupId;
     }
 
     /**
-     * Access method for grpKey.
+     * Access method for groupKey.
      *
-     * @return the current value of grpKey
+     * @return the current value of groupKey
      */
-    public String getGrpKey() {
-        return grpKey;
+    public String getGroupKey() {
+        return groupKey;
     }
 
     /**
-     * Setter method for grpKey.
+     * Setter method for groupKey.
      *
-     * @param aGrpKey the new value for grpKey
+     * @param aGroupKey the new value for groupKey
      */
-    public void setGrpKey(String aGrpKey) {
-        grpKey = aGrpKey;
+    public void setGroupKey(String aGroupKey) {
+        groupKey = aGroupKey;
     }
 
     /**
-     * Access method for grpName.
+     * Access method for groupName.
      *
-     * @return the current value of grpName
+     * @return the current value of groupName
      */
-    public String getGrpName() {
-        return grpName;
+    public String getGroupName() {
+        return groupName;
     }
 
     /**
-     * Setter method for grpName.
+     * Setter method for groupName.
      *
-     * @param aGrpName the new value for grpName
+     * @param aGroupName the new value for groupName
      */
-    public void setGrpName(String aGrpName) {
-        grpName = aGrpName;
+    public void setGroupName(String aGroupName) {
+        groupName = aGroupName;
     }
 
     /**
-     * Access method for grpDesc.
+     * Access method for groupDesc.
      *
-     * @return the current value of grpDesc
+     * @return the current value of groupDesc
      */
-    public String getGrpDesc() {
-        return grpDesc;
+    public String getGroupDesc() {
+        return groupDesc;
     }
 
     /**
-     * Setter method for grpDesc.
+     * Setter method for groupDesc.
      *
-     * @param aGrpDesc the new value for grpDesc
+     * @param aGroupDesc the new value for groupDesc
      */
-    public void setGrpDesc(String aGrpDesc) {
-        grpDesc = aGrpDesc;
+    public void setGroupDesc(String aGroupDesc) {
+        groupDesc = aGroupDesc;
     }
 
     /**
@@ -176,7 +176,7 @@ public class Groups implements Serializable {
             return false;
         }
         Groups that = (Groups) other;
-        if (this.getGrpId() != that.getGrpId()) {
+        if (this.getGroupId() != that.getGroupId()) {
             return false;
         }
         return true;
@@ -203,7 +203,7 @@ public class Groups implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getGrpId();
+        i = getGroupId();
         result = 37*result + i;
         return result;
     }
@@ -216,7 +216,7 @@ public class Groups implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[Groups |");
-        sb.append(" grpId=").append(getGrpId());
+        sb.append(" groupId=").append(getGroupId());
         sb.append("]");
         return sb.toString();
     }
@@ -228,7 +228,7 @@ public class Groups implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("grpId", Integer.valueOf(getGrpId()));
+        ret.put("groupId", Integer.valueOf(getGroupId()));
         return ret;
     }
 

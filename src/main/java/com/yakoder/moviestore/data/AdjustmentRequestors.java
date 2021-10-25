@@ -24,7 +24,7 @@ public class AdjustmentRequestors implements Serializable {
 	private static final long serialVersionUID = 6731264897958780644L;
 
 	/** Primary key. */
-    protected static final String PK = "adjReqId";
+    protected static final String PK = "adjustmentRequestorId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -54,11 +54,11 @@ public class AdjustmentRequestors implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="adj_req_id", unique=true, nullable=false, precision=10)
-    private int adjReqId;
+    private int adjustmentRequestorId;
     @Column(name="adj_req_name", nullable=false, length=100)
-    private String adjReqName;
+    private String adjustmentRequestorName;
     @Column(name="adj_req_desc", length=255)
-    private String adjReqDesc;
+    private String adjustmentRequestorDesc;
     @OneToMany(mappedBy="adjustmentRequestors")
     private Set<OrderAdjustments> orderAdjustments;
 
@@ -68,57 +68,57 @@ public class AdjustmentRequestors implements Serializable {
     }
 
     /**
-     * Access method for adjReqId.
+     * Access method for adjustmentRequestorId.
      *
-     * @return the current value of adjReqId
+     * @return the current value of adjustmentRequestorId
      */
-    public int getAdjReqId() {
-        return adjReqId;
+    public int getAdjustmentRequestorId() {
+        return adjustmentRequestorId;
     }
 
     /**
-     * Setter method for adjReqId.
+     * Setter method for adjustmentRequestorId.
      *
-     * @param aAdjReqId the new value for adjReqId
+     * @param aAdjustmentRequestorId the new value for adjustmentRequestorId
      */
-    public void setAdjReqId(int aAdjReqId) {
-        adjReqId = aAdjReqId;
+    public void setAdjustmentRequestorId(int aAdjustmentRequestorId) {
+        adjustmentRequestorId = aAdjustmentRequestorId;
     }
 
     /**
-     * Access method for adjReqName.
+     * Access method for adjustmentRequestorName.
      *
-     * @return the current value of adjReqName
+     * @return the current value of adjustmentRequestorName
      */
-    public String getAdjReqName() {
-        return adjReqName;
+    public String getAdjustmentRequestorName() {
+        return adjustmentRequestorName;
     }
 
     /**
-     * Setter method for adjReqName.
+     * Setter method for adjustmentRequestorName.
      *
-     * @param aAdjReqName the new value for adjReqName
+     * @param aAdjustmentRequestorName the new value for adjustmentRequestorName
      */
-    public void setAdjReqName(String aAdjReqName) {
-        adjReqName = aAdjReqName;
+    public void setAdjustmentRequestorName(String aAdjustmentRequestorName) {
+        adjustmentRequestorName = aAdjustmentRequestorName;
     }
 
     /**
-     * Access method for adjReqDesc.
+     * Access method for adjustmentRequestorDesc.
      *
-     * @return the current value of adjReqDesc
+     * @return the current value of adjustmentRequestorDesc
      */
-    public String getAdjReqDesc() {
-        return adjReqDesc;
+    public String getAdjustmentRequestorDesc() {
+        return adjustmentRequestorDesc;
     }
 
     /**
-     * Setter method for adjReqDesc.
+     * Setter method for adjustmentRequestorDesc.
      *
-     * @param aAdjReqDesc the new value for adjReqDesc
+     * @param aAdjustmentRequestorDesc the new value for adjustmentRequestorDesc
      */
-    public void setAdjReqDesc(String aAdjReqDesc) {
-        adjReqDesc = aAdjReqDesc;
+    public void setAdjustmentRequestorDesc(String aAdjustmentRequestorDesc) {
+        adjustmentRequestorDesc = aAdjustmentRequestorDesc;
     }
 
     /**
@@ -153,7 +153,7 @@ public class AdjustmentRequestors implements Serializable {
             return false;
         }
         AdjustmentRequestors that = (AdjustmentRequestors) other;
-        if (this.getAdjReqId() != that.getAdjReqId()) {
+        if (this.getAdjustmentRequestorId() != that.getAdjustmentRequestorId()) {
             return false;
         }
         return true;
@@ -180,7 +180,7 @@ public class AdjustmentRequestors implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getAdjReqId();
+        i = getAdjustmentRequestorId();
         result = 37*result + i;
         return result;
     }
@@ -193,7 +193,7 @@ public class AdjustmentRequestors implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[AdjustmentRequestors |");
-        sb.append(" adjReqId=").append(getAdjReqId());
+        sb.append(" adjustmentRequestorId=").append(getAdjustmentRequestorId());
         sb.append("]");
         return sb.toString();
     }
@@ -205,7 +205,7 @@ public class AdjustmentRequestors implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("adjReqId", Integer.valueOf(getAdjReqId()));
+        ret.put("adjustmentRequestorId", Integer.valueOf(getAdjustmentRequestorId()));
         return ret;
     }
 

@@ -27,7 +27,7 @@ public class Customers implements Serializable {
 	private static final long serialVersionUID = 6980817929799829094L;
 
 	/** Primary key. */
-    protected static final String PK = "custId";
+    protected static final String PK = "customerId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -57,25 +57,25 @@ public class Customers implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="cust_id", unique=true, nullable=false, precision=10)
-    private int custId;
+    private int customerId;
     @Column(name="cust_email", nullable=false, length=255)
-    private String custEmail;
+    private String customerEmail;
     @Column(name="cust_name_first", length=100)
-    private String custNameFirst;
+    private String customerNameFirst;
     @Column(name="cust_name_last", length=100)
-    private String custNameLast;
+    private String customerNameLast;
     @Column(name="cust_addr_1", length=100)
-    private String custAddr1;
+    private String customerAddr1;
     @Column(name="cust_addr_2", length=100)
-    private String custAddr2;
+    private String customerAddr2;
     @Column(name="cust_city", length=100)
-    private String custCity;
+    private String customerCity;
     @Column(name="cust_state", length=2)
-    private String custState;
+    private String customerState;
     @Column(name="cust_zip", length=10)
-    private String custZip;
+    private String customerZip;
     @Column(name="cust_country", length=2)
-    private String custCountry;
+    private String customerCountry;
     @OneToMany(mappedBy="customers")
     private Set<Orders> orders;
     @OneToMany(mappedBy="customers")
@@ -87,183 +87,183 @@ public class Customers implements Serializable {
     }
 
     /**
-     * Access method for custId.
+     * Access method for customerId.
      *
-     * @return the current value of custId
+     * @return the current value of customerId
      */
-    public int getCustId() {
-        return custId;
+    public int getCustomerId() {
+        return customerId;
     }
 
     /**
-     * Setter method for custId.
+     * Setter method for customerId.
      *
-     * @param aCustId the new value for custId
+     * @param aCustomerId the new value for customerId
      */
-    public void setCustId(int aCustId) {
-        custId = aCustId;
+    public void setCustomerId(int aCustomerId) {
+        customerId = aCustomerId;
     }
 
     /**
-     * Access method for custEmail.
+     * Access method for customerEmail.
      *
-     * @return the current value of custEmail
+     * @return the current value of customerEmail
      */
-    public String getCustEmail() {
-        return custEmail;
+    public String getCustomerEmail() {
+        return customerEmail;
     }
 
     /**
-     * Setter method for custEmail.
+     * Setter method for customerEmail.
      *
-     * @param aCustEmail the new value for custEmail
+     * @param aCustomerEmail the new value for customerEmail
      */
-    public void setCustEmail(String aCustEmail) {
-        custEmail = aCustEmail;
+    public void setCustomerEmail(String aCustomerEmail) {
+        customerEmail = aCustomerEmail;
     }
 
     /**
-     * Access method for custNameFirst.
+     * Access method for customerNameFirst.
      *
-     * @return the current value of custNameFirst
+     * @return the current value of customerNameFirst
      */
-    public String getCustNameFirst() {
-        return custNameFirst;
+    public String getCustomerNameFirst() {
+        return customerNameFirst;
     }
 
     /**
-     * Setter method for custNameFirst.
+     * Setter method for customerNameFirst.
      *
-     * @param aCustNameFirst the new value for custNameFirst
+     * @param aCustomerNameFirst the new value for customerNameFirst
      */
-    public void setCustNameFirst(String aCustNameFirst) {
-        custNameFirst = aCustNameFirst;
+    public void setCustomerNameFirst(String aCustomerNameFirst) {
+        customerNameFirst = aCustomerNameFirst;
     }
 
     /**
-     * Access method for custNameLast.
+     * Access method for customerNameLast.
      *
-     * @return the current value of custNameLast
+     * @return the current value of customerNameLast
      */
-    public String getCustNameLast() {
-        return custNameLast;
+    public String getCustomerNameLast() {
+        return customerNameLast;
     }
 
     /**
-     * Setter method for custNameLast.
+     * Setter method for customerNameLast.
      *
-     * @param aCustNameLast the new value for custNameLast
+     * @param aCustomerNameLast the new value for customerNameLast
      */
-    public void setCustNameLast(String aCustNameLast) {
-        custNameLast = aCustNameLast;
+    public void setCustomerNameLast(String aCustomerNameLast) {
+        customerNameLast = aCustomerNameLast;
     }
 
     /**
-     * Access method for custAddr1.
+     * Access method for customerAddr1.
      *
-     * @return the current value of custAddr1
+     * @return the current value of customerAddr1
      */
-    public String getCustAddr1() {
-        return custAddr1;
+    public String getCustomerAddr1() {
+        return customerAddr1;
     }
 
     /**
-     * Setter method for custAddr1.
+     * Setter method for customerAddr1.
      *
-     * @param aCustAddr1 the new value for custAddr1
+     * @param aCustomerAddr1 the new value for customerAddr1
      */
-    public void setCustAddr1(String aCustAddr1) {
-        custAddr1 = aCustAddr1;
+    public void setCustomerAddr1(String aCustomerAddr1) {
+        customerAddr1 = aCustomerAddr1;
     }
 
     /**
-     * Access method for custAddr2.
+     * Access method for customerAddr2.
      *
-     * @return the current value of custAddr2
+     * @return the current value of customerAddr2
      */
-    public String getCustAddr2() {
-        return custAddr2;
+    public String getCustomerAddr2() {
+        return customerAddr2;
     }
 
     /**
-     * Setter method for custAddr2.
+     * Setter method for customerAddr2.
      *
-     * @param aCustAddr2 the new value for custAddr2
+     * @param aCustomerAddr2 the new value for customerAddr2
      */
-    public void setCustAddr2(String aCustAddr2) {
-        custAddr2 = aCustAddr2;
+    public void setCustomerAddr2(String aCustomerAddr2) {
+        customerAddr2 = aCustomerAddr2;
     }
 
     /**
-     * Access method for custCity.
+     * Access method for customerCity.
      *
-     * @return the current value of custCity
+     * @return the current value of customerCity
      */
-    public String getCustCity() {
-        return custCity;
+    public String getCustomerCity() {
+        return customerCity;
     }
 
     /**
-     * Setter method for custCity.
+     * Setter method for customerCity.
      *
-     * @param aCustCity the new value for custCity
+     * @param aCustomerCity the new value for customerCity
      */
-    public void setCustCity(String aCustCity) {
-        custCity = aCustCity;
+    public void setCustomerCity(String aCustomerCity) {
+        customerCity = aCustomerCity;
     }
 
     /**
-     * Access method for custState.
+     * Access method for customerState.
      *
-     * @return the current value of custState
+     * @return the current value of customerState
      */
-    public String getCustState() {
-        return custState;
+    public String getCustomerState() {
+        return customerState;
     }
 
     /**
-     * Setter method for custState.
+     * Setter method for customerState.
      *
-     * @param aCustState the new value for custState
+     * @param aCustomerState the new value for customerState
      */
-    public void setCustState(String aCustState) {
-        custState = aCustState;
+    public void setCustomerState(String aCustomerState) {
+        customerState = aCustomerState;
     }
 
     /**
-     * Access method for custZip.
+     * Access method for customerZip.
      *
-     * @return the current value of custZip
+     * @return the current value of customerZip
      */
-    public String getCustZip() {
-        return custZip;
+    public String getCustomerZip() {
+        return customerZip;
     }
 
     /**
-     * Setter method for custZip.
+     * Setter method for customerZip.
      *
-     * @param aCustZip the new value for custZip
+     * @param aCustomerZip the new value for customerZip
      */
-    public void setCustZip(String aCustZip) {
-        custZip = aCustZip;
+    public void setCustomerZip(String aCustomerZip) {
+        customerZip = aCustomerZip;
     }
 
     /**
-     * Access method for custCountry.
+     * Access method for customerCountry.
      *
-     * @return the current value of custCountry
+     * @return the current value of customerCountry
      */
-    public String getCustCountry() {
-        return custCountry;
+    public String getCustomerCountry() {
+        return customerCountry;
     }
 
     /**
-     * Setter method for custCountry.
+     * Setter method for customerCountry.
      *
-     * @param aCustCountry the new value for custCountry
+     * @param aCustomerCountry the new value for customerCountry
      */
-    public void setCustCountry(String aCustCountry) {
-        custCountry = aCustCountry;
+    public void setCustomerCountry(String aCustomerCountry) {
+        customerCountry = aCustomerCountry;
     }
 
     /**
@@ -316,7 +316,7 @@ public class Customers implements Serializable {
             return false;
         }
         Customers that = (Customers) other;
-        if (this.getCustId() != that.getCustId()) {
+        if (this.getCustomerId() != that.getCustomerId()) {
             return false;
         }
         return true;
@@ -343,7 +343,7 @@ public class Customers implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getCustId();
+        i = getCustomerId();
         result = 37*result + i;
         return result;
     }
@@ -356,7 +356,7 @@ public class Customers implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[Customers |");
-        sb.append(" custId=").append(getCustId());
+        sb.append(" customerId=").append(getCustomerId());
         sb.append("]");
         return sb.toString();
     }
@@ -368,7 +368,7 @@ public class Customers implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("custId", Integer.valueOf(getCustId()));
+        ret.put("customerId", Integer.valueOf(getCustomerId()));
         return ret;
     }
 

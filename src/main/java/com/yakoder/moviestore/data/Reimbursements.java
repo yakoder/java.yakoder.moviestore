@@ -26,7 +26,7 @@ public class Reimbursements implements Serializable {
 	private static final long serialVersionUID = 1747841485826957010L;
 
 	/** Primary key. */
-    protected static final String PK = "reimbId";
+    protected static final String PK = "reimbursementId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -56,19 +56,19 @@ public class Reimbursements implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="reimb_id", unique=true, nullable=false, precision=10)
-    private int reimbId;
+    private int reimbursementId;
     @Column(name="reimb_date", nullable=false)
-    private LocalDate reimbDate;
+    private LocalDate reimbursementDate;
     @Column(name="reimb_amount", nullable=false, precision=15, scale=2)
-    private BigDecimal reimbAmount;
+    private BigDecimal reimbursementAmount;
     @Column(name="reimb_notes", length=255)
-    private String reimbNotes;
+    private String reimbursementNotes;
     @ManyToOne(optional=false)
     @JoinColumn(name="reimb_detail_id", nullable=false)
-    private ReimbOnline reimbOnline;
+    private ReimbursementOnline reimbursementOnline;
     @ManyToOne(optional=false)
     @JoinColumn(name="reimb_meth_id", nullable=false)
-    private ReimbMethods reimbMethods;
+    private ReimbursementMethods reimbursementMethods;
 
     /** Default constructor. */
     public Reimbursements() {
@@ -76,111 +76,111 @@ public class Reimbursements implements Serializable {
     }
 
     /**
-     * Access method for reimbId.
+     * Access method for reimbursementId.
      *
-     * @return the current value of reimbId
+     * @return the current value of reimbursementId
      */
-    public int getReimbId() {
-        return reimbId;
+    public int getReimbursementId() {
+        return reimbursementId;
     }
 
     /**
-     * Setter method for reimbId.
+     * Setter method for reimbursementId.
      *
-     * @param aReimbId the new value for reimbId
+     * @param aReimbursementId the new value for reimbursementId
      */
-    public void setReimbId(int aReimbId) {
-        reimbId = aReimbId;
+    public void setReimbursementId(int aReimbursementId) {
+        reimbursementId = aReimbursementId;
     }
 
     /**
-     * Access method for reimbDate.
+     * Access method for reimbursementDate.
      *
-     * @return the current value of reimbDate
+     * @return the current value of reimbursementDate
      */
-    public LocalDate getReimbDate() {
-        return reimbDate;
+    public LocalDate getReimbursementDate() {
+        return reimbursementDate;
     }
 
     /**
-     * Setter method for reimbDate.
+     * Setter method for reimbursementDate.
      *
-     * @param aReimbDate the new value for reimbDate
+     * @param aReimbursementDate the new value for reimbursementDate
      */
-    public void setReimbDate(LocalDate aReimbDate) {
-        reimbDate = aReimbDate;
+    public void setReimbursementDate(LocalDate aReimbursementDate) {
+        reimbursementDate = aReimbursementDate;
     }
 
     /**
-     * Access method for reimbAmount.
+     * Access method for reimbursementAmount.
      *
-     * @return the current value of reimbAmount
+     * @return the current value of reimbursementAmount
      */
-    public BigDecimal getReimbAmount() {
-        return reimbAmount;
+    public BigDecimal getReimbursementAmount() {
+        return reimbursementAmount;
     }
 
     /**
-     * Setter method for reimbAmount.
+     * Setter method for reimbursementAmount.
      *
-     * @param aReimbAmount the new value for reimbAmount
+     * @param aReimbursementAmount the new value for reimbursementAmount
      */
-    public void setReimbAmount(BigDecimal aReimbAmount) {
-        reimbAmount = aReimbAmount;
+    public void setReimbursementAmount(BigDecimal aReimbursementAmount) {
+        reimbursementAmount = aReimbursementAmount;
     }
 
     /**
-     * Access method for reimbNotes.
+     * Access method for reimbursementNotes.
      *
-     * @return the current value of reimbNotes
+     * @return the current value of reimbursementNotes
      */
-    public String getReimbNotes() {
-        return reimbNotes;
+    public String getReimbursementNotes() {
+        return reimbursementNotes;
     }
 
     /**
-     * Setter method for reimbNotes.
+     * Setter method for reimbursementNotes.
      *
-     * @param aReimbNotes the new value for reimbNotes
+     * @param aReimbursementNotes the new value for reimbursementNotes
      */
-    public void setReimbNotes(String aReimbNotes) {
-        reimbNotes = aReimbNotes;
+    public void setReimbursementNotes(String aReimbursementNotes) {
+        reimbursementNotes = aReimbursementNotes;
     }
 
     /**
-     * Access method for reimbOnline.
+     * Access method for reimbursementOnline.
      *
-     * @return the current value of reimbOnline
+     * @return the current value of reimbursementOnline
      */
-    public ReimbOnline getReimbOnline() {
-        return reimbOnline;
+    public ReimbursementOnline getReimbursementOnline() {
+        return reimbursementOnline;
     }
 
     /**
-     * Setter method for reimbOnline.
+     * Setter method for reimbursementOnline.
      *
-     * @param aReimbOnline the new value for reimbOnline
+     * @param aReimbursementOnline the new value for reimbursementOnline
      */
-    public void setReimbOnline(ReimbOnline aReimbOnline) {
-        reimbOnline = aReimbOnline;
+    public void setReimbursementOnline(ReimbursementOnline aReimbursementOnline) {
+        reimbursementOnline = aReimbursementOnline;
     }
 
     /**
-     * Access method for reimbMethods.
+     * Access method for reimbursementMethods.
      *
-     * @return the current value of reimbMethods
+     * @return the current value of reimbursementMethods
      */
-    public ReimbMethods getReimbMethods() {
-        return reimbMethods;
+    public ReimbursementMethods getReimbursementMethods() {
+        return reimbursementMethods;
     }
 
     /**
-     * Setter method for reimbMethods.
+     * Setter method for reimbursementMethods.
      *
-     * @param aReimbMethods the new value for reimbMethods
+     * @param aReimbursementMethods the new value for reimbursementMethods
      */
-    public void setReimbMethods(ReimbMethods aReimbMethods) {
-        reimbMethods = aReimbMethods;
+    public void setReimbursementMethods(ReimbursementMethods aReimbursementMethods) {
+        reimbursementMethods = aReimbursementMethods;
     }
 
     /**
@@ -197,7 +197,7 @@ public class Reimbursements implements Serializable {
             return false;
         }
         Reimbursements that = (Reimbursements) other;
-        if (this.getReimbId() != that.getReimbId()) {
+        if (this.getReimbursementId() != that.getReimbursementId()) {
             return false;
         }
         return true;
@@ -224,7 +224,7 @@ public class Reimbursements implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getReimbId();
+        i = getReimbursementId();
         result = 37*result + i;
         return result;
     }
@@ -237,7 +237,7 @@ public class Reimbursements implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[Reimbursements |");
-        sb.append(" reimbId=").append(getReimbId());
+        sb.append(" reimbursementId=").append(getReimbursementId());
         sb.append("]");
         return sb.toString();
     }
@@ -249,7 +249,7 @@ public class Reimbursements implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("reimbId", Integer.valueOf(getReimbId()));
+        ret.put("reimbursementId", Integer.valueOf(getReimbursementId()));
         return ret;
     }
 

@@ -27,7 +27,7 @@ public class ApiResponses implements Serializable {
 	private static final long serialVersionUID = -8004032466431133118L;
 
 	/** Primary key. */
-    protected static final String PK = "apiRespId";
+    protected static final String PK = "apiResponseId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -57,11 +57,11 @@ public class ApiResponses implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="api_resp_id", unique=true, nullable=false, precision=10)
-    private int apiRespId;
+    private int apiResponseId;
     @Column(name="api_resp_code", nullable=false, precision=10)
-    private int apiRespCode;
+    private int apiResponseCode;
     @Column(name="api_resp_text", length=255)
-    private String apiRespText;
+    private String apiResponseText;
     @ManyToOne(optional=false)
     @JoinColumn(name="api_id", nullable=false)
     private Apis apis;
@@ -72,57 +72,57 @@ public class ApiResponses implements Serializable {
     }
 
     /**
-     * Access method for apiRespId.
+     * Access method for apiResponseId.
      *
-     * @return the current value of apiRespId
+     * @return the current value of apiResponseId
      */
-    public int getApiRespId() {
-        return apiRespId;
+    public int getApiResponseId() {
+        return apiResponseId;
     }
 
     /**
-     * Setter method for apiRespId.
+     * Setter method for apiResponseId.
      *
-     * @param aApiRespId the new value for apiRespId
+     * @param aApiResponseId the new value for apiResponseId
      */
-    public void setApiRespId(int aApiRespId) {
-        apiRespId = aApiRespId;
+    public void setApiResponseId(int aApiResponseId) {
+        apiResponseId = aApiResponseId;
     }
 
     /**
-     * Access method for apiRespCode.
+     * Access method for apiResponseCode.
      *
-     * @return the current value of apiRespCode
+     * @return the current value of apiResponseCode
      */
-    public int getApiRespCode() {
-        return apiRespCode;
+    public int getApiResponseCode() {
+        return apiResponseCode;
     }
 
     /**
-     * Setter method for apiRespCode.
+     * Setter method for apiResponseCode.
      *
-     * @param aApiRespCode the new value for apiRespCode
+     * @param aApiResponseCode the new value for apiResponseCode
      */
-    public void setApiRespCode(int aApiRespCode) {
-        apiRespCode = aApiRespCode;
+    public void setApiResponseCode(int aApiResponseCode) {
+        apiResponseCode = aApiResponseCode;
     }
 
     /**
-     * Access method for apiRespText.
+     * Access method for apiResponseText.
      *
-     * @return the current value of apiRespText
+     * @return the current value of apiResponseText
      */
-    public String getApiRespText() {
-        return apiRespText;
+    public String getApiResponseText() {
+        return apiResponseText;
     }
 
     /**
-     * Setter method for apiRespText.
+     * Setter method for apiResponseText.
      *
-     * @param aApiRespText the new value for apiRespText
+     * @param aApiResponseText the new value for apiResponseText
      */
-    public void setApiRespText(String aApiRespText) {
-        apiRespText = aApiRespText;
+    public void setApiResponseText(String aApiResponseText) {
+        apiResponseText = aApiResponseText;
     }
 
     /**
@@ -179,7 +179,7 @@ public class ApiResponses implements Serializable {
             return false;
         }
         ApiResponses that = (ApiResponses) other;
-        if (this.getApiRespId() != that.getApiRespId()) {
+        if (this.getApiResponseId() != that.getApiResponseId()) {
             return false;
         }
         return true;
@@ -206,7 +206,7 @@ public class ApiResponses implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getApiRespId();
+        i = getApiResponseId();
         result = 37*result + i;
         return result;
     }
@@ -219,7 +219,7 @@ public class ApiResponses implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[ApiResponses |");
-        sb.append(" apiRespId=").append(getApiRespId());
+        sb.append(" apiResponseId=").append(getApiResponseId());
         sb.append("]");
         return sb.toString();
     }
@@ -231,7 +231,7 @@ public class ApiResponses implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("apiRespId", Integer.valueOf(getApiRespId()));
+        ret.put("apiResponseId", Integer.valueOf(getApiResponseId()));
         return ret;
     }
 

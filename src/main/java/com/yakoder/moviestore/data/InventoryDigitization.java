@@ -24,7 +24,7 @@ public class InventoryDigitization implements Serializable {
 	private static final long serialVersionUID = -3036022109857463373L;
 
 	/** Primary key. */
-    protected static final String PK = "invDigitId";
+    protected static final String PK = "inventoryDigitizationId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -54,7 +54,7 @@ public class InventoryDigitization implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="inv_digit_id", unique=true, nullable=false, precision=10)
-    private int invDigitId;
+    private int inventoryDigitizationId;
     @Column(length=1000)
     private String notes;
     @ManyToOne
@@ -76,21 +76,21 @@ public class InventoryDigitization implements Serializable {
     }
 
     /**
-     * Access method for invDigitId.
+     * Access method for inventoryDigitizationId.
      *
-     * @return the current value of invDigitId
+     * @return the current value of inventoryDigitizationId
      */
-    public int getInvDigitId() {
-        return invDigitId;
+    public int getInventoryDigitizationId() {
+        return inventoryDigitizationId;
     }
 
     /**
-     * Setter method for invDigitId.
+     * Setter method for inventoryDigitizationId.
      *
-     * @param aInvDigitId the new value for invDigitId
+     * @param aInventoryDigitizationId the new value for inventoryDigitizationId
      */
-    public void setInvDigitId(int aInvDigitId) {
-        invDigitId = aInvDigitId;
+    public void setInventoryDigitizationId(int aInventoryDigitizationId) {
+        inventoryDigitizationId = aInventoryDigitizationId;
     }
 
     /**
@@ -197,7 +197,7 @@ public class InventoryDigitization implements Serializable {
             return false;
         }
         InventoryDigitization that = (InventoryDigitization) other;
-        if (this.getInvDigitId() != that.getInvDigitId()) {
+        if (this.getInventoryDigitizationId() != that.getInventoryDigitizationId()) {
             return false;
         }
         return true;
@@ -224,7 +224,7 @@ public class InventoryDigitization implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getInvDigitId();
+        i = getInventoryDigitizationId();
         result = 37*result + i;
         return result;
     }
@@ -237,7 +237,7 @@ public class InventoryDigitization implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[InventoryDigitization |");
-        sb.append(" invDigitId=").append(getInvDigitId());
+        sb.append(" inventoryDigitizationId=").append(getInventoryDigitizationId());
         sb.append("]");
         return sb.toString();
     }
@@ -249,7 +249,7 @@ public class InventoryDigitization implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("invDigitId", Integer.valueOf(getInvDigitId()));
+        ret.put("inventoryDigitizationId", Integer.valueOf(getInventoryDigitizationId()));
         return ret;
     }
 

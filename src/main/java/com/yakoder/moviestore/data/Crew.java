@@ -76,10 +76,10 @@ public class Crew implements Serializable {
     private boolean crewIsAlias;
     @Column(name="crew_has_aliases", nullable=false, length=3)
     private boolean crewHasAliases;
-    @OneToMany(mappedBy="crew2")
-    private Set<CrewAliases> crewAliases2;
-    @OneToMany(mappedBy="crew")
+    @OneToMany(mappedBy="alias")
     private Set<CrewAliases> crewAliases;
+    @OneToMany(mappedBy="primary")
+    private Set<CrewAliases> primaryCrew;
     @ManyToOne(optional=false)
     @JoinColumn(name="crew_gender_id", nullable=false)
     private CrewGenders crewGenders;
@@ -254,24 +254,6 @@ public class Crew implements Serializable {
     }
 
     /**
-     * Access method for crewAliases2.
-     *
-     * @return the current value of crewAliases2
-     */
-    public Set<CrewAliases> getCrewAliases2() {
-        return crewAliases2;
-    }
-
-    /**
-     * Setter method for crewAliases2.
-     *
-     * @param aCrewAliases2 the new value for crewAliases2
-     */
-    public void setCrewAliases2(Set<CrewAliases> aCrewAliases2) {
-        crewAliases2 = aCrewAliases2;
-    }
-
-    /**
      * Access method for crewAliases.
      *
      * @return the current value of crewAliases
@@ -287,6 +269,24 @@ public class Crew implements Serializable {
      */
     public void setCrewAliases(Set<CrewAliases> aCrewAliases) {
         crewAliases = aCrewAliases;
+    }
+
+    /**
+     * Access method for primaryCrew.
+     *
+     * @return the current value of primaryCrew
+     */
+    public Set<CrewAliases> getPrimaryCrew() {
+        return primaryCrew;
+    }
+
+    /**
+     * Setter method for primaryCrew.
+     *
+     * @param aPrimaryCrew the new value for primaryCrew
+     */
+    public void setPrimaryCrew(Set<CrewAliases> aPrimaryCrew) {
+        primaryCrew = aPrimaryCrew;
     }
 
     /**

@@ -25,7 +25,7 @@ public class ExpenseSupplies implements Serializable {
 	private static final long serialVersionUID = -6291461266292819987L;
 
 	/** Primary key. */
-    protected static final String PK = "expDetailId";
+    protected static final String PK = "expenseDetailId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -54,13 +54,13 @@ public class ExpenseSupplies implements Serializable {
 
     @Id
     @Column(name="exp_detail_id", unique=true, nullable=false, precision=10)
-    private int expDetailId;
+    private int expenseDetailId;
     @Column(name="store_name", length=100)
     private String storeName;
     @Column(name="exp_subtotal", precision=15, scale=2)
-    private BigDecimal expSubtotal;
+    private BigDecimal expenseSubtotal;
     @Column(name="exp_tax", precision=15, scale=2)
-    private BigDecimal expTax;
+    private BigDecimal expenseTax;
     @OneToMany(mappedBy="expSupplies")
     private Set<Expenses> expenses;
     @ManyToOne(optional=false)
@@ -73,21 +73,21 @@ public class ExpenseSupplies implements Serializable {
     }
 
     /**
-     * Access method for expDetailId.
+     * Access method for expenseDetailId.
      *
-     * @return the current value of expDetailId
+     * @return the current value of expenseDetailId
      */
-    public int getExpDetailId() {
-        return expDetailId;
+    public int getExpenseDetailId() {
+        return expenseDetailId;
     }
 
     /**
-     * Setter method for expDetailId.
+     * Setter method for expenseDetailId.
      *
-     * @param aExpDetailId the new value for expDetailId
+     * @param aExpenseDetailId the new value for expenseDetailId
      */
-    public void setExpDetailId(int aExpDetailId) {
-        expDetailId = aExpDetailId;
+    public void setExpenseDetailId(int aExpenseDetailId) {
+        expenseDetailId = aExpenseDetailId;
     }
 
     /**
@@ -109,39 +109,39 @@ public class ExpenseSupplies implements Serializable {
     }
 
     /**
-     * Access method for expSubtotal.
+     * Access method for expenseSubtotal.
      *
-     * @return the current value of expSubtotal
+     * @return the current value of expenseSubtotal
      */
-    public BigDecimal getExpSubtotal() {
-        return expSubtotal;
+    public BigDecimal getExpenseSubtotal() {
+        return expenseSubtotal;
     }
 
     /**
-     * Setter method for expSubtotal.
+     * Setter method for expenseSubtotal.
      *
-     * @param aExpSubtotal the new value for expSubtotal
+     * @param aExpenseSubtotal the new value for expenseSubtotal
      */
-    public void setExpSubtotal(BigDecimal aExpSubtotal) {
-        expSubtotal = aExpSubtotal;
+    public void setExpenseSubtotal(BigDecimal aExpenseSubtotal) {
+        expenseSubtotal = aExpenseSubtotal;
     }
 
     /**
-     * Access method for expTax.
+     * Access method for expenseTax.
      *
-     * @return the current value of expTax
+     * @return the current value of expenseTax
      */
-    public BigDecimal getExpTax() {
-        return expTax;
+    public BigDecimal getExpenseTax() {
+        return expenseTax;
     }
 
     /**
-     * Setter method for expTax.
+     * Setter method for expenseTax.
      *
-     * @param aExpTax the new value for expTax
+     * @param aExpenseTax the new value for expenseTax
      */
-    public void setExpTax(BigDecimal aExpTax) {
-        expTax = aExpTax;
+    public void setExpenseTax(BigDecimal aExpenseTax) {
+        expenseTax = aExpenseTax;
     }
 
     /**
@@ -194,7 +194,7 @@ public class ExpenseSupplies implements Serializable {
             return false;
         }
         ExpenseSupplies that = (ExpenseSupplies) other;
-        if (this.getExpDetailId() != that.getExpDetailId()) {
+        if (this.getExpenseDetailId() != that.getExpenseDetailId()) {
             return false;
         }
         return true;
@@ -221,7 +221,7 @@ public class ExpenseSupplies implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getExpDetailId();
+        i = getExpenseDetailId();
         result = 37*result + i;
         return result;
     }
@@ -234,7 +234,7 @@ public class ExpenseSupplies implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[ExpenseSupplies |");
-        sb.append(" expDetailId=").append(getExpDetailId());
+        sb.append(" expenseDetailId=").append(getExpenseDetailId());
         sb.append("]");
         return sb.toString();
     }
@@ -246,7 +246,7 @@ public class ExpenseSupplies implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("expDetailId", Integer.valueOf(getExpDetailId()));
+        ret.put("expenseDetailId", Integer.valueOf(getExpenseDetailId()));
         return ret;
     }
 

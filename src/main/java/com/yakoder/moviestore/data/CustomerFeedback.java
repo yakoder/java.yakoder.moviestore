@@ -25,7 +25,7 @@ public class CustomerFeedback implements Serializable {
 	private static final long serialVersionUID = 7653870443106519829L;
 
 	/** Primary key. */
-    protected static final String PK = "custFbId";
+    protected static final String PK = "customerFeedbackId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -55,15 +55,15 @@ public class CustomerFeedback implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="cust_fb_id", unique=true, nullable=false, precision=10)
-    private int custFbId;
+    private int customerFeedbackId;
     @Column(name="cust_fb_rating", precision=10)
-    private int custFbRating;
+    private int customerFeedbackRating;
     @Column(name="rating_max_value", precision=10)
     private int ratingMaxValue;
     @Column(name="cust_fb_comments", length=100)
-    private String custFbComments;
+    private String customerFeedbackComments;
     @Column(name="cust_fb_date")
-    private LocalDate custFbDate;
+    private LocalDate customerFeedbackDate;
     @ManyToOne
     @JoinColumn(name="order_id")
     private Orders orders;
@@ -74,39 +74,39 @@ public class CustomerFeedback implements Serializable {
     }
 
     /**
-     * Access method for custFbId.
+     * Access method for customerFeedbackId.
      *
-     * @return the current value of custFbId
+     * @return the current value of customerFeedbackId
      */
-    public int getCustFbId() {
-        return custFbId;
+    public int getCustomerFeedbackId() {
+        return customerFeedbackId;
     }
 
     /**
-     * Setter method for custFbId.
+     * Setter method for customerFeedbackId.
      *
-     * @param aCustFbId the new value for custFbId
+     * @param aCustomerFeedbackId the new value for customerFeedbackId
      */
-    public void setCustFbId(int aCustFbId) {
-        custFbId = aCustFbId;
+    public void setCustomerFeedbackId(int aCustomerFeedbackId) {
+        customerFeedbackId = aCustomerFeedbackId;
     }
 
     /**
-     * Access method for custFbRating.
+     * Access method for customerFeedbackRating.
      *
-     * @return the current value of custFbRating
+     * @return the current value of customerFeedbackRating
      */
-    public int getCustFbRating() {
-        return custFbRating;
+    public int getCustomerFeedbackRating() {
+        return customerFeedbackRating;
     }
 
     /**
-     * Setter method for custFbRating.
+     * Setter method for customerFeedbackRating.
      *
-     * @param aCustFbRating the new value for custFbRating
+     * @param aCustomerFeedbackRating the new value for customerFeedbackRating
      */
-    public void setCustFbRating(int aCustFbRating) {
-        custFbRating = aCustFbRating;
+    public void setCustomerFeedbackRating(int aCustomerFeedbackRating) {
+        customerFeedbackRating = aCustomerFeedbackRating;
     }
 
     /**
@@ -128,39 +128,39 @@ public class CustomerFeedback implements Serializable {
     }
 
     /**
-     * Access method for custFbComments.
+     * Access method for customerFeedbackComments.
      *
-     * @return the current value of custFbComments
+     * @return the current value of customerFeedbackComments
      */
-    public String getCustFbComments() {
-        return custFbComments;
+    public String getCustomerFeedbackComments() {
+        return customerFeedbackComments;
     }
 
     /**
-     * Setter method for custFbComments.
+     * Setter method for customerFeedbackComments.
      *
-     * @param aCustFbComments the new value for custFbComments
+     * @param aCustomerFeedbackComments the new value for customerFeedbackComments
      */
-    public void setCustFbComments(String aCustFbComments) {
-        custFbComments = aCustFbComments;
+    public void setCustomerFeedbackComments(String aCustomerFeedbackComments) {
+        customerFeedbackComments = aCustomerFeedbackComments;
     }
 
     /**
-     * Access method for custFbDate.
+     * Access method for customerFeedbackDate.
      *
-     * @return the current value of custFbDate
+     * @return the current value of customerFeedbackDate
      */
-    public LocalDate getCustFbDate() {
-        return custFbDate;
+    public LocalDate getCustomerFeedbackDate() {
+        return customerFeedbackDate;
     }
 
     /**
-     * Setter method for custFbDate.
+     * Setter method for customerFeedbackDate.
      *
-     * @param aCustFbDate the new value for custFbDate
+     * @param aCustomerFeedbackDate the new value for customerFeedbackDate
      */
-    public void setCustFbDate(LocalDate aCustFbDate) {
-        custFbDate = aCustFbDate;
+    public void setCustomerFeedbackDate(LocalDate aCustomerFeedbackDate) {
+        customerFeedbackDate = aCustomerFeedbackDate;
     }
 
     /**
@@ -195,7 +195,7 @@ public class CustomerFeedback implements Serializable {
             return false;
         }
         CustomerFeedback that = (CustomerFeedback) other;
-        if (this.getCustFbId() != that.getCustFbId()) {
+        if (this.getCustomerFeedbackId() != that.getCustomerFeedbackId()) {
             return false;
         }
         return true;
@@ -222,7 +222,7 @@ public class CustomerFeedback implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getCustFbId();
+        i = getCustomerFeedbackId();
         result = 37*result + i;
         return result;
     }
@@ -235,7 +235,7 @@ public class CustomerFeedback implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[CustomerFeedback |");
-        sb.append(" custFbId=").append(getCustFbId());
+        sb.append(" customerFeedbackId=").append(getCustomerFeedbackId());
         sb.append("]");
         return sb.toString();
     }
@@ -247,7 +247,7 @@ public class CustomerFeedback implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("custFbId", Integer.valueOf(getCustFbId()));
+        ret.put("customerFeedbackId", Integer.valueOf(getCustomerFeedbackId()));
         return ret;
     }
 

@@ -25,7 +25,7 @@ public class Conditions implements Serializable {
 	private static final long serialVersionUID = -8840233815483811019L;
 
 	/** Primary key. */
-    protected static final String PK = "condId";
+    protected static final String PK = "conditionId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -55,15 +55,15 @@ public class Conditions implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="cond_id", unique=true, nullable=false, precision=10)
-    private int condId;
+    private int conditionId;
     @Column(name="cond_name", nullable=false, length=100)
-    private String condName;
+    private String conditionName;
     @Column(name="cond_value", nullable=false, precision=10)
-    private int condValue;
+    private int conditionValue;
     @Column(name="pct_retail", precision=15, scale=10)
-    private BigDecimal pctRetail;
+    private BigDecimal percentRetail;
     @OneToMany(mappedBy="conditions")
-    private Set<ExpMovies> expMovies;
+    private Set<ExpenseMovies> expenseMovies;
     @OneToMany(mappedBy="conditions")
     private Set<Inventory> inventory;
 
@@ -73,93 +73,93 @@ public class Conditions implements Serializable {
     }
 
     /**
-     * Access method for condId.
+     * Access method for conditionId.
      *
-     * @return the current value of condId
+     * @return the current value of conditionId
      */
-    public int getCondId() {
-        return condId;
+    public int getConditionId() {
+        return conditionId;
     }
 
     /**
-     * Setter method for condId.
+     * Setter method for conditionId.
      *
-     * @param aCondId the new value for condId
+     * @param aCondId the new value for conditionId
      */
-    public void setCondId(int aCondId) {
-        condId = aCondId;
+    public void setConditionId(int aConditionId) {
+        conditionId = aConditionId;
     }
 
     /**
-     * Access method for condName.
+     * Access method for conditionName.
      *
-     * @return the current value of condName
+     * @return the current value of conditionName
      */
-    public String getCondName() {
-        return condName;
+    public String getConditionName() {
+        return conditionName;
     }
 
     /**
      * Setter method for condName.
      *
-     * @param aCondName the new value for condName
+     * @param aConditionName the new value for conditionName
      */
-    public void setCondName(String aCondName) {
-        condName = aCondName;
+    public void setConditionName(String aConditionName) {
+        conditionName = aConditionName;
     }
 
     /**
-     * Access method for condValue.
+     * Access method for conditionValue.
      *
-     * @return the current value of condValue
+     * @return the current value of conditionValue
      */
-    public int getCondValue() {
-        return condValue;
+    public int getConditionValue() {
+        return conditionValue;
     }
 
     /**
-     * Setter method for condValue.
+     * Setter method for conditionValue.
      *
-     * @param aCondValue the new value for condValue
+     * @param aCondValue the new value for conditionValue
      */
-    public void setCondValue(int aCondValue) {
-        condValue = aCondValue;
+    public void setConditionValue(int aConditionValue) {
+        conditionValue = aConditionValue;
     }
 
     /**
-     * Access method for pctRetail.
+     * Access method for percentRetail.
      *
-     * @return the current value of pctRetail
+     * @return the current value of percentRetail
      */
-    public BigDecimal getPctRetail() {
-        return pctRetail;
+    public BigDecimal getPercentRetail() {
+        return percentRetail;
     }
 
     /**
-     * Setter method for pctRetail.
+     * Setter method for percentRetail.
      *
-     * @param aPctRetail the new value for pctRetail
+     * @param aPercentRetail the new value for percentRetail
      */
-    public void setPctRetail(BigDecimal aPctRetail) {
-        pctRetail = aPctRetail;
+    public void setPercentRetail(BigDecimal aPercentRetail) {
+        percentRetail = aPercentRetail;
     }
 
     /**
-     * Access method for expMovies.
+     * Access method for expenseMovies.
      *
-     * @return the current value of expMovies
+     * @return the current value of expenseMovies
      */
-    public Set<ExpMovies> getExpMovies() {
-        return expMovies;
+    public Set<ExpenseMovies> getExpenseMovies() {
+        return expenseMovies;
     }
 
     /**
-     * Setter method for expMovies.
+     * Setter method for expenseMovies.
      *
-     * @param aExpMovies the new value for expMovies
+     * @param aExpenseMovies the new value for expenseMovies
      */
-    public void setExpMovies(Set<ExpMovies> aExpMovies) {
-        expMovies = aExpMovies;
+    public void setExpMovies(Set<ExpenseMovies> aExpenseMovies) {
+        expenseMovies = aExpenseMovies;
     }
 
     /**
@@ -194,7 +194,7 @@ public class Conditions implements Serializable {
             return false;
         }
         Conditions that = (Conditions) other;
-        if (this.getCondId() != that.getCondId()) {
+        if (this.getConditionId() != that.getConditionId()) {
             return false;
         }
         return true;
@@ -221,7 +221,7 @@ public class Conditions implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getCondId();
+        i = getConditionId();
         result = 37*result + i;
         return result;
     }
@@ -234,7 +234,7 @@ public class Conditions implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[Conditions |");
-        sb.append(" condId=").append(getCondId());
+        sb.append(" conditionId=").append(getConditionId());
         sb.append("]");
         return sb.toString();
     }
@@ -246,7 +246,7 @@ public class Conditions implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("condId", Integer.valueOf(getCondId()));
+        ret.put("conditionId", Integer.valueOf(getConditionId()));
         return ret;
     }
 

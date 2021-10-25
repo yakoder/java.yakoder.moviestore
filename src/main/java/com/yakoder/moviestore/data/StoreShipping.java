@@ -31,7 +31,7 @@ public class StoreShipping implements Serializable {
 	private static final long serialVersionUID = -8361774147336961238L;
 
 	/** Primary key. */
-    protected static final String PK = "storeShipId";
+    protected static final String PK = "storeShippingId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -61,11 +61,11 @@ public class StoreShipping implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="store_ship_id", unique=true, nullable=false, precision=10)
-    private int storeShipId;
+    private int storeShippingId;
     @Column(name="store_ship_code", length=1)
-    private String storeShipCode;
+    private String storeShippingCode;
     @Column(name="store_ship_name", nullable=false, length=100)
-    private String storeShipName;
+    private String storeShippingName;
     @Column(name="initial_credit", nullable=false, precision=15, scale=2)
     private BigDecimal initialCredit;
     @Column(name="additional_credit", nullable=false, precision=15, scale=2)
@@ -81,7 +81,7 @@ public class StoreShipping implements Serializable {
     @OneToMany(mappedBy="storeShipping")
     private Set<Orders> orders;
     @OneToMany(mappedBy="storeShipping")
-    private Set<StoreShipMethods> storeShipMethods;
+    private Set<StoreShippingMethods> storeShipMethods;
     @ManyToOne(optional=false)
     @JoinColumn(name="store_site_id", nullable=false)
     private StoreSites storeSites;
@@ -92,57 +92,57 @@ public class StoreShipping implements Serializable {
     }
 
     /**
-     * Access method for storeShipId.
+     * Access method for storeShippingId.
      *
-     * @return the current value of storeShipId
+     * @return the current value of storeShippingId
      */
-    public int getStoreShipId() {
-        return storeShipId;
+    public int getStoreShippingId() {
+        return storeShippingId;
     }
 
     /**
-     * Setter method for storeShipId.
+     * Setter method for storeShippingId.
      *
-     * @param aStoreShipId the new value for storeShipId
+     * @param aStoreShippingId the new value for storeShippingId
      */
-    public void setStoreShipId(int aStoreShipId) {
-        storeShipId = aStoreShipId;
+    public void setStoreShippingId(int aStoreShippingId) {
+        storeShippingId = aStoreShippingId;
     }
 
     /**
-     * Access method for storeShipCode.
+     * Access method for storeShippingCode.
      *
-     * @return the current value of storeShipCode
+     * @return the current value of storeShippingCode
      */
-    public String getStoreShipCode() {
-        return storeShipCode;
+    public String getStoreShippingCode() {
+        return storeShippingCode;
     }
 
     /**
-     * Setter method for storeShipCode.
+     * Setter method for storeShippingCode.
      *
-     * @param aStoreShipCode the new value for storeShipCode
+     * @param aStoreShippingCode the new value for storeShippingCode
      */
-    public void setStoreShipCode(String aStoreShipCode) {
-        storeShipCode = aStoreShipCode;
+    public void setStoreShippingCode(String aStoreShippingCode) {
+        storeShippingCode = aStoreShippingCode;
     }
 
     /**
-     * Access method for storeShipName.
+     * Access method for storeShippingName.
      *
-     * @return the current value of storeShipName
+     * @return the current value of storeShippingName
      */
-    public String getStoreShipName() {
-        return storeShipName;
+    public String getStoreShippingName() {
+        return storeShippingName;
     }
 
     /**
-     * Setter method for storeShipName.
+     * Setter method for storeShippingName.
      *
-     * @param aStoreShipName the new value for storeShipName
+     * @param aStoreShippingName the new value for storeShippingName
      */
-    public void setStoreShipName(String aStoreShipName) {
-        storeShipName = aStoreShipName;
+    public void setStoreShippingName(String aStoreShippingName) {
+        storeShippingName = aStoreShippingName;
     }
 
     /**
@@ -276,7 +276,7 @@ public class StoreShipping implements Serializable {
      *
      * @return the current value of storeShipMethods
      */
-    public Set<StoreShipMethods> getStoreShipMethods() {
+    public Set<StoreShippingMethods> getStoreShipMethods() {
         return storeShipMethods;
     }
 
@@ -285,7 +285,7 @@ public class StoreShipping implements Serializable {
      *
      * @param aStoreShipMethods the new value for storeShipMethods
      */
-    public void setStoreShipMethods(Set<StoreShipMethods> aStoreShipMethods) {
+    public void setStoreShipMethods(Set<StoreShippingMethods> aStoreShipMethods) {
         storeShipMethods = aStoreShipMethods;
     }
 
@@ -343,7 +343,7 @@ public class StoreShipping implements Serializable {
             return false;
         }
         StoreShipping that = (StoreShipping) other;
-        if (this.getStoreShipId() != that.getStoreShipId()) {
+        if (this.getStoreShippingId() != that.getStoreShippingId()) {
             return false;
         }
         return true;
@@ -370,7 +370,7 @@ public class StoreShipping implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getStoreShipId();
+        i = getStoreShippingId();
         result = 37*result + i;
         return result;
     }
@@ -383,7 +383,7 @@ public class StoreShipping implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[StoreShipping |");
-        sb.append(" storeShipId=").append(getStoreShipId());
+        sb.append(" storeShippingId=").append(getStoreShippingId());
         sb.append("]");
         return sb.toString();
     }
@@ -395,7 +395,7 @@ public class StoreShipping implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("storeShipId", Integer.valueOf(getStoreShipId()));
+        ret.put("storeShippingId", Integer.valueOf(getStoreShippingId()));
         return ret;
     }
 

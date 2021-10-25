@@ -24,7 +24,7 @@ public class GroupMovies implements Serializable {
 	private static final long serialVersionUID = -3519795635027207253L;
 
 	/** Primary key. */
-    protected static final String PK = "grpMovieId";
+    protected static final String PK = "groupMovieId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -54,11 +54,11 @@ public class GroupMovies implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="grp_movie_id", unique=true, nullable=false, precision=10)
-    private int grpMovieId;
+    private int groupMovieId;
     @Column(name="grp_id", nullable=false, precision=10)
-    private int grpId;
+    private int groupId;
     @Column(name="grp_movie_item_num", nullable=false, precision=10)
-    private int grpMovieItemNum;
+    private int groupMovieItemNum;
     @OneToMany(mappedBy="groupMovies")
     private Set<ExternalIds> externalIds;
 
@@ -68,57 +68,57 @@ public class GroupMovies implements Serializable {
     }
 
     /**
-     * Access method for grpMovieId.
+     * Access method for groupMovieId.
      *
-     * @return the current value of grpMovieId
+     * @return the current value of groupMovieId
      */
-    public int getGrpMovieId() {
-        return grpMovieId;
+    public int getGroupMovieId() {
+        return groupMovieId;
     }
 
     /**
-     * Setter method for grpMovieId.
+     * Setter method for groupMovieId.
      *
-     * @param aGrpMovieId the new value for grpMovieId
+     * @param aGroupMovieId the new value for groupMovieId
      */
-    public void setGrpMovieId(int aGrpMovieId) {
-        grpMovieId = aGrpMovieId;
+    public void setGroupMovieId(int aGroupMovieId) {
+        groupMovieId = aGroupMovieId;
     }
 
     /**
-     * Access method for grpId.
+     * Access method for groupId.
      *
-     * @return the current value of grpId
+     * @return the current value of groupId
      */
-    public int getGrpId() {
-        return grpId;
+    public int getGroupId() {
+        return groupId;
     }
 
     /**
-     * Setter method for grpId.
+     * Setter method for groupId.
      *
-     * @param aGrpId the new value for grpId
+     * @param aGroupId the new value for groupId
      */
-    public void setGrpId(int aGrpId) {
-        grpId = aGrpId;
+    public void setGroupId(int aGroupId) {
+        groupId = aGroupId;
     }
 
     /**
-     * Access method for grpMovieItemNum.
+     * Access method for groupMovieItemNum.
      *
-     * @return the current value of grpMovieItemNum
+     * @return the current value of groupMovieItemNum
      */
-    public int getGrpMovieItemNum() {
-        return grpMovieItemNum;
+    public int getGroupMovieItemNum() {
+        return groupMovieItemNum;
     }
 
     /**
-     * Setter method for grpMovieItemNum.
+     * Setter method for groupMovieItemNum.
      *
-     * @param aGrpMovieItemNum the new value for grpMovieItemNum
+     * @param aGroupMovieItemNum the new value for groupMovieItemNum
      */
-    public void setGrpMovieItemNum(int aGrpMovieItemNum) {
-        grpMovieItemNum = aGrpMovieItemNum;
+    public void setGroupMovieItemNum(int aGroupMovieItemNum) {
+        groupMovieItemNum = aGroupMovieItemNum;
     }
 
     /**
@@ -153,7 +153,7 @@ public class GroupMovies implements Serializable {
             return false;
         }
         GroupMovies that = (GroupMovies) other;
-        if (this.getGrpMovieId() != that.getGrpMovieId()) {
+        if (this.getGroupMovieId() != that.getGroupMovieId()) {
             return false;
         }
         return true;
@@ -180,7 +180,7 @@ public class GroupMovies implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getGrpMovieId();
+        i = getGroupMovieId();
         result = 37*result + i;
         return result;
     }
@@ -193,7 +193,7 @@ public class GroupMovies implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[GroupMovies |");
-        sb.append(" grpMovieId=").append(getGrpMovieId());
+        sb.append(" groupMovieId=").append(getGroupMovieId());
         sb.append("]");
         return sb.toString();
     }
@@ -205,7 +205,7 @@ public class GroupMovies implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("grpMovieId", Integer.valueOf(getGrpMovieId()));
+        ret.put("groupMovieId", Integer.valueOf(getGroupMovieId()));
         return ret;
     }
 

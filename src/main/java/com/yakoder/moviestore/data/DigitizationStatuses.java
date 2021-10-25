@@ -24,7 +24,7 @@ public class DigitizationStatuses implements Serializable {
 	private static final long serialVersionUID = -8892184318557691179L;
 
 	/** Primary key. */
-    protected static final String PK = "digitStatId";
+    protected static final String PK = "digitizationStatusId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -54,13 +54,13 @@ public class DigitizationStatuses implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="digit_stat_id", unique=true, nullable=false, precision=10)
-    private int digitStatId;
+    private int digitizationStatusId;
     @Column(name="digit_stat_name", nullable=false, length=100)
-    private String digitStatName;
+    private String digitizationStatusName;
     @Column(name="digit_stat_desc", length=255)
-    private String digitStatDesc;
+    private String digitizationStatusDesc;
     @OneToMany(mappedBy="digitizationStatuses")
-    private Set<InvDigitization> invDigitization;
+    private Set<InventoryDigitization> inventoryDigitization;
 
     /** Default constructor. */
     public DigitizationStatuses() {
@@ -68,75 +68,75 @@ public class DigitizationStatuses implements Serializable {
     }
 
     /**
-     * Access method for digitStatId.
+     * Access method for digitizationStatusId.
      *
-     * @return the current value of digitStatId
+     * @return the current value of digitizationStatusId
      */
-    public int getDigitStatId() {
-        return digitStatId;
+    public int getDigitizationStatusId() {
+        return digitizationStatusId;
     }
 
     /**
-     * Setter method for digitStatId.
+     * Setter method for digitizationStatusId.
      *
-     * @param aDigitStatId the new value for digitStatId
+     * @param aDigitizationStatusId the new value for digitizationStatusId
      */
-    public void setDigitStatId(int aDigitStatId) {
-        digitStatId = aDigitStatId;
+    public void setDigitizationStatusId(int aDigitizationStatusId) {
+        digitizationStatusId = aDigitizationStatusId;
     }
 
     /**
-     * Access method for digitStatName.
+     * Access method for digitizationStatusName.
      *
-     * @return the current value of digitStatName
+     * @return the current value of digitizationStatusName
      */
-    public String getDigitStatName() {
-        return digitStatName;
+    public String getDigitizationStatusName() {
+        return digitizationStatusName;
     }
 
     /**
-     * Setter method for digitStatName.
+     * Setter method for digitizationStatusName.
      *
-     * @param aDigitStatName the new value for digitStatName
+     * @param aDigitizationStatusName the new value for digitizationStatusName
      */
-    public void setDigitStatName(String aDigitStatName) {
-        digitStatName = aDigitStatName;
+    public void setDigitizationStatusName(String aDigitizationStatusName) {
+        digitizationStatusName = aDigitizationStatusName;
     }
 
     /**
-     * Access method for digitStatDesc.
+     * Access method for digitizationStatusDesc.
      *
-     * @return the current value of digitStatDesc
+     * @return the current value of digitizationStatusDesc
      */
-    public String getDigitStatDesc() {
-        return digitStatDesc;
+    public String getDigitizationStatusDesc() {
+        return digitizationStatusDesc;
     }
 
     /**
-     * Setter method for digitStatDesc.
+     * Setter method for digitizationStatusDesc.
      *
-     * @param aDigitStatDesc the new value for digitStatDesc
+     * @param aDigitizationStatusDesc the new value for digitizationStatusDesc
      */
-    public void setDigitStatDesc(String aDigitStatDesc) {
-        digitStatDesc = aDigitStatDesc;
+    public void setDigitizationStatusDesc(String aDigitizationStatusDesc) {
+        digitizationStatusDesc = aDigitizationStatusDesc;
     }
 
     /**
-     * Access method for invDigitization.
+     * Access method for inventoryDigitization.
      *
-     * @return the current value of invDigitization
+     * @return the current value of inventoryDigitization
      */
-    public Set<InvDigitization> getInvDigitization() {
-        return invDigitization;
+    public Set<InventoryDigitization> getInventoryDigitization() {
+        return inventoryDigitization;
     }
 
     /**
-     * Setter method for invDigitization.
+     * Setter method for inventoryDigitization.
      *
-     * @param aInvDigitization the new value for invDigitization
+     * @param aInventoryDigitization the new value for inventoryDigitization
      */
-    public void setInvDigitization(Set<InvDigitization> aInvDigitization) {
-        invDigitization = aInvDigitization;
+    public void setInventoryDigitization(Set<InventoryDigitization> aInventoryDigitization) {
+        inventoryDigitization = aInventoryDigitization;
     }
 
     /**
@@ -153,7 +153,7 @@ public class DigitizationStatuses implements Serializable {
             return false;
         }
         DigitizationStatuses that = (DigitizationStatuses) other;
-        if (this.getDigitStatId() != that.getDigitStatId()) {
+        if (this.getDigitizationStatusId() != that.getDigitizationStatusId()) {
             return false;
         }
         return true;
@@ -180,7 +180,7 @@ public class DigitizationStatuses implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getDigitStatId();
+        i = getDigitizationStatusId();
         result = 37*result + i;
         return result;
     }
@@ -193,7 +193,7 @@ public class DigitizationStatuses implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[DigitizationStatuses |");
-        sb.append(" digitStatId=").append(getDigitStatId());
+        sb.append(" digitizationStatusId=").append(getDigitizationStatusId());
         sb.append("]");
         return sb.toString();
     }
@@ -205,7 +205,7 @@ public class DigitizationStatuses implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("digitStatId", Integer.valueOf(getDigitStatId()));
+        ret.put("digitizationStatusId", Integer.valueOf(getDigitizationStatusId()));
         return ret;
     }
 

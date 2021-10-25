@@ -27,7 +27,7 @@ public class ExpenseTypes implements Serializable {
 	private static final long serialVersionUID = -7483264164178313153L;
 
 	/** Primary key. */
-    protected static final String PK = "expTypeId";
+    protected static final String PK = "expenseTypeId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -57,13 +57,13 @@ public class ExpenseTypes implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="exp_type_id", unique=true, nullable=false, precision=10)
-    private int expTypeId;
+    private int expenseTypeId;
     @Column(name="exp_type_name", nullable=false, length=100)
-    private String expTypeName;
+    private String expenseTypeName;
     @Column(name="exp_type_desc", length=255)
-    private String expTypeDesc;
+    private String expenseTypeDesc;
     @Column(name="exp_detail_table_id", nullable=false, precision=10)
-    private int expDetailTableId;
+    private int expenseDetailTableId;
     @OneToMany(mappedBy="expTypes")
     private Set<Expenses> expenses;
 
@@ -73,75 +73,75 @@ public class ExpenseTypes implements Serializable {
     }
 
     /**
-     * Access method for expTypeId.
+     * Access method for expenseTypeId.
      *
-     * @return the current value of expTypeId
+     * @return the current value of expenseTypeId
      */
-    public int getExpTypeId() {
-        return expTypeId;
+    public int getExpenseTypeId() {
+        return expenseTypeId;
     }
 
     /**
-     * Setter method for expTypeId.
+     * Setter method for expenseTypeId.
      *
-     * @param aExpTypeId the new value for expTypeId
+     * @param aExpenseTypeId the new value for expenseTypeId
      */
-    public void setExpTypeId(int aExpTypeId) {
-        expTypeId = aExpTypeId;
+    public void setExpenseTypeId(int aExpenseTypeId) {
+        expenseTypeId = aExpenseTypeId;
     }
 
     /**
-     * Access method for expTypeName.
+     * Access method for expenseTypeName.
      *
-     * @return the current value of expTypeName
+     * @return the current value of expenseTypeName
      */
-    public String getExpTypeName() {
-        return expTypeName;
+    public String getExpenseTypeName() {
+        return expenseTypeName;
     }
 
     /**
-     * Setter method for expTypeName.
+     * Setter method for expenseTypeName.
      *
-     * @param aExpTypeName the new value for expTypeName
+     * @param aExpenseTypeName the new value for expenseTypeName
      */
-    public void setExpTypeName(String aExpTypeName) {
-        expTypeName = aExpTypeName;
+    public void setExpenseTypeName(String aExpenseTypeName) {
+        expenseTypeName = aExpenseTypeName;
     }
 
     /**
-     * Access method for expTypeDesc.
+     * Access method for expenseTypeDesc.
      *
-     * @return the current value of expTypeDesc
+     * @return the current value of expenseTypeDesc
      */
-    public String getExpTypeDesc() {
-        return expTypeDesc;
+    public String getExpenseTypeDesc() {
+        return expenseTypeDesc;
     }
 
     /**
-     * Setter method for expTypeDesc.
+     * Setter method for expenseTypeDesc.
      *
-     * @param aExpTypeDesc the new value for expTypeDesc
+     * @param aExpenseTypeDesc the new value for expenseTypeDesc
      */
-    public void setExpTypeDesc(String aExpTypeDesc) {
-        expTypeDesc = aExpTypeDesc;
+    public void setExpenseTypeDesc(String aExpenseTypeDesc) {
+        expenseTypeDesc = aExpenseTypeDesc;
     }
 
     /**
-     * Access method for expDetailTableId.
+     * Access method for expenseDetailTableId.
      *
-     * @return the current value of expDetailTableId
+     * @return the current value of expenseDetailTableId
      */
-    public int getExpDetailTableId() {
-        return expDetailTableId;
+    public int getExpenseDetailTableId() {
+        return expenseDetailTableId;
     }
 
     /**
-     * Setter method for expDetailTableId.
+     * Setter method for expenseDetailTableId.
      *
-     * @param aExpDetailTableId the new value for expDetailTableId
+     * @param aExpenseDetailTableId the new value for expenseDetailTableId
      */
-    public void setExpDetailTableId(int aExpDetailTableId) {
-        expDetailTableId = aExpDetailTableId;
+    public void setExpenseDetailTableId(int aExpenseDetailTableId) {
+        expenseDetailTableId = aExpenseDetailTableId;
     }
 
     /**
@@ -176,7 +176,7 @@ public class ExpenseTypes implements Serializable {
             return false;
         }
         ExpenseTypes that = (ExpenseTypes) other;
-        if (this.getExpTypeId() != that.getExpTypeId()) {
+        if (this.getExpenseTypeId() != that.getExpenseTypeId()) {
             return false;
         }
         return true;
@@ -203,7 +203,7 @@ public class ExpenseTypes implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getExpTypeId();
+        i = getExpenseTypeId();
         result = 37*result + i;
         return result;
     }
@@ -216,7 +216,7 @@ public class ExpenseTypes implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[ExpenseTypes |");
-        sb.append(" expTypeId=").append(getExpTypeId());
+        sb.append(" expenseTypeId=").append(getExpenseTypeId());
         sb.append("]");
         return sb.toString();
     }
@@ -228,7 +228,7 @@ public class ExpenseTypes implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("expTypeId", Integer.valueOf(getExpTypeId()));
+        ret.put("expenseTypeId", Integer.valueOf(getExpenseTypeId()));
         return ret;
     }
 

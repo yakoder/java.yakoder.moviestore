@@ -28,7 +28,7 @@ public class OrderAdjustments implements Serializable {
 	private static final long serialVersionUID = 9157672553090792244L;
 
 	/** Primary key. */
-    protected static final String PK = "orderAdjId";
+    protected static final String PK = "orderAdjustmentId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -58,13 +58,13 @@ public class OrderAdjustments implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="order_adj_id", unique=true, nullable=false, precision=10)
-    private int orderAdjId;
+    private int orderAdjustmentId;
     @Column(name="adj_date")
-    private LocalDate adjDate;
+    private LocalDate adjustmentDate;
     @Column(name="adj_notes", length=255)
-    private String adjNotes;
+    private String adjustmentNotes;
     @Column(name="adj_amount", precision=15, scale=2)
-    private BigDecimal adjAmount;
+    private BigDecimal adjustmentAmount;
     @OneToMany(mappedBy="orderAdjustments")
     private Set<AdjustmentMovies> adjustmentMovies;
     @ManyToOne(optional=false)
@@ -83,75 +83,75 @@ public class OrderAdjustments implements Serializable {
     }
 
     /**
-     * Access method for orderAdjId.
+     * Access method for orderAdjustmentId.
      *
-     * @return the current value of orderAdjId
+     * @return the current value of orderAdjustmentId
      */
-    public int getOrderAdjId() {
-        return orderAdjId;
+    public int getOrderAdjustmentId() {
+        return orderAdjustmentId;
     }
 
     /**
-     * Setter method for orderAdjId.
+     * Setter method for orderAdjustmentId.
      *
-     * @param aOrderAdjId the new value for orderAdjId
+     * @param aOrderAdjustmentId the new value for orderAdjustmentId
      */
-    public void setOrderAdjId(int aOrderAdjId) {
-        orderAdjId = aOrderAdjId;
+    public void setOrderAdjustmentId(int aOrderAdjustmentId) {
+        orderAdjustmentId = aOrderAdjustmentId;
     }
 
     /**
-     * Access method for adjDate.
+     * Access method for adjustmentDate.
      *
-     * @return the current value of adjDate
+     * @return the current value of adjustmentDate
      */
-    public LocalDate getAdjDate() {
-        return adjDate;
+    public LocalDate getAdjustmentDate() {
+        return adjustmentDate;
     }
 
     /**
-     * Setter method for adjDate.
+     * Setter method for adjustmentDate.
      *
-     * @param aAdjDate the new value for adjDate
+     * @param aAdjustmentDate the new value for adjustmentDate
      */
-    public void setAdjDate(LocalDate aAdjDate) {
-        adjDate = aAdjDate;
+    public void setAdjustmentDate(LocalDate aAdjustmentDate) {
+        adjustmentDate = aAdjustmentDate;
     }
 
     /**
-     * Access method for adjNotes.
+     * Access method for adjustmentNotes.
      *
-     * @return the current value of adjNotes
+     * @return the current value of adjustmentNotes
      */
-    public String getAdjNotes() {
-        return adjNotes;
+    public String getAdjustmentNotes() {
+        return adjustmentNotes;
     }
 
     /**
-     * Setter method for adjNotes.
+     * Setter method for adjustmentNotes.
      *
-     * @param aAdjNotes the new value for adjNotes
+     * @param aAdjustmentNotes the new value for adjustmentNotes
      */
-    public void setAdjNotes(String aAdjNotes) {
-        adjNotes = aAdjNotes;
+    public void setAdjustmentNotes(String aAdjustmentNotes) {
+        adjustmentNotes = aAdjustmentNotes;
     }
 
     /**
-     * Access method for adjAmount.
+     * Access method for adjustmentAmount.
      *
-     * @return the current value of adjAmount
+     * @return the current value of adjustmentAmount
      */
-    public BigDecimal getAdjAmount() {
-        return adjAmount;
+    public BigDecimal getAdjustmentAmount() {
+        return adjustmentAmount;
     }
 
     /**
-     * Setter method for adjAmount.
+     * Setter method for adjustmentAmount.
      *
-     * @param aAdjAmount the new value for adjAmount
+     * @param aAdjustmentAmount the new value for adjustmentAmount
      */
-    public void setAdjAmount(BigDecimal aAdjAmount) {
-        adjAmount = aAdjAmount;
+    public void setAdjustmentAmount(BigDecimal aAdjustmentAmount) {
+        adjustmentAmount = aAdjustmentAmount;
     }
 
     /**
@@ -240,7 +240,7 @@ public class OrderAdjustments implements Serializable {
             return false;
         }
         OrderAdjustments that = (OrderAdjustments) other;
-        if (this.getOrderAdjId() != that.getOrderAdjId()) {
+        if (this.getOrderAdjustmentId() != that.getOrderAdjustmentId()) {
             return false;
         }
         return true;
@@ -267,7 +267,7 @@ public class OrderAdjustments implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getOrderAdjId();
+        i = getOrderAdjustmentId();
         result = 37*result + i;
         return result;
     }
@@ -280,7 +280,7 @@ public class OrderAdjustments implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[OrderAdjustments |");
-        sb.append(" orderAdjId=").append(getOrderAdjId());
+        sb.append(" orderAdjustmentId=").append(getOrderAdjustmentId());
         sb.append("]");
         return sb.toString();
     }
@@ -292,7 +292,7 @@ public class OrderAdjustments implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("orderAdjId", Integer.valueOf(getOrderAdjId()));
+        ret.put("orderAdjustmentId", Integer.valueOf(getOrderAdjustmentId()));
         return ret;
     }
 

@@ -30,7 +30,7 @@ public class StoreInventory implements Serializable {
 	private static final long serialVersionUID = -8152388737830997831L;
 
 	/** Primary key. */
-    protected static final String PK = "storeInvId";
+    protected static final String PK = "storeInventoryId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -60,9 +60,9 @@ public class StoreInventory implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="store_inv_id", unique=true, nullable=false, precision=10)
-    private int storeInvId;
+    private int storeInventoryId;
     @Column(name="store_movie_num", unique=true, nullable=false, length=100)
-    private String storeMovieNum;
+    private String storeMovieNumber;
     @Column(name="is_listed", nullable=false, length=3)
     private boolean isListed;
     @OneToOne(mappedBy="storeInventory")
@@ -74,7 +74,7 @@ public class StoreInventory implements Serializable {
     @JoinColumn(name="store_site_id", nullable=false)
     private StoreSites storeSites;
     @OneToMany(mappedBy="storeInventory")
-    private Set<StoreInvHistory> storeInvHistory;
+    private Set<StoreInventoryHistory> storeInventoryHistory;
 
     /** Default constructor. */
     public StoreInventory() {
@@ -82,39 +82,39 @@ public class StoreInventory implements Serializable {
     }
 
     /**
-     * Access method for storeInvId.
+     * Access method for storeInventoryId.
      *
-     * @return the current value of storeInvId
+     * @return the current value of storeInventoryId
      */
-    public int getStoreInvId() {
-        return storeInvId;
+    public int getStoreInventoryId() {
+        return storeInventoryId;
     }
 
     /**
-     * Setter method for storeInvId.
+     * Setter method for storeInventoryId.
      *
-     * @param aStoreInvId the new value for storeInvId
+     * @param aStoreInventoryId the new value for storeInventoryId
      */
-    public void setStoreInvId(int aStoreInvId) {
-        storeInvId = aStoreInvId;
+    public void setStoreInventoryId(int aStoreInventoryId) {
+        storeInventoryId = aStoreInventoryId;
     }
 
     /**
-     * Access method for storeMovieNum.
+     * Access method for storeMovieNumber.
      *
-     * @return the current value of storeMovieNum
+     * @return the current value of storeMovieNumber
      */
-    public String getStoreMovieNum() {
-        return storeMovieNum;
+    public String getStoreMovieNumber() {
+        return storeMovieNumber;
     }
 
     /**
-     * Setter method for storeMovieNum.
+     * Setter method for storeMovieNumber.
      *
-     * @param aStoreMovieNum the new value for storeMovieNum
+     * @param aStoreMovieNumber the new value for storeMovieNumber
      */
-    public void setStoreMovieNum(String aStoreMovieNum) {
-        storeMovieNum = aStoreMovieNum;
+    public void setStoreMovieNumber(String aStoreMovieNumber) {
+        storeMovieNumber = aStoreMovieNumber;
     }
 
     /**
@@ -190,42 +190,42 @@ public class StoreInventory implements Serializable {
     }
 
     /**
-     * Access method for storeInvHistory.
+     * Access method for storeInventoryHistory.
      *
-     * @return the current value of storeInvHistory
+     * @return the current value of storeInventoryHistory
      */
-    public Set<StoreInvHistory> getStoreInvHistory() {
-        return storeInvHistory;
+    public Set<StoreInventoryHistory> getStoreInventoryHistory() {
+        return storeInventoryHistory;
     }
 
     /**
-     * Setter method for storeInvHistory.
+     * Setter method for storeInventoryHistory.
      *
-     * @param aStoreInvHistory the new value for storeInvHistory
+     * @param aStoreInventoryHistory the new value for storeInventoryHistory
      */
-    public void setStoreInvHistory(Set<StoreInvHistory> aStoreInvHistory) {
-        storeInvHistory = aStoreInvHistory;
+    public void setStoreInventoryHistory(Set<StoreInventoryHistory> aStoreInventoryHistory) {
+        storeInventoryHistory = aStoreInventoryHistory;
     }
 
     /**
-     * Gets the group fragment invId for member inventory.
+     * Gets the group fragment inventoryId for member inventory.
      *
      * @return Current value of the group fragment
      * @see Inventory
      */
     public int getInventoryInvId() {
-        return (getInventory() == null ? null : getInventory().getInvId());
+        return (getInventory() == null ? null : getInventory().getInventoryId());
     }
 
     /**
-     * Sets the group fragment invId from member inventory.
+     * Sets the group fragment inventoryId from member inventory.
      *
-     * @param aInvId New value for the group fragment
+     * @param aInventoryId New value for the group fragment
      * @see Inventory
      */
-    public void setInventoryInvId(int aInvId) {
+    public void setInventoryInvId(int aInventoryId) {
         if (getInventory() != null) {
-            getInventory().setInvId(aInvId);
+            getInventory().setInventoryId(aInventoryId);
         }
     }
 
@@ -265,7 +265,7 @@ public class StoreInventory implements Serializable {
             return false;
         }
         StoreInventory that = (StoreInventory) other;
-        if (this.getStoreInvId() != that.getStoreInvId()) {
+        if (this.getStoreInventoryId() != that.getStoreInventoryId()) {
             return false;
         }
         return true;
@@ -292,7 +292,7 @@ public class StoreInventory implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getStoreInvId();
+        i = getStoreInventoryId();
         result = 37*result + i;
         return result;
     }
@@ -305,7 +305,7 @@ public class StoreInventory implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[StoreInventory |");
-        sb.append(" storeInvId=").append(getStoreInvId());
+        sb.append(" storeInventoryId=").append(getStoreInventoryId());
         sb.append("]");
         return sb.toString();
     }
@@ -317,7 +317,7 @@ public class StoreInventory implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("storeInvId", Integer.valueOf(getStoreInvId()));
+        ret.put("storeInventoryId", Integer.valueOf(getStoreInventoryId()));
         return ret;
     }
 

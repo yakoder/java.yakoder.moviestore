@@ -31,7 +31,7 @@ public class OrderShipments implements Serializable {
 	private static final long serialVersionUID = 937559668869978850L;
 
 	/** Primary key. */
-    protected static final String PK = "orderShipId";
+    protected static final String PK = "orderShipmentId";
 
     /**
      * The optimistic lock. Available via standard bean get/set operations.
@@ -61,7 +61,7 @@ public class OrderShipments implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="order_ship_id", unique=true, nullable=false, precision=10)
-    private int orderShipId;
+    private int orderShipmentId;
     @Column(name="shipped_on", length=100)
     private String shippedOn;
     @Column(name="postage_cost", nullable=false, precision=15, scale=2)
@@ -92,21 +92,21 @@ public class OrderShipments implements Serializable {
     }
 
     /**
-     * Access method for orderShipId.
+     * Access method for orderShipmentId.
      *
-     * @return the current value of orderShipId
+     * @return the current value of orderShipmentId
      */
-    public int getOrderShipId() {
-        return orderShipId;
+    public int getOrderShipmentId() {
+        return orderShipmentId;
     }
 
     /**
-     * Setter method for orderShipId.
+     * Setter method for orderShipmentId.
      *
-     * @param aOrderShipId the new value for orderShipId
+     * @param aOrderShipmentId the new value for orderShipmentId
      */
-    public void setOrderShipId(int aOrderShipId) {
-        orderShipId = aOrderShipId;
+    public void setOrderShipmentId(int aOrderShipmentId) {
+        orderShipmentId = aOrderShipmentId;
     }
 
     /**
@@ -321,7 +321,7 @@ public class OrderShipments implements Serializable {
             return false;
         }
         OrderShipments that = (OrderShipments) other;
-        if (this.getOrderShipId() != that.getOrderShipId()) {
+        if (this.getOrderShipmentId() != that.getOrderShipmentId()) {
             return false;
         }
         return true;
@@ -348,7 +348,7 @@ public class OrderShipments implements Serializable {
     public int hashCode() {
         int i;
         int result = 17;
-        i = getOrderShipId();
+        i = getOrderShipmentId();
         result = 37*result + i;
         return result;
     }
@@ -361,7 +361,7 @@ public class OrderShipments implements Serializable {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[OrderShipments |");
-        sb.append(" orderShipId=").append(getOrderShipId());
+        sb.append(" orderShipmentId=").append(getOrderShipmentId());
         sb.append("]");
         return sb.toString();
     }
@@ -373,7 +373,7 @@ public class OrderShipments implements Serializable {
      */
     public Map<String, Object> getPrimaryKey() {
         Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("orderShipId", Integer.valueOf(getOrderShipId()));
+        ret.put("orderShipmentId", Integer.valueOf(getOrderShipmentId()));
         return ret;
     }
 
