@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
 @Entity(name="prod_cos")
-public class ProductionCompanies implements Serializable {
+public class ProductionCompany implements Serializable {
 
     /**
 	 * 
@@ -60,10 +60,10 @@ public class ProductionCompanies implements Serializable {
     @Column(name="prod_co_url", length=255)
     private String productionCompanyUrl;
     @OneToMany(mappedBy="prodCos")
-    private Set<MovieProductionCompanies> movieProductionCompanies;
+    private Set<MovieProductionCompany> movieProductionCompanies;
 
     /** Default constructor. */
-    public ProductionCompanies() {
+    public ProductionCompany() {
         super();
     }
 
@@ -126,7 +126,7 @@ public class ProductionCompanies implements Serializable {
      *
      * @return the current value of movieProductionCompanies
      */
-    public Set<MovieProductionCompanies> getMovieProductionCompanies() {
+    public Set<MovieProductionCompany> getMovieProductionCompanies() {
         return movieProductionCompanies;
     }
 
@@ -135,7 +135,7 @@ public class ProductionCompanies implements Serializable {
      *
      * @param aMovieProductionCompanies the new value for movieProductionCompanies
      */
-    public void setMovieProductionCompanies(Set<MovieProductionCompanies> aMovieProductionCompanies) {
+    public void setMovieProductionCompanies(Set<MovieProductionCompany> aMovieProductionCompanies) {
         movieProductionCompanies = aMovieProductionCompanies;
     }
 
@@ -149,10 +149,10 @@ public class ProductionCompanies implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof ProductionCompanies)) {
+        if (!(other instanceof ProductionCompany)) {
             return false;
         }
-        ProductionCompanies that = (ProductionCompanies) other;
+        ProductionCompany that = (ProductionCompany) other;
         if (this.getProductionCompanyId() != that.getProductionCompanyId()) {
             return false;
         }
@@ -167,8 +167,8 @@ public class ProductionCompanies implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof ProductionCompanies)) return false;
-        return this.equalKeys(other) && ((ProductionCompanies)other).equalKeys(this);
+        if (!(other instanceof ProductionCompany)) return false;
+        return this.equalKeys(other) && ((ProductionCompany)other).equalKeys(this);
     }
 
     /**

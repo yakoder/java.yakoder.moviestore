@@ -19,7 +19,7 @@ import javax.persistence.Version;
 
 @Entity
 @Table(name="store_ship_methods", indexes={@Index(name="storeShipMethodsStoreShippingMethodsAllIdx", columnList="store_ship_meth_id,store_ship_id,ship_meth_id")})
-public class StoreShippingMethods implements Serializable {
+public class StoreShippingMethod implements Serializable {
 
     /**
 	 * 
@@ -60,13 +60,13 @@ public class StoreShippingMethods implements Serializable {
     private int storeShippingMethodId;
     @ManyToOne(optional=false)
     @JoinColumn(name="ship_meth_id", nullable=false)
-    private ShippingMethods shippingMethods;
+    private ShippingMethod shippingMethods;
     @ManyToOne(optional=false)
     @JoinColumn(name="store_ship_id", nullable=false)
     private StoreShipping storeShipping;
 
     /** Default constructor. */
-    public StoreShippingMethods() {
+    public StoreShippingMethod() {
         super();
     }
 
@@ -93,7 +93,7 @@ public class StoreShippingMethods implements Serializable {
      *
      * @return the current value of shippingMethods
      */
-    public ShippingMethods getShippingMethods() {
+    public ShippingMethod getShippingMethods() {
         return shippingMethods;
     }
 
@@ -102,7 +102,7 @@ public class StoreShippingMethods implements Serializable {
      *
      * @param aShippingMethods the new value for shippingMethods
      */
-    public void setShippingMethods(ShippingMethods aShippingMethods) {
+    public void setShippingMethods(ShippingMethod aShippingMethods) {
         shippingMethods = aShippingMethods;
     }
 
@@ -150,7 +150,7 @@ public class StoreShippingMethods implements Serializable {
      * Gets the group fragment shipMethId for member shippingMethods.
      *
      * @return Current value of the group fragment
-     * @see ShippingMethods
+     * @see ShippingMethod
      */
     public int getShippingMethodsShipMethId() {
         return (getShippingMethods() == null ? null : getShippingMethods().getShippingMethodId());
@@ -160,7 +160,7 @@ public class StoreShippingMethods implements Serializable {
      * Sets the group fragment shipMethId from member shippingMethods.
      *
      * @param aShipMethId New value for the group fragment
-     * @see ShippingMethods
+     * @see ShippingMethod
      */
     public void setShippingMethodsShipMethId(int aShipMethId) {
         if (getShippingMethods() != null) {
@@ -178,10 +178,10 @@ public class StoreShippingMethods implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof StoreShippingMethods)) {
+        if (!(other instanceof StoreShippingMethod)) {
             return false;
         }
-        StoreShippingMethods that = (StoreShippingMethods) other;
+        StoreShippingMethod that = (StoreShippingMethod) other;
         if (this.getStoreShippingMethodId() != that.getStoreShippingMethodId()) {
             return false;
         }
@@ -196,8 +196,8 @@ public class StoreShippingMethods implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof StoreShippingMethods)) return false;
-        return this.equalKeys(other) && ((StoreShippingMethods)other).equalKeys(this);
+        if (!(other instanceof StoreShippingMethod)) return false;
+        return this.equalKeys(other) && ((StoreShippingMethod)other).equalKeys(this);
     }
 
     /**

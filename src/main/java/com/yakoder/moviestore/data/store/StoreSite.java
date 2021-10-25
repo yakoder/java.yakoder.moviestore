@@ -18,7 +18,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
 @Entity(name="store_sites")
-public class StoreSites implements Serializable {
+public class StoreSite implements Serializable {
 
     /**
 	 * 
@@ -58,11 +58,11 @@ public class StoreSites implements Serializable {
     @Column(name="store_site_id", unique=true, nullable=false, precision=10)
     private int storeSiteId;
     @OneToMany(mappedBy="storeSites")
-    private Set<ExpenseMovies> expenseMovies;
+    private Set<ExpenseMovie> expenseMovies;
     @OneToMany(mappedBy="storeSites")
-    private Set<Orders> orders;
+    private Set<Order> orders;
     @OneToMany(mappedBy="storeSites")
-    private Set<StoreCustomers> storeCustomers;
+    private Set<StoreCustomer> storeCustomers;
     @OneToMany(mappedBy="storeSites")
     private Set<StoreInventory> storeInventory;
     @OneToMany(mappedBy="storeSites")
@@ -71,10 +71,10 @@ public class StoreSites implements Serializable {
     private Set<StoreShipping> storeShipping;
     @ManyToOne(optional=false)
     @JoinColumn(name="site_id", nullable=false)
-    private Sites sites;
+    private Site sites;
 
     /** Default constructor. */
-    public StoreSites() {
+    public StoreSite() {
         super();
     }
 
@@ -101,7 +101,7 @@ public class StoreSites implements Serializable {
      *
      * @return the current value of expenseMovies
      */
-    public Set<ExpenseMovies> getExpenseMovies() {
+    public Set<ExpenseMovie> getExpenseMovies() {
         return expenseMovies;
     }
 
@@ -110,7 +110,7 @@ public class StoreSites implements Serializable {
      *
      * @param aExpenseMovies the new value for expenseMovies
      */
-    public void setExpenseMovies(Set<ExpenseMovies> aExpenseMovies) {
+    public void setExpenseMovies(Set<ExpenseMovie> aExpenseMovies) {
         expenseMovies = aExpenseMovies;
     }
 
@@ -119,7 +119,7 @@ public class StoreSites implements Serializable {
      *
      * @return the current value of orders
      */
-    public Set<Orders> getOrders() {
+    public Set<Order> getOrders() {
         return orders;
     }
 
@@ -128,7 +128,7 @@ public class StoreSites implements Serializable {
      *
      * @param aOrders the new value for orders
      */
-    public void setOrders(Set<Orders> aOrders) {
+    public void setOrders(Set<Order> aOrders) {
         orders = aOrders;
     }
 
@@ -137,7 +137,7 @@ public class StoreSites implements Serializable {
      *
      * @return the current value of storeCustomers
      */
-    public Set<StoreCustomers> getStoreCustomers() {
+    public Set<StoreCustomer> getStoreCustomers() {
         return storeCustomers;
     }
 
@@ -146,7 +146,7 @@ public class StoreSites implements Serializable {
      *
      * @param aStoreCustomers the new value for storeCustomers
      */
-    public void setStoreCustomers(Set<StoreCustomers> aStoreCustomers) {
+    public void setStoreCustomers(Set<StoreCustomer> aStoreCustomers) {
         storeCustomers = aStoreCustomers;
     }
 
@@ -209,7 +209,7 @@ public class StoreSites implements Serializable {
      *
      * @return the current value of sites
      */
-    public Sites getSites() {
+    public Site getSites() {
         return sites;
     }
 
@@ -218,7 +218,7 @@ public class StoreSites implements Serializable {
      *
      * @param aSites the new value for sites
      */
-    public void setSites(Sites aSites) {
+    public void setSites(Site aSites) {
         sites = aSites;
     }
 
@@ -232,10 +232,10 @@ public class StoreSites implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof StoreSites)) {
+        if (!(other instanceof StoreSite)) {
             return false;
         }
-        StoreSites that = (StoreSites) other;
+        StoreSite that = (StoreSite) other;
         if (this.getStoreSiteId() != that.getStoreSiteId()) {
             return false;
         }
@@ -250,8 +250,8 @@ public class StoreSites implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof StoreSites)) return false;
-        return this.equalKeys(other) && ((StoreSites)other).equalKeys(this);
+        if (!(other instanceof StoreSite)) return false;
+        return this.equalKeys(other) && ((StoreSite)other).equalKeys(this);
     }
 
     /**

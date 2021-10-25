@@ -17,7 +17,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
 @Entity(name="adjustment_movies")
-public class AdjustmentMovies implements Serializable {
+public class AdjustmentMovie implements Serializable {
 
     /**
 	 * 
@@ -60,19 +60,19 @@ public class AdjustmentMovies implements Serializable {
     private BigDecimal adjustmentAmount;
     @ManyToOne(optional=false)
     @JoinColumn(name="adj_rsn_id", nullable=false)
-    private AdjustmentReasons adjustmentReasons;
+    private AdjustmentReason adjustmentReasons;
     @ManyToOne(optional=false)
     @JoinColumn(name="adj_type_id", nullable=false)
-    private AdjustmentTypes adjustmentTypes;
+    private AdjustmentType adjustmentTypes;
     @ManyToOne(optional=false)
     @JoinColumn(name="order_adj_id", nullable=false)
-    private OrderAdjustments orderAdjustments;
+    private OrderAdjustment orderAdjustments;
     @ManyToOne(optional=false)
     @JoinColumn(name="order_movie_id", nullable=false)
-    private OrderMovies orderMovies;
+    private OrderMovie orderMovies;
 
     /** Default constructor. */
-    public AdjustmentMovies() {
+    public AdjustmentMovie() {
         super();
     }
 
@@ -117,7 +117,7 @@ public class AdjustmentMovies implements Serializable {
      *
      * @return the current value of adjustmentReasons
      */
-    public AdjustmentReasons getAdjustmentReasons() {
+    public AdjustmentReason getAdjustmentReasons() {
         return adjustmentReasons;
     }
 
@@ -126,7 +126,7 @@ public class AdjustmentMovies implements Serializable {
      *
      * @param aAdjustmentReasons the new value for adjustmentReasons
      */
-    public void setAdjustmentReasons(AdjustmentReasons aAdjustmentReasons) {
+    public void setAdjustmentReasons(AdjustmentReason aAdjustmentReasons) {
         adjustmentReasons = aAdjustmentReasons;
     }
 
@@ -135,7 +135,7 @@ public class AdjustmentMovies implements Serializable {
      *
      * @return the current value of adjustmentTypes
      */
-    public AdjustmentTypes getAdjustmentTypes() {
+    public AdjustmentType getAdjustmentTypes() {
         return adjustmentTypes;
     }
 
@@ -144,7 +144,7 @@ public class AdjustmentMovies implements Serializable {
      *
      * @param aAdjustmentTypes the new value for adjustmentTypes
      */
-    public void setAdjustmentTypes(AdjustmentTypes aAdjustmentTypes) {
+    public void setAdjustmentTypes(AdjustmentType aAdjustmentTypes) {
         adjustmentTypes = aAdjustmentTypes;
     }
 
@@ -153,7 +153,7 @@ public class AdjustmentMovies implements Serializable {
      *
      * @return the current value of orderAdjustments
      */
-    public OrderAdjustments getOrderAdjustments() {
+    public OrderAdjustment getOrderAdjustments() {
         return orderAdjustments;
     }
 
@@ -162,7 +162,7 @@ public class AdjustmentMovies implements Serializable {
      *
      * @param aOrderAdjustments the new value for orderAdjustments
      */
-    public void setOrderAdjustments(OrderAdjustments aOrderAdjustments) {
+    public void setOrderAdjustments(OrderAdjustment aOrderAdjustments) {
         orderAdjustments = aOrderAdjustments;
     }
 
@@ -171,7 +171,7 @@ public class AdjustmentMovies implements Serializable {
      *
      * @return the current value of orderMovies
      */
-    public OrderMovies getOrderMovies() {
+    public OrderMovie getOrderMovies() {
         return orderMovies;
     }
 
@@ -180,7 +180,7 @@ public class AdjustmentMovies implements Serializable {
      *
      * @param aOrderMovies the new value for orderMovies
      */
-    public void setOrderMovies(OrderMovies aOrderMovies) {
+    public void setOrderMovies(OrderMovie aOrderMovies) {
         orderMovies = aOrderMovies;
     }
 
@@ -194,10 +194,10 @@ public class AdjustmentMovies implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof AdjustmentMovies)) {
+        if (!(other instanceof AdjustmentMovie)) {
             return false;
         }
-        AdjustmentMovies that = (AdjustmentMovies) other;
+        AdjustmentMovie that = (AdjustmentMovie) other;
         if (this.getAdjustmentMovieId() != that.getAdjustmentMovieId()) {
             return false;
         }
@@ -212,8 +212,8 @@ public class AdjustmentMovies implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof AdjustmentMovies)) return false;
-        return this.equalKeys(other) && ((AdjustmentMovies)other).equalKeys(this);
+        if (!(other instanceof AdjustmentMovie)) return false;
+        return this.equalKeys(other) && ((AdjustmentMovie)other).equalKeys(this);
     }
 
     /**

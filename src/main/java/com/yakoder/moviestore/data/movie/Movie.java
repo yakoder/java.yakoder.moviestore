@@ -18,12 +18,12 @@ import javax.persistence.Table;
 import javax.persistence.Version;
 
 import com.yakoder.moviestore.data.inventory.Inventory;
-import com.yakoder.moviestore.data.store.ExpenseMovies;
-import com.yakoder.moviestore.data.store.SiteMovies;
+import com.yakoder.moviestore.data.store.ExpenseMovie;
+import com.yakoder.moviestore.data.store.SiteMovie;
 
 @Entity
 @Table(name="movies", indexes={@Index(name="moviesMoviesMovieTitleYearIdx", columnList="movie_title,movie_year")})
-public class Movies implements Serializable {
+public class Movie implements Serializable {
 
     /**
 	 * 
@@ -73,22 +73,22 @@ public class Movies implements Serializable {
     @Column(name="num_title_tracks", precision=10)
     private int numTitleTracks;
     @OneToMany(mappedBy="movies")
-    private Set<ExpenseMovies> expenseMovies;
+    private Set<ExpenseMovie> expenseMovies;
     @OneToMany(mappedBy="movies")
     private Set<Inventory> inventory;
     @OneToMany(mappedBy="aka")
-    private Set<MovieAkas> movieAkas;
+    private Set<MovieAka> movieAkas;
     @OneToMany(mappedBy="primary")
-    private Set<MovieAkas> primaryMovies;
+    private Set<MovieAka> primaryMovies;
     @OneToMany(mappedBy="movies")
     private Set<MovieCrew> movieCrew;
     @OneToMany(mappedBy="movie")
-    private Set<MovieProductionCompanies> movieProductionCompanies;
+    private Set<MovieProductionCompany> movieProductionCompanies;
     @OneToMany(mappedBy="movie")
-    private Set<SiteMovies> siteMovies;
+    private Set<SiteMovie> siteMovies;
 
     /** Default constructor. */
-    public Movies() {
+    public Movie() {
         super();
     }
 
@@ -205,7 +205,7 @@ public class Movies implements Serializable {
      *
      * @return the current value of expenseMovies
      */
-    public Set<ExpenseMovies> getExpenseMovies() {
+    public Set<ExpenseMovie> getExpenseMovies() {
         return expenseMovies;
     }
 
@@ -214,7 +214,7 @@ public class Movies implements Serializable {
      *
      * @param aExpenseMovies the new value for expenseMovies
      */
-    public void setExpenseMovies(Set<ExpenseMovies> aExpenseMovies) {
+    public void setExpenseMovies(Set<ExpenseMovie> aExpenseMovies) {
         expenseMovies = aExpenseMovies;
     }
 
@@ -241,7 +241,7 @@ public class Movies implements Serializable {
      *
      * @return the current value of movieAkas
      */
-    public Set<MovieAkas> getMovieAkas() {
+    public Set<MovieAka> getMovieAkas() {
         return movieAkas;
     }
 
@@ -250,7 +250,7 @@ public class Movies implements Serializable {
      *
      * @param aMovieAkas the new value for movieAkas
      */
-    public void setMovieAkas(Set<MovieAkas> aMovieAkas) {
+    public void setMovieAkas(Set<MovieAka> aMovieAkas) {
         movieAkas = aMovieAkas;
     }
 
@@ -259,7 +259,7 @@ public class Movies implements Serializable {
      *
      * @return the current value of primaryMovies
      */
-    public Set<MovieAkas> getPrimaryMovies() {
+    public Set<MovieAka> getPrimaryMovies() {
         return primaryMovies;
     }
 
@@ -268,7 +268,7 @@ public class Movies implements Serializable {
      *
      * @param aPrimaryMovies the new value for primaryMovies
      */
-    public void setPrimaryMovies(Set<MovieAkas> aPrimaryMovies) {
+    public void setPrimaryMovies(Set<MovieAka> aPrimaryMovies) {
         primaryMovies = aPrimaryMovies;
     }
 
@@ -295,7 +295,7 @@ public class Movies implements Serializable {
      *
      * @return the current value of movieProductionCompanies
      */
-    public Set<MovieProductionCompanies> getMovieProductionCompanies() {
+    public Set<MovieProductionCompany> getMovieProductionCompanies() {
         return movieProductionCompanies;
     }
 
@@ -304,7 +304,7 @@ public class Movies implements Serializable {
      *
      * @param aMovieProductionCompanies the new value for movieProductionCompanies
      */
-    public void setMovieProductionCompanies(Set<MovieProductionCompanies> aMovieProductionCompanies) {
+    public void setMovieProductionCompanies(Set<MovieProductionCompany> aMovieProductionCompanies) {
         movieProductionCompanies = aMovieProductionCompanies;
     }
 
@@ -313,7 +313,7 @@ public class Movies implements Serializable {
      *
      * @return the current value of siteMovies
      */
-    public Set<SiteMovies> getSiteMovies() {
+    public Set<SiteMovie> getSiteMovies() {
         return siteMovies;
     }
 
@@ -322,7 +322,7 @@ public class Movies implements Serializable {
      *
      * @param aSiteMovies the new value for siteMovies
      */
-    public void setSiteMovies(Set<SiteMovies> aSiteMovies) {
+    public void setSiteMovies(Set<SiteMovie> aSiteMovies) {
         siteMovies = aSiteMovies;
     }
 
@@ -336,10 +336,10 @@ public class Movies implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof Movies)) {
+        if (!(other instanceof Movie)) {
             return false;
         }
-        Movies that = (Movies) other;
+        Movie that = (Movie) other;
         if (this.getMovieId() != that.getMovieId()) {
             return false;
         }
@@ -354,8 +354,8 @@ public class Movies implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof Movies)) return false;
-        return this.equalKeys(other) && ((Movies)other).equalKeys(this);
+        if (!(other instanceof Movie)) return false;
+        return this.equalKeys(other) && ((Movie)other).equalKeys(this);
     }
 
     /**

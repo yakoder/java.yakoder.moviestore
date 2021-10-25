@@ -19,7 +19,7 @@ import javax.persistence.Version;
 
 @Entity
 @Table(name="api_limits", indexes={@Index(name="apiLimitsApiLimitsApiIdLimitTypeIdx", columnList="api_id,api_limit_type_id")})
-public class ApiLimits implements Serializable {
+public class ApiLimit implements Serializable {
 
     /**
 	 * 
@@ -62,13 +62,13 @@ public class ApiLimits implements Serializable {
     private int apiTypeValue;
     @ManyToOne(optional=false)
     @JoinColumn(name="api_id", nullable=false)
-    private Apis apis;
+    private Api apis;
     @ManyToOne(optional=false)
     @JoinColumn(name="api_limit_type_id", nullable=false)
-    private ApiLimitTypes apiLimitTypes;
+    private ApiLimitType apiLimitTypes;
 
     /** Default constructor. */
-    public ApiLimits() {
+    public ApiLimit() {
         super();
     }
 
@@ -113,7 +113,7 @@ public class ApiLimits implements Serializable {
      *
      * @return the current value of apis
      */
-    public Apis getApis() {
+    public Api getApis() {
         return apis;
     }
 
@@ -122,7 +122,7 @@ public class ApiLimits implements Serializable {
      *
      * @param aApis the new value for apis
      */
-    public void setApis(Apis aApis) {
+    public void setApis(Api aApis) {
         apis = aApis;
     }
 
@@ -131,7 +131,7 @@ public class ApiLimits implements Serializable {
      *
      * @return the current value of apiLimitTypes
      */
-    public ApiLimitTypes getApiLimitTypes() {
+    public ApiLimitType getApiLimitTypes() {
         return apiLimitTypes;
     }
 
@@ -140,7 +140,7 @@ public class ApiLimits implements Serializable {
      *
      * @param aApiLimitTypes the new value for apiLimitTypes
      */
-    public void setApiLimitTypes(ApiLimitTypes aApiLimitTypes) {
+    public void setApiLimitTypes(ApiLimitType aApiLimitTypes) {
         apiLimitTypes = aApiLimitTypes;
     }
 
@@ -148,21 +148,21 @@ public class ApiLimits implements Serializable {
      * Gets the group fragment apiId for member apis.
      *
      * @return Current value of the group fragment
-     * @see Apis
+     * @see Api
      */
     public int getApisApiId() {
-        return (getApis() == null ? null : getApis().getApiId());
+        return (getApis() == null ? null : getApis().getId());
     }
 
     /**
      * Sets the group fragment apiId from member apis.
      *
      * @param aApiId New value for the group fragment
-     * @see Apis
+     * @see Api
      */
     public void setApisApiId(int aApiId) {
         if (getApis() != null) {
-            getApis().setApiId(aApiId);
+            getApis().setId(aApiId);
         }
     }
 
@@ -170,21 +170,21 @@ public class ApiLimits implements Serializable {
      * Gets the group fragment apiLimitTypeId for member apiLimitTypes.
      *
      * @return Current value of the group fragment
-     * @see ApiLimitTypes
+     * @see ApiLimitType
      */
     public int getApiLimitTypesApiLimitTypeId() {
-        return (getApiLimitTypes() == null ? null : getApiLimitTypes().getApiLimitTypeId());
+        return (getApiLimitTypes() == null ? null : getApiLimitTypes().getId());
     }
 
     /**
      * Sets the group fragment apiLimitTypeId from member apiLimitTypes.
      *
      * @param aApiLimitTypeId New value for the group fragment
-     * @see ApiLimitTypes
+     * @see ApiLimitType
      */
     public void setApiLimitTypesApiLimitTypeId(int aApiLimitTypeId) {
         if (getApiLimitTypes() != null) {
-            getApiLimitTypes().setApiLimitTypeId(aApiLimitTypeId);
+            getApiLimitTypes().setId(aApiLimitTypeId);
         }
     }
 
@@ -198,10 +198,10 @@ public class ApiLimits implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof ApiLimits)) {
+        if (!(other instanceof ApiLimit)) {
             return false;
         }
-        ApiLimits that = (ApiLimits) other;
+        ApiLimit that = (ApiLimit) other;
         if (this.getApiLimitId() != that.getApiLimitId()) {
             return false;
         }
@@ -216,8 +216,8 @@ public class ApiLimits implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof ApiLimits)) return false;
-        return this.equalKeys(other) && ((ApiLimits)other).equalKeys(this);
+        if (!(other instanceof ApiLimit)) return false;
+        return this.equalKeys(other) && ((ApiLimit)other).equalKeys(this);
     }
 
     /**

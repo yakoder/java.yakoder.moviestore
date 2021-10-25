@@ -22,7 +22,7 @@ import javax.persistence.Version;
 
 @Entity
 @Table(name="orders", indexes={@Index(name="orders_store_order_num_IX", columnList="store_order_num", unique=true)})
-public class Orders implements Serializable {
+public class Order implements Serializable {
 
     /**
 	 * 
@@ -70,24 +70,24 @@ public class Orders implements Serializable {
     @OneToMany(mappedBy="orders")
     private Set<ExpenseShipping> expShipping;
     @OneToMany(mappedBy="orders")
-    private Set<OrderAdjustments> orderAdjustments;
+    private Set<OrderAdjustment> orderAdjustments;
     @OneToMany(mappedBy="orders")
-    private Set<OrderMovies> orderMovies;
+    private Set<OrderMovie> orderMovies;
     @ManyToOne
     @JoinColumn(name="cust_id")
-    private Customers customers;
+    private Customer customers;
     @ManyToOne
     @JoinColumn(name="order_ship_id")
-    private OrderShipments orderShipments;
+    private OrderShipment orderShipments;
     @ManyToOne(optional=false)
     @JoinColumn(name="store_ship_id", nullable=false)
     private StoreShipping storeShipping;
     @ManyToOne
     @JoinColumn(name="store_site_id")
-    private StoreSites storeSites;
+    private StoreSite storeSites;
 
     /** Default constructor. */
-    public Orders() {
+    public Order() {
         super();
     }
 
@@ -186,7 +186,7 @@ public class Orders implements Serializable {
      *
      * @return the current value of orderAdjustments
      */
-    public Set<OrderAdjustments> getOrderAdjustments() {
+    public Set<OrderAdjustment> getOrderAdjustments() {
         return orderAdjustments;
     }
 
@@ -195,7 +195,7 @@ public class Orders implements Serializable {
      *
      * @param aOrderAdjustments the new value for orderAdjustments
      */
-    public void setOrderAdjustments(Set<OrderAdjustments> aOrderAdjustments) {
+    public void setOrderAdjustments(Set<OrderAdjustment> aOrderAdjustments) {
         orderAdjustments = aOrderAdjustments;
     }
 
@@ -204,7 +204,7 @@ public class Orders implements Serializable {
      *
      * @return the current value of orderMovies
      */
-    public Set<OrderMovies> getOrderMovies() {
+    public Set<OrderMovie> getOrderMovies() {
         return orderMovies;
     }
 
@@ -213,7 +213,7 @@ public class Orders implements Serializable {
      *
      * @param aOrderMovies the new value for orderMovies
      */
-    public void setOrderMovies(Set<OrderMovies> aOrderMovies) {
+    public void setOrderMovies(Set<OrderMovie> aOrderMovies) {
         orderMovies = aOrderMovies;
     }
 
@@ -222,7 +222,7 @@ public class Orders implements Serializable {
      *
      * @return the current value of customers
      */
-    public Customers getCustomers() {
+    public Customer getCustomers() {
         return customers;
     }
 
@@ -231,7 +231,7 @@ public class Orders implements Serializable {
      *
      * @param aCustomers the new value for customers
      */
-    public void setCustomers(Customers aCustomers) {
+    public void setCustomers(Customer aCustomers) {
         customers = aCustomers;
     }
 
@@ -240,7 +240,7 @@ public class Orders implements Serializable {
      *
      * @return the current value of orderShipments
      */
-    public OrderShipments getOrderShipments() {
+    public OrderShipment getOrderShipments() {
         return orderShipments;
     }
 
@@ -249,7 +249,7 @@ public class Orders implements Serializable {
      *
      * @param aOrderShipments the new value for orderShipments
      */
-    public void setOrderShipments(OrderShipments aOrderShipments) {
+    public void setOrderShipments(OrderShipment aOrderShipments) {
         orderShipments = aOrderShipments;
     }
 
@@ -276,7 +276,7 @@ public class Orders implements Serializable {
      *
      * @return the current value of storeSites
      */
-    public StoreSites getStoreSites() {
+    public StoreSite getStoreSites() {
         return storeSites;
     }
 
@@ -285,7 +285,7 @@ public class Orders implements Serializable {
      *
      * @param aStoreSites the new value for storeSites
      */
-    public void setStoreSites(StoreSites aStoreSites) {
+    public void setStoreSites(StoreSite aStoreSites) {
         storeSites = aStoreSites;
     }
 
@@ -299,10 +299,10 @@ public class Orders implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof Orders)) {
+        if (!(other instanceof Order)) {
             return false;
         }
-        Orders that = (Orders) other;
+        Order that = (Order) other;
         if (this.getOrderId() != that.getOrderId()) {
             return false;
         }
@@ -317,8 +317,8 @@ public class Orders implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof Orders)) return false;
-        return this.equalKeys(other) && ((Orders)other).equalKeys(this);
+        if (!(other instanceof Order)) return false;
+        return this.equalKeys(other) && ((Order)other).equalKeys(this);
     }
 
     /**

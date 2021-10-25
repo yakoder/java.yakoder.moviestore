@@ -16,7 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Version;
 
-import com.yakoder.moviestore.data.inventory.ExternalIds;
+import com.yakoder.moviestore.data.inventory.ExternalId;
 
 @Entity(name="store_import_prep")
 public class StoreImportPrep implements Serializable {
@@ -68,7 +68,7 @@ public class StoreImportPrep implements Serializable {
     private int quantity;
     @OneToOne(optional=false, mappedBy="storeImportPrep")
     @JoinColumn(name="ext_id_name", nullable=false)
-    private ExternalIds externalIds;
+    private ExternalId externalIds;
     @OneToOne(optional=false, mappedBy="storeImportPrep")
     @JoinColumn(name="store_movie_num", nullable=false)
     private StoreInventory storeInventory;
@@ -173,7 +173,7 @@ public class StoreImportPrep implements Serializable {
      *
      * @return the current value of externalIds
      */
-    public ExternalIds getExternalIds() {
+    public ExternalId getExternalIds() {
         return externalIds;
     }
 
@@ -182,7 +182,7 @@ public class StoreImportPrep implements Serializable {
      *
      * @param aExternalIds the new value for externalIds
      */
-    public void setExternalIds(ExternalIds aExternalIds) {
+    public void setExternalIds(ExternalId aExternalIds) {
         externalIds = aExternalIds;
     }
 

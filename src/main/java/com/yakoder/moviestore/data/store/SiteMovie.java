@@ -15,10 +15,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
-import com.yakoder.moviestore.data.movie.Movies;
+import com.yakoder.moviestore.data.movie.Movie;
 
 @Entity(name="site_movies")
-public class SiteMovies implements Serializable {
+public class SiteMovie implements Serializable {
 
     /**
 	 * 
@@ -63,13 +63,13 @@ public class SiteMovies implements Serializable {
     private String siteMovieUrl;
     @ManyToOne(optional=false)
     @JoinColumn(name="movie_id", nullable=false)
-    private Movies movie;
+    private Movie movie;
     @ManyToOne(optional=false)
     @JoinColumn(name="site_id", nullable=false)
-    private Sites site;
+    private Site site;
 
     /** Default constructor. */
-    public SiteMovies() {
+    public SiteMovie() {
         super();
     }
 
@@ -132,7 +132,7 @@ public class SiteMovies implements Serializable {
      *
      * @return the current value of movie
      */
-    public Movies getMovie() {
+    public Movie getMovie() {
         return movie;
     }
 
@@ -141,7 +141,7 @@ public class SiteMovies implements Serializable {
      *
      * @param aMovie the new value for movie
      */
-    public void setMovie(Movies aMovie) {
+    public void setMovie(Movie aMovie) {
         movie = aMovie;
     }
 
@@ -150,7 +150,7 @@ public class SiteMovies implements Serializable {
      *
      * @return the current value of site
      */
-    public Sites getSite() {
+    public Site getSite() {
         return site;
     }
 
@@ -159,7 +159,7 @@ public class SiteMovies implements Serializable {
      *
      * @param aSite the new value for site
      */
-    public void setSite(Sites aSite) {
+    public void setSite(Site aSite) {
         site = aSite;
     }
 
@@ -173,10 +173,10 @@ public class SiteMovies implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof SiteMovies)) {
+        if (!(other instanceof SiteMovie)) {
             return false;
         }
-        SiteMovies that = (SiteMovies) other;
+        SiteMovie that = (SiteMovie) other;
         if (this.getSiteMovieId() != that.getSiteMovieId()) {
             return false;
         }
@@ -191,8 +191,8 @@ public class SiteMovies implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof SiteMovies)) return false;
-        return this.equalKeys(other) && ((SiteMovies)other).equalKeys(this);
+        if (!(other instanceof SiteMovie)) return false;
+        return this.equalKeys(other) && ((SiteMovie)other).equalKeys(this);
     }
 
     /**

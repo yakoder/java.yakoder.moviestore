@@ -19,7 +19,7 @@ import javax.persistence.Version;
 
 @Entity
 @Table(name="api_responses", indexes={@Index(name="apiResponsesApiResponsesApiIdCodeIdx", columnList="api_id,api_resp_code"), @Index(name="apiResponsesApiResponsesApiIdTextIdx", columnList="api_id,api_resp_text")})
-public class ApiResponses implements Serializable {
+public class ApiResponse implements Serializable {
 
     /**
 	 * 
@@ -64,10 +64,10 @@ public class ApiResponses implements Serializable {
     private String apiResponseText;
     @ManyToOne(optional=false)
     @JoinColumn(name="api_id", nullable=false)
-    private Apis apis;
+    private Api apis;
 
     /** Default constructor. */
-    public ApiResponses() {
+    public ApiResponse() {
         super();
     }
 
@@ -130,7 +130,7 @@ public class ApiResponses implements Serializable {
      *
      * @return the current value of apis
      */
-    public Apis getApis() {
+    public Api getApis() {
         return apis;
     }
 
@@ -139,7 +139,7 @@ public class ApiResponses implements Serializable {
      *
      * @param aApis the new value for apis
      */
-    public void setApis(Apis aApis) {
+    public void setApis(Api aApis) {
         apis = aApis;
     }
 
@@ -147,21 +147,21 @@ public class ApiResponses implements Serializable {
      * Gets the group fragment apiId for member apis.
      *
      * @return Current value of the group fragment
-     * @see Apis
+     * @see Api
      */
     public int getApisApiId() {
-        return (getApis() == null ? null : getApis().getApiId());
+        return (getApis() == null ? null : getApis().getId());
     }
 
     /**
      * Sets the group fragment apiId from member apis.
      *
      * @param aApiId New value for the group fragment
-     * @see Apis
+     * @see Api
      */
     public void setApisApiId(int aApiId) {
         if (getApis() != null) {
-            getApis().setApiId(aApiId);
+            getApis().setId(aApiId);
         }
     }
 
@@ -175,10 +175,10 @@ public class ApiResponses implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof ApiResponses)) {
+        if (!(other instanceof ApiResponse)) {
             return false;
         }
-        ApiResponses that = (ApiResponses) other;
+        ApiResponse that = (ApiResponse) other;
         if (this.getApiResponseId() != that.getApiResponseId()) {
             return false;
         }
@@ -193,8 +193,8 @@ public class ApiResponses implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof ApiResponses)) return false;
-        return this.equalKeys(other) && ((ApiResponses)other).equalKeys(this);
+        if (!(other instanceof ApiResponse)) return false;
+        return this.equalKeys(other) && ((ApiResponse)other).equalKeys(this);
     }
 
     /**

@@ -23,7 +23,7 @@ import javax.persistence.Version;
 
 @Entity
 @Table(name="order_shipments", indexes={@Index(name="order_shipments_tracking_number_IX", columnList="tracking_number", unique=true)})
-public class OrderShipments implements Serializable {
+public class OrderShipment implements Serializable {
 
     /**
 	 * 
@@ -82,12 +82,12 @@ public class OrderShipments implements Serializable {
     private LocalDate deliveredOn;
     @ManyToOne(optional=false)
     @JoinColumn(name="ship_meth_id", nullable=false)
-    private ShippingMethods shippingMethods;
+    private ShippingMethod shippingMethods;
     @OneToMany(mappedBy="orderShipments")
-    private Set<Orders> orders;
+    private Set<Order> orders;
 
     /** Default constructor. */
-    public OrderShipments() {
+    public OrderShipment() {
         super();
     }
 
@@ -276,7 +276,7 @@ public class OrderShipments implements Serializable {
      *
      * @return the current value of shippingMethods
      */
-    public ShippingMethods getShippingMethods() {
+    public ShippingMethod getShippingMethods() {
         return shippingMethods;
     }
 
@@ -285,7 +285,7 @@ public class OrderShipments implements Serializable {
      *
      * @param aShippingMethods the new value for shippingMethods
      */
-    public void setShippingMethods(ShippingMethods aShippingMethods) {
+    public void setShippingMethods(ShippingMethod aShippingMethods) {
         shippingMethods = aShippingMethods;
     }
 
@@ -294,7 +294,7 @@ public class OrderShipments implements Serializable {
      *
      * @return the current value of orders
      */
-    public Set<Orders> getOrders() {
+    public Set<Order> getOrders() {
         return orders;
     }
 
@@ -303,7 +303,7 @@ public class OrderShipments implements Serializable {
      *
      * @param aOrders the new value for orders
      */
-    public void setOrders(Set<Orders> aOrders) {
+    public void setOrders(Set<Order> aOrders) {
         orders = aOrders;
     }
 
@@ -317,10 +317,10 @@ public class OrderShipments implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof OrderShipments)) {
+        if (!(other instanceof OrderShipment)) {
             return false;
         }
-        OrderShipments that = (OrderShipments) other;
+        OrderShipment that = (OrderShipment) other;
         if (this.getOrderShipmentId() != that.getOrderShipmentId()) {
             return false;
         }
@@ -335,8 +335,8 @@ public class OrderShipments implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof OrderShipments)) return false;
-        return this.equalKeys(other) && ((OrderShipments)other).equalKeys(this);
+        if (!(other instanceof OrderShipment)) return false;
+        return this.equalKeys(other) && ((OrderShipment)other).equalKeys(this);
     }
 
     /**

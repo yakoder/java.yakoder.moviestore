@@ -21,7 +21,7 @@ import javax.persistence.Version;
 import com.yakoder.moviestore.data.inventory.Inventory;
 
 @Entity(name="order_movies")
-public class OrderMovies implements Serializable {
+public class OrderMovie implements Serializable {
 
     /**
 	 * 
@@ -71,16 +71,16 @@ public class OrderMovies implements Serializable {
     @Column(name="total_due", precision=15, scale=2)
     private BigDecimal totalDue;
     @OneToMany(mappedBy="orderMovies")
-    private Set<AdjustmentMovies> adjustmentMovies;
+    private Set<AdjustmentMovie> adjustmentMovies;
     @ManyToOne(optional=false)
     @JoinColumn(name="inv_id", nullable=false)
     private Inventory inventory;
     @ManyToOne(optional=false)
     @JoinColumn(name="order_id", nullable=false)
-    private Orders orders;
+    private Order orders;
 
     /** Default constructor. */
-    public OrderMovies() {
+    public OrderMovie() {
         super();
     }
 
@@ -197,7 +197,7 @@ public class OrderMovies implements Serializable {
      *
      * @return the current value of adjustmentMovies
      */
-    public Set<AdjustmentMovies> getAdjustmentMovies() {
+    public Set<AdjustmentMovie> getAdjustmentMovies() {
         return adjustmentMovies;
     }
 
@@ -206,7 +206,7 @@ public class OrderMovies implements Serializable {
      *
      * @param aAdjustmentMovies the new value for adjustmentMovies
      */
-    public void setAdjustmentMovies(Set<AdjustmentMovies> aAdjustmentMovies) {
+    public void setAdjustmentMovies(Set<AdjustmentMovie> aAdjustmentMovies) {
         adjustmentMovies = aAdjustmentMovies;
     }
 
@@ -233,7 +233,7 @@ public class OrderMovies implements Serializable {
      *
      * @return the current value of orders
      */
-    public Orders getOrders() {
+    public Order getOrders() {
         return orders;
     }
 
@@ -242,7 +242,7 @@ public class OrderMovies implements Serializable {
      *
      * @param aOrders the new value for orders
      */
-    public void setOrders(Orders aOrders) {
+    public void setOrders(Order aOrders) {
         orders = aOrders;
     }
 
@@ -256,10 +256,10 @@ public class OrderMovies implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof OrderMovies)) {
+        if (!(other instanceof OrderMovie)) {
             return false;
         }
-        OrderMovies that = (OrderMovies) other;
+        OrderMovie that = (OrderMovie) other;
         if (this.getOrderMovieId() != that.getOrderMovieId()) {
             return false;
         }
@@ -274,8 +274,8 @@ public class OrderMovies implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof OrderMovies)) return false;
-        return this.equalKeys(other) && ((OrderMovies)other).equalKeys(this);
+        if (!(other instanceof OrderMovie)) return false;
+        return this.equalKeys(other) && ((OrderMovie)other).equalKeys(this);
     }
 
     /**

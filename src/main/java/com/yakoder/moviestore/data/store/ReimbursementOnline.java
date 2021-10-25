@@ -56,15 +56,15 @@ public class ReimbursementOnline implements Serializable {
     private int reimbursementDetailId;
     @ManyToOne(optional=false)
     @JoinColumn(name="ol_pymt_site_id", nullable=false)
-    private OnlinePaymentSites onlinePaymentSites;
+    private OnlinePaymentSite onlinePaymentSites;
     @ManyToOne(optional=false)
     @JoinColumn(name="payee_id", nullable=false)
-    private TransactionParties transactionPayee;
+    private TransactionParty transactionPayee;
     @ManyToOne(optional=false)
     @JoinColumn(name="payor_id", nullable=false)
-    private TransactionParties transactionPayor;
+    private TransactionParty transactionPayor;
     @OneToMany(mappedBy="reimbOnline")
-    private Set<Reimbursements> reimbursements;
+    private Set<Reimbursement> reimbursements;
 
     /** Default constructor. */
     public ReimbursementOnline() {
@@ -94,7 +94,7 @@ public class ReimbursementOnline implements Serializable {
      *
      * @return the current value of onlinePaymentSites
      */
-    public OnlinePaymentSites getOnlinePaymentSites() {
+    public OnlinePaymentSite getOnlinePaymentSites() {
         return onlinePaymentSites;
     }
 
@@ -103,7 +103,7 @@ public class ReimbursementOnline implements Serializable {
      *
      * @param aOnlinePaymentSites the new value for onlinePaymentSites
      */
-    public void setOnlinePaymentSites(OnlinePaymentSites aOnlinePaymentSites) {
+    public void setOnlinePaymentSites(OnlinePaymentSite aOnlinePaymentSites) {
         onlinePaymentSites = aOnlinePaymentSites;
     }
 
@@ -112,7 +112,7 @@ public class ReimbursementOnline implements Serializable {
      *
      * @return the current value of transactionPayee
      */
-    public TransactionParties getTransactionPayee() {
+    public TransactionParty getTransactionPayee() {
         return transactionPayee;
     }
 
@@ -121,7 +121,7 @@ public class ReimbursementOnline implements Serializable {
      *
      * @param aTransactionPayee the new value for transactionPayee
      */
-    public void setTransactionPayee(TransactionParties aTransactionPayee) {
+    public void setTransactionPayee(TransactionParty aTransactionPayee) {
         transactionPayee = aTransactionPayee;
     }
 
@@ -130,7 +130,7 @@ public class ReimbursementOnline implements Serializable {
      *
      * @return the current value of transactionPayor
      */
-    public TransactionParties getTransactionPayor() {
+    public TransactionParty getTransactionPayor() {
         return transactionPayor;
     }
 
@@ -139,7 +139,7 @@ public class ReimbursementOnline implements Serializable {
      *
      * @param aTransactionPayor the new value for transactionPayor
      */
-    public void setTransactionPayor(TransactionParties aTransactionPayor) {
+    public void setTransactionPayor(TransactionParty aTransactionPayor) {
         transactionPayor = aTransactionPayor;
     }
 
@@ -148,7 +148,7 @@ public class ReimbursementOnline implements Serializable {
      *
      * @return the current value of reimbursements
      */
-    public Set<Reimbursements> getReimbursements() {
+    public Set<Reimbursement> getReimbursements() {
         return reimbursements;
     }
 
@@ -157,7 +157,7 @@ public class ReimbursementOnline implements Serializable {
      *
      * @param aReimbursements the new value for reimbursements
      */
-    public void setReimbursements(Set<Reimbursements> aReimbursements) {
+    public void setReimbursements(Set<Reimbursement> aReimbursements) {
         reimbursements = aReimbursements;
     }
 

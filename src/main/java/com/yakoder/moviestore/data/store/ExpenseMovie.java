@@ -14,11 +14,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
-import com.yakoder.moviestore.data.inventory.Conditions;
-import com.yakoder.moviestore.data.movie.Movies;
+import com.yakoder.moviestore.data.inventory.Condition;
+import com.yakoder.moviestore.data.movie.Movie;
 
 @Entity(name="exp_movies")
-public class ExpenseMovies implements Serializable {
+public class ExpenseMovie implements Serializable {
 
     /**
 	 * 
@@ -70,16 +70,16 @@ public class ExpenseMovies implements Serializable {
     private boolean hadCaseAndArt;
     @ManyToOne
     @JoinColumn(name="cond_id")
-    private Conditions conditions;
+    private Condition conditions;
     @ManyToOne(optional=false)
     @JoinColumn(name="movie_id", nullable=false)
-    private Movies movies;
+    private Movie movies;
     @ManyToOne(optional=false)
     @JoinColumn(name="store_site_id", nullable=false)
-    private StoreSites storeSites;
+    private StoreSite storeSites;
 
     /** Default constructor. */
-    public ExpenseMovies() {
+    public ExpenseMovie() {
         super();
     }
 
@@ -214,7 +214,7 @@ public class ExpenseMovies implements Serializable {
      *
      * @return the current value of conditions
      */
-    public Conditions getConditions() {
+    public Condition getConditions() {
         return conditions;
     }
 
@@ -223,7 +223,7 @@ public class ExpenseMovies implements Serializable {
      *
      * @param aConditions the new value for conditions
      */
-    public void setConditions(Conditions aConditions) {
+    public void setConditions(Condition aConditions) {
         conditions = aConditions;
     }
 
@@ -232,7 +232,7 @@ public class ExpenseMovies implements Serializable {
      *
      * @return the current value of movies
      */
-    public Movies getMovies() {
+    public Movie getMovies() {
         return movies;
     }
 
@@ -241,7 +241,7 @@ public class ExpenseMovies implements Serializable {
      *
      * @param aMovies the new value for movies
      */
-    public void setMovies(Movies aMovies) {
+    public void setMovies(Movie aMovies) {
         movies = aMovies;
     }
 
@@ -250,7 +250,7 @@ public class ExpenseMovies implements Serializable {
      *
      * @return the current value of storeSites
      */
-    public StoreSites getStoreSites() {
+    public StoreSite getStoreSites() {
         return storeSites;
     }
 
@@ -259,7 +259,7 @@ public class ExpenseMovies implements Serializable {
      *
      * @param aStoreSites the new value for storeSites
      */
-    public void setStoreSites(StoreSites aStoreSites) {
+    public void setStoreSites(StoreSite aStoreSites) {
         storeSites = aStoreSites;
     }
 
@@ -273,10 +273,10 @@ public class ExpenseMovies implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof ExpenseMovies)) {
+        if (!(other instanceof ExpenseMovie)) {
             return false;
         }
-        ExpenseMovies that = (ExpenseMovies) other;
+        ExpenseMovie that = (ExpenseMovie) other;
         if (this.getExpenseDetailId() != that.getExpenseDetailId()) {
             return false;
         }
@@ -291,8 +291,8 @@ public class ExpenseMovies implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof ExpenseMovies)) return false;
-        return this.equalKeys(other) && ((ExpenseMovies)other).equalKeys(this);
+        if (!(other instanceof ExpenseMovie)) return false;
+        return this.equalKeys(other) && ((ExpenseMovie)other).equalKeys(this);
     }
 
     /**

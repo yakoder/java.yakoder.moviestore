@@ -19,7 +19,7 @@ import javax.persistence.Version;
 
 @Entity
 @Table(name="sites", indexes={@Index(name="sites_site_name_abbr_IX", columnList="site_name_abbr", unique=true)})
-public class Sites implements Serializable {
+public class Site implements Serializable {
 
     /**
 	 * 
@@ -69,18 +69,18 @@ public class Sites implements Serializable {
     @Column(name="is_enabled", nullable=false, length=3)
     private boolean isEnabled;
     @OneToMany(mappedBy="sites")
-    private Set<ApiBaseUrls> apiBaseUrls;
+    private Set<ApiBaseUrl> apiBaseUrls;
     @OneToMany(mappedBy="sites")
-    private Set<InfoSites> infoSites;
+    private Set<InfoSite> infoSites;
     @OneToMany(mappedBy="sites")
-    private Set<Apis> apis;
+    private Set<Api> apis;
     @OneToMany(mappedBy="sites")
-    private Set<SiteMovies> siteMovies;
+    private Set<SiteMovie> siteMovies;
     @OneToMany(mappedBy="sites")
-    private Set<StoreSites> storeSites;
+    private Set<StoreSite> storeSites;
 
     /** Default constructor. */
-    public Sites() {
+    public Site() {
         super();
     }
 
@@ -197,7 +197,7 @@ public class Sites implements Serializable {
      *
      * @return the current value of apiBaseUrls
      */
-    public Set<ApiBaseUrls> getApiBaseUrls() {
+    public Set<ApiBaseUrl> getApiBaseUrls() {
         return apiBaseUrls;
     }
 
@@ -206,7 +206,7 @@ public class Sites implements Serializable {
      *
      * @param aApiBaseUrls the new value for apiBaseUrls
      */
-    public void setApiBaseUrls(Set<ApiBaseUrls> aApiBaseUrls) {
+    public void setApiBaseUrls(Set<ApiBaseUrl> aApiBaseUrls) {
         apiBaseUrls = aApiBaseUrls;
     }
 
@@ -215,7 +215,7 @@ public class Sites implements Serializable {
      *
      * @return the current value of infoSites
      */
-    public Set<InfoSites> getInfoSites() {
+    public Set<InfoSite> getInfoSites() {
         return infoSites;
     }
 
@@ -224,7 +224,7 @@ public class Sites implements Serializable {
      *
      * @param aInfoSites the new value for infoSites
      */
-    public void setInfoSites(Set<InfoSites> aInfoSites) {
+    public void setInfoSites(Set<InfoSite> aInfoSites) {
         infoSites = aInfoSites;
     }
 
@@ -233,7 +233,7 @@ public class Sites implements Serializable {
      *
      * @return the current value of apis
      */
-    public Set<Apis> getApis() {
+    public Set<Api> getApis() {
         return apis;
     }
 
@@ -242,7 +242,7 @@ public class Sites implements Serializable {
      *
      * @param aApis the new value for apis
      */
-    public void setApis(Set<Apis> aApis) {
+    public void setApis(Set<Api> aApis) {
         apis = aApis;
     }
 
@@ -251,7 +251,7 @@ public class Sites implements Serializable {
      *
      * @return the current value of siteMovies
      */
-    public Set<SiteMovies> getSiteMovies() {
+    public Set<SiteMovie> getSiteMovies() {
         return siteMovies;
     }
 
@@ -260,7 +260,7 @@ public class Sites implements Serializable {
      *
      * @param aSiteMovies the new value for siteMovies
      */
-    public void setSiteMovies(Set<SiteMovies> aSiteMovies) {
+    public void setSiteMovies(Set<SiteMovie> aSiteMovies) {
         siteMovies = aSiteMovies;
     }
 
@@ -269,7 +269,7 @@ public class Sites implements Serializable {
      *
      * @return the current value of storeSites
      */
-    public Set<StoreSites> getStoreSites() {
+    public Set<StoreSite> getStoreSites() {
         return storeSites;
     }
 
@@ -278,7 +278,7 @@ public class Sites implements Serializable {
      *
      * @param aStoreSites the new value for storeSites
      */
-    public void setStoreSites(Set<StoreSites> aStoreSites) {
+    public void setStoreSites(Set<StoreSite> aStoreSites) {
         storeSites = aStoreSites;
     }
 
@@ -292,10 +292,10 @@ public class Sites implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof Sites)) {
+        if (!(other instanceof Site)) {
             return false;
         }
-        Sites that = (Sites) other;
+        Site that = (Site) other;
         if (this.getSiteId() != that.getSiteId()) {
             return false;
         }
@@ -310,8 +310,8 @@ public class Sites implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof Sites)) return false;
-        return this.equalKeys(other) && ((Sites)other).equalKeys(this);
+        if (!(other instanceof Site)) return false;
+        return this.equalKeys(other) && ((Site)other).equalKeys(this);
     }
 
     /**

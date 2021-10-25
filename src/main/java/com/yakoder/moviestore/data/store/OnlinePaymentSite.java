@@ -19,7 +19,7 @@ import javax.persistence.Version;
 
 @Entity
 @Table(name="online_pymt_sites", indexes={@Index(name="onlinePymtSitesOnlinePaymentSitesOlPymtSiteNameUrlIdx", columnList="ol_pymt_site_name,ol_pymt_site_url")})
-public class OnlinePaymentSites implements Serializable {
+public class OnlinePaymentSite implements Serializable {
 
     /**
 	 * 
@@ -66,7 +66,7 @@ public class OnlinePaymentSites implements Serializable {
     private Set<ReimbursementOnline> reimbursementOnline;
 
     /** Default constructor. */
-    public OnlinePaymentSites() {
+    public OnlinePaymentSite() {
         super();
     }
 
@@ -152,10 +152,10 @@ public class OnlinePaymentSites implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof OnlinePaymentSites)) {
+        if (!(other instanceof OnlinePaymentSite)) {
             return false;
         }
-        OnlinePaymentSites that = (OnlinePaymentSites) other;
+        OnlinePaymentSite that = (OnlinePaymentSite) other;
         if (this.getOnlinePaymentSiteId() != that.getOnlinePaymentSiteId()) {
             return false;
         }
@@ -170,8 +170,8 @@ public class OnlinePaymentSites implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof OnlinePaymentSites)) return false;
-        return this.equalKeys(other) && ((OnlinePaymentSites)other).equalKeys(this);
+        if (!(other instanceof OnlinePaymentSite)) return false;
+        return this.equalKeys(other) && ((OnlinePaymentSite)other).equalKeys(this);
     }
 
     /**

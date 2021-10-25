@@ -65,10 +65,10 @@ public class MovieCrew implements Serializable {
     private Crew crew;
     @ManyToOne(optional=false)
     @JoinColumn(name="crew_type_id", nullable=false)
-    private CrewTypes crewTypes;
+    private CrewType crewTypes;
     @ManyToOne(optional=false)
     @JoinColumn(name="movie_id", nullable=false)
-    private Movies movie;
+    private Movie movie;
 
     /** Default constructor. */
     public MovieCrew() {
@@ -134,7 +134,7 @@ public class MovieCrew implements Serializable {
      *
      * @return the current value of crewTypes
      */
-    public CrewTypes getCrewTypes() {
+    public CrewType getCrewTypes() {
         return crewTypes;
     }
 
@@ -143,7 +143,7 @@ public class MovieCrew implements Serializable {
      *
      * @param aCrewTypes the new value for crewTypes
      */
-    public void setCrewTypes(CrewTypes aCrewTypes) {
+    public void setCrewTypes(CrewType aCrewTypes) {
         crewTypes = aCrewTypes;
     }
 
@@ -152,7 +152,7 @@ public class MovieCrew implements Serializable {
      *
      * @return the current value of movie
      */
-    public Movies getMovie() {
+    public Movie getMovie() {
         return movie;
     }
 
@@ -161,7 +161,7 @@ public class MovieCrew implements Serializable {
      *
      * @param aMovie the new value for movie
      */
-    public void setMovie(Movies aMovie) {
+    public void setMovie(Movie aMovie) {
         movie = aMovie;
     }
 
@@ -191,21 +191,21 @@ public class MovieCrew implements Serializable {
      * Gets the group fragment crewTypeId for member crewTypes.
      *
      * @return Current value of the group fragment
-     * @see CrewTypes
+     * @see CrewType
      */
     public int getCrewTypesCrewTypeId() {
-        return (getCrewTypes() == null ? null : getCrewTypes().getCrewTypeId());
+        return (getCrewTypes() == null ? null : getCrewTypes().getId());
     }
 
     /**
      * Sets the group fragment crewTypeId from member crewTypes.
      *
      * @param aCrewTypeId New value for the group fragment
-     * @see CrewTypes
+     * @see CrewType
      */
     public void setCrewTypesCrewTypeId(int aCrewTypeId) {
         if (getCrewTypes() != null) {
-            getCrewTypes().setCrewTypeId(aCrewTypeId);
+            getCrewTypes().setId(aCrewTypeId);
         }
     }
 
@@ -213,7 +213,7 @@ public class MovieCrew implements Serializable {
      * Gets the group fragment movieId for member movies.
      *
      * @return Current value of the group fragment
-     * @see Movies
+     * @see Movie
      */
     public int getMoviesMovieId() {
         return (getMovie() == null ? null : getMovie().getMovieId());
@@ -223,7 +223,7 @@ public class MovieCrew implements Serializable {
      * Sets the group fragment movieId from member movies.
      *
      * @param aMovieId New value for the group fragment
-     * @see Movies
+     * @see Movie
      */
     public void setMoviesMovieId(int aMovieId) {
         if (getMovie() != null) {

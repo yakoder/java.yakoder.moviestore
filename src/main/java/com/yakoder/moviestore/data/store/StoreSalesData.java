@@ -120,7 +120,7 @@ public class StoreSalesData implements Serializable {
     private boolean orderVerified;
     @ManyToOne(optional=false)
     @JoinColumn(name="store_site_id", nullable=false)
-    private StoreSites storeSites;
+    private StoreSite storeSites;
 
     /** Default constructor. */
     public StoreSalesData() {
@@ -690,7 +690,7 @@ public class StoreSalesData implements Serializable {
      *
      * @return the current value of storeSites
      */
-    public StoreSites getStoreSites() {
+    public StoreSite getStoreSites() {
         return storeSites;
     }
 
@@ -699,7 +699,7 @@ public class StoreSalesData implements Serializable {
      *
      * @param aStoreSites the new value for storeSites
      */
-    public void setStoreSites(StoreSites aStoreSites) {
+    public void setStoreSites(StoreSite aStoreSites) {
         storeSites = aStoreSites;
     }
 

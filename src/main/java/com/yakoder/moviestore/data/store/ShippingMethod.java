@@ -23,7 +23,7 @@ import javax.persistence.Version;
 
 @Entity
 @Table(name="shipping_methods", indexes={@Index(name="shippingMethodsShippingMethodsShipSvcIdEnabledIdx", columnList="ship_svc_id,is_enabled")})
-public class ShippingMethods implements Serializable {
+public class ShippingMethod implements Serializable {
 
     /**
 	 * 
@@ -81,15 +81,15 @@ public class ShippingMethods implements Serializable {
     @OneToMany(mappedBy="shippingMethods")
     private Set<ExpenseShipping> expenseShipping;
     @OneToMany(mappedBy="shippingMethods")
-    private Set<OrderShipments> orderShipments;
+    private Set<OrderShipment> orderShipments;
     @ManyToOne(optional=false)
     @JoinColumn(name="ship_svc_id", nullable=false)
-    private ShippingServices shippingServices;
+    private ShippingService shippingServices;
     @OneToMany(mappedBy="shippingMethods")
-    private Set<StoreShippingMethods> storeShipMethods;
+    private Set<StoreShippingMethod> storeShipMethods;
 
     /** Default constructor. */
-    public ShippingMethods() {
+    public ShippingMethod() {
         super();
     }
 
@@ -278,7 +278,7 @@ public class ShippingMethods implements Serializable {
      *
      * @return the current value of orderShipments
      */
-    public Set<OrderShipments> getOrderShipments() {
+    public Set<OrderShipment> getOrderShipments() {
         return orderShipments;
     }
 
@@ -287,7 +287,7 @@ public class ShippingMethods implements Serializable {
      *
      * @param aOrderShipments the new value for orderShipments
      */
-    public void setOrderShipments(Set<OrderShipments> aOrderShipments) {
+    public void setOrderShipments(Set<OrderShipment> aOrderShipments) {
         orderShipments = aOrderShipments;
     }
 
@@ -296,7 +296,7 @@ public class ShippingMethods implements Serializable {
      *
      * @return the current value of shippingServices
      */
-    public ShippingServices getShippingServices() {
+    public ShippingService getShippingServices() {
         return shippingServices;
     }
 
@@ -305,7 +305,7 @@ public class ShippingMethods implements Serializable {
      *
      * @param aShippingServices the new value for shippingServices
      */
-    public void setShippingServices(ShippingServices aShippingServices) {
+    public void setShippingServices(ShippingService aShippingServices) {
         shippingServices = aShippingServices;
     }
 
@@ -314,7 +314,7 @@ public class ShippingMethods implements Serializable {
      *
      * @return the current value of storeShipMethods
      */
-    public Set<StoreShippingMethods> getStoreShipMethods() {
+    public Set<StoreShippingMethod> getStoreShipMethods() {
         return storeShipMethods;
     }
 
@@ -323,7 +323,7 @@ public class ShippingMethods implements Serializable {
      *
      * @param aStoreShipMethods the new value for storeShipMethods
      */
-    public void setStoreShipMethods(Set<StoreShippingMethods> aStoreShipMethods) {
+    public void setStoreShipMethods(Set<StoreShippingMethod> aStoreShipMethods) {
         storeShipMethods = aStoreShipMethods;
     }
 
@@ -331,7 +331,7 @@ public class ShippingMethods implements Serializable {
      * Gets the group fragment shippingServiceId for member shippingServices.
      *
      * @return Current value of the group fragment
-     * @see ShippingServices
+     * @see ShippingService
      */
     public int getShippingServicesShippingServiceId() {
         return (getShippingServices() == null ? null : getShippingServices().getShippingServiceId());
@@ -341,7 +341,7 @@ public class ShippingMethods implements Serializable {
      * Sets the group fragment shippingServiceId from member shippingServices.
      *
      * @param aShippingServiceId New value for the group fragment
-     * @see ShippingServices
+     * @see ShippingService
      */
     public void setShippingServicesShippingServiceId(int aShippingServiceId) {
         if (getShippingServices() != null) {
@@ -359,10 +359,10 @@ public class ShippingMethods implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof ShippingMethods)) {
+        if (!(other instanceof ShippingMethod)) {
             return false;
         }
-        ShippingMethods that = (ShippingMethods) other;
+        ShippingMethod that = (ShippingMethod) other;
         if (this.getShippingMethodId() != that.getShippingMethodId()) {
             return false;
         }
@@ -377,8 +377,8 @@ public class ShippingMethods implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof ShippingMethods)) return false;
-        return this.equalKeys(other) && ((ShippingMethods)other).equalKeys(this);
+        if (!(other instanceof ShippingMethod)) return false;
+        return this.equalKeys(other) && ((ShippingMethod)other).equalKeys(this);
     }
 
     /**

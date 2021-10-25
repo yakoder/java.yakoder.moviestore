@@ -16,7 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
 @Entity(name="movie_prod_cos")
-public class MovieProductionCompanies implements Serializable {
+public class MovieProductionCompany implements Serializable {
 
     /**
 	 * 
@@ -57,16 +57,16 @@ public class MovieProductionCompanies implements Serializable {
     private int movieProductionCompanyId;
     @ManyToOne(optional=false)
     @JoinColumn(name="movie_id", nullable=false)
-    private Movies movie;
+    private Movie movie;
     @ManyToOne(optional=false)
     @JoinColumn(name="prod_co_id", nullable=false)
-    private ProductionCompanies prodCos;
+    private ProductionCompany prodCos;
     @ManyToOne(optional=false)
     @JoinColumn(name="prod_co_type_id", nullable=false)
-    private ProductionCompanyTypes productionCompanyTypes;
+    private ProductionCompanyType productionCompanyTypes;
 
     /** Default constructor. */
-    public MovieProductionCompanies() {
+    public MovieProductionCompany() {
         super();
     }
 
@@ -93,7 +93,7 @@ public class MovieProductionCompanies implements Serializable {
      *
      * @return the current value of movie
      */
-    public Movies getMovie() {
+    public Movie getMovie() {
         return movie;
     }
 
@@ -102,7 +102,7 @@ public class MovieProductionCompanies implements Serializable {
      *
      * @param aMovie the new value for movie
      */
-    public void setMovie(Movies aMovie) {
+    public void setMovie(Movie aMovie) {
         movie = aMovie;
     }
 
@@ -111,7 +111,7 @@ public class MovieProductionCompanies implements Serializable {
      *
      * @return the current value of prodCos
      */
-    public ProductionCompanies getProductionCompanies() {
+    public ProductionCompany getProductionCompanies() {
         return prodCos;
     }
 
@@ -120,7 +120,7 @@ public class MovieProductionCompanies implements Serializable {
      *
      * @param aProductionCompanies the new value for prodCos
      */
-    public void setProductionCompanies(ProductionCompanies aProductionCompanies) {
+    public void setProductionCompanies(ProductionCompany aProductionCompanies) {
         prodCos = aProductionCompanies;
     }
 
@@ -129,7 +129,7 @@ public class MovieProductionCompanies implements Serializable {
      *
      * @return the current value of productionCompanyTypes
      */
-    public ProductionCompanyTypes getProductionCompanyTypes() {
+    public ProductionCompanyType getProductionCompanyTypes() {
         return productionCompanyTypes;
     }
 
@@ -138,7 +138,7 @@ public class MovieProductionCompanies implements Serializable {
      *
      * @param aProductionCompanyTypes the new value for productionCompanyTypes
      */
-    public void setProductionCompanyTypes(ProductionCompanyTypes aProductionCompanyTypes) {
+    public void setProductionCompanyTypes(ProductionCompanyType aProductionCompanyTypes) {
         productionCompanyTypes = aProductionCompanyTypes;
     }
 
@@ -152,10 +152,10 @@ public class MovieProductionCompanies implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof MovieProductionCompanies)) {
+        if (!(other instanceof MovieProductionCompany)) {
             return false;
         }
-        MovieProductionCompanies that = (MovieProductionCompanies) other;
+        MovieProductionCompany that = (MovieProductionCompany) other;
         if (this.getMovieProductionCompanyId() != that.getMovieProductionCompanyId()) {
             return false;
         }
@@ -170,8 +170,8 @@ public class MovieProductionCompanies implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof MovieProductionCompanies)) return false;
-        return this.equalKeys(other) && ((MovieProductionCompanies)other).equalKeys(this);
+        if (!(other instanceof MovieProductionCompany)) return false;
+        return this.equalKeys(other) && ((MovieProductionCompany)other).equalKeys(this);
     }
 
     /**

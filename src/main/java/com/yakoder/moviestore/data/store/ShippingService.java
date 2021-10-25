@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
 @Entity(name="shipping_services")
-public class ShippingServices implements Serializable {
+public class ShippingService implements Serializable {
 
     /**
 	 * 
@@ -68,10 +68,10 @@ public class ShippingServices implements Serializable {
     @Column(name="is_enabled", nullable=false, length=3)
     private boolean isEnabled;
     @OneToMany(mappedBy="shippingServices")
-    private Set<ShippingMethods> shippingMethods;
+    private Set<ShippingMethod> shippingMethods;
 
     /** Default constructor. */
-    public ShippingServices() {
+    public ShippingService() {
         super();
     }
 
@@ -206,7 +206,7 @@ public class ShippingServices implements Serializable {
      *
      * @return the current value of shippingMethods
      */
-    public Set<ShippingMethods> getShippingMethods() {
+    public Set<ShippingMethod> getShippingMethods() {
         return shippingMethods;
     }
 
@@ -215,7 +215,7 @@ public class ShippingServices implements Serializable {
      *
      * @param aShippingMethods the new value for shippingMethods
      */
-    public void setShippingMethods(Set<ShippingMethods> aShippingMethods) {
+    public void setShippingMethods(Set<ShippingMethod> aShippingMethods) {
         shippingMethods = aShippingMethods;
     }
 
@@ -229,10 +229,10 @@ public class ShippingServices implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof ShippingServices)) {
+        if (!(other instanceof ShippingService)) {
             return false;
         }
-        ShippingServices that = (ShippingServices) other;
+        ShippingService that = (ShippingService) other;
         if (this.getShippingServiceId() != that.getShippingServiceId()) {
             return false;
         }
@@ -247,8 +247,8 @@ public class ShippingServices implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof ShippingServices)) return false;
-        return this.equalKeys(other) && ((ShippingServices)other).equalKeys(this);
+        if (!(other instanceof ShippingService)) return false;
+        return this.equalKeys(other) && ((ShippingService)other).equalKeys(this);
     }
 
     /**

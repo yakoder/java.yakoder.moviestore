@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
 @Entity(name="txn_parties")
-public class TransactionParties implements Serializable {
+public class TransactionParty implements Serializable {
 
     /**
 	 * 
@@ -74,16 +74,16 @@ public class TransactionParties implements Serializable {
     @Column(name="txn_party_acct_num", length=100)
     private String transactionPartyAccountNumber;
     @OneToMany(mappedBy="transactionPayee")
-    private Set<ReimbursementChecks> reimbursementPayeeChecks;
+    private Set<ReimbursementCheck> reimbursementPayeeChecks;
     @OneToMany(mappedBy="transactionPayor")
-    private Set<ReimbursementChecks> reimbursementPayorChecks;
+    private Set<ReimbursementCheck> reimbursementPayorChecks;
     @OneToMany(mappedBy="transactionPayee")
     private Set<ReimbursementOnline> reimbursementPayeeOnline;
     @OneToMany(mappedBy="transactionPayor")
     private Set<ReimbursementOnline> reimbursementPayorOnline;
 
     /** Default constructor. */
-    public TransactionParties() {
+    public TransactionParty() {
         super();
     }
 
@@ -272,7 +272,7 @@ public class TransactionParties implements Serializable {
      *
      * @return the current value of reimbursementPayeeChecks
      */
-    public Set<ReimbursementChecks> getReimbursementPayeeChecks() {
+    public Set<ReimbursementCheck> getReimbursementPayeeChecks() {
         return reimbursementPayeeChecks;
     }
 
@@ -281,7 +281,7 @@ public class TransactionParties implements Serializable {
      *
      * @param aReimbursementPayeeChecks the new value for reimbursementPayeeChecks
      */
-    public void setReimbursementPayeeChecks(Set<ReimbursementChecks> aReimbursementPayeeChecks) {
+    public void setReimbursementPayeeChecks(Set<ReimbursementCheck> aReimbursementPayeeChecks) {
         reimbursementPayeeChecks = aReimbursementPayeeChecks;
     }
 
@@ -290,7 +290,7 @@ public class TransactionParties implements Serializable {
      *
      * @return the current value of reimbursementPayorChecks
      */
-    public Set<ReimbursementChecks> getReimbursementPayorChecks() {
+    public Set<ReimbursementCheck> getReimbursementPayorChecks() {
         return reimbursementPayorChecks;
     }
 
@@ -299,7 +299,7 @@ public class TransactionParties implements Serializable {
      *
      * @param aReimbursementPayorChecks the new value for reimbursementPayorChecks
      */
-    public void setReimbursementPayorChecks(Set<ReimbursementChecks> aReimbursementPayorChecks) {
+    public void setReimbursementPayorChecks(Set<ReimbursementCheck> aReimbursementPayorChecks) {
         reimbursementPayorChecks = aReimbursementPayorChecks;
     }
 
@@ -349,10 +349,10 @@ public class TransactionParties implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof TransactionParties)) {
+        if (!(other instanceof TransactionParty)) {
             return false;
         }
-        TransactionParties that = (TransactionParties) other;
+        TransactionParty that = (TransactionParty) other;
         if (this.getTransactionPartyId() != that.getTransactionPartyId()) {
             return false;
         }
@@ -367,8 +367,8 @@ public class TransactionParties implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof TransactionParties)) return false;
-        return this.equalKeys(other) && ((TransactionParties)other).equalKeys(this);
+        if (!(other instanceof TransactionParty)) return false;
+        return this.equalKeys(other) && ((TransactionParty)other).equalKeys(this);
     }
 
     /**

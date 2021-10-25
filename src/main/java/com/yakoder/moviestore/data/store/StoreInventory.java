@@ -74,7 +74,7 @@ public class StoreInventory implements Serializable {
     private Inventory inventory;
     @ManyToOne(optional=false)
     @JoinColumn(name="store_site_id", nullable=false)
-    private StoreSites storeSites;
+    private StoreSite storeSites;
     @OneToMany(mappedBy="storeInventory")
     private Set<StoreInventoryHistory> storeInventoryHistory;
 
@@ -178,7 +178,7 @@ public class StoreInventory implements Serializable {
      *
      * @return the current value of storeSites
      */
-    public StoreSites getStoreSites() {
+    public StoreSite getStoreSites() {
         return storeSites;
     }
 
@@ -187,7 +187,7 @@ public class StoreInventory implements Serializable {
      *
      * @param aStoreSites the new value for storeSites
      */
-    public void setStoreSites(StoreSites aStoreSites) {
+    public void setStoreSites(StoreSite aStoreSites) {
         storeSites = aStoreSites;
     }
 
@@ -216,7 +216,7 @@ public class StoreInventory implements Serializable {
      * @see Inventory
      */
     public int getInventoryInvId() {
-        return (getInventory() == null ? null : getInventory().getInventoryId());
+        return (getInventory() == null ? null : getInventory().getId());
     }
 
     /**
@@ -227,7 +227,7 @@ public class StoreInventory implements Serializable {
      */
     public void setInventoryInvId(int aInventoryId) {
         if (getInventory() != null) {
-            getInventory().setInventoryId(aInventoryId);
+            getInventory().setId(aInventoryId);
         }
     }
 
@@ -235,7 +235,7 @@ public class StoreInventory implements Serializable {
      * Gets the group fragment storeSiteId for member storeSites.
      *
      * @return Current value of the group fragment
-     * @see StoreSites
+     * @see StoreSite
      */
     public int getStoreSitesStoreSiteId() {
         return (getStoreSites() == null ? null : getStoreSites().getStoreSiteId());
@@ -245,7 +245,7 @@ public class StoreInventory implements Serializable {
      * Sets the group fragment storeSiteId from member storeSites.
      *
      * @param aStoreSiteId New value for the group fragment
-     * @see StoreSites
+     * @see StoreSite
      */
     public void setStoreSitesStoreSiteId(int aStoreSiteId) {
         if (getStoreSites() != null) {

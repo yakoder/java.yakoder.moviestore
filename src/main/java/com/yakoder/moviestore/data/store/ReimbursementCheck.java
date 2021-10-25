@@ -15,7 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
 @Entity(name="reimb_checks")
-public class ReimbursementChecks implements Serializable {
+public class ReimbursementCheck implements Serializable {
 
     /**
 	 * 
@@ -63,13 +63,13 @@ public class ReimbursementChecks implements Serializable {
     private LocalDate checkCancelledDate;
     @ManyToOne(optional=false)
     @JoinColumn(name="payee_id", nullable=false)
-    private TransactionParties transactionPayee;
+    private TransactionParty transactionPayee;
     @ManyToOne(optional=false)
     @JoinColumn(name="payor_id", nullable=false)
-    private TransactionParties transactionPayor;
+    private TransactionParty transactionPayor;
 
     /** Default constructor. */
-    public ReimbursementChecks() {
+    public ReimbursementCheck() {
         super();
     }
 
@@ -168,7 +168,7 @@ public class ReimbursementChecks implements Serializable {
      *
      * @return the current value of transactionPayee
      */
-    public TransactionParties getTransactionPayee() {
+    public TransactionParty getTransactionPayee() {
         return transactionPayee;
     }
 
@@ -177,7 +177,7 @@ public class ReimbursementChecks implements Serializable {
      *
      * @param aTransactionPayee the new value for transactionPayee
      */
-    public void setTransactionPayee(TransactionParties aTransactionPayee) {
+    public void setTransactionPayee(TransactionParty aTransactionPayee) {
         transactionPayee = aTransactionPayee;
     }
 
@@ -186,7 +186,7 @@ public class ReimbursementChecks implements Serializable {
      *
      * @return the current value of transactionPayor
      */
-    public TransactionParties getTransactionPayor() {
+    public TransactionParty getTransactionPayor() {
         return transactionPayor;
     }
 
@@ -195,7 +195,7 @@ public class ReimbursementChecks implements Serializable {
      *
      * @param aTransactionPayor the new value for transactionPayor
      */
-    public void setTransactionPayor(TransactionParties aTransactionPayor) {
+    public void setTransactionPayor(TransactionParty aTransactionPayor) {
         transactionPayor = aTransactionPayor;
     }
 
@@ -209,10 +209,10 @@ public class ReimbursementChecks implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof ReimbursementChecks)) {
+        if (!(other instanceof ReimbursementCheck)) {
             return false;
         }
-        ReimbursementChecks that = (ReimbursementChecks) other;
+        ReimbursementCheck that = (ReimbursementCheck) other;
         if (this.getReimbursementDetailId() != that.getReimbursementDetailId()) {
             return false;
         }
@@ -227,8 +227,8 @@ public class ReimbursementChecks implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof ReimbursementChecks)) return false;
-        return this.equalKeys(other) && ((ReimbursementChecks)other).equalKeys(this);
+        if (!(other instanceof ReimbursementCheck)) return false;
+        return this.equalKeys(other) && ((ReimbursementCheck)other).equalKeys(this);
     }
 
     /**

@@ -66,7 +66,7 @@ public class CustomerFeedback implements Serializable {
     private LocalDate customerFeedbackDate;
     @ManyToOne
     @JoinColumn(name="order_id")
-    private Orders orders;
+    private Order orders;
 
     /** Default constructor. */
     public CustomerFeedback() {
@@ -168,7 +168,7 @@ public class CustomerFeedback implements Serializable {
      *
      * @return the current value of orders
      */
-    public Orders getOrders() {
+    public Order getOrders() {
         return orders;
     }
 
@@ -177,7 +177,7 @@ public class CustomerFeedback implements Serializable {
      *
      * @param aOrders the new value for orders
      */
-    public void setOrders(Orders aOrders) {
+    public void setOrders(Order aOrders) {
         orders = aOrders;
     }
 

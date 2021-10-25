@@ -17,7 +17,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
 @Entity(name="exp_supplies")
-public class ExpenseSupplies implements Serializable {
+public class ExpenseSupply implements Serializable {
 
     /**
 	 * 
@@ -62,13 +62,13 @@ public class ExpenseSupplies implements Serializable {
     @Column(name="exp_tax", precision=15, scale=2)
     private BigDecimal expenseTax;
     @OneToMany(mappedBy="expSupplies")
-    private Set<Expenses> expenses;
+    private Set<Expense> expenses;
     @ManyToOne(optional=false)
     @JoinColumn(name="supply_type_id", nullable=false)
-    private SupplyTypes supplyTypes;
+    private SupplyType supplyTypes;
 
     /** Default constructor. */
-    public ExpenseSupplies() {
+    public ExpenseSupply() {
         super();
     }
 
@@ -149,7 +149,7 @@ public class ExpenseSupplies implements Serializable {
      *
      * @return the current value of expenses
      */
-    public Set<Expenses> getExpenses() {
+    public Set<Expense> getExpenses() {
         return expenses;
     }
 
@@ -158,7 +158,7 @@ public class ExpenseSupplies implements Serializable {
      *
      * @param aExpenses the new value for expenses
      */
-    public void setExpenses(Set<Expenses> aExpenses) {
+    public void setExpenses(Set<Expense> aExpenses) {
         expenses = aExpenses;
     }
 
@@ -167,7 +167,7 @@ public class ExpenseSupplies implements Serializable {
      *
      * @return the current value of supplyTypes
      */
-    public SupplyTypes getSupplyTypes() {
+    public SupplyType getSupplyTypes() {
         return supplyTypes;
     }
 
@@ -176,7 +176,7 @@ public class ExpenseSupplies implements Serializable {
      *
      * @param aSupplyTypes the new value for supplyTypes
      */
-    public void setSupplyTypes(SupplyTypes aSupplyTypes) {
+    public void setSupplyTypes(SupplyType aSupplyTypes) {
         supplyTypes = aSupplyTypes;
     }
 
@@ -190,10 +190,10 @@ public class ExpenseSupplies implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof ExpenseSupplies)) {
+        if (!(other instanceof ExpenseSupply)) {
             return false;
         }
-        ExpenseSupplies that = (ExpenseSupplies) other;
+        ExpenseSupply that = (ExpenseSupply) other;
         if (this.getExpenseDetailId() != that.getExpenseDetailId()) {
             return false;
         }
@@ -208,8 +208,8 @@ public class ExpenseSupplies implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof ExpenseSupplies)) return false;
-        return this.equalKeys(other) && ((ExpenseSupplies)other).equalKeys(this);
+        if (!(other instanceof ExpenseSupply)) return false;
+        return this.equalKeys(other) && ((ExpenseSupply)other).equalKeys(this);
     }
 
     /**

@@ -18,7 +18,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
 @Entity(name="reimbursements")
-public class Reimbursements implements Serializable {
+public class Reimbursement implements Serializable {
 
     /**
 	 * 
@@ -68,10 +68,10 @@ public class Reimbursements implements Serializable {
     private ReimbursementOnline reimbursementOnline;
     @ManyToOne(optional=false)
     @JoinColumn(name="reimb_meth_id", nullable=false)
-    private ReimbursementMethods reimbursementMethods;
+    private ReimbursementMethod reimbursementMethods;
 
     /** Default constructor. */
-    public Reimbursements() {
+    public Reimbursement() {
         super();
     }
 
@@ -170,7 +170,7 @@ public class Reimbursements implements Serializable {
      *
      * @return the current value of reimbursementMethods
      */
-    public ReimbursementMethods getReimbursementMethods() {
+    public ReimbursementMethod getReimbursementMethods() {
         return reimbursementMethods;
     }
 
@@ -179,7 +179,7 @@ public class Reimbursements implements Serializable {
      *
      * @param aReimbursementMethods the new value for reimbursementMethods
      */
-    public void setReimbursementMethods(ReimbursementMethods aReimbursementMethods) {
+    public void setReimbursementMethods(ReimbursementMethod aReimbursementMethods) {
         reimbursementMethods = aReimbursementMethods;
     }
 
@@ -193,10 +193,10 @@ public class Reimbursements implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof Reimbursements)) {
+        if (!(other instanceof Reimbursement)) {
             return false;
         }
-        Reimbursements that = (Reimbursements) other;
+        Reimbursement that = (Reimbursement) other;
         if (this.getReimbursementId() != that.getReimbursementId()) {
             return false;
         }
@@ -211,8 +211,8 @@ public class Reimbursements implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof Reimbursements)) return false;
-        return this.equalKeys(other) && ((Reimbursements)other).equalKeys(this);
+        if (!(other instanceof Reimbursement)) return false;
+        return this.equalKeys(other) && ((Reimbursement)other).equalKeys(this);
     }
 
     /**

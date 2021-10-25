@@ -17,7 +17,7 @@ import javax.persistence.Version;
 
 @Entity
 @Table(name="reimb_detail_tables", indexes={@Index(name="reimb_detail_tables_reimb_detail_table_name_IX", columnList="reimb_detail_table_name", unique=true)})
-public class ReimbursementDetailTables implements Serializable {
+public class ReimbursementDetailTable implements Serializable {
 
     /**
 	 * 
@@ -60,7 +60,7 @@ public class ReimbursementDetailTables implements Serializable {
     private String reimbursementDetailTableName;
 
     /** Default constructor. */
-    public ReimbursementDetailTables() {
+    public ReimbursementDetailTable() {
         super();
     }
 
@@ -110,10 +110,10 @@ public class ReimbursementDetailTables implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof ReimbursementDetailTables)) {
+        if (!(other instanceof ReimbursementDetailTable)) {
             return false;
         }
-        ReimbursementDetailTables that = (ReimbursementDetailTables) other;
+        ReimbursementDetailTable that = (ReimbursementDetailTable) other;
         if (this.getReimbursementDetailTableId() != that.getReimbursementDetailTableId()) {
             return false;
         }
@@ -128,8 +128,8 @@ public class ReimbursementDetailTables implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof ReimbursementDetailTables)) return false;
-        return this.equalKeys(other) && ((ReimbursementDetailTables)other).equalKeys(this);
+        if (!(other instanceof ReimbursementDetailTable)) return false;
+        return this.equalKeys(other) && ((ReimbursementDetailTable)other).equalKeys(this);
     }
 
     /**

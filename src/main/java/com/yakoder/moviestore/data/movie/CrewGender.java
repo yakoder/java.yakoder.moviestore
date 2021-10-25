@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
 @Entity(name="crew_genders")
-public class CrewGenders implements Serializable {
+public class CrewGender implements Serializable {
 
     /**
 	 * 
@@ -58,7 +58,7 @@ public class CrewGenders implements Serializable {
     private Set<Crew> crew;
 
     /** Default constructor. */
-    public CrewGenders() {
+    public CrewGender() {
         super();
     }
 
@@ -126,10 +126,10 @@ public class CrewGenders implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof CrewGenders)) {
+        if (!(other instanceof CrewGender)) {
             return false;
         }
-        CrewGenders that = (CrewGenders) other;
+        CrewGender that = (CrewGender) other;
         Object myCrewGenderCode = this.getCrewGenderCode();
         Object yourCrewGenderCode = that.getCrewGenderCode();
         if (myCrewGenderCode==null ? yourCrewGenderCode!=null : !myCrewGenderCode.equals(yourCrewGenderCode)) {
@@ -146,8 +146,8 @@ public class CrewGenders implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof CrewGenders)) return false;
-        return this.equalKeys(other) && ((CrewGenders)other).equalKeys(this);
+        if (!(other instanceof CrewGender)) return false;
+        return this.equalKeys(other) && ((CrewGender)other).equalKeys(this);
     }
 
     /**

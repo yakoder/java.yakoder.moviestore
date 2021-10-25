@@ -87,16 +87,16 @@ public class StoreInventoryHistory implements Serializable {
     private String listingComments;
     @ManyToOne
     @JoinColumn(name="override_reason_id")
-    private PriceOverrideReasons priceOverrideReasons;
+    private PriceOverrideReason priceOverrideReasons;
     @ManyToOne
     @JoinColumn(name="store_bonus_id")
-    private StoreBonuses storeBonuses;
+    private StoreBonus storeBonuses;
     @ManyToOne(optional=false)
     @JoinColumn(name="store_inv_id", nullable=false)
     private StoreInventory storeInventory;
     @ManyToOne
     @JoinColumn(name="unlisted_reason_id")
-    private UnlistedReasons unlistedReasons;
+    private UnlistedReason unlistedReasons;
 
     /** Default constructor. */
     public StoreInventoryHistory() {
@@ -378,7 +378,7 @@ public class StoreInventoryHistory implements Serializable {
      *
      * @return the current value of priceOverrideReasons
      */
-    public PriceOverrideReasons getPriceOverrideReasons() {
+    public PriceOverrideReason getPriceOverrideReasons() {
         return priceOverrideReasons;
     }
 
@@ -387,7 +387,7 @@ public class StoreInventoryHistory implements Serializable {
      *
      * @param aPriceOverrideReasons the new value for priceOverrideReasons
      */
-    public void setPriceOverrideReasons(PriceOverrideReasons aPriceOverrideReasons) {
+    public void setPriceOverrideReasons(PriceOverrideReason aPriceOverrideReasons) {
         priceOverrideReasons = aPriceOverrideReasons;
     }
 
@@ -396,7 +396,7 @@ public class StoreInventoryHistory implements Serializable {
      *
      * @return the current value of storeBonuses
      */
-    public StoreBonuses getStoreBonuses() {
+    public StoreBonus getStoreBonuses() {
         return storeBonuses;
     }
 
@@ -405,7 +405,7 @@ public class StoreInventoryHistory implements Serializable {
      *
      * @param aStoreBonuses the new value for storeBonuses
      */
-    public void setStoreBonuses(StoreBonuses aStoreBonuses) {
+    public void setStoreBonuses(StoreBonus aStoreBonuses) {
         storeBonuses = aStoreBonuses;
     }
 
@@ -432,7 +432,7 @@ public class StoreInventoryHistory implements Serializable {
      *
      * @return the current value of unlistedReasons
      */
-    public UnlistedReasons getUnlistedReasons() {
+    public UnlistedReason getUnlistedReasons() {
         return unlistedReasons;
     }
 
@@ -441,7 +441,7 @@ public class StoreInventoryHistory implements Serializable {
      *
      * @param aUnlistedReasons the new value for unlistedReasons
      */
-    public void setUnlistedReasons(UnlistedReasons aUnlistedReasons) {
+    public void setUnlistedReasons(UnlistedReason aUnlistedReasons) {
         unlistedReasons = aUnlistedReasons;
     }
 

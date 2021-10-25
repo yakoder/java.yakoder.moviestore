@@ -59,10 +59,10 @@ public class ExpenseShipping implements Serializable {
     private BigDecimal insuranceCost;
     @ManyToOne(optional=false)
     @JoinColumn(name="order_id", nullable=false)
-    private Orders orders;
+    private Order orders;
     @ManyToOne(optional=false)
     @JoinColumn(name="ship_meth_id", nullable=false)
-    private ShippingMethods shippingMethods;
+    private ShippingMethod shippingMethods;
 
     /** Default constructor. */
     public ExpenseShipping() {
@@ -128,7 +128,7 @@ public class ExpenseShipping implements Serializable {
      *
      * @return the current value of orders
      */
-    public Orders getOrders() {
+    public Order getOrders() {
         return orders;
     }
 
@@ -137,7 +137,7 @@ public class ExpenseShipping implements Serializable {
      *
      * @param aOrders the new value for orders
      */
-    public void setOrders(Orders aOrders) {
+    public void setOrders(Order aOrders) {
         orders = aOrders;
     }
 
@@ -146,7 +146,7 @@ public class ExpenseShipping implements Serializable {
      *
      * @return the current value of shippingMethods
      */
-    public ShippingMethods getShippingMethods() {
+    public ShippingMethod getShippingMethods() {
         return shippingMethods;
     }
 
@@ -155,7 +155,7 @@ public class ExpenseShipping implements Serializable {
      *
      * @param aShippingMethods the new value for shippingMethods
      */
-    public void setShippingMethods(ShippingMethods aShippingMethods) {
+    public void setShippingMethods(ShippingMethod aShippingMethods) {
         shippingMethods = aShippingMethods;
     }
 

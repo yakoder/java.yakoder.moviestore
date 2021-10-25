@@ -20,7 +20,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
 @Entity(name="order_adjustments")
-public class OrderAdjustments implements Serializable {
+public class OrderAdjustment implements Serializable {
 
     /**
 	 * 
@@ -66,19 +66,19 @@ public class OrderAdjustments implements Serializable {
     @Column(name="adj_amount", precision=15, scale=2)
     private BigDecimal adjustmentAmount;
     @OneToMany(mappedBy="orderAdjustments")
-    private Set<AdjustmentMovies> adjustmentMovies;
+    private Set<AdjustmentMovie> adjustmentMovies;
     @ManyToOne(optional=false)
     @JoinColumn(name="adj_req_id", nullable=false)
-    private AdjustmentRequestors adjustmentRequestors;
+    private AdjustmentRequestor adjustmentRequestors;
     @ManyToOne(optional=false)
     @JoinColumn(name="adj_type_id", nullable=false)
-    private AdjustmentTypes adjustmentTypes;
+    private AdjustmentType adjustmentTypes;
     @ManyToOne(optional=false)
     @JoinColumn(name="order_id", nullable=false)
-    private Orders orders;
+    private Order orders;
 
     /** Default constructor. */
-    public OrderAdjustments() {
+    public OrderAdjustment() {
         super();
     }
 
@@ -159,7 +159,7 @@ public class OrderAdjustments implements Serializable {
      *
      * @return the current value of adjustmentMovies
      */
-    public Set<AdjustmentMovies> getAdjustmentMovies() {
+    public Set<AdjustmentMovie> getAdjustmentMovies() {
         return adjustmentMovies;
     }
 
@@ -168,7 +168,7 @@ public class OrderAdjustments implements Serializable {
      *
      * @param aAdjustmentMovies the new value for adjustmentMovies
      */
-    public void setAdjustmentMovies(Set<AdjustmentMovies> aAdjustmentMovies) {
+    public void setAdjustmentMovies(Set<AdjustmentMovie> aAdjustmentMovies) {
         adjustmentMovies = aAdjustmentMovies;
     }
 
@@ -177,7 +177,7 @@ public class OrderAdjustments implements Serializable {
      *
      * @return the current value of adjustmentRequestors
      */
-    public AdjustmentRequestors getAdjustmentRequestors() {
+    public AdjustmentRequestor getAdjustmentRequestors() {
         return adjustmentRequestors;
     }
 
@@ -186,7 +186,7 @@ public class OrderAdjustments implements Serializable {
      *
      * @param aAdjustmentRequestors the new value for adjustmentRequestors
      */
-    public void setAdjustmentRequestors(AdjustmentRequestors aAdjustmentRequestors) {
+    public void setAdjustmentRequestors(AdjustmentRequestor aAdjustmentRequestors) {
         adjustmentRequestors = aAdjustmentRequestors;
     }
 
@@ -195,7 +195,7 @@ public class OrderAdjustments implements Serializable {
      *
      * @return the current value of adjustmentTypes
      */
-    public AdjustmentTypes getAdjustmentTypes() {
+    public AdjustmentType getAdjustmentTypes() {
         return adjustmentTypes;
     }
 
@@ -204,7 +204,7 @@ public class OrderAdjustments implements Serializable {
      *
      * @param aAdjustmentTypes the new value for adjustmentTypes
      */
-    public void setAdjustmentTypes(AdjustmentTypes aAdjustmentTypes) {
+    public void setAdjustmentTypes(AdjustmentType aAdjustmentTypes) {
         adjustmentTypes = aAdjustmentTypes;
     }
 
@@ -213,7 +213,7 @@ public class OrderAdjustments implements Serializable {
      *
      * @return the current value of orders
      */
-    public Orders getOrders() {
+    public Order getOrders() {
         return orders;
     }
 
@@ -222,7 +222,7 @@ public class OrderAdjustments implements Serializable {
      *
      * @param aOrders the new value for orders
      */
-    public void setOrders(Orders aOrders) {
+    public void setOrders(Order aOrders) {
         orders = aOrders;
     }
 
@@ -236,10 +236,10 @@ public class OrderAdjustments implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof OrderAdjustments)) {
+        if (!(other instanceof OrderAdjustment)) {
             return false;
         }
-        OrderAdjustments that = (OrderAdjustments) other;
+        OrderAdjustment that = (OrderAdjustment) other;
         if (this.getOrderAdjustmentId() != that.getOrderAdjustmentId()) {
             return false;
         }
@@ -254,8 +254,8 @@ public class OrderAdjustments implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof OrderAdjustments)) return false;
-        return this.equalKeys(other) && ((OrderAdjustments)other).equalKeys(this);
+        if (!(other instanceof OrderAdjustment)) return false;
+        return this.equalKeys(other) && ((OrderAdjustment)other).equalKeys(this);
     }
 
     /**

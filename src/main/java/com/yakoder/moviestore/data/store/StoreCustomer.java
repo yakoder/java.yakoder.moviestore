@@ -19,7 +19,7 @@ import javax.persistence.Version;
 
 @Entity
 @Table(name="store_customers", indexes={@Index(name="storeCustomersStoreCustomersStoreSiteIdEnabledIdx", columnList="store_site_id,is_enabled")})
-public class StoreCustomers implements Serializable {
+public class StoreCustomer implements Serializable {
 
     /**
 	 * 
@@ -64,13 +64,13 @@ public class StoreCustomers implements Serializable {
     private boolean isEnabled;
     @ManyToOne(optional=false)
     @JoinColumn(name="cust_id", nullable=false)
-    private Customers customers;
+    private Customer customers;
     @ManyToOne(optional=false)
     @JoinColumn(name="store_site_id", nullable=false)
-    private StoreSites storeSites;
+    private StoreSite storeSites;
 
     /** Default constructor. */
-    public StoreCustomers() {
+    public StoreCustomer() {
         super();
     }
 
@@ -133,7 +133,7 @@ public class StoreCustomers implements Serializable {
      *
      * @return the current value of customers
      */
-    public Customers getCustomers() {
+    public Customer getCustomers() {
         return customers;
     }
 
@@ -142,7 +142,7 @@ public class StoreCustomers implements Serializable {
      *
      * @param aCustomers the new value for customers
      */
-    public void setCustomers(Customers aCustomers) {
+    public void setCustomers(Customer aCustomers) {
         customers = aCustomers;
     }
 
@@ -151,7 +151,7 @@ public class StoreCustomers implements Serializable {
      *
      * @return the current value of storeSites
      */
-    public StoreSites getStoreSites() {
+    public StoreSite getStoreSites() {
         return storeSites;
     }
 
@@ -160,7 +160,7 @@ public class StoreCustomers implements Serializable {
      *
      * @param aStoreSites the new value for storeSites
      */
-    public void setStoreSites(StoreSites aStoreSites) {
+    public void setStoreSites(StoreSite aStoreSites) {
         storeSites = aStoreSites;
     }
 
@@ -168,7 +168,7 @@ public class StoreCustomers implements Serializable {
      * Gets the group fragment storeSiteId for member storeSites.
      *
      * @return Current value of the group fragment
-     * @see StoreSites
+     * @see StoreSite
      */
     public int getStoreSitesStoreSiteId() {
         return (getStoreSites() == null ? null : getStoreSites().getStoreSiteId());
@@ -178,7 +178,7 @@ public class StoreCustomers implements Serializable {
      * Sets the group fragment storeSiteId from member storeSites.
      *
      * @param aStoreSiteId New value for the group fragment
-     * @see StoreSites
+     * @see StoreSite
      */
     public void setStoreSitesStoreSiteId(int aStoreSiteId) {
         if (getStoreSites() != null) {
@@ -196,10 +196,10 @@ public class StoreCustomers implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof StoreCustomers)) {
+        if (!(other instanceof StoreCustomer)) {
             return false;
         }
-        StoreCustomers that = (StoreCustomers) other;
+        StoreCustomer that = (StoreCustomer) other;
         if (this.getStoreCustomerId() != that.getStoreCustomerId()) {
             return false;
         }
@@ -214,8 +214,8 @@ public class StoreCustomers implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof StoreCustomers)) return false;
-        return this.equalKeys(other) && ((StoreCustomers)other).equalKeys(this);
+        if (!(other instanceof StoreCustomer)) return false;
+        return this.equalKeys(other) && ((StoreCustomer)other).equalKeys(this);
     }
 
     /**

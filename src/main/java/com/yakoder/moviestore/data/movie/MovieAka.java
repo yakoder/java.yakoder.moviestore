@@ -16,7 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
 @Entity(name="movie_akas")
-public class MovieAkas implements Serializable {
+public class MovieAka implements Serializable {
 
     /**
 	 * 
@@ -57,13 +57,13 @@ public class MovieAkas implements Serializable {
     private int movieAkaId;
     @ManyToOne(optional=false)
     @JoinColumn(name="aka_id", nullable=false)
-    private Movies aka;
+    private Movie aka;
     @ManyToOne(optional=false)
     @JoinColumn(name="movie_id", nullable=false)
-    private Movies primary;
+    private Movie primary;
 
     /** Default constructor. */
-    public MovieAkas() {
+    public MovieAka() {
         super();
     }
 
@@ -90,7 +90,7 @@ public class MovieAkas implements Serializable {
      *
      * @return the current value of aka
      */
-    public Movies getAka() {
+    public Movie getAka() {
         return aka;
     }
 
@@ -99,7 +99,7 @@ public class MovieAkas implements Serializable {
      *
      * @param aAka the new value for aka
      */
-    public void setAka(Movies aAka) {
+    public void setAka(Movie aAka) {
         aka = aAka;
     }
 
@@ -108,7 +108,7 @@ public class MovieAkas implements Serializable {
      *
      * @return the current value of primary
      */
-    public Movies getPrimary() {
+    public Movie getPrimary() {
         return primary;
     }
 
@@ -117,7 +117,7 @@ public class MovieAkas implements Serializable {
      *
      * @param aPrimary the new value for primary
      */
-    public void setPrimary(Movies aPrimary) {
+    public void setPrimary(Movie aPrimary) {
         primary = aPrimary;
     }
 
@@ -131,10 +131,10 @@ public class MovieAkas implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof MovieAkas)) {
+        if (!(other instanceof MovieAka)) {
             return false;
         }
-        MovieAkas that = (MovieAkas) other;
+        MovieAka that = (MovieAka) other;
         if (this.getMovieAkaId() != that.getMovieAkaId()) {
             return false;
         }
@@ -149,8 +149,8 @@ public class MovieAkas implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof MovieAkas)) return false;
-        return this.equalKeys(other) && ((MovieAkas)other).equalKeys(this);
+        if (!(other instanceof MovieAka)) return false;
+        return this.equalKeys(other) && ((MovieAka)other).equalKeys(this);
     }
 
     /**

@@ -77,12 +77,12 @@ public class Crew implements Serializable {
     @Column(name="crew_has_aliases", nullable=false, length=3)
     private boolean crewHasAliases;
     @OneToMany(mappedBy="alias")
-    private Set<CrewAliases> crewAliases;
+    private Set<CrewAlias> crewAliases;
     @OneToMany(mappedBy="primary")
-    private Set<CrewAliases> primaryCrew;
+    private Set<CrewAlias> primaryCrew;
     @ManyToOne(optional=false)
     @JoinColumn(name="crew_gender_id", nullable=false)
-    private CrewGenders crewGenders;
+    private CrewGender crewGenders;
     @OneToMany(mappedBy="crew")
     private Set<MovieCrew> movieCrew;
 
@@ -258,7 +258,7 @@ public class Crew implements Serializable {
      *
      * @return the current value of crewAliases
      */
-    public Set<CrewAliases> getCrewAliases() {
+    public Set<CrewAlias> getCrewAliases() {
         return crewAliases;
     }
 
@@ -267,7 +267,7 @@ public class Crew implements Serializable {
      *
      * @param aCrewAliases the new value for crewAliases
      */
-    public void setCrewAliases(Set<CrewAliases> aCrewAliases) {
+    public void setCrewAliases(Set<CrewAlias> aCrewAliases) {
         crewAliases = aCrewAliases;
     }
 
@@ -276,7 +276,7 @@ public class Crew implements Serializable {
      *
      * @return the current value of primaryCrew
      */
-    public Set<CrewAliases> getPrimaryCrew() {
+    public Set<CrewAlias> getPrimaryCrew() {
         return primaryCrew;
     }
 
@@ -285,7 +285,7 @@ public class Crew implements Serializable {
      *
      * @param aPrimaryCrew the new value for primaryCrew
      */
-    public void setPrimaryCrew(Set<CrewAliases> aPrimaryCrew) {
+    public void setPrimaryCrew(Set<CrewAlias> aPrimaryCrew) {
         primaryCrew = aPrimaryCrew;
     }
 
@@ -294,7 +294,7 @@ public class Crew implements Serializable {
      *
      * @return the current value of crewGenders
      */
-    public CrewGenders getCrewGenders() {
+    public CrewGender getCrewGenders() {
         return crewGenders;
     }
 
@@ -303,7 +303,7 @@ public class Crew implements Serializable {
      *
      * @param aCrewGenders the new value for crewGenders
      */
-    public void setCrewGenders(CrewGenders aCrewGenders) {
+    public void setCrewGenders(CrewGender aCrewGenders) {
         crewGenders = aCrewGenders;
     }
 

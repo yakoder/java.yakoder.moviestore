@@ -17,7 +17,7 @@ import javax.persistence.Version;
 
 @Entity
 @Table(name="exp_detail_tables", indexes={@Index(name="exp_detail_tables_exp_detail_table_name_IX", columnList="exp_detail_table_name", unique=true)})
-public class ExpenseDetailTables implements Serializable {
+public class ExpenseDetailTable implements Serializable {
 
     /**
 	 * 
@@ -60,7 +60,7 @@ public class ExpenseDetailTables implements Serializable {
     private String expenseDetailTableName;
 
     /** Default constructor. */
-    public ExpenseDetailTables() {
+    public ExpenseDetailTable() {
         super();
     }
 
@@ -110,10 +110,10 @@ public class ExpenseDetailTables implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof ExpenseDetailTables)) {
+        if (!(other instanceof ExpenseDetailTable)) {
             return false;
         }
-        ExpenseDetailTables that = (ExpenseDetailTables) other;
+        ExpenseDetailTable that = (ExpenseDetailTable) other;
         if (this.getExpenseDetailTableId() != that.getExpenseDetailTableId()) {
             return false;
         }
@@ -128,8 +128,8 @@ public class ExpenseDetailTables implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof ExpenseDetailTables)) return false;
-        return this.equalKeys(other) && ((ExpenseDetailTables)other).equalKeys(this);
+        if (!(other instanceof ExpenseDetailTable)) return false;
+        return this.equalKeys(other) && ((ExpenseDetailTable)other).equalKeys(this);
     }
 
     /**

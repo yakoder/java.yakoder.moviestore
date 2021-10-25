@@ -16,7 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
 @Entity(name="crew_aliases")
-public class CrewAliases implements Serializable {
+public class CrewAlias implements Serializable {
 
     /**
 	 * 
@@ -63,7 +63,7 @@ public class CrewAliases implements Serializable {
     private Crew primary;
 
     /** Default constructor. */
-    public CrewAliases() {
+    public CrewAlias() {
         super();
     }
 
@@ -131,10 +131,10 @@ public class CrewAliases implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof CrewAliases)) {
+        if (!(other instanceof CrewAlias)) {
             return false;
         }
-        CrewAliases that = (CrewAliases) other;
+        CrewAlias that = (CrewAlias) other;
         if (this.getCrewAliasId() != that.getCrewAliasId()) {
             return false;
         }
@@ -149,8 +149,8 @@ public class CrewAliases implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof CrewAliases)) return false;
-        return this.equalKeys(other) && ((CrewAliases)other).equalKeys(this);
+        if (!(other instanceof CrewAlias)) return false;
+        return this.equalKeys(other) && ((CrewAlias)other).equalKeys(this);
     }
 
     /**

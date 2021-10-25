@@ -16,7 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
 @Entity(name="info_sites")
-public class InfoSites implements Serializable {
+public class InfoSite implements Serializable {
 
     /**
 	 * 
@@ -57,10 +57,10 @@ public class InfoSites implements Serializable {
     private int infoSiteId;
     @ManyToOne(optional=false)
     @JoinColumn(name="site_id", nullable=false)
-    private Sites sites;
+    private Site sites;
 
     /** Default constructor. */
-    public InfoSites() {
+    public InfoSite() {
         super();
     }
 
@@ -87,7 +87,7 @@ public class InfoSites implements Serializable {
      *
      * @return the current value of sites
      */
-    public Sites getSites() {
+    public Site getSites() {
         return sites;
     }
 
@@ -96,7 +96,7 @@ public class InfoSites implements Serializable {
      *
      * @param aSites the new value for sites
      */
-    public void setSites(Sites aSites) {
+    public void setSites(Site aSites) {
         sites = aSites;
     }
 
@@ -110,10 +110,10 @@ public class InfoSites implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof InfoSites)) {
+        if (!(other instanceof InfoSite)) {
             return false;
         }
-        InfoSites that = (InfoSites) other;
+        InfoSite that = (InfoSite) other;
         if (this.getInfoSiteId() != that.getInfoSiteId()) {
             return false;
         }
@@ -128,8 +128,8 @@ public class InfoSites implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof InfoSites)) return false;
-        return this.equalKeys(other) && ((InfoSites)other).equalKeys(this);
+        if (!(other instanceof InfoSite)) return false;
+        return this.equalKeys(other) && ((InfoSite)other).equalKeys(this);
     }
 
     /**

@@ -19,7 +19,7 @@ import javax.persistence.Version;
 
 @Entity
 @Table(name="customers", indexes={@Index(name="customersCustomersCustCityStateIdx", columnList="cust_city,cust_state"), @Index(name="customersCustomersCustNameFirstLastIdx", columnList="cust_name_first,cust_name_last")})
-public class Customers implements Serializable {
+public class Customer implements Serializable {
 
     /**
 	 * 
@@ -77,12 +77,12 @@ public class Customers implements Serializable {
     @Column(name="cust_country", length=2)
     private String customerCountry;
     @OneToMany(mappedBy="customers")
-    private Set<Orders> orders;
+    private Set<Order> orders;
     @OneToMany(mappedBy="customers")
-    private Set<StoreCustomers> storeCustomers;
+    private Set<StoreCustomer> storeCustomers;
 
     /** Default constructor. */
-    public Customers() {
+    public Customer() {
         super();
     }
 
@@ -271,7 +271,7 @@ public class Customers implements Serializable {
      *
      * @return the current value of orders
      */
-    public Set<Orders> getOrders() {
+    public Set<Order> getOrders() {
         return orders;
     }
 
@@ -280,7 +280,7 @@ public class Customers implements Serializable {
      *
      * @param aOrders the new value for orders
      */
-    public void setOrders(Set<Orders> aOrders) {
+    public void setOrders(Set<Order> aOrders) {
         orders = aOrders;
     }
 
@@ -289,7 +289,7 @@ public class Customers implements Serializable {
      *
      * @return the current value of storeCustomers
      */
-    public Set<StoreCustomers> getStoreCustomers() {
+    public Set<StoreCustomer> getStoreCustomers() {
         return storeCustomers;
     }
 
@@ -298,7 +298,7 @@ public class Customers implements Serializable {
      *
      * @param aStoreCustomers the new value for storeCustomers
      */
-    public void setStoreCustomers(Set<StoreCustomers> aStoreCustomers) {
+    public void setStoreCustomers(Set<StoreCustomer> aStoreCustomers) {
         storeCustomers = aStoreCustomers;
     }
 
@@ -312,10 +312,10 @@ public class Customers implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof Customers)) {
+        if (!(other instanceof Customer)) {
             return false;
         }
-        Customers that = (Customers) other;
+        Customer that = (Customer) other;
         if (this.getCustomerId() != that.getCustomerId()) {
             return false;
         }
@@ -330,8 +330,8 @@ public class Customers implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof Customers)) return false;
-        return this.equalKeys(other) && ((Customers)other).equalKeys(this);
+        if (!(other instanceof Customer)) return false;
+        return this.equalKeys(other) && ((Customer)other).equalKeys(this);
     }
 
     /**

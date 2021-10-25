@@ -79,12 +79,12 @@ public class StoreShipping implements Serializable {
     @Column(name="end_date")
     private LocalDate endDate;
     @OneToMany(mappedBy="storeShipping")
-    private Set<Orders> orders;
+    private Set<Order> orders;
     @OneToMany(mappedBy="storeShipping")
-    private Set<StoreShippingMethods> storeShipMethods;
+    private Set<StoreShippingMethod> storeShipMethods;
     @ManyToOne(optional=false)
     @JoinColumn(name="store_site_id", nullable=false)
-    private StoreSites storeSites;
+    private StoreSite storeSites;
 
     /** Default constructor. */
     public StoreShipping() {
@@ -258,7 +258,7 @@ public class StoreShipping implements Serializable {
      *
      * @return the current value of orders
      */
-    public Set<Orders> getOrders() {
+    public Set<Order> getOrders() {
         return orders;
     }
 
@@ -267,7 +267,7 @@ public class StoreShipping implements Serializable {
      *
      * @param aOrders the new value for orders
      */
-    public void setOrders(Set<Orders> aOrders) {
+    public void setOrders(Set<Order> aOrders) {
         orders = aOrders;
     }
 
@@ -276,7 +276,7 @@ public class StoreShipping implements Serializable {
      *
      * @return the current value of storeShipMethods
      */
-    public Set<StoreShippingMethods> getStoreShipMethods() {
+    public Set<StoreShippingMethod> getStoreShipMethods() {
         return storeShipMethods;
     }
 
@@ -285,7 +285,7 @@ public class StoreShipping implements Serializable {
      *
      * @param aStoreShipMethods the new value for storeShipMethods
      */
-    public void setStoreShipMethods(Set<StoreShippingMethods> aStoreShipMethods) {
+    public void setStoreShipMethods(Set<StoreShippingMethod> aStoreShipMethods) {
         storeShipMethods = aStoreShipMethods;
     }
 
@@ -294,7 +294,7 @@ public class StoreShipping implements Serializable {
      *
      * @return the current value of storeSites
      */
-    public StoreSites getStoreSites() {
+    public StoreSite getStoreSites() {
         return storeSites;
     }
 
@@ -303,7 +303,7 @@ public class StoreShipping implements Serializable {
      *
      * @param aStoreSites the new value for storeSites
      */
-    public void setStoreSites(StoreSites aStoreSites) {
+    public void setStoreSites(StoreSite aStoreSites) {
         storeSites = aStoreSites;
     }
 
@@ -311,7 +311,7 @@ public class StoreShipping implements Serializable {
      * Gets the group fragment storeSiteId for member storeSites.
      *
      * @return Current value of the group fragment
-     * @see StoreSites
+     * @see StoreSite
      */
     public int getStoreSitesStoreSiteId() {
         return (getStoreSites() == null ? null : getStoreSites().getStoreSiteId());
@@ -321,7 +321,7 @@ public class StoreShipping implements Serializable {
      * Sets the group fragment storeSiteId from member storeSites.
      *
      * @param aStoreSiteId New value for the group fragment
-     * @see StoreSites
+     * @see StoreSite
      */
     public void setStoreSitesStoreSiteId(int aStoreSiteId) {
         if (getStoreSites() != null) {

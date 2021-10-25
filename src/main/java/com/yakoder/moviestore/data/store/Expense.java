@@ -18,7 +18,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
 @Entity(name="expenses")
-public class Expenses implements Serializable {
+public class Expense implements Serializable {
 
     /**
 	 * 
@@ -65,13 +65,13 @@ public class Expenses implements Serializable {
     private String expenseNotes;
     @ManyToOne(optional=false)
     @JoinColumn(name="exp_detail_id", nullable=false)
-    private ExpenseSupplies expenseSupplies;
+    private ExpenseSupply expenseSupplies;
     @ManyToOne(optional=false)
     @JoinColumn(name="exp_type_id", nullable=false)
-    private ExpenseTypes expenseTypes;
+    private ExpenseType expenseTypes;
 
     /** Default constructor. */
-    public Expenses() {
+    public Expense() {
         super();
     }
 
@@ -152,7 +152,7 @@ public class Expenses implements Serializable {
      *
      * @return the current value of expenseSupplies
      */
-    public ExpenseSupplies getExpenseSupplies() {
+    public ExpenseSupply getExpenseSupplies() {
         return expenseSupplies;
     }
 
@@ -161,7 +161,7 @@ public class Expenses implements Serializable {
      *
      * @param aExpenseSupplies the new value for expenseSupplies
      */
-    public void setExpenseSupplies(ExpenseSupplies aExpenseSupplies) {
+    public void setExpenseSupplies(ExpenseSupply aExpenseSupplies) {
         expenseSupplies = aExpenseSupplies;
     }
 
@@ -170,7 +170,7 @@ public class Expenses implements Serializable {
      *
      * @return the current value of expenseTypes
      */
-    public ExpenseTypes getExpenseTypes() {
+    public ExpenseType getExpenseTypes() {
         return expenseTypes;
     }
 
@@ -179,7 +179,7 @@ public class Expenses implements Serializable {
      *
      * @param aExpenseTypes the new value for expenseTypes
      */
-    public void setExpenseTypes(ExpenseTypes aExpenseTypes) {
+    public void setExpenseTypes(ExpenseType aExpenseTypes) {
         expenseTypes = aExpenseTypes;
     }
 
@@ -193,10 +193,10 @@ public class Expenses implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof Expenses)) {
+        if (!(other instanceof Expense)) {
             return false;
         }
-        Expenses that = (Expenses) other;
+        Expense that = (Expense) other;
         if (this.getExpenseId() != that.getExpenseId()) {
             return false;
         }
@@ -211,8 +211,8 @@ public class Expenses implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof Expenses)) return false;
-        return this.equalKeys(other) && ((Expenses)other).equalKeys(this);
+        if (!(other instanceof Expense)) return false;
+        return this.equalKeys(other) && ((Expense)other).equalKeys(this);
     }
 
     /**

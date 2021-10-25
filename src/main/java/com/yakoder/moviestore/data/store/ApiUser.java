@@ -19,7 +19,7 @@ import javax.persistence.Version;
 
 @Entity
 @Table(name="api_users", indexes={@Index(name="apiUsersApiUsersApiIdEnabledIdx", columnList="api_id,is_enabled")})
-public class ApiUsers implements Serializable {
+public class ApiUser implements Serializable {
 
     /**
 	 * 
@@ -66,10 +66,10 @@ public class ApiUsers implements Serializable {
     private boolean isEnabled;
     @ManyToOne(optional=false)
     @JoinColumn(name="api_id", nullable=false)
-    private Apis apis;
+    private Api apis;
 
     /** Default constructor. */
-    public ApiUsers() {
+    public ApiUser() {
         super();
     }
 
@@ -150,7 +150,7 @@ public class ApiUsers implements Serializable {
      *
      * @return the current value of apis
      */
-    public Apis getApis() {
+    public Api getApis() {
         return apis;
     }
 
@@ -159,7 +159,7 @@ public class ApiUsers implements Serializable {
      *
      * @param aApis the new value for apis
      */
-    public void setApis(Apis aApis) {
+    public void setApis(Api aApis) {
         apis = aApis;
     }
 
@@ -167,21 +167,21 @@ public class ApiUsers implements Serializable {
      * Gets the group fragment apiId for member apis.
      *
      * @return Current value of the group fragment
-     * @see Apis
+     * @see Api
      */
     public int getApisApiId() {
-        return (getApis() == null ? null : getApis().getApiId());
+        return (getApis() == null ? null : getApis().getId());
     }
 
     /**
      * Sets the group fragment apiId from member apis.
      *
      * @param aApiId New value for the group fragment
-     * @see Apis
+     * @see Api
      */
     public void setApisApiId(int aApiId) {
         if (getApis() != null) {
-            getApis().setApiId(aApiId);
+            getApis().setId(aApiId);
         }
     }
 
@@ -195,10 +195,10 @@ public class ApiUsers implements Serializable {
         if (this==other) {
             return true;
         }
-        if (!(other instanceof ApiUsers)) {
+        if (!(other instanceof ApiUser)) {
             return false;
         }
-        ApiUsers that = (ApiUsers) other;
+        ApiUser that = (ApiUser) other;
         if (this.getApiUserId() != that.getApiUserId()) {
             return false;
         }
@@ -213,8 +213,8 @@ public class ApiUsers implements Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof ApiUsers)) return false;
-        return this.equalKeys(other) && ((ApiUsers)other).equalKeys(this);
+        if (!(other instanceof ApiUser)) return false;
+        return this.equalKeys(other) && ((ApiUser)other).equalKeys(this);
     }
 
     /**
